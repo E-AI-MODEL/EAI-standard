@@ -1,0 +1,92 @@
+version: 0.3.0-candidate
+status: candidate
+
+relations:
+  - id: REL-001
+    label: occurs_in_context
+    domain: [core_human_action, microstructure, ai_action, human_evidence]
+    range: context
+    description: The described element is interpreted within a concrete educational or professional situation.
+
+  - id: REL-002
+    label: serves_goal
+    domain: [core_human_action, microstructure, ai_action]
+    range: goal
+    description: The action is interpreted in relation to the stated goal.
+
+  - id: REL-003
+    label: performed_by
+    domain: [core_human_action, microstructure]
+    range: [teacher_professional, learner, multiple_humans]
+    description: Identifies the human actor expected to perform the action.
+
+  - id: REL-004
+    label: decomposes_into
+    domain: core_human_action
+    range: microstructure
+    description: A larger human action contains one or more smaller operations useful for analysing allocation.
+
+  - id: REL-005
+    label: contributes_to
+    domain: microstructure
+    range: [core_human_action, skill]
+    description: A reusable microstructure contributes to a broader action or capability.
+
+  - id: REL-006
+    label: allocated_to_ai
+    domain: microstructure
+    range: ai_action
+    description: The AI system performs or supports the relevant operation in the described situation.
+
+  - id: REL-007
+    label: evidenced_by
+    domain: [core_human_action, microstructure, professional_judgement, independent_mastery, retention, transfer]
+    range: human_evidence
+    description: Evidence is used to support a bounded claim about human performance or capability.
+
+  - id: REL-008
+    label: supports_claim
+    domain: human_evidence
+    range: [current_performance, professional_judgement, independent_mastery, retention, transfer]
+    description: States the specific claim type for which the evidence is relevant.
+
+  - id: REL-009
+    label: triggers_handback
+    domain: [ai_action, allocation]
+    range: handback
+    description: The allocation requires return of a relevant operation to human execution before a stronger human claim is made.
+
+  - id: REL-010
+    label: targets_action
+    domain: remediation
+    range: [core_human_action, microstructure]
+    description: Remediation targets the missing, displaced or insufficiently evidenced human operation.
+
+  - id: REL-011
+    label: refines_expectation
+    domain: context_profile
+    range: [skill, microstructure, human_evidence]
+    description: A context overlay refines expected complexity, independence or evidence without redefining the canonical concept.
+
+  - id: REL-012
+    label: maps_source_element_to
+    domain: adapter_source_element
+    range: [process_position, skill, microstructure, core_human_action, ai_action, evidence_point]
+    description: An adapter maps an externally defined source element to one or more EAI concepts while preserving the source element itself.
+
+  - id: REL-013
+    label: qualifies
+    domain: evidence_source
+    range: evidence_claim
+    description: A source limits, nuances or conditions an evidence claim.
+
+  - id: REL-014
+    label: extends
+    domain: extension
+    range: [case, adapter, registry_entry, conformance_result]
+    description: A namespaced extension adds non-canonical data without changing the meaning of canonical fields.
+
+constraints:
+  - Relations are descriptive and do not themselves make a skill a core human action.
+  - A mapping relation does not imply equivalence unless the mapping explicitly states equivalence.
+  - Context refinement must not redefine canonical identifiers.
