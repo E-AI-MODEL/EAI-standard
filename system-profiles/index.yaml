@@ -1,4 +1,5 @@
-version: 0.2.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.2.1-candidate
 status: non_normative_companion
 
 artifacts:
