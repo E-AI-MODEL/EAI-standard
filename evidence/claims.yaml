@@ -1,4 +1,5 @@
-version: 0.2.1-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.2.2-candidate
 status: candidate
 scope: recent_scientific_claim_map_2025_2026
 
@@ -77,14 +78,15 @@ claims:
       - Adapters should be able to represent who detects, diagnoses, selects and acts.
 
   - id: CLM-008
-    label: professional_judgement_is_a_distinct_teacher_competence
+    label: professional_judgement_is_distinct_from_tool_operation_and_ai_recommendation
     statement: >-
-      Recent teacher-AI research supports treating pedagogical judgement, ethical responsibility and professional agency as distinct dimensions of professionally meaningful GenAI use.
+      Recent teacher-AI research supports distinguishing professionally meaningful pedagogical judgement, ethical responsibility and professional agency from tool operation, AI-generated recommendation and nominal human approval.
     strength: B
     supports: [SRC-2026-ALDIGHRIR, SRC-2026-COSTACHE, SRC-2026-VELANDER]
     implications:
-      - Teacher skills should include judgement about task appropriateness, learner needs, educational purpose and consequences.
-      - Human responsibility should not collapse into nominal approval of AI-generated recommendations.
+      - EAI representations should keep professional judgement separate from tool operation and AI recommendation.
+      - Human responsibility should not be inferred from nominal approval of AI-generated recommendations.
+      - This claim does not define or validate a general teacher-competence framework.
 
   - id: CLM-009
     label: assessment_inference_requires_valid_evidence
@@ -148,14 +150,14 @@ claims:
       - Learner skills can include AI-task appropriateness judgement and verification without making generic AI literacy the organising principle of the standard.
 
   - id: CLM-015
-    label: recent_evidence_supports_action_level_analysis
+    label: outcomes_depend_on_ai_role_and_remaining_human_work
     statement: >-
-      Across recent positive and negative studies, educational outcomes differ according to what AI actually does in the task and what cognitive or professional work remains with the human.
+      Across recent positive and negative studies, educational outcomes differ according to the role assigned to AI, the task design and the cognitive or professional work that remains with the human.
     strength: A
     supports: [SRC-2026-BOOLZEN, SRC-2026-STROMBERG, SRC-2025-BASTANI, SRC-2025-KESTIN, SRC-2026-VELANDER, SRC-2026-COSTACHE]
     implications:
-      - Action-level human-AI allocation is a more defensible organising unit than binary AI use or tool categories.
-      - Core human actions and microstructures remain candidate standard constructs requiring direct validation, but they are aligned with the direction of current evidence.
+      - Binary AI-use versus no-use descriptions are insufficient for interpreting educational effects across these studies.
+      - EAI uses action-level allocation as a candidate design response to this empirical problem; the specific constructs `core_human_action` and `microstructure` still require direct construct and inter-rater validation.
 
 notes:
   - Claims are candidate evidence statements, not normative rules by themselves.
