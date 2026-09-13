@@ -1,0 +1,170 @@
+version: 0.3.0-candidate
+status: candidate
+skill:
+  id: LSK-RETRIEVE-INDEPENDENT
+  label: retrieval_and_independent_reperformance
+  actor: learner
+  description: Reconstructing and executing previously learned knowledge or operations without answer-level support, both immediately and after delay.
+  note: >-
+    This registry supports distinctions among current performance, independent mastery and retention. It is not a claim that retrieval is always the core human action.
+
+groups:
+  - id: LRI-G1
+    label: prepare_and_retrieve
+  - id: LRI-G2
+    label: execute_and_monitor
+  - id: LRI-G3
+    label: recover_and_reperform
+  - id: LRI-G4
+    label: delay_and_transfer
+
+microstructures:
+  - id: MS-LRI-01
+    group: LRI-G1
+    actor: learner
+    label: attempt_before_answer_access
+    description: Make an initial human attempt before seeing substantive answer content when the task is intended to produce evidence of the learner's own capability.
+    ai_takeover_risk: AI answer exposure can change retrieval into recognition or copying.
+    observable_signal: The learner recognises the right answer after seeing it but cannot generate it independently.
+    diagnostic_prompt: What can you produce before looking at any answer or hint?
+    remediation_hint: Use a fresh item with answer access removed and collect the first human attempt.
+    evidence_types: [EV-01, EV-03]
+
+  - id: MS-LRI-02
+    group: LRI-G1
+    actor: learner
+    label: retrieve_relevant_knowledge
+    description: Bring relevant knowledge, rule, concept or procedure to mind from memory when it is needed.
+    ai_takeover_risk: AI may supply the needed fact or rule before retrieval occurs.
+    observable_signal: The learner can use supplied information but cannot recall what is needed on a fresh item.
+    diagnostic_prompt: What do you already know that is relevant here?
+    remediation_hint: Remove the supplied content and use a new prompt that requires recall before support.
+    evidence_types: [EV-01, EV-03]
+
+  - id: MS-LRI-03
+    group: LRI-G1
+    actor: learner
+    label: reconstruct_procedure_or_relation
+    description: Recreate the relevant sequence, relation or rule rather than repeating a visible model.
+    ai_takeover_risk: AI can provide the ordered steps so the learner only follows them.
+    observable_signal: The learner succeeds with the steps visible but cannot reconstruct them when they are removed.
+    diagnostic_prompt: What are the steps or relations you need, in your own order?
+    remediation_hint: Hide the model and require reconstruction before execution.
+    evidence_types: [EV-02, EV-03]
+
+  - id: MS-LRI-04
+    group: LRI-G2
+    actor: learner
+    label: execute_target_operation
+    description: Perform the operation that the task is intended to practise or demonstrate.
+    ai_takeover_risk: AI partial or full performance can produce a correct result without human execution.
+    observable_signal: The learner can submit the result but cannot reproduce the operation on a fresh item.
+    diagnostic_prompt: Which part of this result did you actually perform yourself?
+    remediation_hint: Give a fresh equivalent task and require human execution of the target operation.
+    evidence_types: [EV-01, EV-03]
+
+  - id: MS-LRI-05
+    group: LRI-G2
+    actor: learner
+    label: monitor_own_progress
+    description: Check whether current execution remains consistent with the goal, method or expected result.
+    ai_takeover_risk: Continuous AI checking can externalise monitoring completely.
+    observable_signal: The learner proceeds until AI flags an error and cannot state how they would check independently.
+    diagnostic_prompt: How can you tell whether your current step is still on track?
+    remediation_hint: Pause automated checking and require one human self-check using an explicit criterion.
+    evidence_types: [EV-02, EV-04]
+
+  - id: MS-LRI-06
+    group: LRI-G2
+    actor: learner
+    label: detect_own_error_or_gap
+    description: Notice that current knowledge or execution is insufficient before an external system supplies the correction.
+    ai_takeover_risk: Immediate AI correction can remove the opportunity for error detection.
+    observable_signal: The learner corrects only after the system identifies the exact error.
+    diagnostic_prompt: Where do you think your own response may be weak or uncertain?
+    remediation_hint: Delay detailed feedback and first ask the learner to inspect the work against a criterion.
+    evidence_types: [EV-04, EV-02]
+
+  - id: MS-LRI-07
+    group: LRI-G3
+    actor: learner
+    label: use_hint_without_outsourcing_operation
+    description: Use a cue or hint to resume work while still performing the substantive target operation.
+    ai_takeover_risk: A so-called hint may encode the decisive reasoning or next step.
+    observable_signal: The learner can proceed only by copying the hinted operation.
+    diagnostic_prompt: What can you now do yourself because of the hint?
+    remediation_hint: Reduce the hint to a cue and require the learner to supply the substantive relation or step.
+    evidence_types: [EV-01, EV-02]
+
+  - id: MS-LRI-08
+    group: LRI-G3
+    actor: learner
+    label: self_correct_after_feedback
+    description: Use feedback information to make the substantive correction personally.
+    ai_takeover_risk: AI may rewrite the answer, leaving no learner correction to observe.
+    observable_signal: The final product improves but the learner cannot explain what changed or why.
+    diagnostic_prompt: What exactly will you change, and what in the feedback tells you to change it?
+    remediation_hint: Return only the feedback cue or criterion and require a new learner revision.
+    evidence_types: [EV-04, EV-02]
+
+  - id: MS-LRI-09
+    group: LRI-G3
+    actor: learner
+    label: reperform_on_fresh_item
+    description: Execute the same underlying operation on a new item after support or correction.
+    ai_takeover_risk: Reusing the same item can measure memory for the supplied answer rather than restored capability.
+    observable_signal: The learner can repeat the corrected example but fails when surface details change.
+    diagnostic_prompt: Can you do the same operation on a new item without the previous answer?
+    remediation_hint: Use a fresh item with the same underlying operation and reduced support.
+    evidence_types: [EV-03, EV-04]
+
+  - id: MS-LRI-10
+    group: LRI-G4
+    actor: learner
+    label: retrieve_after_delay
+    description: Reconstruct and perform relevant learning after a meaningful interval without re-exposure to the prior answer immediately beforehand.
+    ai_takeover_risk: AI reminders that contain the answer can contaminate retention evidence.
+    observable_signal: Delayed performance succeeds only after the earlier answer or full solution is resurfaced.
+    diagnostic_prompt: What can you still reconstruct now without looking back at the earlier solution?
+    remediation_hint: Use delayed reperformance with answer access removed until the first attempt is recorded.
+    evidence_types: [EV-06]
+
+  - id: MS-LRI-11
+    group: LRI-G4
+    actor: learner
+    label: adapt_operation_to_new_context
+    description: Recognise when the same underlying knowledge or operation applies in a meaningfully different context and adapt it appropriately.
+    ai_takeover_risk: AI may identify the analogy and map the old solution onto the new task for the learner.
+    observable_signal: The learner succeeds only after AI states which prior method applies.
+    diagnostic_prompt: What makes this new situation similar enough for the earlier method to apply, and what must change?
+    remediation_hint: Use a new context and require the learner to select and adapt the operation before AI assistance.
+    evidence_types: [EV-07]
+
+  - id: MS-LRI-12
+    group: LRI-G4
+    actor: learner
+    label: distinguish_confidence_from_evidence
+    description: Judge personal certainty separately from what actual performance evidence shows.
+    ai_takeover_risk: Fluent AI explanations or successful supported work can inflate confidence without corresponding independent performance.
+    observable_signal: The learner reports mastery but cannot demonstrate it under reduced support.
+    diagnostic_prompt: What performance evidence supports your confidence that you can do this independently?
+    remediation_hint: Compare confidence with a fresh unsupported attempt and update the judgement from the evidence.
+    evidence_types: [EV-02, EV-03, EV-06]
+
+relations:
+  - type: contributes_to
+    target: LSK-002
+  - type: contributes_to
+    target: LSK-043
+  - type: contributes_to
+    target: LSK-044
+  - type: contributes_to
+    target: LSK-047
+  - type: contributes_to
+    target: LSK-070
+  - type: contributes_to
+    target: LSK-071
+  - type: contributes_to
+    target: LSK-072
+  - type: contributes_to
+    target: LSK-073
