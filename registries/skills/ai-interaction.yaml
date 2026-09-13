@@ -1,0 +1,155 @@
+version: 0.2.0-candidate
+status: candidate
+language: en
+scope: human_ai_interaction
+
+principles:
+  - These skills describe human capability in situations where AI participates in the process.
+  - They do not replace subject, didactic, pedagogical or professional skills.
+  - An AI-interaction skill may itself become a core human action when the goal requires it.
+  - Tool operation is not equivalent to informed AI use.
+
+skills:
+  - id: AIS-001
+    label: define_ai_role
+    applies_to: [teacher_professional, learner]
+    description: State what role AI is intended to have in the current task and what it should not do.
+    observable_examples: [state_allowed_role, state_excluded_action, connect_role_to_goal]
+
+  - id: AIS-002
+    label: frame_request
+    applies_to: [teacher_professional, learner]
+    description: Provide enough task-relevant context, constraints and intent for the AI interaction without outsourcing the human action that should remain human.
+    observable_examples: [state_context, state_constraint, preserve_target_action]
+
+  - id: AIS-003
+    label: select_ai_action_type
+    applies_to: [teacher_professional, learner]
+    description: Choose an AI action such as question, hint, alternative, feedback, verification or generation because it fits the intended human action.
+    observable_examples: [identify_needed_support, choose_action_type, explain_fit]
+
+  - id: AIS-004
+    label: inspect_ai_output
+    applies_to: [teacher_professional, learner]
+    description: Examine AI output before accepting, using or acting on it.
+    observable_examples: [read_critically, identify_claim, identify_uncertainty_or_gap]
+
+  - id: AIS-005
+    label: verify_ai_claim
+    applies_to: [teacher_professional, learner]
+    description: Check a material AI-generated claim against suitable evidence when the context requires factual or source reliability.
+    observable_examples: [identify_checkable_claim, locate_source, compare_claim_to_source]
+
+  - id: AIS-006
+    label: evaluate_ai_fit
+    applies_to: [teacher_professional, learner]
+    description: Judge whether AI output is relevant and appropriate for the actual goal, context and human action.
+    observable_examples: [compare_to_goal, reject_irrelevant_output, adapt_use]
+
+  - id: AIS-007
+    label: preserve_human_action
+    applies_to: [teacher_professional, learner]
+    description: Recognise when AI is beginning to perform an action that the current goal requires the human to execute.
+    observable_examples: [identify_displacement, stop_or_reduce_support, resume_human_execution]
+
+  - id: AIS-008
+    label: choose_handback_point
+    applies_to: [teacher_professional, learner]
+    description: Determine when AI support should be reduced or removed so the relevant human action becomes visible again.
+    observable_examples: [identify_target_action, define_support_reduction, initiate_reperformance]
+
+  - id: AIS-009
+    label: distinguish_ai_output_from_human_evidence
+    applies_to: [teacher_professional, learner]
+    description: Distinguish what a combined human-AI product shows from what it actually evidences about human capability or judgement.
+    observable_examples: [identify_ai_contribution, identify_human_contribution, bound_claim]
+
+  - id: AIS-010
+    label: recognise_model_limit
+    applies_to: [teacher_professional, learner]
+    description: Recognise relevant uncertainty, fabrication, bias, context loss or capability limits without assuming that every output is unreliable.
+    observable_examples: [identify_limit, assess_relevance_of_limit, adjust_reliance]
+
+  - id: AIS-011
+    label: manage_sensitive_information
+    applies_to: [teacher_professional, learner]
+    description: Decide what information may appropriately be supplied to an AI system in the current setting.
+    observable_examples: [recognise_sensitive_data, minimise_input, use_approved_route]
+
+  - id: AIS-012
+    label: document_material_ai_contribution
+    applies_to: [teacher_professional, learner]
+    description: Make a material AI contribution traceable where transparency, assessment or accountability requires it.
+    observable_examples: [identify_material_use, record_ai_role, preserve_relevant_trace]
+
+  - id: AIS-013
+    label: compare_ai_and_human_alternatives
+    applies_to: [teacher_professional, learner]
+    description: Use AI output as an alternative or contrast while preserving human comparison and judgement.
+    observable_examples: [generate_or_receive_alternative, compare, justify_acceptance_or_rejection]
+
+  - id: AIS-014
+    label: resist_automation_bias
+    applies_to: [teacher_professional, learner]
+    description: Avoid treating an AI suggestion as more authoritative merely because it is fluent, ranked or system-generated.
+    observable_examples: [seek_independent_evidence, consider_alternative, override_with_reason]
+
+  - id: AIS-015
+    label: calibrate_reliance
+    applies_to: [teacher_professional, learner]
+    description: Adjust reliance on AI to the consequence of error, available verification and importance of the human action.
+    observable_examples: [identify_consequence, identify_verification_route, choose_reliance_level]
+
+  - id: AIS-016
+    label: recover_after_overreliance
+    applies_to: [teacher_professional, learner]
+    description: Restore human execution and collect new human evidence after AI has displaced a relevant human action.
+    observable_examples: [identify_displaced_action, apply_handback, reperform, collect_new_evidence]
+
+  - id: AIS-017
+    label: configure_ai_for_learning
+    applies_to: [teacher_professional]
+    description: Configure an AI interaction so that its behaviour supports the intended learner actions rather than merely maximising answer completion.
+    observable_examples: [define_allowed_actions, define_wait_rule, define_feedback_boundary, define_handback]
+
+  - id: AIS-018
+    label: evaluate_ai_impact_on_task
+    applies_to: [teacher_professional]
+    description: Analyse how introducing AI changes the task, including which human actions become easier, hidden, displaced or newly possible.
+    observable_examples: [compare_without_ai_and_with_ai, identify_changed_microstructure, identify_new_evidence_need]
+
+  - id: AIS-019
+    label: evaluate_ai_impact_on_assessment
+    applies_to: [teacher_professional]
+    description: Determine whether AI participation changes what an assessment product can validly evidence.
+    observable_examples: [identify_ai_contribution, revisit_claim, redesign_evidence_opportunity]
+
+  - id: AIS-020
+    label: configure_support_density
+    applies_to: [teacher_professional]
+    description: Determine how much and what kind of AI support is appropriate across the relevant actions of a task.
+    observable_examples: [map_actions, set_support_by_action, plan_reduction]
+
+  - id: AIS-021
+    label: use_ai_feedback_productively
+    applies_to: [learner]
+    description: Interpret AI feedback, decide what is useful and make one's own targeted change rather than accepting revisions wholesale.
+    observable_examples: [restate_feedback, judge_relevance, revise_with_reason]
+
+  - id: AIS-022
+    label: formulate_targeted_help_request
+    applies_to: [learner]
+    description: Ask AI for support that addresses an impasse while preserving the learner action that should remain theirs.
+    observable_examples: [state_where_stuck, request_hint_or_question, resume_own_work]
+
+  - id: AIS-023
+    label: challenge_ai_response
+    applies_to: [learner]
+    description: Question an AI response, ask for justification or produce a counterexample rather than treating the output as final.
+    observable_examples: [ask_for_basis, identify_possible_error, provide_counterexample]
+
+  - id: AIS-024
+    label: reconstruct_after_ai_support
+    applies_to: [learner]
+    description: Reperform or explain the relevant action after AI support so the learner can distinguish supported performance from own capability.
+    observable_examples: [close_ai_output, reconstruct, explain_steps]
