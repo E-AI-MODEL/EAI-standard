@@ -1,6 +1,6 @@
 # EAI Standard
 
-**Status:** Candidate 0.3.1  
+**Status:** Candidate 0.4.0  
 **Scope:** modeloverstijgende beschrijving van menselijk handelen wanneer AI deelneemt aan onderwijsprocessen.
 
 De EAI Standard schrijft geen didactisch of pedagogisch model voor. De standaard maakt zichtbaar welke menselijke handelingen in een concrete onderwijs- of leersituatie bedoeld zijn, welke rol AI daarin krijgt, welk menselijk bewijs nodig blijft en wat er gebeurt wanneer AI een bedoelde menselijke handeling overneemt.
@@ -29,30 +29,42 @@ Een **core human action** is contextafhankelijk. Een handeling is niet op zichze
 7. Prestatie, zelfstandige beheersing, retentie en transfer zijn verschillende soorten bewijs.
 8. Onbekende informatie blijft `unknown`; ontbrekende informatie wordt niet stilzwijgend ingevuld.
 9. Wanneer AI een kernhandeling uitvoert en een claim over menselijke beheersing of professioneel handelen nodig is, moet de handeling worden teruggegeven aan de mens en opnieuw zichtbaar worden gemaakt.
-10. Een onderwijsmodel mag de standaard verfijnen, maar de betekenis van de kernbegrippen niet wijzigen.
+10. Een onderwijsmodel mag de standaard verfijnen, maar de betekenis van de canonieke begrippen niet wijzigen.
+11. Een andere presentatie van dezelfde semantiek is geen reden om het canonieke informatiemodel te wijzigen.
 
-## Architectuur
+## Canonieke standaard en ondersteunende lagen
 
 De repository is bewust gelaagd:
 
-- [`standard/`](standard/) bevat de normatieve publieke interface: definities, relaties, regels, AI-acties, bewijssemantiek, diagnostics en conformance-profielen;
+- [`standard/`](standard/) bevat de canonieke publieke interface: definities, relaties, regels, AI-acties, bewijssemantiek, identifiers, diagnostics, conformance-profielen en normatieve taal;
+- [`schemas/`](schemas/) bevat machineleesbare contracten die bij die interface horen;
 - [`registries/`](registries/) bevat uitbreidbare skills, microstructures en interventies;
 - [`adapters/`](adapters/) bevat **source-preserving** mappings naar bestaande didactische, pedagogische en professionele modellen;
 - [`context/`](context/) is gereserveerd voor overlays zoals leeftijd, niveau, vak, curriculum en jurisdictie;
-- [`evidence/`](evidence/) bevat de wetenschappelijke onderbouwing en claim-source mappings;
-- [`system-profiles/`](system-profiles/) is een **niet-normatieve technische add-on** voor model, inference, orchestration, context/data, tools, toepassing, evaluatie en governance;
-- [`schemas/`](schemas/) bevat de machineleesbare contracten;
+- [`evidence/`](evidence/) bevat wetenschappelijke onderbouwing en claim-source mappings;
+- [`system-profiles/`](system-profiles/) is een **niet-normatieve technische add-on** voor de systeemconfiguratie rond de observeerbare AI-action;
 - [`examples/`](examples/) bevat uitgewerkte cases;
 - [`tests/`](tests/) bevat conformance-fixtures;
-- [`implementations/`](implementations/) bevat niet-normatieve implementatieafspraken.
+- [`implementations/`](implementations/) bevat niet-normatieve implementatiematerialen.
 
-De canonieke interoperability surface staat in [`standard/public-interface.yaml`](standard/public-interface.yaml). De toevoeging van `system-profiles/` in 0.3.1 verandert die normatieve interface niet.
+De **enige autoritatieve lijst** van canonieke artifacts staat in [`standard/public-interface.yaml`](standard/public-interface.yaml). Andere documenten verwijzen daarnaar en onderhouden geen concurrerende lijst.
+
+## Publicatievorm
+
+EAI onderscheidt vier publicatieproducten die dezelfde semantiek moeten behouden:
+
+1. **Specification**: wat de begrippen en regels betekenen;
+2. **Machine contract**: hoe die betekenis machineleesbaar wordt uitgewisseld;
+3. **Conformance**: wanneer een artefact of implementatie de standaard correct toepast;
+4. **Implementation guidance**: hoe de standaard in concrete systemen en onderwijscontexten kan worden gebruikt zonder nieuwe canonieke semantiek te introduceren.
+
+Zie [`docs/10-standard-publication-model.md`](docs/10-standard-publication-model.md).
 
 ## Mens en systeem zijn verschillende analyselagen
 
 De standaard maakt drie vragen expliciet verschillend:
 
-1. **Wat kan het technische systeem?** Dit staat in een optioneel system profile.
+1. **Wat kan en hoe is het technische systeem geconfigureerd?** Dit kan optioneel in een system profile worden beschreven.
 2. **Wat doet het systeem daadwerkelijk in deze taak?** Dit wordt beschreven met de canonieke AI-actions.
 3. **Wat betekent die AI-action voor de bedoelde menselijke handeling en het beschikbare menselijke bewijs?** Dit is de EAI-analyse.
 
@@ -79,21 +91,21 @@ Zie [`docs/09-human-system-boundary.md`](docs/09-human-system-boundary.md) en [`
 
 ## Source-preserving adapters
 
-Een adapter herschrijft een bestaand onderwijsmodel niet naar EAI. Eerst wordt de oorspronkelijke bronstructuur bewaard. Daarna worden EAI-mappings toegevoegd. Een brononderdeel zonder goede mapping blijft dus gewoon bestaan en wordt als unmapped gemarkeerd.
+Een adapter herschrijft een bestaand onderwijsmodel niet naar EAI. Eerst wordt de oorspronkelijke bronstructuur bewaard. Daarna worden EAI-mappings toegevoegd. Een brononderdeel zonder goede mapping blijft bestaan en wordt als unmapped gemarkeerd.
 
 Dit voorkomt dat bijvoorbeeld EDI, Direct Instruction, expliciete instructie of een pedagogisch model ongemerkt worden versimpeld om in de standaard te passen.
 
-De eerste instructie-adapters zijn nu operationeel als candidates:
+De eerste instructie-adapters zijn candidates:
 
 - [`adapters/explicit-instruction-archer-hughes/`](adapters/explicit-instruction-archer-hughes/): Archer & Hughes Explicit Instruction;
 - [`adapters/edi-2.0/`](adapters/edi-2.0/): Expliciete Directe Instructie 2.0;
 - [`adapters/direct-instruction-engelmann/`](adapters/direct-instruction-engelmann/): capital-D Direct Instruction in de Engelmann-traditie.
 
-De modellen worden bewust niet samengevoegd. De familie-index in [`adapters/direct-explicit-instruction-family/`](adapters/direct-explicit-instruction-family/) maakt overlap en structurele verschillen zichtbaar. [`adapters/index.yaml`](adapters/index.yaml) is de machineleesbare adapter-index.
+De modellen worden bewust niet samengevoegd. De familie-index in [`adapters/direct-explicit-instruction-family/`](adapters/direct-explicit-instruction-family/) maakt overlap en structurele verschillen zichtbaar.
 
 ## Menselijk handelen en microstructures
 
-Naast de brede docent- en leerlingskills zijn nu diepere, herbruikbare registries toegevoegd voor:
+Naast de brede docent- en leerlingskills zijn diepere, herbruikbare registries aanwezig voor onder meer:
 
 - argumenteren;
 - professioneel diagnosticeren en interpreteren van leerlingbewijs;
@@ -101,42 +113,53 @@ Naast de brede docent- en leerlingskills zijn nu diepere, herbruikbare registrie
 - pedagogisch en relationeel professioneel oordeel;
 - retrieval, zelfstandige heruitvoering, retentie en transfer.
 
-De actuele registry-index staat in [`registries/index.yaml`](registries/index.yaml).
+De registry-index staat in [`registries/index.yaml`](registries/index.yaml).
 
 ## System profile add-on
 
 [`system-profiles/`](system-profiles/) maakt het mogelijk om een concrete AI-configuratie technisch te beschrijven zonder technische eigenschappen in de normatieve EAI-semantiek te trekken.
 
-De add-on bevat:
+De bestaande achtlaagse structuur blijft bewust stabiel. Nieuwe weergaven worden als projecties van dezelfde gegevens behandeld, niet als reden om het informatiemodel opnieuw te ontwerpen.
 
-- een achtlaagse capability-taxonomie;
-- een JSON Schema voor system profiles;
-- een mens-systeemgrensmatrix;
-- een many-to-many bridge tussen systeemfunctionaliteit en EAI AI-actions;
-- een optionele namespaced koppeling vanuit een EAI-case;
-- een vendor-neutraal agentic-LLM voorbeeld.
+De add-on onderscheidt bovendien:
 
-Een zeer krachtig model, agent loop, RAG-laag of toolset bepaalt dus niet automatisch de EAI-classificatie. De concrete **AI-action ten opzichte van de menselijke kernhandeling** blijft bepalend.
+- wat een systeem **ondersteunt**;
+- wat in een deployment **ingeschakeld** is;
+- wat in een concrete case daadwerkelijk **geobserveerd** is;
+- op welke **evidence basis** een technische uitspraak rust.
+
+Ook worden interne modelchecks, bronverificatie, externe verificatie en menselijke verificatie onderscheiden.
 
 ## Conformance
 
-Conformance is profielspecifiek en gebruikt drie toestanden:
+Conformance en informatie-onzekerheid zijn vanaf 0.4.0 twee aparte resultaatsassen.
 
-- `valid`;
-- `unknown`;
-- `invalid`.
+**Conformance:**
 
-Validators geven gestructureerde diagnostics terug in plaats van alleen `true` of `false`. Canonieke codes staan in [`standard/diagnostics.yaml`](standard/diagnostics.yaml). Profielen staan in [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
+- `conformant`;
+- `non_conformant`.
 
-De testset bevat inmiddels zowel didactische als pedagogische situaties. De EDI-cases testen guided practice, een evidence-beslispunt en AI-overname bij een zelfstandigheidsclaim. De pedagogische cases testen directe menselijke betekenisgeving, nominale goedkeuring van een AI-oordeel en een situatie waarin relevante informatie expliciet `unknown` blijft.
+**Information state:**
 
-Dat is bewust: de standaard moet ook buiten een lesmodel kunnen beschrijven wat bij de mens moet blijven wanneer professioneel pedagogisch oordeel centraal staat.
+- `complete`;
+- `contains_unknowns`;
+- `incomplete`.
+
+Een artefact kan dus correct volgens de standaard zijn opgebouwd en tegelijk expliciet onbekende informatie bevatten. Het bewaren van onzekerheid is geen fout. Het stilzwijgend omzetten van die onzekerheid in een sterkere conclusie kan dat wel zijn.
+
+Validators geven gestructureerde diagnostics terug. Iedere diagnostic heeft een `severity` en een afzonderlijk `effect`. Zie [`docs/03-conformance.md`](docs/03-conformance.md), [`standard/diagnostics.yaml`](standard/diagnostics.yaml) en [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
+
+## Identifiers en versies
+
+Canonieke concepten gebruiken stabiele identifiers zoals `EAI-R007`, `EV-03` en `AIA-09`. [`standard/identifiers.yaml`](standard/identifiers.yaml) definieert daarnaast een kandidaatstrategie voor wereldwijd identificeerbare HTTP-URI's zonder JSON-LD of RDF verplicht te stellen.
+
+`standard_version` identificeert de release van de EAI Standard. Een eventueel `artifact_version`, `source_version` of `profile_version` heeft een smallere betekenis. Een generiek top-level `version`-veld wordt voor canonieke artifacts niet langer gebruikt.
+
+Normatieve termen zoals `MUST`, `SHOULD` en `MAY` volgen BCP 14. Zie [`standard/normative-language.md`](standard/normative-language.md).
 
 ## Extensies
 
 Lokale of leverancier-specifieke data mag worden toegevoegd via expliciet genamespace-de extensions. Een extensie mag een canoniek begrip niet herdefiniëren. Implementaties die een extensie niet begrijpen mogen die informatie bewaren zonder haar te interpreteren.
-
-System profiles gebruiken precies dit mechanisme: een EAI-case kan optioneel verwijzen naar een technisch profiel zonder dat ondersteuning daarvan vereist wordt voor basisconformance.
 
 ## Wat de standaard niet doet
 
@@ -149,7 +172,8 @@ De EAI Standard:
 - koppelt de basis niet aan één leeftijd, onderwijsniveau, vak of curriculum;
 - behandelt een geproduceerd eindproduct niet als vanzelfsprekend bewijs van leren;
 - presenteert structurele conformance niet als bewijs van onderwijskwaliteit of effectiviteit;
-- stelt technische AI-capability niet gelijk aan menselijke kennis, leren, oordeel of verantwoordelijkheid.
+- stelt technische AI-capability niet gelijk aan menselijke kennis, leren, oordeel of verantwoordelijkheid;
+- probeert geen algemene AI-risk-, governance- of systeemstandaard te vervangen.
 
 Niveau, leeftijd, vak, curriculum en specifieke onderwijsmodellen worden als uitbreidbare context of adapter toegevoegd.
 
@@ -157,18 +181,16 @@ Niveau, leeftijd, vak, curriculum en specifieke onderwijsmodellen worden als uit
 
 De evidence-laag staat los van de normatieve standaard. Voor AI-specifieke claims ligt de prioriteit op recent onderzoek uit 2025-2026. Claims worden expliciet gekoppeld aan bronnen en krijgen een voorlopige evidence strength. Een bron creëert niet automatisch een normatieve regel, en wetenschappelijke aansluiting is niet hetzelfde als validatie van de standaard zelf.
 
-Bij modeladapters wordt daarnaast onderscheid gemaakt tussen **model-definition sources** en **effectiveness evidence**. Een actuele modelbron kan oud onderzoek bevatten of een oudere traditie beschrijven; dat maakt modelbeschrijving niet automatisch effectiviteitsbewijs. Omgekeerd wordt bewijs voor capital-D Direct Instruction niet gebruikt alsof het bewijs is voor EDI of elke vorm van expliciete instructie.
+Bij modeladapters wordt onderscheid gemaakt tussen **model-definition sources** en **effectiveness evidence**. [`evidence/construct-map.yaml`](evidence/construct-map.yaml) maakt omgekeerd zichtbaar welke wetenschappelijke claims een EAI-regel, begrip of registry ondersteunen, begrenzen of alleen conceptueel ondersteunen.
 
-[`evidence/construct-map.yaml`](evidence/construct-map.yaml) maakt bovendien omgekeerd zichtbaar welke wetenschappelijke claims een EAI-regel, begrip of registry ondersteunen, begrenzen of alleen conceptueel ondersteunen.
+## Governance en open-standardstatus
 
-## Eerste referentiecases
+De repository is publiek en het wijzigingsproces wordt verder ingericht voor open standaardisatie. Een expliciete licentie/IPR-keuze is nog vereist vóór de standaard als stabiele herbruikbare open standaard kan worden gepositioneerd. Deze keuze wordt niet stilzwijgend gemaakt.
 
-`Argumenteren` is de eerste uitgebreide leerling-microstructure-case. De instructie-adapters voegen daar docentdiagnose, support regulation en onafhankelijke heruitvoering aan toe. De pedagogische cases testen dezelfde standaardgrammatica zonder een didactisch fasemodel.
-
-De system-profile voorbeelden voegen daar een technische analyselaag aan toe zonder de conformancebetekenis van de menselijke case te veranderen.
+Zie [`GOVERNANCE.md`](GOVERNANCE.md) en [`docs/05-edustandaard-readiness.md`](docs/05-edustandaard-readiness.md).
 
 ## Versie
 
-De repository gebruikt semantische versies. Tot versie 1.0 kan de structuur nog wijzigen.
+De repository gebruikt semantische versies. Tot versie 1.0 kunnen breaking candidate changes nog voorkomen, mits expliciet gedocumenteerd.
 
-Huidige versie: **0.3.1-candidate**.
+Huidige versie: **0.4.0-candidate**.
