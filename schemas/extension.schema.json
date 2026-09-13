@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/schemas/extension.schema.json",
+  "title": "EAI Namespaced Extension",
+  "type": "object",
+  "required": ["namespace", "data"],
+  "properties": {
+    "namespace": {
+      "type": "string",
+      "format": "uri",
+      "description": "Globally unique namespace controlled by the extension publisher."
+    },
+    "version": {"type": ["string", "null"]},
+    "schema": {"type": ["string", "null"], "format": "uri"},
+    "data": {"type": "object", "additionalProperties": true}
+  },
+  "additionalProperties": false
+}
