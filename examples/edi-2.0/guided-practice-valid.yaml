@@ -1,5 +1,5 @@
 id: EX-EDI-GP-001
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 context: >-
   During guided practice, learners solve a fresh item. The AI tutor may ask a question or provide a limited cue, but does not supply the substantive solution step that is the lesson target.
 goal: Learners increasingly execute the target procedure themselves while temporary support is reduced.
