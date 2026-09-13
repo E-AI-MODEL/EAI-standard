@@ -1,6 +1,6 @@
 # EAI Standard
 
-**Status:** Candidate 0.1.0  
+**Status:** Candidate 0.3.0  
 **Scope:** modeloverstijgende beschrijving van menselijk handelen wanneer AI deelneemt aan onderwijsprocessen.
 
 De EAI Standard schrijft geen didactisch of pedagogisch model voor. De standaard maakt zichtbaar welke menselijke handelingen in een concrete onderwijs- of leersituatie bedoeld zijn, welke rol AI daarin krijgt, welk menselijk bewijs nodig blijft en wat er gebeurt wanneer AI een bedoelde menselijke handeling overneemt.
@@ -31,16 +31,41 @@ Een **core human action** is contextafhankelijk. Een handeling is niet op zichze
 9. Wanneer AI een kernhandeling uitvoert en een claim over menselijke beheersing of professioneel handelen nodig is, moet de handeling worden teruggegeven aan de mens en opnieuw zichtbaar worden gemaakt.
 10. Een onderwijsmodel mag de standaard verfijnen, maar de betekenis van de kernbegrippen niet wijzigen.
 
-## Repository
+## Architectuur
 
-- [`standard/`](standard/) bevat de normatieve definities en regels.
-- [`docs/`](docs/) legt de standaard uit.
-- [`profiles/`](profiles/) beschrijft docent/professional en leerling.
-- [`registries/`](registries/) bevat skills, microstructures en interventies.
-- [`adapters/`](adapters/) koppelt bestaande onderwijs- en begeleidingsmodellen zonder die modellen te herschrijven.
-- [`schemas/`](schemas/) beschrijft de machineleesbare structuur.
-- [`examples/`](examples/) bevat uitgewerkte cases.
-- [`tests/`](tests/) bevat conformance-cases.
+De repository is bewust gelaagd:
+
+- [`standard/`](standard/) bevat de normatieve publieke interface: definities, relaties, regels, AI-acties, bewijssemantiek, diagnostics en conformance-profielen;
+- [`registries/`](registries/) bevat uitbreidbare skills, microstructures en interventies;
+- [`adapters/`](adapters/) bevat **source-preserving** mappings naar bestaande didactische, pedagogische en professionele modellen;
+- [`context/`](context/) is gereserveerd voor overlays zoals leeftijd, niveau, vak, curriculum en jurisdictie;
+- [`evidence/`](evidence/) bevat de wetenschappelijke onderbouwing en claim-source mappings;
+- [`schemas/`](schemas/) bevat de machineleesbare contracten;
+- [`examples/`](examples/) bevat uitgewerkte cases;
+- [`tests/`](tests/) bevat conformance-fixtures;
+- [`implementations/`](implementations/) bevat niet-normatieve implementatieafspraken.
+
+De canonieke interoperability surface staat in [`standard/public-interface.yaml`](standard/public-interface.yaml).
+
+## Source-preserving adapters
+
+Een adapter herschrijft een bestaand onderwijsmodel niet naar EAI. Eerst wordt de oorspronkelijke bronstructuur bewaard. Daarna worden EAI-mappings toegevoegd. Een brononderdeel zonder goede mapping blijft dus gewoon bestaan en wordt als unmapped gemarkeerd.
+
+Dit voorkomt dat bijvoorbeeld EDI, Direct Instruction, expliciete instructie of een pedagogisch model ongemerkt worden versimpeld om in de standaard te passen.
+
+## Conformance
+
+Conformance is profielspecifiek en gebruikt drie toestanden:
+
+- `valid`;
+- `unknown`;
+- `invalid`.
+
+Validators geven gestructureerde diagnostics terug in plaats van alleen `true` of `false`. Canonieke codes staan in [`standard/diagnostics.yaml`](standard/diagnostics.yaml). Profielen staan in [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
+
+## Extensies
+
+Lokale of leverancier-specifieke data mag worden toegevoegd via expliciet genamespace-de extensions. Een extensie mag een canoniek begrip niet herdefiniëren. Implementaties die een extensie niet begrijpen mogen die informatie bewaren zonder haar te interpreteren.
 
 ## Wat de standaard niet doet
 
@@ -51,16 +76,21 @@ De EAI Standard:
 - bepaalt niet welke tool of welk taalmodel gebruikt moet worden;
 - gebruikt geen totaalscore voor "goed" of "fout" AI-gebruik;
 - koppelt de basis niet aan één leeftijd, onderwijsniveau, vak of curriculum;
-- behandelt een geproduceerd eindproduct niet als vanzelfsprekend bewijs van leren.
+- behandelt een geproduceerd eindproduct niet als vanzelfsprekend bewijs van leren;
+- presenteert structurele conformance niet als bewijs van onderwijskwaliteit of effectiviteit.
 
 Niveau, leeftijd, vak, curriculum en specifieke onderwijsmodellen worden als uitbreidbare context of adapter toegevoegd.
 
+## Wetenschappelijke onderbouwing
+
+De evidence-laag staat los van de normatieve standaard. Voor AI-specifieke claims ligt de prioriteit op recent onderzoek uit 2025-2026. Claims worden expliciet gekoppeld aan bronnen en krijgen een voorlopige evidence strength. Een bron creëert niet automatisch een normatieve regel, en wetenschappelijke aansluiting is niet hetzelfde als validatie van de standaard zelf.
+
 ## Eerste referentiecase
 
-`Argumenteren` wordt gebruikt als eerste volledige microstructure-case. Daarmee wordt getest of de standaard voldoende precies onderscheid maakt tussen bijvoorbeeld een standpunt kiezen, argumenten formuleren, relevantie beoordelen, tegenargumenten herkennen, weerleggen, structureren en concluderen.
+`Argumenteren` is de eerste uitgebreide microstructure-case. Daarmee wordt getest of de standaard voldoende precies onderscheid maakt tussen bijvoorbeeld een standpunt kiezen, argumenten formuleren, relevantie beoordelen, tegenargumenten herkennen, weerleggen, structureren en concluderen.
 
 ## Versie
 
 De repository gebruikt semantische versies. Tot versie 1.0 kan de structuur nog wijzigen.
 
-Huidige versie: **0.1.0-candidate**.
+Huidige versie: **0.3.0-candidate**.
