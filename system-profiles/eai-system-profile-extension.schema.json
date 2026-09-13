@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/system-profiles/eai-system-profile-extension.schema.json",
+  "title": "EAI System Profile Extension Payload",
+  "description": "Optional extension payload for linking an EAI case to a non-normative AI system profile.",
+  "type": "object",
+  "required": ["profile_ref"],
+  "properties": {
+    "profile_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable identifier or URI of the system profile used in the case."
+    },
+    "profile_version": {"type": ["string", "null"]},
+    "observed_configuration": {
+      "type": ["string", "null"],
+      "description": "Optional label for the concrete deployment or configuration observed in the case."
+    },
+    "observed_ai_actions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Canonical EAI AI-action identifiers or labels observed in the case."
+    },
+    "system_profile_snapshot": {
+      "type": ["string", "null"],
+      "description": "Optional immutable reference to the profile state used for audit or reproducibility."
+    }
+  },
+  "additionalProperties": false
+}
