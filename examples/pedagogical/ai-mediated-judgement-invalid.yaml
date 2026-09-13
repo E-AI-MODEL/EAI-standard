@@ -1,0 +1,60 @@
+id: EX-PED-AI-001
+standard_version: 0.3.0-candidate
+context: >-
+  A mentor receives an AI-generated interpretation of a learner's messages and a recommended follow-up. The learner has not been asked to clarify the meaning of the messages. The mentor approves the recommendation and records it as a professional pedagogical judgement.
+goal: Determine an appropriate educational follow-up based on the learner's situation and relevant professional considerations.
+process_position:
+  model: null
+  label: pedagogical_follow_up_decision
+  source_term: follow-up decision
+  source_element_id: null
+actors:
+  - actor: teacher_professional
+    core_actions:
+      - id: pedagogical_interpretation_and_follow_up
+        label: understand the learner's account and select a proportionate follow-up
+        status: confirmed
+        microstructures:
+          - id: MS-TPJ-03
+            label: distinguish_statement_from_interpretation
+            human_execution: none
+            ai_action: AIA-10
+            evidence: []
+            handback_required: true
+            remediation: REM-10
+          - id: MS-TPJ-04
+            label: clarify_meaning_with_learner
+            human_execution: none
+            ai_action: AIA-11
+            evidence: []
+            handback_required: true
+            remediation: REM-10
+          - id: MS-TPJ-08
+            label: weigh_educational_and_relational_considerations
+            human_execution: partial
+            ai_action: AIA-09
+            evidence: []
+            handback_required: true
+            remediation: REM-09
+          - id: MS-TPJ-10
+            label: select_proportionate_follow_up
+            human_execution: partial
+            ai_action: AIA-09
+            evidence: []
+            handback_required: true
+            remediation: REM-09
+          - id: MS-TPJ-11
+            label: justify_pedagogical_decision
+            human_execution: partial
+            ai_action: AIA-09
+            evidence: []
+            handback_required: true
+            remediation: REM-09
+claim_type: professional_judgement
+responsibility: The mentor is nominally responsible for the decision, but the relevant human interpretation and judgement are not evidenced.
+unknowns:
+  - Whether the AI interpretation matches what the learner intended to communicate.
+  - Which alternative interpretations the mentor considered.
+  - Whether the recommended follow-up is proportionate to the learner's current situation.
+notes: >-
+  Approval of an AI recommendation is not sufficient evidence of the professional judgement that the case claims. Direct human clarification and renewed professional reasoning are required before the judgement can be treated as demonstrated.
