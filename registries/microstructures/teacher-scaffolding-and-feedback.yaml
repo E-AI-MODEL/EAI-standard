@@ -1,0 +1,166 @@
+version: 0.3.0-candidate
+status: candidate
+skill:
+  id: TSK-SCAFFOLD-FEEDBACK
+  label: scaffolding_and_feedback_regulation
+  actor: teacher_professional
+  description: Selecting, delivering, adjusting and withdrawing support so that progress remains possible while the intended human action returns to the learner.
+  note: >-
+    Support is not defined by its format but by what it does to the distribution of action between learner, teacher and AI.
+
+groups:
+  - id: TSF-G1
+    label: locate_support_need
+  - id: TSF-G2
+    label: select_support
+  - id: TSF-G3
+    label: regulate_and_fade
+  - id: TSF-G4
+    label: verify_return_of_action
+
+microstructures:
+  - id: MS-TSF-01
+    group: TSF-G1
+    actor: teacher_professional
+    label: identify_target_learner_action
+    description: Specify which learner operation should remain or become theirs before selecting support.
+    ai_takeover_risk: AI support may be selected without a clear target, making it impossible to see whether help displaces the intended action.
+    observable_signal: The teacher can describe the tool feature but not the learner operation it is meant to support.
+    diagnostic_prompt: What must the learner still do themselves after this support is given?
+    remediation_hint: Name the target learner action before choosing or accepting any support.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TSF-02
+    group: TSF-G1
+    actor: teacher_professional
+    label: locate_current_impasse
+    description: Identify where learner progress currently stops or becomes unreliable.
+    ai_takeover_risk: Generic AI help can be applied to the whole task rather than the actual point of difficulty.
+    observable_signal: Large amounts of support are provided while only one microstructure is failing.
+    diagnostic_prompt: At which step does the learner actually need help?
+    remediation_hint: Isolate the smallest relevant breakdown before adding support.
+    evidence_types: [EV-01, EV-09]
+
+  - id: MS-TSF-03
+    group: TSF-G2
+    actor: teacher_professional
+    label: select_least_intrusive_support
+    description: Choose support that is sufficient to restart progress while preserving as much of the learner's target action as possible.
+    ai_takeover_risk: AI defaults to a complete explanation or answer when a cue would have been sufficient.
+    observable_signal: The learner succeeds only by following supplied steps that were part of the target operation.
+    diagnostic_prompt: What is the smallest cue that could allow the learner to resume?
+    remediation_hint: Replace solution-level help with a question, cue or partial prompt and observe whether the learner continues.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TSF-04
+    group: TSF-G2
+    actor: teacher_professional
+    label: choose_question_that_elicits_action
+    description: Ask a question that prompts the learner to perform the missing operation rather than merely reveal the answer.
+    ai_takeover_risk: AI-generated questions can contain the answer, narrow the response excessively or direct attention to the solution path.
+    observable_signal: The learner can answer the prompt but cannot repeat the underlying operation on a fresh item.
+    diagnostic_prompt: Does the question elicit the target operation, or does it encode the operation for the learner?
+    remediation_hint: Rewrite the prompt so the learner must supply the missing relation, choice or reasoning step.
+    evidence_types: [EV-01, EV-02]
+
+  - id: MS-TSF-05
+    group: TSF-G2
+    actor: teacher_professional
+    label: provide_corrective_information_without_replacing_revision
+    description: Give information about the error or criterion while leaving the substantive correction to the learner when revision is the target action.
+    ai_takeover_risk: AI may produce the corrected version rather than information the learner can use to revise.
+    observable_signal: The product improves but the learner cannot explain or reproduce the correction.
+    diagnostic_prompt: What information does the learner need in order to make the correction themselves?
+    remediation_hint: Remove the rewritten answer and return only the relevant error signal or criterion.
+    evidence_types: [EV-04, EV-02]
+
+  - id: MS-TSF-06
+    group: TSF-G2
+    actor: teacher_professional
+    label: model_when_needed
+    description: Decide when demonstration is more appropriate than further prompting and make clear that the model is demonstration rather than learner performance.
+    ai_takeover_risk: AI modelling can become indistinguishable from doing the task for the learner.
+    observable_signal: The learner submits or repeats the model with little evidence of reconstruction.
+    diagnostic_prompt: Is modelling necessary now, and what will the learner do immediately after the model?
+    remediation_hint: Follow modelling with a fresh learner attempt that requires reconstruction rather than copying.
+    evidence_types: [EV-01, EV-03]
+
+  - id: MS-TSF-07
+    group: TSF-G3
+    actor: teacher_professional
+    label: inspect_response_to_support
+    description: Observe what the learner does after support in order to decide whether the support was sufficient, excessive or misdirected.
+    ai_takeover_risk: AI systems may automatically escalate help without testing whether the learner can continue.
+    observable_signal: Support increases even when the learner had already resumed the target action.
+    diagnostic_prompt: What changed in the learner's performance after this support?
+    remediation_hint: Pause support and collect one response before deciding whether more help is needed.
+    evidence_types: [EV-01, EV-09]
+
+  - id: MS-TSF-08
+    group: TSF-G3
+    actor: teacher_professional
+    label: reduce_support_contingently
+    description: Remove or weaken support when learner evidence indicates that more of the target action can return to the learner.
+    ai_takeover_risk: Persistent AI assistance can remain active after it is no longer needed.
+    observable_signal: The learner never encounters the target operation without the same support layer.
+    diagnostic_prompt: Which support can be removed now without making the task inaccessible?
+    remediation_hint: Remove one support layer and inspect a fresh attempt.
+    evidence_types: [EV-03, EV-04]
+
+  - id: MS-TSF-09
+    group: TSF-G3
+    actor: teacher_professional
+    label: prevent_support_escalation_from_becoming_takeover
+    description: Recognise when added help crosses from support into partial or full performance of the learner's target operation.
+    ai_takeover_risk: Success pressure may lead teacher or AI to keep adding help until the learner no longer performs the operation.
+    observable_signal: The final step or reasoning is supplied externally while the result is still counted as learner success.
+    diagnostic_prompt: Which part of the target operation is now being performed by the support rather than the learner?
+    remediation_hint: Reclassify the allocation, stop claiming independent learner performance and plan handback.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TSF-10
+    group: TSF-G4
+    actor: teacher_professional
+    label: hand_back_target_action
+    description: Return the relevant operation to learner execution after modelling, prompting or AI performance.
+    ai_takeover_risk: Support may end only when the task is finished, leaving no opportunity for the learner to perform the operation themselves.
+    observable_signal: The learner has seen the solution but has not executed an equivalent operation independently.
+    diagnostic_prompt: Where in this sequence does the learner regain responsibility for the target action?
+    remediation_hint: Add a fresh equivalent item after support and require human execution.
+    evidence_types: [EV-03, EV-04]
+
+  - id: MS-TSF-11
+    group: TSF-G4
+    actor: teacher_professional
+    label: verify_reperformance_with_less_support
+    description: Check whether the learner can now perform the operation with reduced support.
+    ai_takeover_risk: Improvement during supported work can be mistaken for restored independent capability.
+    observable_signal: The only successful evidence was produced under the same support that previously performed part of the task.
+    diagnostic_prompt: Can the learner now perform the same operation on a fresh item with less help?
+    remediation_hint: Use a fresh item and reduce support to the level required by the claim.
+    evidence_types: [EV-03, EV-04]
+
+  - id: MS-TSF-12
+    group: TSF-G4
+    actor: teacher_professional
+    label: decide_between_more_practice_and_reinstruction
+    description: Determine whether the learner needs further execution opportunities or renewed explanation and modelling.
+    ai_takeover_risk: AI may recommend more practice when the underlying representation is wrong, or reteach when the issue is only fluency.
+    observable_signal: Repeated practice reproduces the same conceptual error or unnecessary reteaching interrupts stable performance.
+    diagnostic_prompt: Is the learner missing understanding, execution stability, or both?
+    remediation_hint: Use diagnostic evidence to distinguish knowledge gap from insufficient practice before choosing the route.
+    evidence_types: [EV-05, EV-08, EV-09]
+
+relations:
+  - type: contributes_to
+    target: TSK-040
+  - type: contributes_to
+    target: TSK-041
+  - type: contributes_to
+    target: TSK-042
+  - type: contributes_to
+    target: TSK-043
+  - type: contributes_to
+    target: TSK-044
+  - type: contributes_to
+    target: TSK-045
