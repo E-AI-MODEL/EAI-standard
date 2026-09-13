@@ -1,0 +1,27 @@
+version: 0.3.0-candidate
+status: candidate
+
+cases:
+  - case: ../../examples/edi-2.0/guided-practice-valid.yaml
+    expected_state: valid
+    expected_diagnostics: []
+    rationale: Human learner execution and teacher support regulation remain separately evidenced; AI actions do not perform the target learner operation.
+
+  - case: ../../examples/edi-2.0/small-closure-ai-takeover.yaml
+    expected_state: invalid
+    expected_diagnostics:
+      - EAI-D007
+      - EAI-D008
+      - EAI-D010
+    rationale: Independent mastery is claimed at a decision point after substantive AI performance, without fresh independent evidence before the claim.
+
+  - case: ../../examples/edi-2.0/teacher-routing-unknown.yaml
+    expected_state: unknown
+    expected_diagnostics:
+      - EAI-D009
+      - EAI-D019
+    rationale: The teacher remains nominally responsible, but original learner evidence and the AI classification basis are unavailable, so the professional judgement cannot yet be inspected.
+
+notes:
+  - These are candidate expected outcomes for a future reference validator.
+  - Validator implementation must report the smallest defensible diagnostic set rather than duplicate equivalent diagnostics mechanically.
