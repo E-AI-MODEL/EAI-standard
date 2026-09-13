@@ -23,36 +23,51 @@ The namespace identifies the party responsible for the extension semantics. Impl
 
 Unnamespaced extra fields are not part of the interoperability contract.
 
-## Conformance states
+## Conformance and information state
 
-The standard distinguishes three states:
+From 0.4.0 onward, the standard does not use one `valid / unknown / invalid` axis for both standards compliance and substantive uncertainty.
 
-### valid
+Instead it reports two dimensions.
 
-The required information is present and the selected conformance profile has no blocking violation.
+### Conformance
 
-### unknown
+- `conformant`: the selected profile's structural and normative requirements are satisfied;
+- `non_conformant`: at least one blocking requirement is violated.
 
-Information required for a substantive interpretation is absent, ambiguous or unsupported. `unknown` is not a negative score and not a schema failure by itself.
+### Information state
 
-### invalid
+- `complete`: required information is available at the level needed for the intended interpretation;
+- `contains_unknowns`: relevant uncertainty is explicitly preserved;
+- `incomplete`: information needed to evaluate the selected profile is structurally missing.
 
-A normative or schema requirement is violated.
-
-The distinction is important. For example, not knowing whether independent re-demonstration occurred is different from knowing that a mastery claim was made without required re-demonstration.
+This distinction is important. Not knowing whether a human judgement is supported is different from falsely presenting that judgement as established.
 
 ## Diagnostics
 
-Conformance should return diagnostics rather than only `true` or `false`.
+Conformance returns diagnostics rather than only `true` or `false`.
 
 A diagnostic contains:
 
 - a stable code;
-- severity;
-- state;
+- `severity`;
+- `effect`;
 - message;
 - optional path to the affected data;
 - optional reference to the related normative rule.
+
+`severity` is one of:
+
+- `info`;
+- `warning`;
+- `error`.
+
+`effect` is one of:
+
+- `none`;
+- `uncertainty`;
+- `non_conformance`.
+
+Severity and effect must not be conflated. A warning may expose material uncertainty without blocking conformance. A canonical `MUST` violation should normally produce an error with `effect: non_conformance`.
 
 Canonical diagnostics use the `EAI-D` namespace defined in `standard/diagnostics.yaml`.
 
@@ -60,18 +75,31 @@ Implementations may add their own diagnostics, but must use a separate namespace
 
 ## Retain unsupported information
 
-An implementation may support only a subset of optional semantics. Unsupported information should be retained where technically possible and reported as `unknown` rather than discarded or converted into another meaning.
+An implementation may support only a subset of optional semantics. Unsupported information should be retained where technically possible and reported without inventing another meaning.
 
-Adapters apply the same rule to external models: an unmapped source element remains part of the adapter.
+An unsupported optional concept can therefore produce an uncertainty diagnostic while the surrounding artifact remains conformant.
+
+Adapters apply the same principle to external models: an unmapped source element remains part of the adapter.
+
+## Extension identifiers
+
+Canonical EAI identifiers are reserved for the released standard. Local and third-party extensions use their own namespaces and must not mimic canonical identifiers in a way that makes local semantics appear standardized.
+
+See `standard/identifiers.yaml`.
 
 ## Conformance is profile-specific
 
-A validator should report which profile it evaluated. Future profiles may include, for example:
+A validator must report which conformance profile and which `standard_version` it evaluated.
+
+Current profiles include:
 
 - basic case exchange;
-- full human-AI allocation;
+- human-AI allocation;
 - assessment evidence;
-- model-adapter conformance;
-- registry conformance.
+- source-preserving model adapters;
+- registry items;
+- full interoperability.
 
 Passing one profile does not imply support for all EAI Standard semantics.
+
+See `docs/03-conformance.md` for the full result model.
