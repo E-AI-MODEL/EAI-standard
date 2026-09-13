@@ -1,0 +1,53 @@
+id: EX-SR-INVALID-001
+standard_version: 0.4.0-candidate
+context: >-
+  A learner completes the subject-matter steps of a study task successfully. An AI agent has selected the learning route, chosen the strategy, monitored progress and automatically changed the next task and support level. The completed work is then treated as evidence that the learner can regulate this learning process independently.
+goal: >-
+  Determine whether the learner can independently regulate planning, strategy selection, monitoring and adjustment during the learning task.
+process_position:
+  model: null
+  label: self_regulated_learning_evidence_point
+  source_term: independent regulation claim after AI-routed study sequence
+  source_element_id: null
+actors:
+  - actor: learner
+    core_actions:
+      - id: demonstrate_independent_self_regulation
+        label: independently regulate planning strategy monitoring and adjustment
+        status: confirmed
+        microstructures:
+          - id: MS-LSR-03
+            label: construct_action_plan
+            human_execution: none
+            ai_action: AIA-25
+            evidence: []
+            handback_required: true
+            remediation: REM-11
+          - id: MS-LSR-04
+            label: select_strategy_for_goal
+            human_execution: none
+            ai_action: AIA-09
+            evidence: []
+            handback_required: true
+            remediation: REM-11
+          - id: MS-LSR-06
+            label: monitor_progress_against_goal
+            human_execution: partial
+            ai_action: AIA-07
+            evidence: []
+            handback_required: true
+            remediation: REM-11
+          - id: MS-LSR-12
+            label: change_strategy_from_evidence
+            human_execution: none
+            ai_action: AIA-24
+            evidence: []
+            handback_required: true
+            remediation: REM-11
+claim_type: independent_mastery
+responsibility: The learner completed the visible task steps, but the regulatory operations required by the stated claim were performed or selected by the AI system.
+unknowns:
+  - Whether the learner can construct an effective plan without AI routing.
+  - Whether the learner can detect a need to change strategy without automated adaptation.
+notes: >-
+  Successful learner execution of subject-matter steps is not evidence of independent self-regulation when AI performed the regulatory operations being claimed. Regulatory control must be returned and demonstrated directly before the stronger claim is made.
