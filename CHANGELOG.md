@@ -4,7 +4,7 @@ All notable changes to the EAI Standard are recorded here.
 
 ## 0.3.0-candidate
 
-Architecture hardening for interoperability.
+Architecture hardening for interoperability and first deep model adapters.
 
 ### Added
 
@@ -18,7 +18,17 @@ Architecture hardening for interoperability.
 - source-preserving adapter schema and template;
 - implementation boundary documentation;
 - conformance fixtures for valid, unknown and invalid results;
-- architecture and extension documentation.
+- architecture and extension documentation;
+- machine-readable adapter and registry indexes;
+- source-preserving Archer & Hughes Explicit Instruction adapter;
+- source-preserving EDI 2.0 adapter using current official public model artifacts;
+- source-preserving capital-D Direct Instruction adapter based on current NIFDI model descriptions;
+- model-family index that keeps Explicit Instruction, EDI and Direct Instruction distinct;
+- adapter-specific source files separating model-definition sources from effectiveness evidence;
+- teacher diagnostic-judgement microstructure registry;
+- teacher scaffolding-and-feedback microstructure registry;
+- learner retrieval-and-independent-performance microstructure registry;
+- EDI conformance examples for `valid`, `unknown` and `invalid` human-AI allocations.
 
 ### Changed
 
@@ -26,11 +36,14 @@ Architecture hardening for interoperability.
 - microstructure schema is strict and extension-aware;
 - adapter schema now preserves original source elements before EAI mappings are added;
 - conformance documentation now distinguishes structural validity, unknown information and normative violations;
-- README now reflects the layered interoperability architecture.
+- README now reflects the layered interoperability architecture and implemented adapter family;
+- instruction-model evidence is explicitly separated from model identity and source description.
 
-### Design rule
+### Design rules
 
 External models, context overlays and implementations may refine or present EAI semantics but may not silently redefine canonical terms or discard unsupported source information.
+
+Model-family overlap does not imply equivalence. Evidence for one instructional model must not be silently transferred to another.
 
 ## 0.2.x-candidate
 
