@@ -6,15 +6,21 @@ The governance model is designed to support open standardisation, balanced stake
 
 ## Canonical material
 
-The canonical normative layer lives in:
+The authoritative list of canonical EAI Standard artifacts is maintained in:
 
-- `standard/definitions.yaml`
-- `standard/rules.yaml`
-- normative JSON Schemas under `schemas/`
+- `standard/public-interface.yaml`
 
-Documentation explains the standard but does not override normative definitions or rules.
+Governance documents, README files and explanatory documentation MUST NOT maintain an independent competing list of normative artifacts. If a discrepancy exists, `standard/public-interface.yaml` is the manifest that identifies the canonical public interface, and the discrepancy itself must be treated as a specification defect.
 
-Registries and adapters are versioned extensions. They may grow without changing the meaning of the core standard.
+Documentation explains the standard but does not override canonical definitions, rules, vocabularies, schemas or conformance semantics unless that document is explicitly listed as canonical in the public interface manifest.
+
+Registries, adapters, context overlays, evidence files, system profiles, examples and implementations are non-canonical layers unless a future release explicitly changes their status through the governance process.
+
+## Normative language
+
+Canonical requirement keywords follow BCP 14 as defined by RFC 2119 and RFC 8174. See `standard/normative-language.md`.
+
+A canonical requirement expressed with `MUST` or `MUST NOT` is blocking for the conformance profile to which it applies. `SHOULD` requirements may be departed from only with an explicit rationale that does not conflict with another mandatory requirement.
 
 ## Roles
 
@@ -54,6 +60,8 @@ During the candidate phase maintainers make merge and release decisions after pu
 
 A normative change should be accepted because it improves semantic clarity, interoperability, implementation quality or educational applicability. It should not be accepted only because one stakeholder prefers a particular instructional model, product or technology.
 
+A different presentation or grouping of existing semantics is not, by itself, sufficient reason to change the canonical information model. Canonical change should address a real semantic ambiguity, interoperability failure, missing distinction or testability problem.
+
 Substantial changes should seek review from more than one stakeholder role. Disagreement should be recorded where it affects interpretation or future compatibility.
 
 Before 1.0, a more formal multi-party decision model must be established and documented.
@@ -72,7 +80,17 @@ Development should actively seek input from both users and implementers. Relevan
 
 Participation does not imply endorsement of every normative choice.
 
-## Change classes
+## Versioning
+
+`standard_version` identifies the EAI Standard release against which a canonical artifact is published.
+
+Other version fields have narrower meanings:
+
+- `artifact_version`: optional revision of an independently versioned non-canonical artifact;
+- `source_version`: version of an external source represented through an adapter;
+- `profile_version`: version of an optional profile format or profile instance.
+
+A generic top-level `version` field is deprecated for canonical artifacts because it is ambiguous.
 
 ### Patch
 
@@ -80,19 +98,33 @@ Clarifications, spelling corrections, non-semantic examples and documentation re
 
 ### Minor
 
-Backward-compatible additions such as new registry items, evidence types, adapters or optional fields.
+Backward-compatible additions such as new canonical identifiers, optional fields, registry items, evidence types or adapters.
 
 ### Major
 
-Changes to the meaning of core terms, required fields, normative rules or conformance behaviour.
+Changes to the meaning of canonical terms, required fields, normative rules or conformance behaviour.
 
-Before 1.0, breaking changes may still occur in candidate releases, but they must be explicit and recorded in `CHANGELOG.md`.
+Before 1.0, breaking changes may still occur in candidate releases, but they must be explicit, recorded in `CHANGELOG.md` and accompanied by migration information where existing implementations are affected.
+
+## Identifiers
+
+Canonical identifier and URI rules are defined in `standard/identifiers.yaml`.
+
+Stable identifiers identify semantic concepts rather than repository file locations. Before stable 1.0, candidate identifiers may still change, but changes must be explicit. After 1.0, an identifier must not be silently repurposed for incompatible semantics.
 
 ## Evidence and normative choices
 
 Scientific or external evidence may inform the standard, but evidence sources and normative design choices remain distinguishable.
 
 A source does not become a rule merely because it is cited. A normative rule must not be presented as empirically validated unless supporting evidence warrants that claim.
+
+## Conformance and uncertainty
+
+Conformance and information completeness are separate result dimensions.
+
+An artifact can conform while explicitly preserving unknown information. Unknown information becomes a conformance problem only when a profile requires information that is structurally absent, or when uncertainty is converted into a stronger unsupported claim or judgement.
+
+See `standard/conformance-profiles.yaml`, `standard/diagnostics.yaml` and `docs/03-conformance.md`.
 
 ## Implementations and feedback
 
@@ -102,6 +134,20 @@ The standard should be tested in more than one implementation context before 1.0
 - which fields or rules were difficult to apply;
 - whether independent implementations produced compatible representations;
 - what changed as a result of the test.
+
+## Licensing and intellectual property
+
+Public availability of the repository is not, by itself, a complete licensing or intellectual-property policy.
+
+Before EAI Standard is presented as a stable reusable open standard, the project must publish an explicit license and document any relevant intellectual-property contribution policy. No license is selected implicitly by this governance document.
+
+The eventual policy should distinguish, where needed, between:
+
+- normative specification text;
+- machine-readable schemas and vocabularies;
+- reference software or validators;
+- contributed examples and mappings;
+- third-party source material referenced by adapters.
 
 ## Maintenance and lifecycle
 
