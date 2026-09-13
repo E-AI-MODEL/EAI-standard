@@ -8,6 +8,14 @@ Before proposing a change, check `standard/public-interface.yaml`. It is the aut
 
 Registries, adapters, context overlays, evidence, system profiles, examples, documentation and implementations may support or instantiate the standard, but they do not become normative merely because they are useful or widely used.
 
+## Language and source terminology
+
+English is the default language for canonical semantics, public documentation, registries and implementation guidance.
+
+Original-language terminology must be preserved where it belongs to an external source model, publication, proper name or official framework. A source-preserving adapter therefore keeps the exact source label even when the surrounding EAI documentation and interpretation are in English.
+
+Translations and localised presentation layers are welcome, but they must not silently redefine canonical meaning. A translation is a view of the same semantics, not a separate standard.
+
 ## What can be proposed
 
 Contributions may concern:
@@ -132,6 +140,8 @@ Before 1.0, breaking changes may occur in minor candidate releases, but they mus
 ## Identifiers
 
 Canonical identifier rules are defined in `standard/identifiers.yaml`. Do not reuse a canonical ID for a different meaning. Third-party additions should use their own namespace rather than imitate the reserved EAI identifier space.
+
+Conformance outputs use canonical `CP-*` profile identifiers. Human-readable profile labels are descriptive and must not replace the stable identifier in exchanged conformance results.
 
 ## Conduct
 
