@@ -1,4 +1,5 @@
-version: 0.1.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.2.0-candidate
 status: candidate
 
 interventions:
@@ -97,7 +98,20 @@ interventions:
       - make_pedagogical_judgement
       - determine_follow_up
 
+  - id: REM-11
+    label: return_regulatory_control
+    purpose: Restore learner regulation when AI has selected goals, plans, routes, strategies, checkpoints or adaptations that the learner is expected to regulate.
+    applies_to: learner
+    pattern:
+      - identify_displaced_regulatory_operation
+      - pause_or_hide_ai_routing_or_recommendation
+      - restate_learning_goal
+      - require_learner_plan_monitor_or_adjustment
+      - collect_process_evidence
+      - resume_ai_support_only_at_the_bounded_level_needed
+
 constraints:
   - Remediation is not punishment for AI use.
   - Remediation targets the missing, displaced or unevidenced human action.
   - A remediation action is incomplete until new human evidence is collected.
+  - Regulatory remediation is required only when the displaced regulatory operation is relevant to the intended goal or claim.
