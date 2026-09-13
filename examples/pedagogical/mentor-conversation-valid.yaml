@@ -1,0 +1,57 @@
+id: EX-PED-MENTOR-001
+standard_version: 0.3.0-candidate
+context: >-
+  A learner tells a mentor that participation in school has become difficult and asks to discuss a temporary adjustment. An AI tool structures factual notes after the conversation but does not interpret the learner's meaning or recommend the decision.
+goal: Reach a proportionate educational follow-up that reflects the learner's own account, relevant context and professional responsibility.
+process_position:
+  model: null
+  label: pedagogical_follow_up_decision
+  source_term: mentor conversation and follow-up decision
+  source_element_id: null
+actors:
+  - actor: teacher_professional
+    core_actions:
+      - id: pedagogical_interpretation_and_follow_up
+        label: understand the learner's account and select a proportionate follow-up
+        status: confirmed
+        microstructures:
+          - id: MS-TPJ-01
+            label: establish_direct_human_contact
+            human_execution: full
+            ai_action: AIA-00
+            evidence: [EV-01, EV-09]
+            handback_required: false
+            remediation: null
+          - id: MS-TPJ-04
+            label: clarify_meaning_with_learner
+            human_execution: full
+            ai_action: AIA-00
+            evidence: [EV-02, EV-09]
+            handback_required: false
+            remediation: null
+          - id: MS-TPJ-08
+            label: weigh_educational_and_relational_considerations
+            human_execution: full
+            ai_action: AIA-06
+            evidence: [EV-05, EV-08]
+            handback_required: false
+            remediation: null
+          - id: MS-TPJ-10
+            label: select_proportionate_follow_up
+            human_execution: full
+            ai_action: AIA-05
+            evidence: [EV-05, EV-08]
+            handback_required: false
+            remediation: null
+          - id: MS-TPJ-11
+            label: justify_pedagogical_decision
+            human_execution: full
+            ai_action: AIA-06
+            evidence: [EV-02, EV-08]
+            handback_required: false
+            remediation: null
+claim_type: professional_judgement
+responsibility: The mentor interprets the learner's account, weighs the relevant considerations and remains responsible for the follow-up decision.
+unknowns: []
+notes: >-
+  AI may structure factual notes and generate options, but the learner's meaning, pedagogical interpretation and final professional judgement remain human and traceable.
