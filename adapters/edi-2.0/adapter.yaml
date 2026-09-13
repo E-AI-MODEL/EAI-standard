@@ -1,5 +1,6 @@
 id: ADP-EDI-2
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.3.1-candidate
 model_name: Expliciete Directe Instructie 2.0
 model_family: explicit_direct_instruction
 source_reference: Hollingsworth & Ybarra (2025), Dutch adaptation by Marcel Schmeier; public phase artifact by Uitgeverij Pica
