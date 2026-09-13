@@ -1,5 +1,5 @@
 standard_version: 0.4.0-candidate
-artifact_version: 0.1.0-candidate
+artifact_version: 0.1.1-candidate
 status: candidate
 
 registry_focus:
@@ -15,8 +15,8 @@ registry_focus:
 scientific_status:
   classification: candidate_taxonomy
   statement: >-
-    Recent GenAI research supports treating metacognitive and self-regulatory activity as a material part of AI-supported learning and shows that designed metacognitive or strategic support can affect learning processes. The exact EAI microstructure boundaries below have not been empirically validated as a measurement taxonomy and require implementation and inter-rater testing.
-  evidence_claims: [CLM-005, CLM-011, CLM-015, CLM-016]
+    Recent GenAI evidence supports action-level analysis, the distinction between supported activity and human capability, and task-specific judgement about AI use. It does not directly validate the exact EAI self-regulation microstructure boundaries below. These boundaries therefore remain a candidate taxonomy requiring implementation, domain and inter-rater testing.
+  evidence_claims: [CLM-005, CLM-011, CLM-012, CLM-015]
 
 groups:
   - id: LSR-G1
