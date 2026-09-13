@@ -1,0 +1,32 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-EI-ARCHER-HUGHES
+
+purpose: >-
+  Links the EAI interpretation of the source model to current scientific claims in the evidence layer. The model source defines Explicit Instruction; the evidence claims support specific EAI distinctions rather than every source-model element.
+
+links:
+  - source_elements: [EI-F3, EI-E10, EI-P05]
+    eai_interpretation: Guided practice and systematic fading create an allocation transition in which support can either preserve or replace the learner's target operation.
+    evidence_claims: [CLM-002, CLM-003, CLM-004, CLM-005, CLM-015]
+    strength_note: Recent AI-specific studies and syntheses support distinguishing designed help from cognitive substitution and supported performance from independent mastery.
+
+  - source_elements: [EI-E12, EI-E13, EI-F4]
+    eai_interpretation: Monitoring, interpreting learner performance, selecting feedback and learner correction are separable operations.
+    evidence_claims: [CLM-007, CLM-008, CLM-015]
+    strength_note: Recent teacher-AI research supports preserving professional epistemic agency and judgement when AI contributes analysis or recommendations.
+
+  - source_elements: [EI-F5]
+    eai_interpretation: Independent practice can only support a strong independence claim when substantive AI performance of the target operation has been removed or explicitly accounted for.
+    evidence_claims: [CLM-002, CLM-009]
+    strength_note: Experimental and assessment-validity evidence supports separating AI-supported products from unaided human capability.
+
+  - source_elements: [EI-F6, EI-E16]
+    eai_interpretation: Reperformance over time can provide retention evidence distinct from immediate task success.
+    evidence_claims: [CLM-010, CLM-012]
+    strength_note: Long-term and transfer evidence remains less developed than immediate outcome evidence, so the standard keeps these claims separate.
+
+model_effectiveness_context:
+  sources: [EI-EVID-01, EI-EVID-02]
+  note: >-
+    Recent effectiveness context is deliberately bounded. The AERO scan concerns explicit instruction broadly; the Li and Sun meta-analysis is domain-specific to L2 learning. Neither is treated as direct validation of every Archer-Hughes element.
