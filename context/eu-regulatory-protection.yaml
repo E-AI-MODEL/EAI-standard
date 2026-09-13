@@ -1,0 +1,122 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate_jurisdiction_overlay
+language: en
+jurisdiction: European_Union
+
+purpose: >-
+  Provides a source-preserving jurisdictional overlay for protection assessments where EU AI Act or GDPR requirements may be relevant to an educational AI use case. This overlay does not determine legal applicability by itself and is not legal advice.
+
+sources:
+  - id: EU-AI-ACT-2024-1689
+    authority: European Union
+    title: Regulation (EU) 2024/1689 (Artificial Intelligence Act)
+    official_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    bindingness: legally_binding
+  - id: EU-GDPR-2016-679
+    authority: European Union
+    title: Regulation (EU) 2016/679 (General Data Protection Regulation)
+    official_uri: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+    bindingness: legally_binding
+
+ai_act_education_high_risk_scope:
+  source_ref: EU-AI-ACT-2024-1689
+  references:
+    - Article_6_2
+    - Article_6_3
+    - Annex_III_3
+  annex_iii_education_uses:
+    - determine_access_or_admission_or_assign_persons_to_education_or_vocational_training_institutions
+    - evaluate_learning_outcomes_including_when_used_to_steer_the_learning_process
+    - assess_the_appropriate_level_of_education_a_person_will_receive_or_can_access
+    - monitor_and_detect_prohibited_behaviour_of_students_during_tests
+  classification_caution: >-
+    Annex III listing does not by itself settle every deployment. Article 6(3) provides a derogation where an Annex III system does not pose a significant risk of harm to health, safety or fundamental rights, including by not materially influencing decision-making outcomes, and specified conditions are met. Profiling of natural persons within an Annex III use case remains high-risk under Article 6(3). Provider classification and documented applicability therefore remain separate from EAI educational analysis.
+
+protection_mappings:
+  - id: EU-AIA-PRT-01
+    when: >-
+      The concrete system and use are classified as a high-risk AI system under Regulation (EU) 2024/1689 and Article 14 applies.
+    requirement_id: PRT-04
+    suggested_status: required
+    basis:
+      type: law_or_regulation
+      reference: EU_AI_ACT_ARTICLE_14
+      authority: European Union
+      jurisdiction: European_Union
+      source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+      applicability: conditional_on_high_risk_classification
+      bindingness: legally_binding
+    interpretation: >-
+      Article 14 requires high-risk AI systems to support effective human oversight. Oversight measures are proportionate to risk, autonomy and context and should enable assigned natural persons to understand relevant capabilities and limitations, monitor operation, recognise automation bias, interpret outputs and intervene appropriately.
+
+  - id: EU-AIA-PRT-02
+    when: >-
+      The concrete system and use are classified as a high-risk AI system under Regulation (EU) 2024/1689 and Article 14 applies.
+    requirement_id: PRT-05
+    suggested_status: required
+    basis:
+      type: law_or_regulation
+      reference: EU_AI_ACT_ARTICLE_14_4_d_e
+      authority: European Union
+      jurisdiction: European_Union
+      source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+      applicability: conditional_on_high_risk_classification
+      bindingness: legally_binding
+    interpretation: >-
+      Assigned human overseers must, as appropriate and proportionate, be enabled to decide not to use the system or to disregard, override or reverse its output, and to intervene in or interrupt system operation.
+
+  - id: EU-AIA-PRT-03
+    when: >-
+      The organisation is a deployer of a high-risk AI system and Article 26 applies.
+    requirement_id: PRT-04
+    suggested_status: required
+    basis:
+      type: law_or_regulation
+      reference: EU_AI_ACT_ARTICLE_26_2
+      authority: European Union
+      jurisdiction: European_Union
+      source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+      applicability: conditional_on_deployer_status_and_high_risk_classification
+      bindingness: legally_binding
+    interpretation: >-
+      Article 26(2) requires deployers to assign human oversight to natural persons with the necessary competence, training and authority, together with the necessary support.
+
+  - id: EU-AIA-PRT-04
+    when: >-
+      Article 27 applies to the deployer and high-risk system in the concrete context.
+    requirement_id: PRT-04
+    suggested_status: required
+    basis:
+      type: law_or_regulation
+      reference: EU_AI_ACT_ARTICLE_27
+      authority: European Union
+      jurisdiction: European_Union
+      source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+      applicability: potentially_applicable
+      bindingness: legally_binding
+    interpretation: >-
+      Article 27 requires a fundamental-rights impact assessment before deployment for specified deployers and systems and includes description of the implementation of human-oversight measures. Whether an educational organisation falls within the specified deployer categories must be established separately.
+
+  - id: EU-GDPR-PRT-01
+    when: >-
+      A decision is based solely on automated processing, including profiling, produces legal or similarly significant effects for the data subject, and Article 22 GDPR is applicable after considering its exceptions and safeguards.
+    requirement_id: PRT-05
+    suggested_status: conditional
+    basis:
+      type: law_or_regulation
+      reference: GDPR_ARTICLE_22
+      authority: European Union
+      jurisdiction: European_Union
+      source_uri: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+      applicability: potentially_applicable
+      bindingness: legally_binding
+    interpretation: >-
+      Article 22 provides a right not to be subject to certain solely automated decisions and, in specified exception cases, requires safeguards that include at least the right to obtain human intervention, express a point of view and contest the decision. Applicability must be assessed separately from AI Act classification.
+
+boundary_rules:
+  - An AI Act high-risk classification is a legal classification of a system/use, not an EAI conclusion that every educational microstructure must be performed by a human.
+  - Human oversight under the AI Act is not identical to `human_execution`; AI may perform operations while effective oversight and authority remain legally required.
+  - EAI MUST NOT infer legal applicability from an education label alone; intended purpose, actual use, Article 6 classification and relevant exceptions must be considered.
+  - GDPR Article 22 and AI Act obligations are separate legal bases and MUST NOT be treated as interchangeable.
+  - This overlay records candidate mappings for interoperability and traceability, not legal advice or a substitute for competent legal assessment.
