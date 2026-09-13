@@ -21,23 +21,23 @@ The standard therefore starts from the situation itself:
 9. Does the action need to be handed back to the human?
 10. Is renewed performance, retention or transfer evidence required?
 
-## Two human profiles
+## Two primary human actors
 
 The same standard is used for:
 
 - **teacher/professional** action, including didactic, pedagogical and professional judgement;
 - **learner** action, including cognitive, metacognitive, social and self-regulatory activity.
 
-A single situation may contain core actions for both actors. These are analysed separately.
+A single situation may contain core human actions for both actors. These are analysed separately.
 
 ## Model-independent by design
 
 The standard has no fixed teaching sequence. An EDI phase, an inquiry-learning phase, a mentoring conversation or an assessment process may all be described using the same EAI concepts while keeping their own terminology and internal logic.
 
-Model-specific depth belongs in `adapters/`, not in the core.
+Model-specific depth belongs in source-preserving `adapters/`, not in canonical EAI process semantics.
 
 ## Registries
 
-Skills and microstructures are reusable human-action descriptions. They do not automatically become core actions. Their role depends on the concrete goal and process position.
+Skills and microstructures are reusable human-action descriptions. They do not automatically become core human actions. Their role depends on the concrete goal, actor and process position.
 
-The first reference registry is `argumentation`, because it clearly shows why task-level labels are too coarse: AI may formulate language while the learner still selects and reasons, or AI may generate the actual arguments and thereby perform the operation that was intended for the learner.
+Current candidate registries cover broad teacher/professional and learner skills plus deeper microstructures for areas such as argumentation, professional diagnostic judgement, scaffolding and feedback, pedagogical judgement, learner retrieval and independent reperformance, and learner self-regulation. Registry coverage is deliberately explicit about where deeper decomposition is still incomplete.
