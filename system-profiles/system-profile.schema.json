@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/system-profiles/system-profile.schema.json",
+  "title": "EAI AI System Profile",
+  "description": "Non-normative companion schema for describing the technical AI system participating in an EAI case.",
+  "type": "object",
+  "required": ["id", "profile_version", "system_name", "layers"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "profile_version": {"type": "string", "minLength": 1},
+    "system_name": {"type": "string", "minLength": 1},
+    "description": {"type": ["string", "null"]},
+    "observed_at": {"type": ["string", "null"], "format": "date-time"},
+    "source_references": {
+      "type": "array",
+      "items": {"type": "string", "format": "uri"}
+    },
+    "layers": {
+      "type": "object",
+      "required": ["model", "inference", "orchestration", "context_and_data", "tools_and_actions", "application", "evaluation", "governance_and_control"],
+      "properties": {
+        "model": {"$ref": "#/$defs/modelLayer"},
+        "inference": {"$ref": "#/$defs/inferenceLayer"},
+        "orchestration": {"$ref": "#/$defs/orchestrationLayer"},
+        "context_and_data": {"$ref": "#/$defs/contextLayer"},
+        "tools_and_actions": {"$ref": "#/$defs/toolsLayer"},
+        "application": {"$ref": "#/$defs/applicationLayer"},
+        "evaluation": {"$ref": "#/$defs/evaluationLayer"},
+        "governance_and_control": {"$ref": "#/$defs/governanceLayer"}
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "array",
+      "items": {"$ref": "../schemas/extension.schema.json"}
+    }
+  },
+  "$defs": {
+    "stringOrUnknown": {
+      "oneOf": [
+        {"type": "string"},
+        {"const": "unknown"},
+        {"type": "null"}
+      ]
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "modelLayer": {
+      "type": "object",
+      "properties": {
+        "model_name": {"$ref": "#/$defs/stringOrUnknown"},
+        "model_version": {"$ref": "#/$defs/stringOrUnknown"},
+        "provider": {"$ref": "#/$defs/stringOrUnknown"},
+        "deployment_type": {"$ref": "#/$defs/stringOrUnknown"},
+        "modalities": {"$ref": "#/$defs/stringArray"},
+        "context_window": {"$ref": "#/$defs/stringOrUnknown"},
+        "base_capabilities": {"$ref": "#/$defs/stringArray"},
+        "known_limitations": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "inferenceLayer": {
+      "type": "object",
+      "properties": {
+        "inference_mode": {"$ref": "#/$defs/stringOrUnknown"},
+        "reasoning_effort_or_compute": {"$ref": "#/$defs/stringOrUnknown"},
+        "sampling_configuration": {"type": ["object", "null"], "additionalProperties": true},
+        "deterministic_constraints": {"$ref": "#/$defs/stringArray"},
+        "candidate_generation": {"$ref": "#/$defs/stringOrUnknown"},
+        "self_consistency_or_voting": {"$ref": "#/$defs/stringOrUnknown"},
+        "verification_steps": {"$ref": "#/$defs/stringArray"},
+        "inference_limits": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "orchestrationLayer": {
+      "type": "object",
+      "properties": {
+        "routing": {"$ref": "#/$defs/stringOrUnknown"},
+        "model_selection": {"$ref": "#/$defs/stringOrUnknown"},
+        "multi_model_configuration": {"$ref": "#/$defs/stringArray"},
+        "planner": {"$ref": "#/$defs/stringOrUnknown"},
+        "executor": {"$ref": "#/$defs/stringOrUnknown"},
+        "evaluator": {"$ref": "#/$defs/stringOrUnknown"},
+        "agent_loops": {"$ref": "#/$defs/stringOrUnknown"},
+        "fallback": {"$ref": "#/$defs/stringOrUnknown"},
+        "retry_policy": {"$ref": "#/$defs/stringOrUnknown"},
+        "stop_conditions": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "contextLayer": {
+      "type": "object",
+      "properties": {
+        "prompt_context": {"$ref": "#/$defs/stringOrUnknown"},
+        "retrieval_augmented_generation": {"$ref": "#/$defs/stringOrUnknown"},
+        "knowledge_sources": {"$ref": "#/$defs/stringArray"},
+        "source_freshness": {"$ref": "#/$defs/stringOrUnknown"},
+        "session_memory": {"$ref": "#/$defs/stringOrUnknown"},
+        "persistent_memory": {"$ref": "#/$defs/stringOrUnknown"},
+        "user_context": {"$ref": "#/$defs/stringOrUnknown"},
+        "task_context": {"$ref": "#/$defs/stringOrUnknown"},
+        "organisation_context": {"$ref": "#/$defs/stringOrUnknown"},
+        "data_boundaries": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "toolsLayer": {
+      "type": "object",
+      "properties": {
+        "search": {"type": ["boolean", "string", "null"]},
+        "code_execution": {"type": ["boolean", "string", "null"]},
+        "file_access": {"type": ["boolean", "string", "null"]},
+        "databases": {"$ref": "#/$defs/stringArray"},
+        "external_apis": {"$ref": "#/$defs/stringArray"},
+        "communication_tools": {"$ref": "#/$defs/stringArray"},
+        "write_actions": {"$ref": "#/$defs/stringArray"},
+        "transaction_actions": {"$ref": "#/$defs/stringArray"},
+        "physical_or_device_actions": {"$ref": "#/$defs/stringArray"},
+        "tool_permissions": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "applicationLayer": {
+      "type": "object",
+      "properties": {
+        "use_case": {"$ref": "#/$defs/stringOrUnknown"},
+        "workflow": {"$ref": "#/$defs/stringOrUnknown"},
+        "interface": {"$ref": "#/$defs/stringOrUnknown"},
+        "user_role": {"$ref": "#/$defs/stringOrUnknown"},
+        "system_role": {"$ref": "#/$defs/stringOrUnknown"},
+        "autonomy_level": {"enum": ["none", "assistive", "bounded_autonomy", "high_autonomy", "unknown", null]},
+        "proactive_behaviour": {"type": ["boolean", "string", "null"]},
+        "human_decision_points": {"$ref": "#/$defs/stringArray"},
+        "escalation_points": {"$ref": "#/$defs/stringArray"},
+        "task_boundaries": {"$ref": "#/$defs/stringArray"},
+        "output_destination": {"$ref": "#/$defs/stringOrUnknown"}
+      },
+      "additionalProperties": false
+    },
+    "evaluationLayer": {
+      "type": "object",
+      "properties": {
+        "task_quality": {"$ref": "#/$defs/stringOrUnknown"},
+        "accuracy_or_validity": {"$ref": "#/$defs/stringOrUnknown"},
+        "reliability": {"$ref": "#/$defs/stringOrUnknown"},
+        "robustness": {"$ref": "#/$defs/stringOrUnknown"},
+        "calibration": {"$ref": "#/$defs/stringOrUnknown"},
+        "latency": {"$ref": "#/$defs/stringOrUnknown"},
+        "cost_per_task": {"$ref": "#/$defs/stringOrUnknown"},
+        "safety": {"$ref": "#/$defs/stringOrUnknown"},
+        "security": {"$ref": "#/$defs/stringOrUnknown"},
+        "bias_or_fairness": {"$ref": "#/$defs/stringOrUnknown"},
+        "regression_testing": {"$ref": "#/$defs/stringOrUnknown"},
+        "version_drift": {"$ref": "#/$defs/stringOrUnknown"}
+      },
+      "additionalProperties": false
+    },
+    "governanceLayer": {
+      "type": "object",
+      "properties": {
+        "owner": {"$ref": "#/$defs/stringOrUnknown"},
+        "accountable_role": {"$ref": "#/$defs/stringOrUnknown"},
+        "authorisation": {"$ref": "#/$defs/stringOrUnknown"},
+        "access_control": {"$ref": "#/$defs/stringOrUnknown"},
+        "logging": {"$ref": "#/$defs/stringOrUnknown"},
+        "auditability": {"$ref": "#/$defs/stringOrUnknown"},
+        "human_override": {"$ref": "#/$defs/stringOrUnknown"},
+        "escalation": {"$ref": "#/$defs/stringOrUnknown"},
+        "change_control": {"$ref": "#/$defs/stringOrUnknown"},
+        "release_management": {"$ref": "#/$defs/stringOrUnknown"},
+        "incident_handling": {"$ref": "#/$defs/stringOrUnknown"},
+        "monitoring": {"$ref": "#/$defs/stringOrUnknown"},
+        "retention_policy": {"$ref": "#/$defs/stringOrUnknown"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
