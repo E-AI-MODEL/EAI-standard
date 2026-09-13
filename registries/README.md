@@ -8,6 +8,8 @@ Current registry families include:
 - microstructures;
 - remediation interventions.
 
+The registry index also exposes the cross-cutting AI-interaction skill inventory and candidate coverage audits.
+
 ## Registry rule
 
 A registry item describes a reusable human capability, operation or intervention pattern. It does **not** become a core human action merely because it exists in a registry.
@@ -18,6 +20,41 @@ Core status remains contextual and depends on:
 - goal;
 - process position;
 - concrete educational or professional situation.
+
+## Coverage is not assumed
+
+The existence of a skill in a skill registry does not mean that the skill is already fully decomposed into microstructures.
+
+The current teacher/professional and learner skill inventories are intentionally broader than the current deep microstructure coverage. This is explicit rather than hidden. The machine-readable audit is:
+
+- [`coverage/skill-microstructure-coverage.yaml`](coverage/skill-microstructure-coverage.yaml)
+
+The audit distinguishes:
+
+- `deep`: current microstructures substantially cover the skill at action level;
+- `partial`: material operations are represented, but action-level coverage is not yet complete;
+- `none`: no current microstructure registry provides sufficient action-level coverage.
+
+These are development states, not quality scores and not conformance states.
+
+## When decomposition is needed
+
+A dedicated microstructure registry is **not** required for every skill. Decomposition is most useful when a larger skill hides materially different:
+
+- human and AI execution;
+- evidence conditions;
+- support levels;
+- handback requirements;
+- remediation routes;
+- professional or learner regulation.
+
+Where the same smaller operation recurs across skills, reuse is preferred over duplicating a separate decomposition for each parent skill.
+
+## Cross-cutting AI-interaction skills
+
+`skills/ai-interaction.yaml` describes human capabilities that become relevant when AI participates in a task. These skills do not create a separate human actor and do not replace teacher/professional or learner skills.
+
+Their microstructure coverage should therefore reuse existing human-action microstructures wherever possible. A dedicated AI-interaction microstructure should only be added when a genuinely distinct human operation remains after reuse.
 
 ## Stability
 
