@@ -1,5 +1,5 @@
 standard_version: 0.4.0-candidate
-artifact_version: 0.2.0-candidate
+artifact_version: 0.2.1-candidate
 status: candidate
 
 skill_registries:
@@ -46,6 +46,7 @@ coverage_audits:
     status: candidate_audit
     purpose: >-
       Makes current skill-to-microstructure coverage and priority gaps explicit without treating absence of a dedicated decomposition as a conformance failure.
+    resolution_log: coverage/resolution-log.yaml
 
 rules:
   - Registry entries instantiate or refine reusable content but do not redefine canonical EAI vocabulary.
