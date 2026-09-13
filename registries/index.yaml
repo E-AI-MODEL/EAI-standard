@@ -22,6 +22,10 @@ microstructure_registries:
     actor: teacher_professional
     skill: scaffolding_and_feedback_regulation
     path: microstructures/teacher-scaffolding-and-feedback.yaml
+  - id: REG-MS-TEACHER-PEDAGOGICAL
+    actor: teacher_professional
+    skill: pedagogical_relational_judgement
+    path: microstructures/teacher-pedagogical-judgement.yaml
   - id: REG-MS-LEARNER-RETRIEVAL
     actor: learner
     skill: retrieval_and_independent_reperformance
