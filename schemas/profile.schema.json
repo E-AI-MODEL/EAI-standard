@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/E-AI-MODEL/EAI-standard/schemas/profile.schema.json",
+  "title": "EAI Actor Profile",
+  "type": "object",
+  "required": ["version", "actor", "status", "families"],
+  "properties": {
+    "version": {"type": "string"},
+    "actor": {"enum": ["teacher_professional", "learner", "multiple_humans"]},
+    "status": {"enum": ["candidate", "stable", "deprecated"]},
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "description"],
+        "properties": {
+          "id": {"type": "string"},
+          "label": {"type": "string"},
+          "description": {"type": "string"},
+          "candidate_skills": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}
