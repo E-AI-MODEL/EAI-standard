@@ -1,5 +1,5 @@
 id: EX-PED-AI-001
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 context: >-
   A mentor receives an AI-generated interpretation of a learner's messages and a recommended follow-up. The learner has not been asked to clarify the meaning of the messages. The mentor approves the recommendation and records it as a professional pedagogical judgement.
 goal: Determine an appropriate educational follow-up based on the learner's situation and relevant professional considerations.
