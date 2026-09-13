@@ -22,6 +22,7 @@ profiles:
       - actor
       - process_position
       - at_least_one_core_action_or_unknown_marker
+      - core_action_interpretable_through_context_goal_actor_and_process_position
     may_report:
       - extensions
       - retained_unknowns
@@ -32,9 +33,16 @@ profiles:
     requires:
       - all_CP-01_requirements
       - microstructure_level_analysis_when_allocation_differs
+      - selected_microstructures_constituent_of_the_case_core_action
       - separate_human_execution
       - explicit_ai_action
       - unknowns_preserved
+    may_report:
+      - protection_assessment
+    constraints:
+      - protection_if_reported_uses_canonical_dimensions
+      - protection_basis_preserves_type_applicability_and_bindingness
+      - protection_status_is_dimension_specific
 
   - id: CP-03
     label: assessment_evidence
@@ -47,8 +55,9 @@ profiles:
     prohibitions:
       - generated_product_as_sole_independent_mastery_evidence
       - unknown_coerced_to_judgement
+      - protection_basis_authority_overstated
     interpretation_rule: >-
-      A case may remain conformant while reporting that evidence is unknown or insufficient, provided it does not present the stronger human claim as established.
+      A case may remain conformant while reporting that evidence, legal applicability or another protection basis is unknown or insufficient, provided it does not present the stronger human claim or protection conclusion as established.
 
   - id: CP-04
     label: source_preserving_model_adapter
@@ -87,9 +96,10 @@ profiles:
       - structured_diagnostics
       - declared_standard_version
       - declared_unsupported_optional_semantics
+      - protection_assessment_schema_support
 
 notes:
   - Conformance is profile-specific; a system may conform to one profile without implementing all others.
   - Information completeness and conformance are separate result dimensions.
   - Profiles describe structural and semantic interoperability, not educational effectiveness.
-  - Passing conformance does not validate the quality of an instructional design or AI system.
+  - Passing conformance does not validate the quality of an instructional design, protection recommendation or AI system.
