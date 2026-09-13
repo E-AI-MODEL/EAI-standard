@@ -1,4 +1,5 @@
-version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.4.0-candidate
 status: candidate
 
 purpose: >-
@@ -147,6 +148,16 @@ registry_families:
       - {claim: CLM-014, relation: context_support}
     note: >-
       The argumentation decomposition is primarily grounded in educational skill structure rather than current GenAI intervention evidence. AI-specific evidence currently supports verification and task-boundary judgement more strongly than the full argumentation taxonomy.
+
+  learner_self_regulation_and_metacognition:
+    registry: ../registries/microstructures/learner-self-regulation-and-metacognition.yaml
+    evidence:
+      - {claim: CLM-005, relation: conceptual_alignment}
+      - {claim: CLM-011, relation: context_support}
+      - {claim: CLM-012, relation: boundary_support}
+      - {claim: CLM-015, relation: conceptual_alignment}
+    note: >-
+      Recent evidence supports analysing whether AI augments or substitutes relevant learner activity and supports task-specific judgement about AI use, but it does not directly validate this sixteen-item self-regulation taxonomy. Goal setting, planning, monitoring, help regulation and reflective adjustment therefore remain candidate EAI microstructures requiring domain and inter-rater validation.
 
 methodological_rule: >-
   A construct may be scientifically aligned without being empirically validated as an EAI measurement construct. This file must preserve that distinction explicitly.
