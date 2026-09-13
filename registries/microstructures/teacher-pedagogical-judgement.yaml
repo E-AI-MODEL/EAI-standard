@@ -1,0 +1,181 @@
+version: 0.3.0-candidate
+status: candidate
+skill:
+  id: TSK-PED-JUDGEMENT
+  label: pedagogical_relational_judgement
+  actor: teacher_professional
+  description: Interpreting a learner's expressed meaning, behaviour, needs and context in a relational educational situation and deciding a proportionate professional response.
+  note: >-
+    These microstructures are model-independent. They are not a diagnostic or clinical framework. They describe professional educational and relational judgement where human contact, interpretation and responsibility matter.
+
+groups:
+  - id: TPJ-G1
+    label: establish_and_receive
+  - id: TPJ-G2
+    label: interpret_and_check
+  - id: TPJ-G3
+    label: weigh_and_decide
+  - id: TPJ-G4
+    label: act_and_follow_up
+
+microstructures:
+  - id: MS-TPJ-01
+    group: TPJ-G1
+    actor: teacher_professional
+    label: establish_direct_human_contact
+    description: Create sufficient direct human interaction for the learner to communicate meaning, concern, preference or need.
+    ai_takeover_risk: AI mediation may replace rather than support the human encounter, reducing access to tone, hesitation, context and relational cues.
+    observable_signal: The professional relies on an AI-generated summary without having engaged directly with the learner when direct contact was feasible and relevant.
+    diagnostic_prompt: What do you need to hear or observe directly from the learner before interpreting the situation?
+    remediation_hint: Return to direct human interaction and collect the learner's own account before making the consequential judgement.
+    evidence_types: [EV-01, EV-09]
+
+  - id: MS-TPJ-02
+    group: TPJ-G1
+    actor: teacher_professional
+    label: listen_before_solving
+    description: Attend to what the learner is communicating before selecting a solution, intervention or explanation.
+    ai_takeover_risk: AI may generate a response plan before the learner's concern is sufficiently understood.
+    observable_signal: A solution is proposed that addresses a different problem from the one the learner intended to communicate.
+    diagnostic_prompt: What is the learner trying to tell you before you decide what should happen next?
+    remediation_hint: Pause solution generation and reconstruct the learner's account in neutral terms first.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TPJ-03
+    group: TPJ-G1
+    actor: teacher_professional
+    label: distinguish_statement_from_interpretation
+    description: Separate the learner's words or observable behaviour from the professional's interpretation of what they may mean.
+    ai_takeover_risk: AI summaries can turn tentative interpretations into apparently factual statements.
+    observable_signal: The record contains labels or inferred motives that cannot be traced to the learner's own account or observed behaviour.
+    diagnostic_prompt: Which part comes directly from the learner, and which part is your interpretation?
+    remediation_hint: Rewrite the account using separate fields for learner statement, observation and interpretation.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TPJ-04
+    group: TPJ-G2
+    actor: teacher_professional
+    label: clarify_meaning_with_learner
+    description: Check whether the professional's understanding matches what the learner intended to communicate.
+    ai_takeover_risk: AI may infer meaning fluently enough that the professional no longer verifies it with the learner.
+    observable_signal: A consequential interpretation is recorded without any attempt to check it with the learner.
+    diagnostic_prompt: How have you checked that your interpretation matches the learner's intended meaning?
+    remediation_hint: Reflect the interpretation back to the learner and invite correction or elaboration.
+    evidence_types: [EV-02, EV-09]
+
+  - id: MS-TPJ-05
+    group: TPJ-G2
+    actor: teacher_professional
+    label: consider_context_without_overgeneralising
+    description: Use relevant contextual information while avoiding unsupported conclusions about the learner beyond the available evidence.
+    ai_takeover_risk: AI may combine historical information into a broad profile that anchors current judgement.
+    observable_signal: Earlier events are treated as proof of the meaning of the current situation without checking current evidence.
+    diagnostic_prompt: Which contextual information is relevant now, and which assumptions are you importing from earlier situations?
+    remediation_hint: Identify current evidence separately from historical context and test whether the latter is still applicable.
+    evidence_types: [EV-02, EV-08, EV-09]
+
+  - id: MS-TPJ-06
+    group: TPJ-G2
+    actor: teacher_professional
+    label: represent_learner_perspective
+    description: Form an account of the situation from the learner's perspective that is sufficiently accurate to inform professional action.
+    ai_takeover_risk: AI may generate a plausible perspective that has never been checked with the learner.
+    observable_signal: The professional describes what the learner supposedly feels or wants but cannot identify the learner evidence supporting it.
+    diagnostic_prompt: What makes you think this is how the learner sees the situation?
+    remediation_hint: Ask the learner to confirm, reject or refine the proposed perspective before using it in a decision.
+    evidence_types: [EV-02, EV-09]
+
+  - id: MS-TPJ-07
+    group: TPJ-G2
+    actor: teacher_professional
+    label: identify_relevant_uncertainty
+    description: Make explicit what remains unknown and whether that uncertainty matters for the next professional action.
+    ai_takeover_risk: AI confidence and fluent language may encourage premature closure.
+    observable_signal: The professional moves to a definitive interpretation despite missing information that could materially change the response.
+    diagnostic_prompt: What do you still not know, and could that change what you decide to do?
+    remediation_hint: Record the uncertainty and obtain the smallest additional human information needed before a consequential decision.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TPJ-08
+    group: TPJ-G3
+    actor: teacher_professional
+    label: weigh_educational_and_relational_considerations
+    description: Consider educational purpose, learner autonomy, trust, participation, safety and proportionality where they are relevant to the situation.
+    ai_takeover_risk: AI may optimise for one explicit criterion while overlooking relational or contextual considerations that were not represented in the prompt or data.
+    observable_signal: The decision rationale contains only the AI-selected criterion and omits material human considerations raised in the interaction.
+    diagnostic_prompt: Which educational and relational considerations matter here, and where do they conflict?
+    remediation_hint: Reconstruct the decision using all material considerations before comparing it with the AI proposal.
+    evidence_types: [EV-05, EV-08]
+
+  - id: MS-TPJ-09
+    group: TPJ-G3
+    actor: teacher_professional
+    label: preserve_learner_voice_in_decision
+    description: Ensure the learner's relevant perspective, preference or explanation remains visible when a decision is made about them.
+    ai_takeover_risk: AI-generated summaries may compress or omit the learner's own framing and replace it with institutional language.
+    observable_signal: The final decision record contains no trace of the learner's relevant position even though it materially affected the situation.
+    diagnostic_prompt: Where is the learner's own perspective represented in the decision?
+    remediation_hint: Add the learner's confirmed account separately from the professional judgement.
+    evidence_types: [EV-08, EV-09]
+
+  - id: MS-TPJ-10
+    group: TPJ-G3
+    actor: teacher_professional
+    label: select_proportionate_follow_up
+    description: Choose a next action that is proportionate to the available evidence, educational purpose and level of uncertainty.
+    ai_takeover_risk: AI may recommend escalation or intervention that sounds comprehensive but exceeds what the evidence warrants.
+    observable_signal: The selected action is more intrusive or consequential than the current evidence can justify.
+    diagnostic_prompt: What is the least intrusive professional response that adequately addresses the current situation?
+    remediation_hint: Compare available options against necessity, proportionality and uncertainty before deciding.
+    evidence_types: [EV-05, EV-08]
+
+  - id: MS-TPJ-11
+    group: TPJ-G3
+    actor: teacher_professional
+    label: justify_pedagogical_decision
+    description: Make the learner evidence, contextual considerations, uncertainty and professional reasoning behind the decision traceable.
+    ai_takeover_risk: Human approval may become nominal when AI supplies both the recommendation and its rationale.
+    observable_signal: The professional endorses the outcome but cannot independently explain why it is appropriate for this learner and situation.
+    diagnostic_prompt: If the AI recommendation disappeared, how would you justify this decision from the learner interaction and context?
+    remediation_hint: Reconstruct the rationale from direct evidence before reviewing the AI-generated rationale.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TPJ-12
+    group: TPJ-G4
+    actor: teacher_professional
+    label: communicate_decision_relationally
+    description: Communicate the decision or next step in a way that preserves clarity, respect and the possibility of learner response.
+    ai_takeover_risk: AI-generated wording may be formally correct while poorly matched to the relationship, timing or learner's understanding.
+    observable_signal: The message is delivered without checking whether the learner understands or can respond to it.
+    diagnostic_prompt: How will you communicate the decision so the learner can understand and respond to it?
+    remediation_hint: Adapt the wording and interaction to the learner, then verify understanding directly.
+    evidence_types: [EV-01, EV-02]
+
+  - id: MS-TPJ-13
+    group: TPJ-G4
+    actor: teacher_professional
+    label: check_effect_on_learner_participation
+    description: Observe what happens after the response and whether the learner's participation, trust or ability to continue has changed in the intended direction.
+    ai_takeover_risk: Completion of a communication or intervention may be treated as success without checking its effect on the learner.
+    observable_signal: The professional closes the case because an action was completed rather than because its effect was examined.
+    diagnostic_prompt: What changed for the learner after the action, and what remains unresolved?
+    remediation_hint: Re-engage with the learner and collect follow-up evidence before closing the professional judgement cycle.
+    evidence_types: [EV-01, EV-09]
+
+relations:
+  - type: contributes_to
+    target: TSK-060
+  - type: contributes_to
+    target: TSK-061
+  - type: contributes_to
+    target: TSK-062
+  - type: contributes_to
+    target: TSK-063
+  - type: contributes_to
+    target: TSK-064
+  - type: contributes_to
+    target: TSK-055
+  - type: contributes_to
+    target: TSK-056
+  - type: contributes_to
+    target: TSK-057
