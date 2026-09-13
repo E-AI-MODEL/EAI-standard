@@ -131,3 +131,28 @@ normative_rules:
     title: Conformance and effectiveness are separate
     requirement: >-
       Conformance to the EAI Standard MUST NOT be represented as evidence that an educational intervention is effective. Effectiveness claims require separate empirical evidence.
+
+  - id: EAI-R027
+    title: Core actions require four anchors
+    requirement: >-
+      Every core human action in a concrete EAI case MUST be interpretable through context, goal, actor and process position. A core-action judgement that loses any of these anchors MUST NOT be generalised beyond the recorded case.
+
+  - id: EAI-R028
+    title: Microstructures are constituent case operations
+    requirement: >-
+      When a core human action is decomposed in a case, each selected microstructure MUST be represented as a constituent operation of that core human action for that case. Reuse of the same registry microstructure across other skills or cases MUST NOT turn it into a parallel or globally core analysis level.
+
+  - id: EAI-R029
+    title: Protection is source-qualified and dimensional
+    requirement: >-
+      A protection assessment MUST identify the specific human dimension being protected and the basis for that conclusion. Implementations MUST NOT reduce protection to an unexplained single protected/unprotected flag.
+
+  - id: EAI-R030
+    title: Protection source authority must not be overstated
+    requirement: >-
+      A protection basis MUST retain its actual type, applicability and bindingness. Scientific evidence MUST NOT be presented as law, non-binding guidance MUST NOT be presented as legally binding, and unresolved legal applicability MUST remain potentially applicable or unknown.
+
+  - id: EAI-R031
+    title: Protection does not propagate automatically
+    requirement: >-
+      A required or recommended status for one protection dimension MUST NOT automatically be applied to other dimensions. Human execution, human judgement, human evidence, oversight, authority, handback, re-demonstration and direct human interaction MUST remain separately assessable.
