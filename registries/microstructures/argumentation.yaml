@@ -1,0 +1,265 @@
+version: 0.1.0-candidate
+status: candidate
+skill:
+  id: SK-ARG
+  label: argumentation
+  actor: learner
+  description: Building, testing, structuring and justifying a reasoned position.
+  note: >-
+    These microstructures are reusable operations. None is automatically a core human action; that depends on goal, process position and context.
+
+groups:
+  - id: ARG-G1
+    label: orient_and_position
+  - id: ARG-G2
+    label: build_and_support
+  - id: ARG-G3
+    label: critically_test_and_respond
+  - id: ARG-G4
+    label: structure_and_conclude
+  - id: ARG-G5
+    label: justify_and_reflect
+
+microstructures:
+  - id: MS-ARG-01
+    group: ARG-G1
+    label: analyse_issue
+    description: Determine what the issue, question or disagreement is actually about.
+    ai_takeover_risk: The learner may skip problem and context analysis and reason about an AI-framed issue instead.
+    observable_signal: The learner cannot restate the issue or delimit what is being argued.
+    diagnostic_prompt: What is the issue exactly, in your own words?
+    remediation_hint: Remove the AI framing and require a new human problem description before continuing.
+
+  - id: MS-ARG-02
+    group: ARG-G1
+    label: distinguish_fact_and_opinion
+    description: Distinguish factual claims from opinions or value statements.
+    ai_takeover_risk: AI labels claims for the learner, leaving the distinction unpractised.
+    observable_signal: The learner accepts labels but cannot explain the criterion used.
+    diagnostic_prompt: Which part is presented as fact and which as opinion, and how can you tell?
+    remediation_hint: Give fresh statements and require classification with justification.
+
+  - id: MS-ARG-03
+    group: ARG-G1
+    label: identify_standpoint
+    description: Recognise or formulate the position that is being defended.
+    ai_takeover_risk: AI supplies the position, reducing ownership and the need to interpret the issue.
+    observable_signal: The learner cannot explain what the position commits them to.
+    diagnostic_prompt: What exactly is the position here?
+    remediation_hint: Require the learner to formulate the position again without the AI wording.
+
+  - id: MS-ARG-04
+    group: ARG-G1
+    label: formulate_explicit_thesis
+    description: Formulate a clear and defensible thesis or claim.
+    ai_takeover_risk: AI converts a vague topic into the substantive claim the learner was expected to formulate.
+    observable_signal: The learner can repeat the thesis but cannot explain why this formulation was chosen.
+    diagnostic_prompt: Why did you formulate the thesis this way?
+    remediation_hint: Return to the issue and require two human formulations followed by a reasoned choice.
+
+  - id: MS-ARG-05
+    group: ARG-G1
+    label: distinguish_objective_and_subjective_language
+    description: Recognise relevant differences between objective presentation, subjective judgement and personal valuation.
+    ai_takeover_risk: AI performs the interpretation and the learner merely accepts the classification.
+    observable_signal: The learner cannot point to language features that support the distinction.
+    diagnostic_prompt: What in the wording makes this more objective, subjective or evaluative?
+    remediation_hint: Use a new passage and require evidence from the wording.
+
+  - id: MS-ARG-06
+    group: ARG-G1
+    label: identify_implicit_assumption
+    description: Make an unstated premise or assumption in a line of reasoning explicit.
+    ai_takeover_risk: AI reveals hidden assumptions before the learner searches for them.
+    observable_signal: The learner recognises an assumption after being shown it but cannot find one independently.
+    diagnostic_prompt: What has to be true for this reasoning to work?
+    remediation_hint: Present a fresh argument and require the learner to complete the missing premise.
+
+  - id: MS-ARG-07
+    group: ARG-G2
+    label: generate_main_argument
+    description: Generate a reason that supports the chosen standpoint.
+    ai_takeover_risk: The substantive reasoning is produced by AI rather than the learner.
+    observable_signal: The learner cannot explain why the argument supports the standpoint or generate an alternative.
+    diagnostic_prompt: What is your strongest reason for this position, and why?
+    remediation_hint: Hide prior AI suggestions and require a new argument from source material or prior knowledge.
+
+  - id: MS-ARG-08
+    group: ARG-G2
+    label: determine_argument_relevance
+    description: Judge whether an argument actually bears on the standpoint.
+    ai_takeover_risk: AI ranks or selects arguments, leaving the relevance judgement unpractised.
+    observable_signal: The learner treats all plausible-sounding reasons as equally relevant.
+    diagnostic_prompt: How does this reason support this specific position?
+    remediation_hint: Compare one relevant and one weakly related argument and require a criterion-based choice.
+
+  - id: MS-ARG-09
+    group: ARG-G2
+    label: identify_argument_indicator
+    description: Recognise linguistic indicators that signal reasons, conclusions or argumentative relations.
+    ai_takeover_risk: AI parses the argument structure before the learner examines the text.
+    observable_signal: The learner cannot identify how the text signals reason or conclusion.
+    diagnostic_prompt: Which words or phrases show that a reason or conclusion is being introduced?
+    remediation_hint: Annotate a new short passage without AI assistance.
+
+  - id: MS-ARG-10
+    group: ARG-G2
+    label: distinguish_argument_type
+    description: Distinguish relevant types of arguments or grounds used to support a standpoint.
+    ai_takeover_risk: AI supplies labels without the learner analysing what kind of support is being used.
+    observable_signal: The learner can name a type only after AI classification and cannot justify it.
+    diagnostic_prompt: What kind of support is this argument using, and what makes it that type?
+    remediation_hint: Classify fresh examples and require a short justification for each.
+
+  - id: MS-ARG-11
+    group: ARG-G2
+    label: identify_argumentation_structure
+    description: Determine how multiple arguments and subarguments relate to the standpoint and to each other.
+    ai_takeover_risk: AI maps the structure, leaving the learner unable to reconstruct the reasoning.
+    observable_signal: The learner cannot show which reason supports which claim.
+    diagnostic_prompt: Which claim does each reason support, directly or indirectly?
+    remediation_hint: Reconstruct the argument as a simple map from an unseen example.
+
+  - id: MS-ARG-12
+    group: ARG-G2
+    label: find_supporting_example
+    description: Select or construct an example that meaningfully supports or illustrates an argument.
+    ai_takeover_risk: AI supplies polished examples that the learner cannot connect to the reasoning.
+    observable_signal: The learner gives an example but cannot explain its relevance.
+    diagnostic_prompt: What does this example show that strengthens your argument?
+    remediation_hint: Require a different example from the learner's own knowledge or context.
+
+  - id: MS-ARG-13
+    group: ARG-G2
+    label: evaluate_source_for_argument
+    description: Judge whether a source is sufficiently reliable and relevant for the claim it is used to support.
+    ai_takeover_risk: AI selects or endorses sources without the learner evaluating them.
+    observable_signal: The learner cites a source but cannot explain why it is suitable for this claim.
+    diagnostic_prompt: Why is this source suitable evidence for this particular argument?
+    remediation_hint: Compare two sources and require a reasoned selection using explicit criteria.
+
+  - id: MS-ARG-14
+    group: ARG-G2
+    label: connect_evidence_to_standpoint
+    description: Make the inferential or causal link between information and the defended standpoint explicit.
+    ai_takeover_risk: AI writes the connecting reasoning, leaving evidence and conclusion merely adjacent in the learner's work.
+    observable_signal: The learner can provide evidence but cannot explain what follows from it.
+    diagnostic_prompt: How does this information lead to your position?
+    remediation_hint: Require a because-therefore explanation without reusing the AI sentence.
+
+  - id: MS-ARG-15
+    group: ARG-G3
+    label: recognise_counterargument
+    description: Identify a plausible reason against the current standpoint or reasoning.
+    ai_takeover_risk: AI generates opposition so the learner never practises perspective change.
+    observable_signal: The learner cannot generate a credible objection independently.
+    diagnostic_prompt: What would a well-informed opponent object to here?
+    remediation_hint: Use role reversal or peer perspective before allowing AI-generated counterarguments.
+
+  - id: MS-ARG-16
+    group: ARG-G3
+    label: weigh_multiple_perspectives
+    description: Consider materially different perspectives before settling or revising a judgement.
+    ai_takeover_risk: AI performs the balancing and presents a ready-made synthesis.
+    observable_signal: The learner lists perspectives but cannot explain how they affected the conclusion.
+    diagnostic_prompt: Which perspective changed or challenged your reasoning most, and why?
+    remediation_hint: Require an explicit comparison table followed by a human judgement.
+
+  - id: MS-ARG-17
+    group: ARG-G3
+    label: formulate_rebuttal
+    description: Respond to a counterargument with a reasoned rebuttal rather than simple rejection.
+    ai_takeover_risk: AI supplies the substantive reply and the learner only selects it.
+    observable_signal: The learner cannot rebuild the rebuttal when the wording changes.
+    diagnostic_prompt: What exactly is weak or incomplete in the counterargument, and how do you respond?
+    remediation_hint: Remove the AI rebuttal and require a fresh response to a similar counterargument.
+
+  - id: MS-ARG-18
+    group: ARG-G3
+    label: recognise_fallacy_or_reasoning_error
+    description: Detect a flaw in reasoning and explain why it weakens the argument.
+    ai_takeover_risk: AI flags an error without the learner understanding the failed reasoning relation.
+    observable_signal: The learner names a fallacy but cannot explain the defect.
+    diagnostic_prompt: What goes wrong in the reasoning, apart from its label?
+    remediation_hint: Present a new example and require explanation before naming the fallacy.
+
+  - id: MS-ARG-19
+    group: ARG-G3
+    label: test_assumption
+    description: Examine whether a premise or assumption is warranted and what happens if it is false.
+    ai_takeover_risk: AI performs the challenge and alternative reasoning.
+    observable_signal: The learner does not test premises unless prompted with a ready-made objection.
+    diagnostic_prompt: What evidence supports this assumption, and what changes if it does not hold?
+    remediation_hint: Require one supporting and one disconfirming check from the learner.
+
+  - id: MS-ARG-20
+    group: ARG-G3
+    label: analyse_complex_reasoning
+    description: Decompose a multi-step or layered line of reasoning and judge how the parts interact.
+    ai_takeover_risk: AI compresses complex reasoning into a summary, bypassing analysis.
+    observable_signal: The learner understands the summary but cannot reconstruct the steps.
+    diagnostic_prompt: What are the reasoning steps, and where is the weakest link?
+    remediation_hint: Reconstruct a fresh complex argument step by step before using AI analysis.
+
+  - id: MS-ARG-21
+    group: ARG-G4
+    label: order_arguments_logically
+    description: Arrange claims, reasons and responses in an order that makes the reasoning coherent.
+    ai_takeover_risk: AI supplies the argumentative architecture while the learner only fills or edits text.
+    observable_signal: The learner cannot justify the order of sections or reasoning steps.
+    diagnostic_prompt: Why does this argument come before the next one?
+    remediation_hint: Give the components unordered and require the learner to sequence and justify them.
+
+  - id: MS-ARG-22
+    group: ARG-G4
+    label: draw_conclusion
+    description: Derive a conclusion that follows from the preceding reasoning and evidence.
+    ai_takeover_risk: AI supplies the conclusion, obscuring whether the learner can complete the reasoning.
+    observable_signal: The learner accepts a conclusion but cannot state what the evidence warrants.
+    diagnostic_prompt: What conclusion follows from your reasoning, and how strong can that conclusion be?
+    remediation_hint: Remove the AI ending and require a new conclusion from the preceding argument only.
+
+  - id: MS-ARG-23
+    group: ARG-G4
+    label: summarise_argumentation
+    description: Compress the line of reasoning while preserving its essential structure.
+    ai_takeover_risk: AI summary hides whether the learner sees the structure of the argument.
+    observable_signal: The learner repeats the AI summary but cannot produce a short reasoning chain independently.
+    diagnostic_prompt: Can you state your reasoning in three steps without losing the logic?
+    remediation_hint: Require an oral or written three-step summary without AI access.
+
+  - id: MS-ARG-24
+    group: ARG-G5
+    label: motivate_personal_position
+    description: Explain why the chosen position is endorsed after considering reasons and alternatives.
+    ai_takeover_risk: The final position is rhetorically polished by AI but not meaningfully owned by the learner.
+    observable_signal: The learner cannot distinguish personal judgement from AI-suggested wording.
+    diagnostic_prompt: Which consideration matters most to your own conclusion, and why?
+    remediation_hint: Require a brief first-person justification based on the learner's selected reasons.
+
+  - id: MS-ARG-25
+    group: ARG-G5
+    label: formulate_substantiated_value_judgement
+    description: Reach and justify a value judgement after analysing relevant reasoning, evidence and perspectives.
+    ai_takeover_risk: AI produces a balanced judgement that the learner cannot defend.
+    observable_signal: The learner can repeat the judgement but cannot explain the criteria used.
+    diagnostic_prompt: What criteria did you use to reach this judgement?
+    remediation_hint: Require explicit criteria, weighting and a fresh judgement on a related case.
+
+  - id: MS-ARG-26
+    group: ARG-G5
+    label: explain_how_position_was_formed
+    description: Reconstruct the path from information and arguments to the final standpoint.
+    ai_takeover_risk: AI-generated coherence makes the process appear more deliberate than it was.
+    observable_signal: The learner cannot describe which information or objection changed the position.
+    diagnostic_prompt: How did your position develop from the first idea to the final conclusion?
+    remediation_hint: Reconstruct the decision path from notes, sources or a fresh related task.
+
+  - id: MS-ARG-27
+    group: ARG-G5
+    label: reflect_on_argumentation_process
+    description: Evaluate the reasoning process, including difficulty, strategy, revision and remaining uncertainty.
+    ai_takeover_risk: AI generates generic reflection that gives no evidence of metacognitive activity.
+    observable_signal: Reflection contains plausible statements but no specific decision, difficulty or change.
+    diagnostic_prompt: Which reasoning step was hardest, what did you change, and why?
+    remediation_hint: Require a short AI-free reflection tied to concrete steps in the learner's own work.
