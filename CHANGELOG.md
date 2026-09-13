@@ -27,8 +27,12 @@ Architecture hardening for interoperability and first deep model adapters.
 - adapter-specific source files separating model-definition sources from effectiveness evidence;
 - teacher diagnostic-judgement microstructure registry;
 - teacher scaffolding-and-feedback microstructure registry;
+- teacher pedagogical-relational-judgement microstructure registry;
 - learner retrieval-and-independent-performance microstructure registry;
-- EDI conformance examples for `valid`, `unknown` and `invalid` human-AI allocations.
+- EDI conformance examples for `valid`, `unknown` and `invalid` human-AI allocations;
+- pedagogical conformance examples showing valid human judgement, invalid nominal approval of AI judgement and explicitly preserved uncertainty;
+- construct-level reverse evidence map linking EAI rules and registries to bounded scientific claims;
+- diagnostic `EAI-D020` for claim-relevant information that remains explicitly unknown.
 
 ### Changed
 
@@ -36,14 +40,21 @@ Architecture hardening for interoperability and first deep model adapters.
 - microstructure schema is strict and extension-aware;
 - adapter schema now preserves original source elements before EAI mappings are added;
 - conformance documentation now distinguishes structural validity, unknown information and normative violations;
-- README now reflects the layered interoperability architecture and implemented adapter family;
-- instruction-model evidence is explicitly separated from model identity and source description.
+- README now reflects the layered interoperability architecture, implemented adapter family and pedagogical coverage;
+- instruction-model evidence is explicitly separated from model identity and source description;
+- scientific evidence documentation now supports two-way traceability from source to claim and from EAI construct back to evidence.
+
+### Removed
+
+- superseded synthetic `adapters/explicit-instruction/` family adapter that combined recurring features from multiple instruction sources without preserving a single source model. It was replaced by distinct source-preserving adapters and a non-normative family index.
 
 ### Design rules
 
 External models, context overlays and implementations may refine or present EAI semantics but may not silently redefine canonical terms or discard unsupported source information.
 
 Model-family overlap does not imply equivalence. Evidence for one instructional model must not be silently transferred to another.
+
+Pedagogical and relational professional judgement must remain representable without forcing the situation into a lesson-phase model.
 
 ## 0.2.x-candidate
 
