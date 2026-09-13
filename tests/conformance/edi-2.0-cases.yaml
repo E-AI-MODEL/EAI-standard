@@ -19,7 +19,7 @@ cases:
     expected_state: unknown
     expected_diagnostics:
       - EAI-D009
-      - EAI-D019
+      - EAI-D020
     rationale: The teacher remains nominally responsible, but original learner evidence and the AI classification basis are unavailable, so the professional judgement cannot yet be inspected.
 
 notes:
