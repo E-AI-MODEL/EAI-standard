@@ -1,0 +1,269 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate
+
+registry_focus:
+  id: REG-MS-LEARNER-SELFREG
+  label: learner_self_regulation_and_metacognition
+  actor: learner
+  primary_skills: [LSK-040, LSK-041, LSK-042, LSK-043, LSK-044, LSK-045, LSK-046, LSK-047, LSK-048]
+  description: >-
+    Reusable learner operations for setting direction, planning, selecting strategy, monitoring, seeking help, adjusting action and evaluating one's own learning process when AI may participate in those regulatory operations.
+  note: >-
+    The registry does not assume that self-regulation is always a core human action. Core status depends on goal, process position and context. The purpose of this decomposition is to prevent task execution from being mistaken for learner regulation when AI has selected goals, routes, strategies, checkpoints or adaptations on the learner's behalf.
+
+scientific_status:
+  classification: candidate_taxonomy
+  statement: >-
+    Recent GenAI research supports treating metacognitive and self-regulatory activity as a material part of AI-supported learning and shows that designed metacognitive or strategic support can affect learning processes. The exact EAI microstructure boundaries below have not been empirically validated as a measurement taxonomy and require implementation and inter-rater testing.
+  evidence_claims: [CLM-005, CLM-011, CLM-015, CLM-016]
+
+groups:
+  - id: LSR-G1
+    label: orient_goal_and_plan
+  - id: LSR-G2
+    label: monitor_and_detect
+  - id: LSR-G3
+    label: regulate_support_and_strategy
+  - id: LSR-G4
+    label: regulate_effort_and_attention
+  - id: LSR-G5
+    label: evaluate_reflect_and_adapt
+
+microstructures:
+  - id: MS-LSR-01
+    group: LSR-G1
+    actor: learner
+    label: distinguish_learning_goal_from_task_completion
+    description: Distinguish what should be learned or improved from merely finishing the current task or producing an acceptable output.
+    ai_takeover_risk: AI may optimise for task completion and provide a route to an acceptable product without the learner identifying what capability is meant to develop.
+    observable_signal: The learner can state what must be submitted but cannot state what they are trying to learn, practise or improve.
+    diagnostic_prompt: What are you trying to become able to do here, apart from finishing the task?
+    remediation_hint: Hide the AI-generated route or answer and require the learner to state the learning purpose before continuing.
+    evidence_types: [EV-02, EV-12]
+    relations:
+      - {type: contributes_to, target: LSK-040}
+
+  - id: MS-LSR-02
+    group: LSR-G1
+    actor: learner
+    label: set_or_restate_learning_goal
+    description: Formulate a sufficiently specific current learning goal that can guide choices during the task.
+    ai_takeover_risk: AI may formulate the goal, success target or improvement focus so that the learner follows a direction they did not construct or understand.
+    observable_signal: The learner accepts a generated goal but cannot explain why it matters or how it relates to the task.
+    diagnostic_prompt: What is your current learning goal, and why is that the useful goal now?
+    remediation_hint: Require a human restatement of the goal and one reason for choosing it before AI support resumes.
+    evidence_types: [EV-02, EV-12, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-040}
+
+  - id: MS-LSR-03
+    group: LSR-G1
+    actor: learner
+    label: construct_action_plan
+    description: Determine a workable sequence of actions, resources and checkpoints for pursuing the current goal.
+    ai_takeover_risk: AI may provide the complete route, leaving the learner to execute steps without planning or sequencing them.
+    observable_signal: The learner follows a generated plan but cannot reconstruct why the steps are ordered that way or what should happen next without it.
+    diagnostic_prompt: What is your plan from here, and why is that order sensible?
+    remediation_hint: Remove the generated plan and ask the learner to create a minimal sequence with one explicit checkpoint.
+    evidence_types: [EV-02, EV-08, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-041}
+
+  - id: MS-LSR-04
+    group: LSR-G1
+    actor: learner
+    label: select_strategy_for_goal
+    description: Choose a learning or problem-solving strategy because it fits the task, current state and intended learning.
+    ai_takeover_risk: AI may select the strategy automatically, so successful execution gives no evidence that the learner can choose an appropriate approach.
+    observable_signal: The learner can use a supplied strategy but cannot compare it with an alternative or explain why it fits.
+    diagnostic_prompt: Which strategy will you use, what alternative could you use, and why does this one fit better now?
+    remediation_hint: Offer or elicit at least two plausible strategies and require a learner selection with justification.
+    evidence_types: [EV-05, EV-08, EV-12]
+    relations:
+      - {type: contributes_to, target: LSK-042}
+
+  - id: MS-LSR-05
+    group: LSR-G1
+    actor: learner
+    label: define_monitoring_criterion_or_checkpoint
+    description: Decide what evidence or checkpoint will be used to judge whether understanding or progress remains adequate.
+    ai_takeover_risk: Continuous AI monitoring can make the learner dependent on system alerts instead of establishing a criterion for checking progress.
+    observable_signal: The learner waits for AI to signal success or error and cannot state what they would inspect themselves.
+    diagnostic_prompt: What will you check to know whether your approach is working before the system tells you?
+    remediation_hint: Pause automated checking and require one learner-defined criterion or checkpoint.
+    evidence_types: [EV-02, EV-08, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-041}
+      - {type: contributes_to, target: LSK-043}
+
+  - id: MS-LSR-06
+    group: LSR-G2
+    actor: learner
+    label: monitor_progress_against_goal
+    description: Compare current understanding, execution or progress with the stated goal and monitoring criterion while work is ongoing.
+    ai_takeover_risk: AI dashboards, adaptive tutors or agents may perform the monitoring and decide that progress is sufficient without the learner inspecting their own state.
+    observable_signal: The learner can report the system status but cannot explain what in their own performance shows progress or difficulty.
+    diagnostic_prompt: What in your current performance tells you that you are on track or not yet there?
+    remediation_hint: Require a learner judgement from the current work before revealing the AI status or recommendation.
+    evidence_types: [EV-02, EV-12, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-043}
+
+  - id: MS-LSR-07
+    group: LSR-G2
+    actor: learner
+    label: detect_and_localise_impasse
+    description: Recognise that progress has become insufficient and identify where the problem currently lies before requesting or accepting support.
+    ai_takeover_risk: Proactive AI assistance may intervene before the learner notices or localises the difficulty, externalising both error detection and help initiation.
+    observable_signal: The learner accepts help immediately but cannot say what was difficult or where progress stopped.
+    diagnostic_prompt: Where exactly are you stuck, uncertain or no longer making progress?
+    remediation_hint: Delay substantive help and ask the learner to identify the smallest current impasse first.
+    evidence_types: [EV-02, EV-12, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-044}
+
+  - id: MS-LSR-08
+    group: LSR-G3
+    actor: learner
+    label: determine_needed_support
+    description: Decide what kind and amount of support could address the current impasse while preserving the action the learner still intends to perform.
+    ai_takeover_risk: AI may escalate directly from uncertainty to a worked solution, bypassing the learner's judgement about what help is actually needed.
+    observable_signal: The learner asks for an answer or accepts maximal support without distinguishing a need for a cue, explanation, feedback, example or source.
+    diagnostic_prompt: What is the smallest kind of help that would let you continue yourself?
+    remediation_hint: Require the learner to name the needed support type before it is provided.
+    evidence_types: [EV-05, EV-12, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-045}
+      - {type: contributes_to, target: AIS-022}
+
+  - id: MS-LSR-09
+    group: LSR-G3
+    actor: learner
+    label: formulate_targeted_help_request
+    description: Express a help request that identifies the current impasse and asks for bounded support rather than outsourcing the complete target action.
+    ai_takeover_risk: Generic requests such as “do this for me” may convert help seeking into task delegation while preserving the appearance of learner participation.
+    observable_signal: The learner cannot state what they still intend to do after receiving help.
+    diagnostic_prompt: What do you want help with, and what part will you still do yourself afterwards?
+    remediation_hint: Rewrite the request to target the impasse and explicitly preserve the learner operation.
+    evidence_types: [EV-02, EV-12, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-045}
+      - {type: contributes_to, target: AIS-022}
+
+  - id: MS-LSR-10
+    group: LSR-G3
+    actor: learner
+    label: evaluate_support_before_use
+    description: Judge whether received AI or human support is relevant, reliable and appropriately bounded before acting on it.
+    ai_takeover_risk: Fluent or personalised AI support may be accepted automatically, shifting regulatory judgement from learner to system.
+    observable_signal: The learner follows the suggestion but cannot state why it is useful, what it assumes or what they rejected.
+    diagnostic_prompt: What in this support is useful, what might be wrong or excessive, and what will you actually use?
+    remediation_hint: Require an explicit accept, adapt or reject decision before the learner acts on the support.
+    evidence_types: [EV-05, EV-13, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-042}
+      - {type: contributes_to, target: AIS-006}
+      - {type: contributes_to, target: AIS-015}
+      - {type: contributes_to, target: AIS-021}
+
+  - id: MS-LSR-11
+    group: LSR-G3
+    actor: learner
+    label: resume_regulatory_control_after_support
+    description: Return decisions about the next step, monitoring and adjustment to the learner after a period of external or AI support.
+    ai_takeover_risk: AI may remain responsible for sequencing, checking and adaptation even after the learner can execute the visible task themselves.
+    observable_signal: The learner can complete assigned steps but waits for the system to determine every next action or support change.
+    diagnostic_prompt: What will you decide and monitor yourself from this point onward?
+    remediation_hint: Disable automatic routing for the next segment and require the learner to choose and justify the next step.
+    evidence_types: [EV-03, EV-08, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-041}
+      - {type: contributes_to, target: LSK-043}
+      - {type: contributes_to, target: AIS-007}
+      - {type: contributes_to, target: AIS-008}
+      - {type: contributes_to, target: AIS-024}
+
+  - id: MS-LSR-12
+    group: LSR-G3
+    actor: learner
+    label: change_strategy_from_evidence
+    description: Adjust strategy, sequence or support level because current evidence shows that the existing approach is insufficient or unnecessarily supported.
+    ai_takeover_risk: Adaptive AI may switch strategy or difficulty automatically, so the learner experiences the new route without making the regulatory decision.
+    observable_signal: The learner follows a changed route but cannot explain what evidence justified the change.
+    diagnostic_prompt: What evidence tells you to keep, change or stop your current strategy?
+    remediation_hint: Present the relevant evidence without the system recommendation and require a learner adjustment decision.
+    evidence_types: [EV-04, EV-05, EV-08, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-042}
+      - {type: contributes_to, target: LSK-043}
+
+  - id: MS-LSR-13
+    group: LSR-G4
+    actor: learner
+    label: regulate_effort_and_attention
+    description: Notice and deliberately adjust attention, persistence, pacing or task conditions when these affect progress toward the learning goal.
+    ai_takeover_risk: Automated nudges, pacing or task switching can regulate behaviour externally while the learner never identifies what needs adjustment.
+    observable_signal: Productive behaviour resumes only after system prompts, and the learner cannot name a self-initiated adjustment.
+    diagnostic_prompt: What do you need to change in your attention, effort, pace or environment to continue effectively?
+    remediation_hint: Delay the next nudge and require one learner-chosen adjustment with a later check on its effect.
+    evidence_types: [EV-01, EV-02, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-046}
+
+  - id: MS-LSR-14
+    group: LSR-G5
+    actor: learner
+    label: evaluate_performance_against_goal
+    description: Judge the current result and process against the learning goal and relevant evidence rather than relying only on completion, confidence or an AI score.
+    ai_takeover_risk: AI evaluation may replace self-evaluation, making the learner dependent on an external judgement of whether the work is good enough.
+    observable_signal: The learner reports that the task is complete or “correct according to AI” but cannot make an evidence-based judgement of their own performance.
+    diagnostic_prompt: What does your own evidence show about whether you reached the learning goal?
+    remediation_hint: Hide the AI evaluation temporarily and require a learner judgement using explicit evidence or criteria.
+    evidence_types: [EV-02, EV-05, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-047}
+
+  - id: MS-LSR-15
+    group: LSR-G5
+    actor: learner
+    label: reconstruct_regulatory_process
+    description: Reconstruct which goals, plans, strategies, monitoring judgements, help decisions and changes shaped the learning process.
+    ai_takeover_risk: AI can generate plausible reflective prose that creates the appearance of metacognition without evidence that the learner monitored or regulated the process.
+    observable_signal: Reflection is polished but contains no traceable learner decision, difficulty, change or reason.
+    diagnostic_prompt: Which decision did you make during the process, what evidence triggered it, and what changed afterwards?
+    remediation_hint: Require a short reconstruction tied to concrete decision points or process traces before using AI to improve wording.
+    evidence_types: [EV-02, EV-08, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-048}
+
+  - id: MS-LSR-16
+    group: LSR-G5
+    actor: learner
+    label: specify_future_regulatory_adjustment
+    description: Identify a concrete change in goal setting, planning, strategy, monitoring, help seeking or effort regulation to apply in a later relevant situation.
+    ai_takeover_risk: AI may produce generic “next time” advice that the learner endorses without deriving it from their own process evidence.
+    observable_signal: The learner repeats a future strategy suggestion but cannot link it to what happened in the current task.
+    diagnostic_prompt: What will you regulate differently next time, and what in this experience supports that change?
+    remediation_hint: Require one learner-chosen future adjustment explicitly linked to a concrete event or evidence from the current process.
+    evidence_types: [EV-02, EV-08, EV-14]
+    relations:
+      - {type: contributes_to, target: LSK-048}
+
+registry_relations:
+  - {type: contributes_to, target: LSK-040}
+  - {type: contributes_to, target: LSK-041}
+  - {type: contributes_to, target: LSK-042}
+  - {type: contributes_to, target: LSK-043}
+  - {type: contributes_to, target: LSK-044}
+  - {type: contributes_to, target: LSK-045}
+  - {type: contributes_to, target: LSK-046}
+  - {type: contributes_to, target: LSK-047}
+  - {type: contributes_to, target: LSK-048}
+
+boundary_notes:
+  - Monitoring by AI is not automatically harmful; the allocation question is whether learner monitoring is itself part of the goal or evidence claim.
+  - AI prompting can support self-regulation without proving independent self-regulation.
+  - A learner may legitimately delegate planning or monitoring when those operations are peripheral to the goal; this registry does not make self-regulation globally protected.
+  - Motivational state is not inferred from system engagement metrics alone.
+  - Reflection text is not sufficient evidence of metacognitive regulation when the substantive reflection was generated by AI.
