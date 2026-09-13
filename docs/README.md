@@ -22,6 +22,7 @@ This directory contains human-readable documentation for the candidate standard.
 - [`11-versioning-and-identifiers.md`](11-versioning-and-identifiers.md) — version and identifier strategy.
 - [`12-conformance-suite.md`](12-conformance-suite.md) — requirements for executable conformance testing and the future reference validator.
 - [`13-migration-0.3-to-0.4.md`](13-migration-0.3-to-0.4.md) — migration of conformance serialization, diagnostics and version metadata.
+- [`14-registry-coverage-audit.md`](14-registry-coverage-audit.md) — current depth of skill and microstructure coverage and the priority build order.
 - [`05-edustandaard-readiness.md`](05-edustandaard-readiness.md) — development path toward possible Edustandaard registration.
 
 ## Canonical sources
@@ -35,6 +36,10 @@ The main canonical machine-readable artifacts live under `../standard/` and `../
 ## Evidence
 
 Scientific evidence and claim mappings live under `../evidence/`. Evidence informs standard design but is not itself the normative standard.
+
+## Registries
+
+Reusable skills, microstructures and remediation patterns live under `../registries/`. The presence of a skill does not imply that it already has deep microstructure coverage. Current coverage is made explicit in `../registries/coverage/skill-microstructure-coverage.yaml`.
 
 ## Adapters and examples
 
