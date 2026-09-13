@@ -1,0 +1,21 @@
+{
+  "profile": "assessment_evidence",
+  "standard_version": "0.4.0-candidate",
+  "conformance": "non_conformant",
+  "information_state": "complete",
+  "diagnostics": [
+    {
+      "code": "EAI-D008",
+      "severity": "error",
+      "effect": "non_conformance",
+      "message": "An AI-supported product is used as sole evidence of independent mastery.",
+      "path": "$.claim_type",
+      "related_rule": "EAI-R008",
+      "details": {
+        "claim_type": "independent_mastery"
+      }
+    }
+  ],
+  "retained_unknowns": [],
+  "extensions": []
+}
