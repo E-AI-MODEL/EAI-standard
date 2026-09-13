@@ -1,0 +1,56 @@
+id: CASE-SYSTEM-PROFILE-EXTENSION-EXAMPLE
+standard_version: 0.3.0-candidate
+context: >-
+  A teacher uses an AI-assisted workflow to inspect learner responses during guided practice. The AI clusters responses and proposes a possible instructional next step.
+goal: >-
+  Determine whether learner responses indicate a misconception that requires additional instruction while preserving the teacher's professional diagnostic judgement.
+process_position:
+  model: Explicit Instruction
+  label: Guided practice
+  source_term: Guided practice
+  source_element_id: EI-F03
+actors:
+  - actor: teacher_professional
+    core_actions:
+      - label: interpret learner evidence and select next instructional move
+        status: confirmed
+        microstructures:
+          - label: observe learner responses
+            human_execution: full
+            ai_action: classify_or_cluster
+            evidence:
+              - teacher has access to original learner responses
+            handback_required: false
+            remediation: null
+          - label: distinguish signal from diagnosis
+            human_execution: full
+            ai_action: detect_or_flag
+            evidence:
+              - teacher compares AI cluster with original learner evidence
+            handback_required: false
+            remediation: null
+          - label: make professional interpretation
+            human_execution: full
+            ai_action: propose_decision
+            evidence:
+              - teacher records own interpretation and rationale before acting
+            handback_required: false
+            remediation: null
+claim_type: professional_judgement
+responsibility: teacher_professional
+unknowns: []
+extensions:
+  - namespace: https://e-ai-model.github.io/EAI-standard/extensions/system-profile
+    version: 0.1.0-candidate
+    schema: https://e-ai-model.github.io/EAI-standard/system-profiles/eai-system-profile-extension.schema.json
+    data:
+      profile_ref: SYS-EXAMPLE-AGENTIC-LLM
+      profile_version: 0.1.0-candidate
+      observed_configuration: response-clustering-with-recommendation
+      observed_ai_actions:
+        - AIA-15
+        - AIA-22
+        - AIA-09
+      system_profile_snapshot: null
+notes: >-
+  The system profile explains how the technical functionality is produced. Conformance still depends on the concrete AI actions, human execution and human evidence rather than on the capability of the underlying model.
