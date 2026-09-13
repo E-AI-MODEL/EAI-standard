@@ -68,6 +68,7 @@ Naast de brede docent- en leerlingskills zijn nu diepere, herbruikbare registrie
 - argumenteren;
 - professioneel diagnosticeren en interpreteren van leerlingbewijs;
 - scaffolding, feedback en het afbouwen van ondersteuning;
+- pedagogisch en relationeel professioneel oordeel;
 - retrieval, zelfstandige heruitvoering, retentie en transfer.
 
 De actuele registry-index staat in [`registries/index.yaml`](registries/index.yaml).
@@ -82,7 +83,9 @@ Conformance is profielspecifiek en gebruikt drie toestanden:
 
 Validators geven gestructureerde diagnostics terug in plaats van alleen `true` of `false`. Canonieke codes staan in [`standard/diagnostics.yaml`](standard/diagnostics.yaml). Profielen staan in [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
 
-De EDI-voorbeelden bevatten inmiddels drie expliciete testgevallen: een geldige guided-practice allocatie, AI-overname bij een kleine lesafsluiting en een docentbeslissing die `unknown` blijft door ontbrekend bewijs.
+De testset bevat inmiddels zowel didactische als pedagogische situaties. De EDI-cases testen guided practice, een evidence-beslispunt en AI-overname bij een zelfstandigheidsclaim. De pedagogische cases testen directe menselijke betekenisgeving, nominale goedkeuring van een AI-oordeel en een situatie waarin relevante informatie expliciet `unknown` blijft.
+
+Dat is bewust: de standaard moet ook buiten een lesmodel kunnen beschrijven wat bij de mens moet blijven wanneer professioneel pedagogisch oordeel centraal staat.
 
 ## Extensies
 
@@ -108,9 +111,11 @@ De evidence-laag staat los van de normatieve standaard. Voor AI-specifieke claim
 
 Bij modeladapters wordt daarnaast onderscheid gemaakt tussen **model-definition sources** en **effectiveness evidence**. Een actuele modelbron kan oud onderzoek bevatten of een oudere traditie beschrijven; dat maakt modelbeschrijving niet automatisch effectiviteitsbewijs. Omgekeerd wordt bewijs voor capital-D Direct Instruction niet gebruikt alsof het bewijs is voor EDI of elke vorm van expliciete instructie.
 
-## Eerste referentiecase
+[`evidence/construct-map.yaml`](evidence/construct-map.yaml) maakt bovendien omgekeerd zichtbaar welke wetenschappelijke claims een EAI-regel, begrip of registry ondersteunen, begrenzen of alleen conceptueel ondersteunen.
 
-`Argumenteren` is de eerste uitgebreide leerling-microstructure-case. De instructie-adapters voegen daar nu docentdiagnose, support regulation en onafhankelijke heruitvoering aan toe, zodat dezelfde standaard zowel leerling- als professioneel handelen binnen een concrete procespositie kan analyseren.
+## Eerste referentiecases
+
+`Argumenteren` is de eerste uitgebreide leerling-microstructure-case. De instructie-adapters voegen daar docentdiagnose, support regulation en onafhankelijke heruitvoering aan toe. De pedagogische cases testen dezelfde standaardgrammatica zonder een didactisch fasemodel.
 
 ## Versie
 
