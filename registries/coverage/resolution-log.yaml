@@ -1,5 +1,5 @@
 standard_version: 0.4.0-candidate
-artifact_version: 0.1.0-candidate
+artifact_version: 0.2.0-candidate
 status: candidate
 
 purpose: >-
@@ -15,7 +15,22 @@ resolved:
     files_changed:
       - registries/microstructures/teacher-pedagogical-judgement.yaml
     effect_on_audit: >-
-      The original coverage audit remains an initial snapshot. A later refreshed audit should promote at least TSK-066, TSK-067 and TSK-068 from partial where the declared relation now confirms the existing semantic coverage.
+      TSK-066, TSK-067 and TSK-068 move from partial to deep candidate coverage in the current status view.
+
+  - id: COV-RES-002
+    source_audit: AUDIT-SKILL-MS-COVERAGE-001
+    finding: >-
+      Learner self-regulation and metacognition were the highest-priority uncovered allocation domain because visible task execution can remain human while AI takes over goal setting, planning, monitoring, routing and adjustment.
+    action: >-
+      Added a sixteen-item learner self-regulation and metacognition microstructure registry covering goal orientation, planning, strategy selection, monitoring, impasse detection, help regulation, resumption of regulatory control, strategy adjustment, effort regulation, self-evaluation and reflection.
+    files_changed:
+      - registries/microstructures/learner-self-regulation-and-metacognition.yaml
+      - registries/index.yaml
+      - registries/coverage/current-status.yaml
+      - evidence/construct-map.yaml
+      - registries/remediation/interventions.yaml
+    effect_on_audit: >-
+      LSK-040 through LSK-048 move to deep candidate coverage. The learner deep-coverage count rises from 4 to 13, and the microstructure count rises from 77 to 93.
 
 open:
   - id: COV-OPEN-001
@@ -26,3 +41,5 @@ open:
     finding: No strict schema currently validates complete skill-registry entries.
   - id: COV-OPEN-004
     finding: Registry version metadata still needs full migration to the 0.4 publication policy.
+  - id: COV-OPEN-005
+    finding: Teacher assessment and evidence judgement is now the highest-priority deep-coverage gap.
