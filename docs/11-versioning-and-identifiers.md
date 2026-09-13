@@ -33,6 +33,7 @@ Canonical concepts intended for exchange use stable IDs such as:
 - `REL-009` for a relation;
 - `AIA-09` for an AI action;
 - `EV-03` for an evidence type;
+- `PRT-04` for a protection requirement;
 - `EAI-D020` for a diagnostic;
 - `CP-03` for a conformance profile;
 - `TSK-035` for a teacher/professional skill;
