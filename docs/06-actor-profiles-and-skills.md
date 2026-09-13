@@ -1,10 +1,10 @@
-# Actor profiles and skills
+# Actor views and skills
 
 The EAI Standard uses the same semantic structure for two primary human actors: the learner and the teacher/professional. Their responsibilities and typical actions differ, but the standard does not create two unrelated models.
 
-## Profile versus registry
+## Actor view versus registry
 
-An **actor profile** describes broad families of human action that are relevant to that actor.
+An **actor view** groups broad families of human action that are relevant to an actor. In the current candidate repository these families are represented directly in the teacher/professional and learner skill registries. There is no separate canonical actor-profile artifact.
 
 A **skills registry** contains reusable capabilities that can occur across many models, subjects and contexts.
 
@@ -12,17 +12,17 @@ A **core human action** is not stored as a permanent property of a skill. Core s
 
 A **microstructure** is a smaller operation that contributes to a skill or core human action.
 
-The relation is therefore:
+The descriptive relation is therefore:
 
-`actor profile -> skill family -> skill -> microstructures`
+`actor -> skill family -> skill -> microstructures`
 
-and at runtime or case level:
+and at case level:
 
 `goal + process position + context + actor -> selected core human action(s)`
 
-## Teacher/professional profile
+## Teacher/professional view
 
-The teacher/professional profile currently distinguishes eight families:
+The teacher/professional registry currently distinguishes eight families:
 
 - educational design;
 - instruction and modelling;
@@ -35,7 +35,7 @@ The teacher/professional profile currently distinguishes eight families:
 
 This separation matters because AI can affect these actions differently. Generating examples is not the same as diagnosing a misconception. Clustering learner responses is not the same as deciding what those responses mean. Drafting possible feedback is not the same as making a pedagogical judgement.
 
-## Learner profile
+## Learner view
 
 The learner registry currently distinguishes eight families:
 
