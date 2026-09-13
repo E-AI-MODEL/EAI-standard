@@ -1,0 +1,40 @@
+version: 0.3.0-candidate
+status: candidate
+
+purpose: >-
+  Defines the stable public interoperability surface of the EAI Standard. Files outside this surface may support documentation, evidence, examples or implementation, but do not redefine canonical semantics.
+
+canonical_artifacts:
+  vocabulary:
+    - definitions.yaml
+    - relations.yaml
+    - ai-actions.yaml
+    - evidence-types.yaml
+    - diagnostics.yaml
+  rules:
+    - rules.yaml
+  schemas:
+    - ../schemas/case.schema.json
+    - ../schemas/adapter.schema.json
+    - ../schemas/microstructure.schema.json
+    - ../schemas/diagnostic.schema.json
+    - ../schemas/conformance-result.schema.json
+    - ../schemas/extension.schema.json
+
+stability_rules:
+  - Canonical identifiers MUST remain unique within a major version.
+  - A patch release MUST NOT change the meaning of a canonical identifier.
+  - A minor release MAY add backward-compatible identifiers or optional fields.
+  - A major release is required when a canonical term, required field or conformance rule changes meaning incompatibly.
+  - Registries, adapters, context profiles and implementations MUST NOT silently redefine canonical terms.
+
+non_canonical_layers:
+  registries: reusable content that instantiates standard concepts
+  adapters: source-preserving mappings to external models
+  context: overlays for level, age, subject, curriculum or jurisdiction
+  evidence: scientific support and claim maps
+  examples: non-normative worked cases
+  implementations: software, UI, APIs and exports
+
+implementation_principle: >-
+  Conforming implementations may expose only part of the public interface, but MUST identify which profile or artifacts they support and MUST NOT present unsupported canonical semantics as implemented.
