@@ -29,10 +29,12 @@ terms:
 
   core_human_action:
     definition: >-
-      A context-dependent human action whose execution is necessary for the intended learning, professional judgement, pedagogical purpose or decision in the situation.
+      A context-dependent human action whose execution, judgement, control or evidence matters for the intended learning, professional judgement, pedagogical purpose or decision in the situation. In an EAI case, every core human action is interpreted through four required anchors: context, goal, actor and process position.
     properties:
       context_dependent: true
       actor_specific: true
+      goal_specific: true
+      process_position_specific: true
       may_be_multiple: true
       never_global_by_skill_name: true
 
@@ -46,9 +48,11 @@ terms:
 
   microstructure:
     definition: >-
-      A smaller observable or inferable human operation that contributes to a skill or core human action.
+      A reusable description of a smaller human operation. In a concrete EAI case, a microstructure is a constituent operation within the selected core human action when decomposition is needed to distinguish human-AI allocation, evidence, handback or remediation. The same microstructure may be reused across different skills or core human actions in different contexts.
     properties:
+      constituent_within_case_core_action: true
       may_be_reused_across_skills: true
+      may_be_reused_across_core_actions: true
       may_have_multiple_relations: true
       is_not_automatically_core: true
 
@@ -59,6 +63,18 @@ terms:
   allocation:
     definition: >-
       The explicit distribution of relevant actions between human and AI at the level required to distinguish material contributions.
+
+  protection_assessment:
+    definition: >-
+      A source-qualified assessment of which dimensions of a core human action should remain human, remain directly evidenced, remain under effective human oversight or authority, or be returned to human execution. Protection is assessed per dimension and is not a single protected/unprotected label.
+
+  protection_requirement:
+    definition: >-
+      A specific dimension of protection, such as human execution, human judgement, human evidence, effective human oversight, authority to intervene, handback, re-demonstration or direct human interaction.
+
+  protection_basis:
+    definition: >-
+      The identified normative, legal, scientific, professional, framework-based or institutional source used to support a protection assessment, with its applicability and bindingness recorded separately.
 
   support_condition:
     definition: >-
