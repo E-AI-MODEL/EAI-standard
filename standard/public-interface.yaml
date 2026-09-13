@@ -31,7 +31,18 @@ canonical_artifacts:
     - ../schemas/extension.schema.json
 
 normative_language:
-  keywords: [MUST, MUST_NOT, SHOULD, SHOULD_NOT, MAY]
+  keywords:
+    - MUST
+    - MUST NOT
+    - REQUIRED
+    - SHALL
+    - SHALL NOT
+    - SHOULD
+    - SHOULD NOT
+    - RECOMMENDED
+    - NOT RECOMMENDED
+    - MAY
+    - OPTIONAL
   interpretation: BCP14
   references:
     - RFC2119
