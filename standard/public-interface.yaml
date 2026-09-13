@@ -1,8 +1,8 @@
-version: 0.3.0-candidate
+version: 0.3.1-candidate
 status: candidate
 
 purpose: >-
-  Defines the stable public interoperability surface of the EAI Standard. Files outside this surface may support documentation, evidence, examples or implementation, but do not redefine canonical semantics.
+  Defines the stable public interoperability surface of the EAI Standard. Files outside this surface may support documentation, evidence, examples, technical system description or implementation, but do not redefine canonical semantics.
 
 canonical_artifacts:
   vocabulary:
@@ -28,13 +28,14 @@ stability_rules:
   - A patch release MUST NOT change the meaning of a canonical identifier.
   - A minor release MAY add backward-compatible identifiers or optional fields.
   - A major release is required when a canonical term, required field or conformance rule changes meaning incompatibly.
-  - Registries, adapters, context profiles and implementations MUST NOT silently redefine canonical terms.
+  - Registries, adapters, context profiles, system profiles and implementations MUST NOT silently redefine canonical terms.
 
 non_canonical_layers:
   registries: reusable content that instantiates standard concepts
   adapters: source-preserving mappings to external models
   context: overlays for level, age, subject, curriculum or jurisdiction
   evidence: scientific support and claim maps
+  system_profiles: optional technical descriptions of AI-system configuration and capability; never substitutes for observed AI-action analysis
   examples: non-normative worked cases
   implementations: software, UI, APIs and exports
 
