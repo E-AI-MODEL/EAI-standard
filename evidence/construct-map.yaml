@@ -1,0 +1,143 @@
+version: 0.3.0-candidate
+status: candidate
+
+purpose: >-
+  Reverse index from EAI Standard constructs to bounded scientific claims. This file makes the scientific basis auditable without embedding citations inside canonical definitions or rules.
+
+relation_types:
+  direct_support: The evidence claim directly supports the distinction or design constraint.
+  conceptual_alignment: The evidence is consistent with the construct but does not validate the EAI construct itself.
+  boundary_support: The evidence supports a limit, caution or non-inference rule.
+  context_support: The evidence is relevant to a specific implementation context rather than the general construct.
+
+canonical_rules:
+  EAI-R005:
+    label: human_and_ai_action_must_be_separated
+    evidence:
+      - {claim: CLM-002, relation: direct_support}
+      - {claim: CLM-005, relation: direct_support}
+      - {claim: CLM-015, relation: direct_support}
+  EAI-R006:
+    label: amount_of_output_is_not_the_measure
+    evidence:
+      - {claim: CLM-001, relation: direct_support}
+      - {claim: CLM-013, relation: direct_support}
+      - {claim: CLM-015, relation: direct_support}
+  EAI-R007:
+    label: evidence_must_match_claim
+    evidence:
+      - {claim: CLM-002, relation: direct_support}
+      - {claim: CLM-009, relation: direct_support}
+      - {claim: CLM-010, relation: direct_support}
+  EAI-R008:
+    label: generated_performance_is_not_mastery
+    evidence:
+      - {claim: CLM-002, relation: direct_support}
+      - {claim: CLM-003, relation: direct_support}
+      - {claim: CLM-009, relation: direct_support}
+  EAI-R009:
+    label: responsibility_is_not_execution
+    evidence:
+      - {claim: CLM-007, relation: direct_support}
+      - {claim: CLM-008, relation: direct_support}
+  EAI-R010:
+    label: handback_before_mastery_claims
+    evidence:
+      - {claim: CLM-002, relation: direct_support}
+      - {claim: CLM-005, relation: conceptual_alignment}
+      - {claim: CLM-009, relation: direct_support}
+  EAI-R011:
+    label: remediation_ends_in_new_evidence
+    evidence:
+      - {claim: CLM-002, relation: boundary_support}
+      - {claim: CLM-010, relation: conceptual_alignment}
+  EAI-R012:
+    label: unknown_remains_unknown
+    evidence:
+      - {claim: CLM-011, relation: boundary_support}
+      - {claim: CLM-012, relation: boundary_support}
+  EAI-R013:
+    label: multiple_actors_may_have_different_core_actions
+    evidence:
+      - {claim: CLM-007, relation: direct_support}
+      - {claim: CLM-008, relation: direct_support}
+      - {claim: CLM-015, relation: direct_support}
+
+canonical_terms:
+  core_human_action:
+    evidence:
+      - {claim: CLM-005, relation: conceptual_alignment}
+      - {claim: CLM-015, relation: conceptual_alignment}
+    validation_status: >-
+      Recent evidence supports action-level analysis and the relevance of substitution, but the EAI construct core_human_action itself still requires direct construct validation.
+
+  microstructure:
+    evidence:
+      - {claim: CLM-005, relation: conceptual_alignment}
+      - {claim: CLM-015, relation: conceptual_alignment}
+    validation_status: >-
+      Current evidence supports analysing what AI performs at a finer grain than whole-task use, but the EAI microstructure taxonomy requires inter-rater and construct validation.
+
+  handback:
+    evidence:
+      - {claim: CLM-002, relation: direct_support}
+      - {claim: CLM-003, relation: conceptual_alignment}
+      - {claim: CLM-009, relation: direct_support}
+    validation_status: >-
+      The need for fresh unaided evidence after AI-supported performance is supported; specific handback procedures remain intervention hypotheses until directly tested.
+
+  independent_mastery:
+    evidence:
+      - {claim: CLM-002, relation: direct_support}
+      - {claim: CLM-009, relation: direct_support}
+
+  retention:
+    evidence:
+      - {claim: CLM-010, relation: direct_support}
+      - {claim: CLM-012, relation: boundary_support}
+
+  transfer:
+    evidence:
+      - {claim: CLM-010, relation: direct_support}
+      - {claim: CLM-012, relation: boundary_support}
+
+registry_families:
+  teacher_diagnostic_judgement:
+    registry: ../registries/microstructures/teacher-diagnostic-judgement.yaml
+    evidence:
+      - {claim: CLM-007, relation: direct_support}
+      - {claim: CLM-008, relation: direct_support}
+      - {claim: CLM-015, relation: conceptual_alignment}
+    note: >-
+      Current teacher-AI research supports distinguishing observation, diagnosis, professional judgement and AI recommendation. The exact thirteen-microstructure decomposition is an EAI candidate taxonomy requiring validation.
+
+  teacher_scaffolding_and_feedback:
+    registry: ../registries/microstructures/teacher-scaffolding-and-feedback.yaml
+    evidence:
+      - {claim: CLM-003, relation: direct_support}
+      - {claim: CLM-004, relation: direct_support}
+      - {claim: CLM-005, relation: direct_support}
+      - {claim: CLM-015, relation: conceptual_alignment}
+    note: >-
+      Recent experimental evidence supports the importance of how help is delivered and whether it substitutes for learner activity. The EAI support-regulation decomposition remains candidate.
+
+  learner_retrieval_and_independent_performance:
+    registry: ../registries/microstructures/learner-retrieval-and-independent-performance.yaml
+    evidence:
+      - {claim: CLM-002, relation: direct_support}
+      - {claim: CLM-003, relation: direct_support}
+      - {claim: CLM-009, relation: direct_support}
+      - {claim: CLM-010, relation: direct_support}
+    note: >-
+      Recent evidence strongly supports separating supported success from later unaided performance. Individual microstructure boundaries remain candidate.
+
+  learner_argumentation:
+    registry: ../registries/microstructures/argumentation.yaml
+    evidence:
+      - {claim: CLM-006, relation: conceptual_alignment}
+      - {claim: CLM-014, relation: context_support}
+    note: >-
+      The argumentation decomposition is primarily grounded in educational skill structure rather than current GenAI intervention evidence. AI-specific evidence currently supports verification and task-boundary judgement more strongly than the full argumentation taxonomy.
+
+methodological_rule: >-
+  A construct may be scientifically aligned without being empirically validated as an EAI measurement construct. This file must preserve that distinction explicitly.
