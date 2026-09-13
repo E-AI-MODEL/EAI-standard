@@ -6,6 +6,7 @@
   "required": ["id", "context", "goal", "actors", "process_position", "claim_type"],
   "properties": {
     "id": {"type": "string", "minLength": 1},
+    "standard_version": {"type": ["string", "null"]},
     "context": {"type": "string", "minLength": 1},
     "goal": {"type": "string", "minLength": 1},
     "process_position": {
@@ -14,9 +15,10 @@
       "properties": {
         "model": {"type": ["string", "null"]},
         "label": {"type": "string", "minLength": 1},
-        "source_term": {"type": ["string", "null"]}
+        "source_term": {"type": ["string", "null"]},
+        "source_element_id": {"type": ["string", "null"]}
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "actors": {
       "type": "array",
@@ -25,16 +27,15 @@
         "type": "object",
         "required": ["actor", "core_actions"],
         "properties": {
-          "actor": {
-            "enum": ["teacher_professional", "learner", "multiple_humans"]
-          },
+          "actor": {"enum": ["teacher_professional", "learner", "multiple_humans"]},
           "core_actions": {
             "type": "array",
             "items": {
               "type": "object",
               "required": ["label", "status"],
               "properties": {
-                "label": {"type": "string"},
+                "id": {"type": ["string", "null"]},
+                "label": {"type": "string", "minLength": 1},
                 "status": {"enum": ["candidate", "confirmed", "unknown"]},
                 "microstructures": {
                   "type": "array",
@@ -43,22 +44,22 @@
                     "required": ["label", "human_execution", "ai_action"],
                     "properties": {
                       "id": {"type": ["string", "null"]},
-                      "label": {"type": "string"},
+                      "label": {"type": "string", "minLength": 1},
                       "human_execution": {"enum": ["none", "partial", "full", "unknown"]},
-                      "ai_action": {"type": "string"},
+                      "ai_action": {"type": "string", "minLength": 1},
                       "evidence": {"type": "array", "items": {"type": "string"}},
                       "handback_required": {"type": ["boolean", "null"]},
                       "remediation": {"type": ["string", "null"]}
                     },
-                    "additionalProperties": true
+                    "additionalProperties": false
                   }
                 }
               },
-              "additionalProperties": true
+              "additionalProperties": false
             }
           }
         },
-        "additionalProperties": true
+        "additionalProperties": false
       }
     },
     "claim_type": {
@@ -66,7 +67,11 @@
     },
     "responsibility": {"type": ["string", "null"]},
     "unknowns": {"type": "array", "items": {"type": "string"}},
+    "extensions": {
+      "type": "array",
+      "items": {"$ref": "extension.schema.json"}
+    },
     "notes": {"type": ["string", "null"]}
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
