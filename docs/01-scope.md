@@ -43,9 +43,11 @@ Whole lessons or assignments may be analysed, but they should be decomposed when
 
 ## Actor scope
 
-Version 0.1 covers two primary human actor classes:
+The current candidate standard covers two primary human actor classes:
 
 - `teacher_professional`
 - `learner`
+
+`multiple_humans` is available where a case needs to represent a bounded shared human actor grouping without collapsing teacher/professional and learner actions that are materially distinct.
 
 Additional roles may be added later where the educational context requires them, but they should not duplicate an existing role without a clear semantic reason.
