@@ -1,0 +1,31 @@
+id: ADAPTER-TEMPLATE
+standard_version: 0.3.0-candidate
+model_name: replace_with_source_model_name
+model_family: null
+source_reference: replace_with_primary_source
+source_version: null
+source_license: null
+
+source_elements:
+  - id: SRC-ELEM-001
+    source_type: process_position
+    source_label: replace_with_exact_source_term
+    source_definition: null
+    source_order: 1
+    source_relations: []
+    source_metadata: {}
+
+mappings:
+  - source_element_id: SRC-ELEM-001
+    mapping_type: related
+    eai_targets:
+      - type: process_position
+        id_or_label: process_position
+        actor: null
+    rationale: replace_with_mapping_rationale
+    confidence: unknown
+
+unmapped_source_elements: []
+extensions: []
+notes: >-
+  Preserve exact source terminology first. Add EAI interpretation only in mappings. If no defensible mapping exists, retain the source element and add its id to unmapped_source_elements.
