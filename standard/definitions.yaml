@@ -1,0 +1,93 @@
+version: 0.1.0-candidate
+status: candidate
+language: en
+
+terms:
+  context:
+    definition: >-
+      The concrete educational or professional situation in which human and AI actions are examined.
+    required: true
+
+  goal:
+    definition: >-
+      The intended educational, pedagogical, professional or learning outcome of the situation.
+    required: true
+
+  actor:
+    definition: >-
+      The human whose action, learning, judgement or responsibility is being examined.
+    allowed_values:
+      - teacher_professional
+      - learner
+      - multiple_humans
+    required: true
+
+  process_position:
+    definition: >-
+      The position of the situation within the process or model actually being used. The EAI Standard does not prescribe universal phases.
+    required: true
+
+  core_human_action:
+    definition: >-
+      A context-dependent human action whose execution is necessary for the intended learning, professional judgement, pedagogical purpose or decision in the situation.
+    properties:
+      context_dependent: true
+      actor_specific: true
+      may_be_multiple: true
+      never_global_by_skill_name: true
+
+  microstructure:
+    definition: >-
+      A smaller observable or inferable human operation that contributes to a core human action.
+    properties:
+      may_be_reused_across_skills: true
+      may_have_multiple_relations: true
+      is_not_automatically_core: true
+
+  ai_action:
+    definition: >-
+      The action actually performed by an AI system in relation to a human action or microstructure.
+
+  allocation:
+    definition: >-
+      The explicit distribution of relevant actions between human and AI at microstructure level.
+
+  human_evidence:
+    definition: >-
+      Observable information that supports a claim about human performance, judgement, learning or mastery.
+
+  responsibility:
+    definition: >-
+      The human obligation to interpret, decide, approve, judge or act where the situation requires accountable human judgement.
+
+  handback:
+    definition: >-
+      The planned transfer of an action from AI-supported or AI-performed execution back to human execution so that the human action can become visible again.
+
+  remediation:
+    definition: >-
+      A targeted response after a relevant human action was not sufficiently performed, observed or evidenced. Remediation ends with renewed human performance or evidence.
+
+  re_demonstration:
+    definition: >-
+      A new human execution of the relevant action after support, handback or remediation.
+
+  performance:
+    definition: >-
+      Successful production or task completion in the current situation, regardless of how much assistance was used.
+
+  independent_mastery:
+    definition: >-
+      Successful human execution of the relevant action with support reduced to the level required by the claim being made.
+
+  retention:
+    definition: >-
+      Successful later execution after a meaningful delay.
+
+  transfer:
+    definition: >-
+      Successful execution of the relevant action in a meaningfully different task, context or representation.
+
+  unknown:
+    definition: >-
+      A state used when required information is absent, ambiguous or unsupported. Unknown must not be silently converted into a low or negative judgement.
