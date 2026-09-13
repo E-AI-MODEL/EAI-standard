@@ -1,0 +1,207 @@
+version: 0.2.0-candidate
+status: candidate
+scope: recent_scientific_spine_2025_2026
+
+policy:
+  recency_priority: >-
+    For AI-specific claims, the evidence spine prioritises 2025-2026 empirical studies, meta-analyses and current large-scale datasets. Older learning-science sources may later be added as foundational theory, but they do not substitute for recent AI-specific evidence.
+  discovery_rule: >-
+    Internal literature maps, reviews and synthesis documents may be used to discover sources, but claims should link to the original publication whenever possible.
+  status_rule: >-
+    Preprints and working papers are explicitly marked and receive lower evidence weight than peer-reviewed publications unless their design or scale materially adds evidence not yet available elsewhere.
+
+sources:
+  - id: SRC-2026-BOOLZEN
+    year: 2026
+    authors: [Chiara Boolzen, Jochen Kuhn, Salome Flegr, Eva-Maria Rott, Niklas Stausberg, Stefan Kuechemann]
+    title: Evidence of impact and interpretational limits of generative AI in STEM education: a systematic review and meta-analysis on cognitive learning outcomes
+    publication: Artificial Intelligence Review
+    type: peer_reviewed_systematic_review_meta_analysis
+    doi: 10.1007/s10462-026-11665-9
+    published: 2026-08-25
+    scope: STEM; predominantly higher education; learner-GAI interaction
+    design: 85 eligible studies; 49 studies and 59 effect sizes meta-analysed
+    key_findings:
+      - Conventional random-effects analysis was positive but highly heterogeneous.
+      - Robust Bayesian analysis suggested much of the overall positive main effect could be attributable to publication bias.
+      - Learning outcome type and whether AI augmented or substituted student cognitive activity explained part of the heterogeneity.
+      - The review concludes that substitution of student activity can be detrimental and that process variables such as task delegation and verification remain under-measured.
+    role: primary_recent_anchor
+
+  - id: SRC-2026-STROMBERG
+    year: 2026
+    authors: [David Stromberg, Victor Lei, Yanhui Wu]
+    title: The Generative AI Learning Penalty: Evidence from Chinese Secondary Education
+    publication: CEPR Discussion Paper DP21577
+    type: working_paper_longitudinal_panel_quasi_experimental
+    published: 2026-06-02
+    url: https://cepr.org/publications/dp21577
+    scope: 26811 students; grades 7-12; nine subjects; 30 months
+    design: staggered AI adoption; difference-in-differences; homework plus closed-book and high-stakes exams
+    key_findings:
+      - AI adoption increased homework scores and reduced homework completion time.
+      - Closed-book monthly exam scores declined after adoption, with losses increasing over time.
+      - Learning losses were concentrated among users whose behaviour was consistent with homework outsourcing.
+      - Students who maintained similar homework time showed much smaller learning losses.
+    limitations:
+      - Working paper, not yet peer reviewed.
+      - Observational adoption design despite strong panel structure and identification strategy.
+    role: primary_recent_anchor
+
+  - id: SRC-2026-WU
+    year: 2026
+    authors: [Xinning Wu, Pei Zhu, Jinliang Zhang, Mengwei Yin, Yingxi Wang]
+    title: ChatGPT's impact on student learning outcomes: a meta-analysis of 35 experimental studies
+    publication: Humanities and Social Sciences Communications
+    type: peer_reviewed_meta_analysis
+    doi: 10.1057/s41599-026-07019-z
+    published: 2026-03-26
+    scope: 35 experimental studies; 4193 participants
+    key_findings:
+      - Moderate positive mean effect on learning outcomes.
+      - Subject, intervention duration and instructional mode significantly moderated outcomes.
+      - Authors note limits in coverage of multidimensional moderators and long-term outcomes.
+    role: recent_synthesis
+
+  - id: SRC-2026-OECD-PISA
+    year: 2026
+    authors: [OECD]
+    title: PISA 2025 Results Volume I - Future-Ready Students
+    publication: OECD Publishing
+    type: large_scale_international_assessment
+    doi: 10.1787/73451bc5-en
+    published: 2026-09-08
+    scope: international PISA 2025 student dataset
+    key_findings:
+      - AI use for specific schoolwork tasks such as drafting, summarising and research is associated with lower science performance than non-use on average.
+      - Weekly general-purpose AI use shows a different pattern and can be similar to non-use.
+      - Students who use AI for learning and receive school opportunities to evaluate AI-generated information tend to perform slightly better than comparable users without such opportunities.
+      - Relationships are observational and depend on use pattern and learning context.
+    role: current_large_scale_context
+
+  - id: SRC-2026-WEIDLICH
+    year: 2026
+    authors: [Joshua Weidlich]
+    title: When Students Use AI: Toward Validity-Centered Assessment Design
+    publication: SocArXiv / OSF preprint
+    type: preprint_conceptual_assessment_validity
+    doi: 10.31235/osf.io/f6hz7_v1
+    published: 2026-04
+    scope: assessment interpretation in contexts of student GenAI use
+    key_findings:
+      - Reframes GenAI assessment concerns from cheating alone toward validity of score interpretations and decisions.
+      - Emphasises that the same observed product can support weaker inferences about unaided student capability when AI contributes materially.
+    limitations:
+      - Preprint; conceptual rather than intervention-effect study.
+    role: recent_validity_framework
+
+  - id: SRC-2025-BASTANI
+    year: 2025
+    authors: [Hamsa Bastani, Osbert Bastani, Alp Sungu, Haosen Ge, Ozge Kabakci, Rei Mariman]
+    title: Generative AI without guardrails can harm learning: Evidence from high school mathematics
+    publication: Proceedings of the National Academy of Sciences
+    type: peer_reviewed_field_experiment
+    doi: 10.1073/pnas.2422633122
+    published: 2025-06-25
+    scope: nearly 1000 high-school mathematics students
+    design: field experiment comparing GPT Base, safeguarded GPT Tutor and control conditions
+    key_findings:
+      - AI substantially improved performance during supported practice.
+      - After AI access was removed, the unrestricted GPT Base group performed worse than students who never had access.
+      - Learning safeguards largely mitigated the negative post-support effect.
+      - Students used unrestricted AI more as a crutch, while tutoring safeguards changed how help was provided.
+    role: primary_recent_anchor
+
+  - id: SRC-2025-KESTIN
+    year: 2025
+    authors: [Greg Kestin, Kelly Miller, Anna Klales, Timothy Milbourne, Gregorio Ponti]
+    title: AI tutoring outperforms in-class active learning: an RCT introducing a novel research-based design in an authentic educational setting
+    publication: Scientific Reports
+    type: peer_reviewed_randomized_controlled_trial
+    doi: 10.1038/s41598-025-97652-6
+    published: 2025-06-03
+    scope: college physics; 316 students across two lesson topics
+    key_findings:
+      - A deliberately designed AI tutor produced larger immediate post-test learning gains than the comparison active-learning class in this setting.
+      - Students completed the AI-tutored lesson in less time and reported strong engagement and motivation.
+      - The result supports designed tutoring rather than unrestricted generic chatbot use.
+    limitations:
+      - Narrow subject, institution and lesson duration.
+      - Primarily immediate learning outcomes, not long-term transfer.
+    role: primary_recent_positive_case
+
+  - id: SRC-2025-LEE
+    year: 2025
+    authors: [Hao-Ping Hank Lee, Advait Sarkar, Lev Tankelevitch, Ian Drosos, Sean Rintel, Richard Banks, Nicholas Wilson]
+    title: The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers
+    publication: CHI 2025 Proceedings
+    type: peer_reviewed_mixed_methods_survey
+    doi: 10.1145/3706598.3713778
+    published: 2025-04-25
+    scope: 319 knowledge workers; 936 real-world GenAI use examples
+    key_findings:
+      - Higher confidence in GenAI was associated with less reported critical-thinking engagement.
+      - Higher confidence in one's own task ability was associated with more critical-thinking engagement.
+      - Cognitive work shifted from information gathering to verification, from problem solving to response integration, and from execution to stewardship.
+    limitations:
+      - Self-reported enaction and effort; not a direct learning-outcome experiment.
+    role: teacher_professional_and_expertise_context
+
+  - id: SRC-2025-TUTORCOPILOT
+    year: 2025
+    authors: [Rose E. Wang, Ana T. Ribeiro, Carly D. Robinson, Susanna Loeb, Dorottya Demszky]
+    title: Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise
+    publication: EdWorkingPaper / National Student Support Accelerator
+    type: randomized_controlled_trial_working_paper
+    doi: 10.26300/81nh-8262
+    published: 2025-11
+    scope: K-12 tutoring; large live tutoring deployment
+    key_findings:
+      - Students working with tutors who had access to real-time AI guidance were more likely to master topics.
+      - Benefits were largest for lower-rated tutors.
+      - AI-supported tutors used more high-quality pedagogical strategies and were less likely to give away answers.
+      - AI guidance supported human tutors rather than replacing the tutoring interaction.
+    limitations:
+      - Working paper status.
+      - Effects concern a specific tutoring system and context.
+    role: primary_recent_teacher_support_case
+
+  - id: SRC-2025-CHEN-CHEUNG
+    year: 2025
+    authors: [Shuzhen Chen, Alan C. K. Cheung]
+    title: Effect of generative artificial intelligence on university students learning outcomes: A systematic review and meta-analysis
+    publication: Educational Research Review
+    type: peer_reviewed_systematic_review_meta_analysis
+    doi: 10.1016/j.edurev.2025.100737
+    scope: 57 studies; 97 estimations; higher education
+    key_findings:
+      - Positive pooled effects were reported for academic achievement, language skills, affective-motivational outcomes and higher-order thinking.
+      - No statistically significant pooled effect was found for metacognition.
+      - Effects varied by learner, tool, role, rule and context factors.
+    role: recent_synthesis
+
+  - id: SRC-2025-LIU
+    year: 2025
+    authors: [Xiaohong Liu, Baoxin Guo, Wei He, Xiaoyong Hu]
+    title: Effects of Generative Artificial Intelligence on K-12 and Higher Education Students' Learning Outcomes: A Meta-Analysis
+    publication: Journal of Educational Computing Research
+    type: peer_reviewed_meta_analysis
+    doi: 10.1177/07356331251329185
+    published: 2025-04-11
+    scope: 49 articles across K-12 and higher education
+    key_findings:
+      - Positive average effects were reported for learning achievement and motivation.
+      - Moderator analyses indicate that effects depend on implementation and study conditions.
+    role: recent_synthesis
+
+  - id: SRC-2026-GAA-LS
+    year: 2026
+    title: Development and validation of the generative AI assessment literacy scale for higher education students: psychometric evidence and associations with feedback engagement and academic integrity
+    publication: Frontiers in Education
+    type: peer_reviewed_scale_development_validation
+    published: 2026-09
+    scope: two-study psychometric validation; higher education students
+    key_findings:
+      - Assessment-specific GenAI literacy includes task-boundary judgement, verification, interpretation of criteria and disclosure practices.
+      - General AI use frequency or general AI literacy should not be treated as sufficient evidence of assessment-specific judgement.
+    role: recent_skill_and_assessment_context
