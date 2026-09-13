@@ -121,13 +121,15 @@ Maintenance can continue independently of one person and new participants have a
 
 Goal: prepare a complete intake package for Edustandaard.
 
-Deliverables aligned to the five assessment criteria:
+Deliverables aligned to the five official assessment criteria:
 
-- **Toegevoegde waarde:** business case, problem statement, alternatives and risk analysis;
-- **Draagvlak:** pilot evidence, users, suppliers and implementation experience;
-- **Open standaardisatieproces:** governance, participation and maintenance evidence;
-- **Aansluiting op architectuur:** ROSA positioning and architecture documentation;
-- **Toekomstbestendigheid:** lifecycle, extensibility, stable identifiers and supplier-neutral implementation.
+- **Toegevoegde waarde (added value):** business case, problem statement, alternatives and risk analysis;
+- **Draagvlak (stakeholder support):** pilot evidence, users, suppliers and implementation experience;
+- **Open standaardisatieproces (open standardisation process):** governance, participation and maintenance evidence;
+- **Aansluiting op architectuur (architecture alignment):** ROSA positioning and architecture documentation;
+- **Toekomstbestendigheid (future readiness):** lifecycle, extensibility, stable identifiers and supplier-neutral implementation.
+
+The Dutch labels are retained because they are the official Edustandaard assessment terms. The English text is explanatory and does not replace those external terms.
 
 Exit condition:
 
