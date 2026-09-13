@@ -53,6 +53,12 @@
                     },
                     "additionalProperties": false
                   }
+                },
+                "protection": {
+                  "oneOf": [
+                    {"$ref": "protection-assessment.schema.json"},
+                    {"type": "null"}
+                  ]
                 }
               },
               "additionalProperties": false
