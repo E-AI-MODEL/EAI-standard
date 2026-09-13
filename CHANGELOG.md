@@ -2,6 +2,67 @@
 
 All notable changes to the EAI Standard are recorded here.
 
+## 0.4.0-candidate
+
+Standardisation hardening without redesigning the substantive EAI architecture.
+
+### Added
+
+- canonical `standard/normative-language.md` using BCP 14 / RFC 2119 / RFC 8174 requirement semantics;
+- canonical `standard/identifiers.yaml` with stable identifier classes and a candidate HTTP URI strategy;
+- explicit publication model separating specification, machine contract, conformance and implementation guidance;
+- documentation for standard versioning and identifiers;
+- documentation for the future executable conformance suite;
+- conformant, conformant-with-unknowns and non-conformant result fixtures.
+
+### Changed
+
+- `standard/public-interface.yaml` is now explicitly the single authoritative manifest for the canonical public interface;
+- canonical YAML artifacts use `standard_version` instead of an ambiguous generic top-level `version` field;
+- governance now refers to the public-interface manifest instead of maintaining an independent canonical-file list;
+- conformance and information completeness are separate result dimensions;
+- conformance values are now `conformant` and `non_conformant`;
+- information state is now `complete`, `contains_unknowns` or `incomplete`;
+- diagnostics use an explicit `effect` of `none`, `uncertainty` or `non_conformance` rather than overloading a generic validity state;
+- diagnostics whose underlying normative rule is mandatory now consistently block conformance when violated;
+- conformance result and diagnostic JSON Schemas were updated to the separated result model;
+- EDI and pedagogical conformance fixtures were migrated to the two-axis result model;
+- README and governance now distinguish standard version, supporting artifact versions and external source versions;
+- README now states that a different presentation of existing semantics is not by itself reason for a canonical model change.
+
+### Removed
+
+- superseded `valid-result.json`, `unknown-result.json` and `invalid-result.json` fixtures that conflated structural conformance with substantive uncertainty.
+
+### Breaking candidate change
+
+This release changes conformance serialization from:
+
+```text
+state: valid | unknown | invalid
+```
+
+to:
+
+```text
+conformance: conformant | non_conformant
+information_state: complete | contains_unknowns | incomplete
+```
+
+Diagnostic serialization changes from `state` to `effect`.
+
+Implementations of 0.3.x conformance output must migrate before claiming 0.4.0 compatibility.
+
+### Normative rationale
+
+Unknown information is not itself a standards violation. A representation may conform precisely because it preserves uncertainty rather than inventing a stronger judgement. Conversely, an explicit normative violation remains non-conformant even when all underlying information is known.
+
+This change repairs that distinction without changing the substantive EAI concepts of human action, AI action, evidence, handback, remediation, adapters or system profiles.
+
+### Open release item
+
+An explicit license and intellectual-property policy remains to be selected before EAI Standard is positioned as a stable reusable open standard. No license is implied by public repository availability.
+
 ## 0.3.1-candidate
 
 Non-normative AI system profile add-on and explicit human-system boundary.
