@@ -1,5 +1,16 @@
-version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 status: candidate
+
+result_model:
+  conformance:
+    conformant: The artifact satisfies the structural and normative requirements of the selected profile.
+    non_conformant: One or more blocking structural or normative requirements of the selected profile are violated.
+  information_state:
+    complete: All information required for the selected profile and intended interpretation is present at the required level.
+    contains_unknowns: Material uncertainty is explicitly preserved, but the artifact can still be structurally conformant when no unsupported stronger claim is made.
+    incomplete: Required information is missing in a way that prevents the selected profile from being fully evaluated.
+  separation_rule: >-
+    Unknown information is not itself a conformance failure. A conformant representation may contain explicit unknowns. Non-conformance occurs when a structural or normative requirement is violated, including when unknown information is silently converted into a stronger substantive judgement.
 
 profiles:
   - id: CP-01
@@ -31,11 +42,13 @@ profiles:
     requires:
       - all_CP-02_requirements
       - explicit_claim_type
-      - claim_matched_evidence
+      - claim_matched_evidence_for_supported_claims
       - handback_and_redemonstration_when_required
     prohibitions:
       - generated_product_as_sole_independent_mastery_evidence
       - unknown_coerced_to_judgement
+    interpretation_rule: >-
+      A case may remain conformant while reporting that evidence is unknown or insufficient, provided it does not present the stronger human claim as established.
 
   - id: CP-04
     label: source_preserving_model_adapter
@@ -72,10 +85,11 @@ profiles:
       - CP-04
       - CP-05
       - structured_diagnostics
-      - declared_supported_version
+      - declared_standard_version
       - declared_unsupported_optional_semantics
 
 notes:
   - Conformance is profile-specific; a system may conform to one profile without implementing all others.
-  - Profiles describe structural interoperability, not educational effectiveness.
+  - Information completeness and conformance are separate result dimensions.
+  - Profiles describe structural and semantic interoperability, not educational effectiveness.
   - Passing conformance does not validate the quality of an instructional design or AI system.
