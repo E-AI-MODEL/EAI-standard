@@ -1,5 +1,5 @@
 id: EX-EDI-CLOSE-001
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 context: >-
   At the small lesson closure, the learner receives an AI-generated worked solution before submitting the answer. The teacher then considers moving the learner to independent work.
 goal: Determine whether the learner can perform the target operation sufficiently independently to proceed.
