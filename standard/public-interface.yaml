@@ -15,6 +15,7 @@ canonical_artifacts:
     - ai-actions.yaml
     - evidence-types.yaml
     - diagnostics.yaml
+    - identifiers.yaml
   rules:
     - rules.yaml
   conformance:
@@ -47,13 +48,11 @@ version_contract:
     A generic top-level field named `version` is deprecated for canonical artifacts because it does not distinguish standard release from artifact revision.
 
 identifier_policy:
+  authority: identifiers.yaml
   canonical_id_rule: >-
     Canonical concepts intended for exchange MUST have a stable canonical identifier. Within candidate releases before 1.0 identifiers may still change, but changes MUST be explicit and accompanied by migration information.
   post_1_0_rule: >-
     After 1.0 a released canonical identifier MUST NOT be repurposed for incompatible semantics. A materially incompatible replacement requires a new identifier and deprecation of the old identifier.
-  candidate_uri_base: https://e-ai-model.github.io/EAI-standard/id/
-  uri_rule: >-
-    A globally scoped HTTP URI MAY be derived from a canonical identifier for cross-system exchange. URI resolution is a publication requirement before stable 1.0 and MUST NOT depend on a Git branch or mutable file path.
 
 stability_rules:
   - Canonical identifiers MUST remain unique within a released standard version.
