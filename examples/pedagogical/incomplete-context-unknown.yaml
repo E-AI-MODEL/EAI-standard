@@ -1,0 +1,53 @@
+id: EX-PED-UNKNOWN-001
+standard_version: 0.3.0-candidate
+context: >-
+  A teacher notices a marked change in a learner's participation. An AI system summarises recent attendance and assignment patterns, but the learner has not yet been available for a conversation and the reason for the change is unknown.
+goal: Decide what immediate educational follow-up is proportionate without inferring unsupported causes.
+process_position:
+  model: null
+  label: initial_pedagogical_interpretation
+  source_term: initial interpretation before follow-up
+  source_element_id: null
+actors:
+  - actor: teacher_professional
+    core_actions:
+      - id: bounded_initial_pedagogical_interpretation
+        label: form a bounded interpretation while preserving uncertainty
+        status: confirmed
+        microstructures:
+          - id: MS-TPJ-03
+            label: distinguish_statement_from_interpretation
+            human_execution: full
+            ai_action: AIA-06
+            evidence: [EV-08]
+            handback_required: false
+            remediation: null
+          - id: MS-TPJ-05
+            label: consider_context_without_overgeneralising
+            human_execution: partial
+            ai_action: AIA-06
+            evidence: [EV-08, EV-09]
+            handback_required: false
+            remediation: null
+          - id: MS-TPJ-07
+            label: identify_relevant_uncertainty
+            human_execution: full
+            ai_action: AIA-00
+            evidence: [EV-02, EV-08]
+            handback_required: false
+            remediation: null
+          - id: MS-TPJ-10
+            label: select_proportionate_follow_up
+            human_execution: full
+            ai_action: AIA-05
+            evidence: [EV-05, EV-08]
+            handback_required: false
+            remediation: null
+claim_type: professional_judgement
+responsibility: The teacher may decide on a low-consequence next step such as arranging direct contact, while the cause of the participation change remains explicitly unknown.
+unknowns:
+  - The learner's own account of the change is not yet available.
+  - The reason for the change in participation is unknown.
+  - It is unknown whether historical context is relevant to the current situation.
+notes: >-
+  Unknown is the intended state for the unresolved interpretation. The standard does not require speculative completion of the missing meaning before a proportionate information-gathering step can be taken.
