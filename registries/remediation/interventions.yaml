@@ -1,0 +1,103 @@
+version: 0.1.0-candidate
+status: candidate
+
+interventions:
+  - id: REM-01
+    label: remove_answer_access
+    purpose: Restore human execution after AI has supplied the substantive answer or reasoning.
+    pattern:
+      - hide_or_remove_prior_ai_output
+      - restate_goal
+      - require_human_reperformance
+      - collect_new_evidence
+
+  - id: REM-02
+    label: reduce_support
+    purpose: Test whether the human can continue with less assistance.
+    pattern:
+      - identify_current_support
+      - remove_one_support_layer
+      - reperform_target_action
+      - inspect_evidence
+
+  - id: REM-03
+    label: return_to_microstructure
+    purpose: Repair one failed operation without repeating the entire task.
+    pattern:
+      - identify_missing_or_displaced_microstructure
+      - isolate_microstructure
+      - practise_or_reconstruct
+      - reconnect_to_parent_action
+      - re_demonstrate
+
+  - id: REM-04
+    label: compare_then_reconstruct
+    purpose: Use AI output as contrast material while returning authorship of the operation to the human.
+    pattern:
+      - compare_human_and_ai_versions
+      - identify_difference
+      - justify_preference_or_rejection
+      - reconstruct_without_copying
+      - re_demonstrate
+
+  - id: REM-05
+    label: explain_before_continue
+    purpose: Restore visible reasoning before further AI support is allowed.
+    pattern:
+      - pause_ai_progression
+      - require_human_explanation
+      - probe_unclear_step
+      - continue_only_after_relevant_action_is_visible
+
+  - id: REM-06
+    label: new_item_same_operation
+    purpose: Check whether the human can perform the same operation on a fresh item.
+    pattern:
+      - provide_new_item
+      - keep_target_operation_constant
+      - reduce_content_overlap
+      - observe_independent_execution
+
+  - id: REM-07
+    label: delayed_reperformance
+    purpose: Check retention after support has been removed for a meaningful period.
+    pattern:
+      - schedule_or_select_later_attempt
+      - avoid_reusing_prior_answer
+      - require_human_execution
+      - record_retention_evidence
+
+  - id: REM-08
+    label: transfer_task
+    purpose: Check whether the human can use the operation in a different context.
+    pattern:
+      - change_context_or_representation
+      - preserve_underlying_operation
+      - require_human_execution
+      - record_transfer_evidence
+
+  - id: REM-09
+    label: professional_reassessment
+    purpose: Restore professional judgement after AI has proposed or performed interpretation.
+    applies_to: teacher_professional
+    pattern:
+      - separate_ai_recommendation_from_source_evidence
+      - require_professional_interpretation
+      - document_considered_information
+      - make_and_justify_decision
+
+  - id: REM-10
+    label: pedagogical_reengagement
+    purpose: Restore direct human relational judgement where AI mediation obscured the learner's meaning or needs.
+    applies_to: teacher_professional
+    pattern:
+      - return_to_direct_human_interaction
+      - listen_or_observe_without_ai_interpretation
+      - check_understanding_with_learner
+      - make_pedagogical_judgement
+      - determine_follow_up
+
+constraints:
+  - Remediation is not punishment for AI use.
+  - Remediation targets the missing, displaced or unevidenced human action.
+  - A remediation action is incomplete until new human evidence is collected.
