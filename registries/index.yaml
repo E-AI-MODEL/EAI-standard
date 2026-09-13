@@ -1,5 +1,5 @@
 standard_version: 0.4.0-candidate
-artifact_version: 0.2.1-candidate
+artifact_version: 0.2.2-candidate
 status: candidate
 
 skill_registries:
@@ -19,6 +19,10 @@ microstructure_registries:
     actor: learner
     skill: argumentation
     path: microstructures/argumentation.yaml
+  - id: REG-MS-LEARNER-SELFREG
+    actor: learner
+    skills: [LSK-040, LSK-041, LSK-042, LSK-043, LSK-044, LSK-045, LSK-046, LSK-047, LSK-048]
+    path: microstructures/learner-self-regulation-and-metacognition.yaml
   - id: REG-MS-TEACHER-DIAGNOSTIC
     actor: teacher_professional
     skill: diagnostic_professional_judgement
@@ -47,6 +51,7 @@ coverage_audits:
     purpose: >-
       Makes current skill-to-microstructure coverage and priority gaps explicit without treating absence of a dedicated decomposition as a conformance failure.
     resolution_log: coverage/resolution-log.yaml
+    current_status: coverage/current-status.yaml
 
 rules:
   - Registry entries instantiate or refine reusable content but do not redefine canonical EAI vocabulary.
