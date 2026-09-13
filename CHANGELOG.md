@@ -13,7 +13,13 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - explicit publication model separating specification, machine contract, conformance and implementation guidance;
 - documentation for standard versioning and identifiers;
 - documentation for the future executable conformance suite;
-- conformant, conformant-with-unknowns and non-conformant result fixtures.
+- conformant, conformant-with-unknowns and non-conformant result fixtures;
+- machine-readable skill-to-microstructure coverage audit plus current-status and resolution tracking;
+- learner self-regulation and metacognition registry with sixteen candidate microstructures covering goal setting, planning, strategy selection, monitoring, help regulation, regulatory handback, adjustment, effort regulation, self-evaluation and reflection;
+- `REM-11 return_regulatory_control` remediation pattern;
+- self-regulation worked examples and conformance fixtures showing the difference between visible task execution and learner regulation;
+- human-readable self-regulation and metacognition documentation;
+- reverse evidence mapping for the new self-regulation registry with explicit candidate-validation limits.
 
 ### Changed
 
@@ -28,7 +34,9 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - conformance result and diagnostic JSON Schemas were updated to the separated result model;
 - EDI and pedagogical conformance fixtures were migrated to the two-axis result model;
 - README and governance now distinguish standard version, supporting artifact versions and external source versions;
-- README now states that a different presentation of existing semantics is not by itself reason for a canonical model change.
+- README now states that a different presentation of existing semantics is not by itself reason for a canonical model change;
+- the pedagogical judgement registry now explicitly links its existing operations to `TSK-066`, `TSK-067` and `TSK-068`;
+- current registry coverage is now reported separately from the original audit snapshot; learner deep candidate coverage increases from 4 to 13 skills and total microstructure count from 77 to 93.
 
 ### Removed
 
@@ -58,6 +66,8 @@ Implementations of 0.3.x conformance output must migrate before claiming 0.4.0 c
 Unknown information is not itself a standards violation. A representation may conform precisely because it preserves uncertainty rather than inventing a stronger judgement. Conversely, an explicit normative violation remains non-conformant even when all underlying information is known.
 
 This change repairs that distinction without changing the substantive EAI concepts of human action, AI action, evidence, handback, remediation, adapters or system profiles.
+
+The new self-regulation registry is non-canonical reusable content. It makes regulatory allocation inspectable without turning self-regulation into a universally protected action or changing the canonical standard surface.
 
 ### Open release item
 
