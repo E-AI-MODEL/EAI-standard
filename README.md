@@ -53,6 +53,25 @@ Een adapter herschrijft een bestaand onderwijsmodel niet naar EAI. Eerst wordt d
 
 Dit voorkomt dat bijvoorbeeld EDI, Direct Instruction, expliciete instructie of een pedagogisch model ongemerkt worden versimpeld om in de standaard te passen.
 
+De eerste instructie-adapters zijn nu operationeel als candidates:
+
+- [`adapters/explicit-instruction-archer-hughes/`](adapters/explicit-instruction-archer-hughes/): Archer & Hughes Explicit Instruction;
+- [`adapters/edi-2.0/`](adapters/edi-2.0/): Expliciete Directe Instructie 2.0;
+- [`adapters/direct-instruction-engelmann/`](adapters/direct-instruction-engelmann/): capital-D Direct Instruction in de Engelmann-traditie.
+
+De modellen worden bewust niet samengevoegd. De familie-index in [`adapters/direct-explicit-instruction-family/`](adapters/direct-explicit-instruction-family/) maakt overlap en structurele verschillen zichtbaar. [`adapters/index.yaml`](adapters/index.yaml) is de machineleesbare adapter-index.
+
+## Menselijk handelen en microstructures
+
+Naast de brede docent- en leerlingskills zijn nu diepere, herbruikbare registries toegevoegd voor:
+
+- argumenteren;
+- professioneel diagnosticeren en interpreteren van leerlingbewijs;
+- scaffolding, feedback en het afbouwen van ondersteuning;
+- retrieval, zelfstandige heruitvoering, retentie en transfer.
+
+De actuele registry-index staat in [`registries/index.yaml`](registries/index.yaml).
+
 ## Conformance
 
 Conformance is profielspecifiek en gebruikt drie toestanden:
@@ -62,6 +81,8 @@ Conformance is profielspecifiek en gebruikt drie toestanden:
 - `invalid`.
 
 Validators geven gestructureerde diagnostics terug in plaats van alleen `true` of `false`. Canonieke codes staan in [`standard/diagnostics.yaml`](standard/diagnostics.yaml). Profielen staan in [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
+
+De EDI-voorbeelden bevatten inmiddels drie expliciete testgevallen: een geldige guided-practice allocatie, AI-overname bij een kleine lesafsluiting en een docentbeslissing die `unknown` blijft door ontbrekend bewijs.
 
 ## Extensies
 
@@ -85,9 +106,11 @@ Niveau, leeftijd, vak, curriculum en specifieke onderwijsmodellen worden als uit
 
 De evidence-laag staat los van de normatieve standaard. Voor AI-specifieke claims ligt de prioriteit op recent onderzoek uit 2025-2026. Claims worden expliciet gekoppeld aan bronnen en krijgen een voorlopige evidence strength. Een bron creëert niet automatisch een normatieve regel, en wetenschappelijke aansluiting is niet hetzelfde als validatie van de standaard zelf.
 
+Bij modeladapters wordt daarnaast onderscheid gemaakt tussen **model-definition sources** en **effectiveness evidence**. Een actuele modelbron kan oud onderzoek bevatten of een oudere traditie beschrijven; dat maakt modelbeschrijving niet automatisch effectiviteitsbewijs. Omgekeerd wordt bewijs voor capital-D Direct Instruction niet gebruikt alsof het bewijs is voor EDI of elke vorm van expliciete instructie.
+
 ## Eerste referentiecase
 
-`Argumenteren` is de eerste uitgebreide microstructure-case. Daarmee wordt getest of de standaard voldoende precies onderscheid maakt tussen bijvoorbeeld een standpunt kiezen, argumenten formuleren, relevantie beoordelen, tegenargumenten herkennen, weerleggen, structureren en concluderen.
+`Argumenteren` is de eerste uitgebreide leerling-microstructure-case. De instructie-adapters voegen daar nu docentdiagnose, support regulation en onafhankelijke heruitvoering aan toe, zodat dezelfde standaard zowel leerling- als professioneel handelen binnen een concrete procespositie kan analyseren.
 
 ## Versie
 
