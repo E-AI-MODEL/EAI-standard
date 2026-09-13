@@ -13,6 +13,7 @@ This directory contains human-readable documentation for the candidate standard.
 7. [`07-core-action-analysis.md`](07-core-action-analysis.md) — analysing human-AI allocation at action level.
 8. [`08-evidence-handback-remediation.md`](08-evidence-handback-remediation.md) — evidence, handback and renewed human performance.
 9. [`09-human-system-boundary.md`](09-human-system-boundary.md) — distinction between technical system functionality and human constructs.
+10. [`15-self-regulation-and-metacognition.md`](15-self-regulation-and-metacognition.md) — why visible task execution is not the same as learner regulation when AI selects routes, strategies or adjustments.
 
 ## Standardisation and implementation
 
@@ -39,7 +40,7 @@ Scientific evidence and claim mappings live under `../evidence/`. Evidence infor
 
 ## Registries
 
-Reusable skills, microstructures and remediation patterns live under `../registries/`. The presence of a skill does not imply that it already has deep microstructure coverage. Current coverage is made explicit in `../registries/coverage/skill-microstructure-coverage.yaml`.
+Reusable skills, microstructures and remediation patterns live under `../registries/`. The presence of a skill does not imply that it already has deep microstructure coverage. The initial audit is stored in `../registries/coverage/skill-microstructure-coverage.yaml`; accepted changes are tracked in `../registries/coverage/resolution-log.yaml`, and the current coverage position is stored in `../registries/coverage/current-status.yaml`.
 
 ## Adapters and examples
 
