@@ -1,0 +1,27 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-DI-ENGELMANN
+
+purpose: >-
+  Connects the EAI interpretation of capital-D Direct Instruction to current EAI evidence claims while keeping the model's own effectiveness literature separate.
+
+links:
+  - source_elements: [DI-E05, DI-E07, DI-E12]
+    eai_interpretation: Placement and progression are consequential professional decisions that depend on learner evidence and should not be reduced to an opaque AI classification.
+    evidence_claims: [CLM-007, CLM-008, CLM-009, CLM-015]
+    strength_note: Recent teacher-AI and assessment-validity evidence supports separating data, interpretation and professional routing decisions.
+
+  - source_elements: [DI-E08, DI-E09]
+    eai_interpretation: Frequent learner responding and error correction provide opportunities for evidence and repair, but AI correction can still displace learner detection or revision.
+    evidence_claims: [CLM-003, CLM-004, CLM-005, CLM-015]
+    strength_note: Recent AI-learning evidence distinguishes helpful designed support from answer-level substitution.
+
+  - source_elements: [DI-E13]
+    eai_interpretation: Movement from modelling and guided performance toward learner application creates a handback boundary relevant to claims of independent capability.
+    evidence_claims: [CLM-002, CLM-005, CLM-009]
+    strength_note: Current evidence supports treating supported performance and independent mastery as different claims.
+
+model_effectiveness_context:
+  sources: [DI-EVID-01, DI-EVID-02]
+  note: >-
+    The model-specific effectiveness synthesis is older than the recent-first AI evidence window but retained because it directly concerns capital-D Direct Instruction. This evidence is not transferred to other instruction models.
