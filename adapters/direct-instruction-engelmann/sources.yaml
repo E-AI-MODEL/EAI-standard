@@ -1,0 +1,65 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-DI-ENGELMANN
+
+model_definition_sources:
+  - id: DI-SRC-01
+    type: official_model_source
+    organisation: National Institute for Direct Instruction
+    title: Basic Philosophy of Direct Instruction
+    url: https://www.nifdi.org/what-is-di/basic-philosophy
+    use_in_adapter: [model_identity, incremental_design, prescribed_teaching_tasks]
+
+  - id: DI-SRC-02
+    type: official_model_source
+    organisation: National Institute for Direct Instruction
+    title: Authentic Direct Instruction program and delivery features
+    url: https://www.nifdi.org/what-is-di/61-uncategorised/927-authentic-direct-instruction.html
+    use_in_adapter: [field_testing, scripted_presentation, aligned_materials, placement, mastery_assessment, signaling, correction, pacing, progress_recording]
+
+  - id: DI-SRC-03
+    type: official_model_source
+    organisation: National Institute for Direct Instruction
+    title: Teaching to Mastery
+    url: https://www.nifdi.org/how-to-be-successful/teaching-to-mastery.html
+    use_in_adapter: [mastery, placement, incremental_new_material, review_and_application]
+
+  - id: DI-SRC-04
+    type: official_model_source
+    organisation: National Institute for Direct Instruction
+    title: Focusing on Student Performance
+    url: https://www.nifdi.org/how-to-be-successful/focusing-on-student-performance
+    use_in_adapter: [performance_driven_routing, grouping, instructional_adjustment]
+
+  - id: DI-SRC-05
+    type: official_terminology_source
+    organisation: National Institute for Direct Instruction
+    title: DI vs. di - The Term Direct Instruction
+    url: https://www.nifdi.org/index.php?Itemid=728&id=106&option=com_content&view=article
+    use_in_adapter: [distinguish_capital_DI_from_generic_direct_instruction]
+
+effectiveness_context_sources:
+  - id: DI-EVID-01
+    type: peer_reviewed_meta_analysis
+    authors: [Jean Stockard, Timothy W. Wood, Cristy Coughlin, Caitlin Rasplica Khoury]
+    year: 2018
+    title: The Effectiveness of Direct Instruction Curricula: A Meta-Analysis of a Half Century of Research
+    publication: Review of Educational Research
+    doi: 10.3102/0034654317751919
+    note: >-
+      Older than the preferred recent-first window, but retained because it is a model-specific synthesis covering the capital-D Direct Instruction curricular tradition. It is not used as evidence for generic explicit instruction or EDI.
+
+  - id: DI-EVID-02
+    type: archived_meta_analysis_dataset
+    author: Jean Stockard
+    year: 2023
+    title: A Meta-Analysis of 50 Years of Research on the Direct Instruction Curricular Program, 8 countries, 1966-2017
+    repository: ICPSR
+    doi: 10.3886/ICPSR38766.v1
+    note: Provides the archived data associated with the model-specific evidence base; does not make the underlying studies recent.
+
+boundaries:
+  - NIFDI materials define the model but are not independent effectiveness evidence.
+  - The 2018 meta-analysis is retained as a justified older exception because of its model specificity and scale.
+  - Evidence for capital-D Direct Instruction must not be transferred to generic direct instruction, Archer-Hughes Explicit Instruction or EDI without an explicit bridge.
+  - Program-specific outcomes may depend on implementation fidelity, placement and curriculum; the adapter itself is not an effectiveness claim.
