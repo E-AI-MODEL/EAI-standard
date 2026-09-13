@@ -1,0 +1,81 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate_status
+
+purpose: >-
+  Gives the current registry-coverage position after applying resolutions from the initial coverage audit. The detailed audit remains an inspectable baseline; this file records the current state after accepted additions and corrections.
+
+baseline_audit: skill-microstructure-coverage.yaml
+resolution_log: resolution-log.yaml
+
+current_summary:
+  teacher_professional:
+    skill_count: 57
+    deep: 24
+    partial: 18
+    none: 15
+    note: >-
+      TSK-066, TSK-067 and TSK-068 are now explicitly related to the pedagogical judgement registry and therefore move from partial to deep candidate coverage.
+  learner:
+    skill_count: 56
+    deep: 13
+    partial: 14
+    none: 29
+    note: >-
+      The nine self-regulation and metacognition skills LSK-040 through LSK-048 now have direct coverage in the learner self-regulation registry.
+  ai_interaction_cross_cutting:
+    skill_count: 24
+    deep: 0
+    partial: 11
+    none: 13
+    note: >-
+      New self-regulation microstructures explicitly contribute to several AI-interaction skills, but these remain classified as partial because the cross-cutting skill meaning is broader than the new registry alone.
+  microstructure_registries: 6
+  microstructure_count: 93
+
+new_deep_coverage:
+  - LSK-040
+  - LSK-041
+  - LSK-042
+  - LSK-043
+  - LSK-044
+  - LSK-045
+  - LSK-046
+  - LSK-047
+  - LSK-048
+  - TSK-066
+  - TSK-067
+  - TSK-068
+
+current_priority_order:
+  - priority: 1
+    target: teacher_assessment_and_evidence_judgement
+    skills: [TSK-050, TSK-051, TSK-052, TSK-053, TSK-054]
+    rationale: >-
+      Evidence, mastery and professional judgement are central EAI claims, while these teacher actions still lack a coherent action-level decomposition.
+  - priority: 2
+    target: learner_reasoning_and_problem_solving
+    skills: [LSK-020, LSK-021, LSK-022, LSK-023, LSK-024, LSK-026, LSK-027, LSK-028]
+    rationale: >-
+      Argumentation is deeply represented, but general analysis, inference, causal reasoning, problem solving, evaluation and decision are not.
+  - priority: 3
+    target: teacher_design_and_task_architecture
+    skills: [TSK-001, TSK-003, TSK-004, TSK-005, TSK-006, TSK-007, TSK-008, TSK-010]
+    rationale: >-
+      AI can change the distribution of human action before execution begins by changing goals, task structure, support, independence and evidence opportunities.
+  - priority: 4
+    target: learner_research_and_source_evaluation
+    skills: [LSK-060, LSK-061, LSK-062, LSK-063, LSK-064, LSK-065, LSK-066, LSK-067]
+  - priority: 5
+    target: teacher_instruction_and_modelling
+    skills: [TSK-020, TSK-021, TSK-022, TSK-023, TSK-024, TSK-025, TSK-026]
+  - priority: 6
+    target: learner_knowledge_building_and_orientation
+    skills: [LSK-001, LSK-003, LSK-004, LSK-005, LSK-010, LSK-011, LSK-012, LSK-013, LSK-014, LSK-015, LSK-016, LSK-017]
+  - priority: 7
+    target: creation_social_collaboration_and_professional_reflection
+
+interpretation_rules:
+  - Coverage is a registry-development status, not EAI case conformance.
+  - Deep coverage means candidate-stage decomposition exists; it does not mean empirical construct validation is complete.
+  - A later implementation test may show that a skill needs less or more decomposition than currently represented.
