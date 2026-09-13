@@ -1,4 +1,4 @@
-version: 0.2.0-candidate
+version: 0.2.1-candidate
 status: candidate
 scope: recent_scientific_claim_map_2025_2026
 
@@ -8,11 +8,7 @@ claims:
     statement: >-
       Generative AI use in education should not be classified globally as beneficial or harmful. Learning effects vary materially with instructional design, task type, subject, duration, learner behaviour and the role assigned to AI.
     strength: A
-    supports:
-      - SRC-2026-BOOLZEN
-      - SRC-2026-WU
-      - SRC-2025-CHEN-CHEUNG
-      - SRC-2025-LIU
+    supports: [SRC-2026-BOOLZEN, SRC-2026-WU, SRC-2025-CHEN-CHEUNG, SRC-2025-LIU]
     implications:
       - AI actions should be described in relation to goal and process position.
       - Model adapters and context profiles are necessary for meaningful interpretation.
@@ -22,10 +18,7 @@ claims:
     statement: >-
       Strong task performance while generative AI is available does not by itself establish that the learner can perform the relevant operation independently after support is removed.
     strength: A
-    supports:
-      - SRC-2025-BASTANI
-      - SRC-2026-STROMBERG
-      - SRC-2026-WEIDLICH
+    supports: [SRC-2025-BASTANI, SRC-2026-STROMBERG, SRC-2026-WEIDLICH]
     implications:
       - Current performance and independent mastery must be represented as separate claim types.
       - AI-supported products are insufficient as sole evidence for independent mastery.
@@ -36,12 +29,8 @@ claims:
     statement: >-
       When generative AI supplies substantive solution steps or answers that learners would otherwise need to generate, immediate task performance can improve while later unaided performance can deteriorate in some settings.
     strength: B
-    supports:
-      - SRC-2025-BASTANI
-      - SRC-2026-STROMBERG
-    qualifies:
-      - SRC-2025-KESTIN
-      - SRC-2026-WU
+    supports: [SRC-2025-BASTANI, SRC-2026-STROMBERG]
+    qualifies: [SRC-2025-KESTIN, SRC-2026-WU]
     implications:
       - The relevant unit of analysis is which human operation AI performs, not how much AI is used.
       - Full or partial AI performance of a target operation should be distinguishable from hints, questions and feedback.
@@ -51,11 +40,7 @@ claims:
     statement: >-
       Deliberately designed AI tutoring that elicits learner activity, sequences help and avoids simply providing answers can improve learning outcomes in some educational settings.
     strength: B
-    supports:
-      - SRC-2025-KESTIN
-      - SRC-2025-BASTANI
-      - SRC-2025-TUTORCOPILOT
-      - SRC-2026-WU
+    supports: [SRC-2025-KESTIN, SRC-2025-BASTANI, SRC-2026-WU]
     implications:
       - The standard must distinguish tutoring actions such as questioning, hinting and feedback from full task performance.
       - AI support should not be treated as equivalent to AI takeover.
@@ -65,10 +50,7 @@ claims:
     statement: >-
       The learning effect of generative AI depends partly on whether AI augments learner cognitive activity or substitutes for cognitive activity that is relevant to the intended learning.
     strength: A
-    supports:
-      - SRC-2026-BOOLZEN
-      - SRC-2025-BASTANI
-      - SRC-2026-STROMBERG
+    supports: [SRC-2026-BOOLZEN, SRC-2025-BASTANI, SRC-2026-STROMBERG]
     implications:
       - Core human actions and microstructures should be identified before judging human-AI allocation.
       - Takeover should be evaluated at the smallest useful operation level.
@@ -78,88 +60,105 @@ claims:
     statement: >-
       As generative AI takes on information generation or solution production, human cognitive work can shift toward verification, integration and stewardship rather than disappear entirely.
     strength: C
-    supports:
-      - SRC-2025-LEE
+    supports: [SRC-2025-LEE]
     implications:
       - Verification, comparison and selection should be representable as human microstructures.
       - Human involvement should not be inferred from nominal approval alone; the performed judgement must be visible.
 
   - id: CLM-007
-    label: expertise_changes_human_ai_use
+    label: teacher_ai_collaboration_distributes_epistemic_agency
     statement: >-
-      The quality and character of human-AI collaboration depend partly on the human's domain knowledge, task confidence and professional expertise.
-    strength: C
-    supports:
-      - SRC-2025-LEE
-      - SRC-2025-TUTORCOPILOT
+      In teacher-AI collaboration, initiative, authority and epistemic agency can be distributed differently across interactions; teacher AI competence therefore cannot be reduced to tool operation or self-reported familiarity.
+    strength: B
+    supports: [SRC-2026-VELANDER, SRC-2026-COSTACHE]
     implications:
-      - The same AI action may have different effects for different users and contexts.
-      - Context profiles may later include relevant expertise or independence expectations without redefining core terms.
+      - Teacher and AI actions should be represented separately.
+      - Professional judgement should be modelled as situated action, not inferred from tool use frequency.
+      - Adapters should be able to represent who detects, diagnoses, selects and acts.
 
   - id: CLM-008
+    label: professional_judgement_is_a_distinct_teacher_competence
+    statement: >-
+      Recent teacher-AI research supports treating pedagogical judgement, ethical responsibility and professional agency as distinct dimensions of professionally meaningful GenAI use.
+    strength: B
+    supports: [SRC-2026-ALDIGHRIR, SRC-2026-COSTACHE, SRC-2026-VELANDER]
+    implications:
+      - Teacher skills should include judgement about task appropriateness, learner needs, educational purpose and consequences.
+      - Human responsibility should not collapse into nominal approval of AI-generated recommendations.
+
+  - id: CLM-009
     label: assessment_inference_requires_valid_evidence
     statement: >-
       When AI contributes materially to the observed product, the product may support weaker or different inferences about the learner's unaided capability than it would without AI contribution.
     strength: B
-    supports:
-      - SRC-2026-WEIDLICH
-      - SRC-2026-STROMBERG
-      - SRC-2025-BASTANI
+    supports: [SRC-2026-WEIDLICH, SRC-2026-STROMBERG, SRC-2025-BASTANI]
     implications:
       - Evidence type must match the claim being made.
       - The standard must distinguish evidence about a product from evidence about human capability.
       - Assessment cases should record relevant AI contribution.
 
-  - id: CLM-009
+  - id: CLM-010
     label: long_term_learning_needs_separate_evidence
     statement: >-
       Immediate post-task success is insufficient to establish retention or transfer; later and meaningfully different performances are separate evidential claims.
     strength: B
-    supports:
-      - SRC-2026-STROMBERG
-      - SRC-2025-BASTANI
-      - SRC-2026-BOOLZEN
+    supports: [SRC-2026-STROMBERG, SRC-2025-BASTANI, SRC-2026-BOOLZEN]
     implications:
       - Retention and transfer remain separate claim types.
       - Delayed reperformance and novel-context performance should be explicit evidence types.
 
-  - id: CLM-010
+  - id: CLM-011
     label: ai_literacy_is_task_specific
     statement: >-
       General familiarity with AI does not by itself demonstrate the judgement needed to use AI appropriately in a specific assessment or learning task.
-    strength: C
-    supports:
-      - SRC-2026-GAA-LS
+    strength: B
+    supports: [SRC-2026-GAA-LS, SRC-2026-ALDIGHRIR]
     implications:
       - Skills registries should distinguish generic tool operation from task-boundary judgement, verification and interpretation.
+      - Teacher and learner profiles should represent context-sensitive judgement separately from AI use frequency.
 
-  - id: CLM-011
+  - id: CLM-012
     label: evidence_base_is_still_heterogeneous
     statement: >-
       The current evidence base on generative AI and learning is heterogeneous, concentrated in particular subjects and settings, and still limited for long-term learning, transfer and development across age groups.
     strength: A
-    supports:
-      - SRC-2026-BOOLZEN
-      - SRC-2026-WU
-      - SRC-2025-CHEN-CHEUNG
-      - SRC-2025-LIU
+    supports: [SRC-2026-BOOLZEN, SRC-2026-WU, SRC-2025-CHEN-CHEUNG, SRC-2025-LIU]
     implications:
       - Candidate rules should not be presented as universally validated effects.
       - Unknown or unsupported cases should remain unknown rather than be forced into a judgement.
       - Context-specific validation remains necessary.
 
-  - id: CLM-012
+  - id: CLM-013
     label: recent_large_scale_usage_patterns_differ
     statement: >-
       Large-scale recent student data suggest that associations between AI use and performance differ by how AI is used; general use and schoolwork-specific substitution are not interchangeable exposure categories.
     strength: C
-    supports:
-      - SRC-2026-OECD-PISA
+    supports: [SRC-2026-OECD-PISA]
     implications:
       - Usage frequency alone is a weak descriptor of educational impact.
       - Human-AI allocation should be described by action and purpose rather than by simple use/non-use labels.
 
+  - id: CLM-014
+    label: task_boundary_judgement_is_part_of_ai_assessment_literacy
+    statement: >-
+      Recent assessment-literacy research treats judgement about whether AI is appropriate for a task, verification of AI output, interpretation of criteria and responsible attribution as distinguishable capabilities.
+    strength: C
+    supports: [SRC-2026-GAA-LS]
+    implications:
+      - Learner skills can include AI-task appropriateness judgement and verification without making generic AI literacy the organising principle of the standard.
+
+  - id: CLM-015
+    label: recent_evidence_supports_action_level_analysis
+    statement: >-
+      Across recent positive and negative studies, educational outcomes differ according to what AI actually does in the task and what cognitive or professional work remains with the human.
+    strength: A
+    supports: [SRC-2026-BOOLZEN, SRC-2026-STROMBERG, SRC-2025-BASTANI, SRC-2025-KESTIN, SRC-2026-VELANDER, SRC-2026-COSTACHE]
+    implications:
+      - Action-level human-AI allocation is a more defensible organising unit than binary AI use or tool categories.
+      - Core human actions and microstructures remain candidate standard constructs requiring direct validation, but they are aligned with the direction of current evidence.
+
 notes:
   - Claims are candidate evidence statements, not normative rules by themselves.
-  - Older foundational learning-science literature may later be connected as theoretical background, but recent AI-specific empirical evidence is the primary support for AI-specific claims.
-  - Preprints and working papers are retained only when they add recent designs, longitudinal evidence or assessment concepts not yet available in peer-reviewed form, and are explicitly marked in sources.yaml.
+  - The evidence map deliberately distinguishes direct empirical support from conceptual alignment.
+  - Older foundational learning-science literature may be connected as theoretical background, but recent AI-specific empirical evidence is the primary support for AI-specific claims.
+  - Preprints, working papers and observational policy datasets are retained only with explicit status and limitations.
