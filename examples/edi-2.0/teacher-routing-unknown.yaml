@@ -1,5 +1,5 @@
 id: EX-EDI-ROUTE-001
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 context: >-
   After guided practice, an AI dashboard labels a learner as needing extended instruction. The dashboard exposes the score but not the underlying learner responses or the basis for the classification.
 goal: Decide whether the learner should continue to independent work or receive additional instruction.
@@ -43,4 +43,4 @@ unknowns:
   - The classification rule used by the AI dashboard is unavailable.
   - It is unknown whether the score distinguishes a knowledge gap from an execution error.
 notes: >-
-  The correct conformance state is unknown rather than invalid solely because the evidence required to inspect the professional judgement is missing. A teacher decision made despite that uncertainty may create a separate normative issue.
+  The representation remains conformant only while this uncertainty is preserved and the professional judgement is not presented as established. A teacher decision made despite that uncertainty may create a separate normative violation.
