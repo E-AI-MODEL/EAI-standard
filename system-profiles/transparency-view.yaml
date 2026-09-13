@@ -1,0 +1,127 @@
+version: 0.1.0-candidate
+status: non_normative_presentation_view
+
+purpose: >-
+  Human-readable projection of the existing EAI System Profile. It groups existing semantic fields around questions that are useful for transparency and audit. It is not a second system-profile model and does not redefine any field.
+
+source_model: system-profile.schema.json
+
+projection_rule: >-
+  Every item in this view is derived from an existing system-profile field, feature-state record, verification event or evidence reference. A presentation label may change without changing the underlying semantic field.
+
+sections:
+  - id: VIEW-01
+    label_nl: Identiteit
+    question_nl: Welk systeem en welke modellen zijn feitelijk in gebruik?
+    sources:
+      - layers.model.model_name
+      - layers.model.model_version
+      - layers.model.provider
+      - layers.model.deployment_type
+      - layers.model.modalities
+
+  - id: VIEW-02
+    label_nl: Berekening en orkestratie
+    question_nl: Hoe wordt output technisch tot stand gebracht en gecontroleerd?
+    sources:
+      - layers.inference
+      - layers.orchestration
+      - verification_events
+    presentation_notes:
+      - Vendor labels such as reasoning effort are presented as inference configuration, not as evidence of human-like reasoning.
+      - Verification method and verification result are shown separately.
+
+  - id: VIEW-03
+    label_nl: Data en context
+    question_nl: Welke informatie kan het systeem gebruiken en waar komt die vandaan?
+    sources:
+      - layers.context_and_data
+      - source_references
+      - feature_states
+    preferred_focus:
+      - retrieval_augmented_generation
+      - knowledge_sources
+      - source_freshness
+      - session_memory
+      - persistent_memory
+      - user_context
+      - task_context
+      - data_boundaries
+
+  - id: VIEW-04
+    label_nl: Handelingsvermogen
+    question_nl: Welke externe handelingen kan het systeem uitvoeren en welke zijn hier beschikbaar of daadwerkelijk gebruikt?
+    sources:
+      - layers.tools_and_actions
+      - layers.application.autonomy_level
+      - layers.application.proactive_behaviour
+      - layers.application.task_boundaries
+      - feature_states
+    presentation_notes:
+      - Show supported, enabled and observed as separate states when available.
+      - Do not infer product capability from a deployment in which a feature is disabled.
+
+  - id: VIEW-05
+    label_nl: Menselijke zeggenschap
+    question_nl: Waar kan een bevoegde mens beslissen, stoppen, wijzigen of escaleren?
+    sources:
+      - layers.application.human_decision_points
+      - layers.application.escalation_points
+      - layers.governance_and_control.authorisation
+      - layers.governance_and_control.accountable_role
+      - layers.governance_and_control.human_override
+      - layers.governance_and_control.escalation
+      - layers.governance_and_control.auditability
+    presentation_notes:
+      - Assigned responsibility and effective operational control are different facts.
+      - A human approval step should not be presented as effective oversight without evidence that intervention was timely and meaningful.
+
+  - id: VIEW-06
+    label_nl: Veiligheid en risicobeheersing
+    question_nl: Welke technische en organisatorische waarborgen en bekende beperkingen zijn zichtbaar?
+    sources:
+      - layers.model.known_limitations
+      - layers.evaluation.safety
+      - layers.evaluation.security
+      - layers.evaluation.bias_or_fairness
+      - layers.governance_and_control.access_control
+      - layers.governance_and_control.monitoring
+      - layers.governance_and_control.incident_handling
+    presentation_notes:
+      - Do not infer undocumented training or post-training details.
+      - Unknown provider information remains unknown.
+
+  - id: VIEW-07
+    label_nl: Bewijs en evaluatie
+    question_nl: Welke claims worden over het systeem gedaan, wat is gemeten en waarop berust dat bewijs?
+    sources:
+      - layers.evaluation
+      - feature_states.evidence_basis
+      - feature_states.evidence_refs
+      - verification_events
+      - source_references
+    presentation_notes:
+      - Distinguish provider declarations, deployment observations and independent tests.
+      - Technical benchmark or task performance is not evidence of human learning effectiveness.
+
+  - id: VIEW-08
+    label_nl: Veranderlijkheid
+    question_nl: Welke onderdelen kunnen veranderen en hoe is dat traceerbaar?
+    sources:
+      - layers.model.model_version
+      - layers.inference
+      - layers.orchestration
+      - layers.context_and_data.source_freshness
+      - layers.context_and_data.knowledge_sources
+      - layers.tools_and_actions.tool_permissions
+      - layers.evaluation.regression_testing
+      - layers.evaluation.version_drift
+      - layers.governance_and_control.change_control
+      - layers.governance_and_control.release_management
+      - observed_at
+    presentation_notes:
+      - A product name alone does not identify a stable system configuration.
+      - Material model, prompt/policy, retrieval, tool or permission changes should be versioned when reproducibility matters.
+
+rendering_principle: >-
+  Machine-readable schemas and human-readable transparency views are two representations of the same underlying semantic record. The view may omit empty or unknown non-material fields, but it must not change their meaning or present absence as a substantive value.
