@@ -15,7 +15,7 @@ sources:
   - id: SRC-2026-BOOLZEN
     year: 2026
     authors: [Chiara Boolzen, Jochen Kuhn, Salome Flegr, Eva-Maria Rott, Niklas Stausberg, Stefan Kuechemann]
-    title: Evidence of impact and interpretational limits of generative AI in STEM education: a systematic review and meta-analysis on cognitive learning outcomes
+    title: "Evidence of impact and interpretational limits of generative AI in STEM education: a systematic review and meta-analysis on cognitive learning outcomes"
     publication: Artificial Intelligence Review
     type: peer_reviewed_systematic_review_meta_analysis
     doi: 10.1007/s10462-026-11665-9
@@ -32,7 +32,7 @@ sources:
   - id: SRC-2026-STROMBERG
     year: 2026
     authors: [David Stromberg, Victor Lei, Yanhui Wu]
-    title: The Generative AI Learning Penalty: Evidence from Chinese Secondary Education
+    title: "The Generative AI Learning Penalty: Evidence from Chinese Secondary Education"
     publication: CEPR Discussion Paper DP21577
     type: working_paper_longitudinal_panel_quasi_experimental
     published: 2026-06-02
@@ -52,7 +52,7 @@ sources:
   - id: SRC-2026-WU
     year: 2026
     authors: [Xinning Wu, Pei Zhu, Jinliang Zhang, Mengwei Yin, Yingxi Wang]
-    title: ChatGPT's impact on student learning outcomes: a meta-analysis of 35 experimental studies
+    title: "ChatGPT's impact on student learning outcomes: a meta-analysis of 35 experimental studies"
     publication: Humanities and Social Sciences Communications
     type: peer_reviewed_meta_analysis
     doi: 10.1057/s41599-026-07019-z
@@ -67,7 +67,7 @@ sources:
   - id: SRC-2026-OECD-PISA
     year: 2026
     authors: [OECD]
-    title: PISA 2025 Results Volume I - Future-Ready Students
+    title: "PISA 2025 Results Volume I - Future-Ready Students"
     publication: OECD Publishing
     type: large_scale_international_assessment_observational
     doi: 10.1787/73451bc5-en
@@ -84,7 +84,7 @@ sources:
   - id: SRC-2026-WEIDLICH
     year: 2026
     authors: [Joshua Weidlich]
-    title: When Students Use AI: Toward Validity-Centered Assessment Design
+    title: "When Students Use AI: Toward Validity-Centered Assessment Design"
     publication: SocArXiv / OSF preprint
     type: preprint_conceptual_assessment_validity
     doi: 10.31235/osf.io/f6hz7_v1
@@ -100,7 +100,7 @@ sources:
   - id: SRC-2026-VELANDER
     year: 2026
     authors: [Johanna Velander]
-    title: Beyond operational skills: Teachers' AI knowledge and interactions with generative AI in lesson planning
+    title: "Beyond operational skills: Teachers' AI knowledge and interactions with generative AI in lesson planning"
     publication: Computers and Education Open
     type: peer_reviewed_mixed_methods_teacher_practice
     doi: 10.1016/j.caeo.2026.100371
@@ -115,7 +115,7 @@ sources:
   - id: SRC-2026-ALDIGHRIR
     year: 2026
     authors: [Wafa Mohammed Aldighrir]
-    title: Development and validation of the teachers generative AI professional competence scale
+    title: "Development and validation of the teachers generative AI professional competence scale"
     publication: Scientific Reports
     type: peer_reviewed_scale_development_validation
     doi: 10.1038/s41598-026-65021-6
@@ -132,7 +132,7 @@ sources:
   - id: SRC-2026-COSTACHE
     year: 2026
     authors: [Oana Costache, Roald Pieter Verhoeff, Pierre Gorissen]
-    title: Teacher-AI Collaboration and the Professionalization of Teachers in the Age of Automation: A Systematic Review
+    title: "Teacher-AI Collaboration and the Professionalization of Teachers in the Age of Automation: A Systematic Review"
     publication: Education Sciences
     type: peer_reviewed_systematic_review
     doi: 10.3390/educsci16060938
@@ -146,7 +146,7 @@ sources:
   - id: SRC-2026-GAA-LS
     year: 2026
     authors: [Juntao Nie, Zeyu Zhang, Xiaomei Lu, Yinlan Zhang, Min Zhang]
-    title: Development and validation of the generative AI assessment literacy scale for higher education students: psychometric evidence and associations with feedback engagement and academic integrity
+    title: "Development and validation of the generative AI assessment literacy scale for higher education students: psychometric evidence and associations with feedback engagement and academic integrity"
     publication: Frontiers in Education
     type: peer_reviewed_scale_development_validation
     doi: 10.3389/feduc.2026.1934632
@@ -160,7 +160,7 @@ sources:
   - id: SRC-2025-BASTANI
     year: 2025
     authors: [Hamsa Bastani, Osbert Bastani, Alp Sungu, Haosen Ge, Ozge Kabakci, Rei Mariman]
-    title: Generative AI without guardrails can harm learning: Evidence from high school mathematics
+    title: "Generative AI without guardrails can harm learning: Evidence from high school mathematics"
     publication: Proceedings of the National Academy of Sciences
     type: peer_reviewed_field_experiment
     doi: 10.1073/pnas.2422633122
@@ -177,7 +177,7 @@ sources:
   - id: SRC-2025-KESTIN
     year: 2025
     authors: [Greg Kestin, Kelly Miller, Anna Klales, Timothy Milbourne, Gregorio Ponti]
-    title: AI tutoring outperforms in-class active learning: an RCT introducing a novel research-based design in an authentic educational setting
+    title: "AI tutoring outperforms in-class active learning: an RCT introducing a novel research-based design in an authentic educational setting"
     publication: Scientific Reports
     type: peer_reviewed_randomized_controlled_trial
     doi: 10.1038/s41598-025-97652-6
@@ -195,7 +195,7 @@ sources:
   - id: SRC-2025-LEE
     year: 2025
     authors: [Hao-Ping Hank Lee, Advait Sarkar, Lev Tankelevitch, Ian Drosos, Sean Rintel, Richard Banks, Nicholas Wilson]
-    title: The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers
+    title: "The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers"
     publication: CHI 2025 Proceedings
     type: peer_reviewed_mixed_methods_survey
     doi: 10.1145/3706598.3713778
@@ -212,7 +212,7 @@ sources:
   - id: SRC-2025-CHEN-CHEUNG
     year: 2025
     authors: [Shuzhen Chen, Alan C. K. Cheung]
-    title: Effect of generative artificial intelligence on university students learning outcomes: A systematic review and meta-analysis
+    title: "Effect of generative artificial intelligence on university students learning outcomes: A systematic review and meta-analysis"
     publication: Educational Research Review
     type: peer_reviewed_systematic_review_meta_analysis
     doi: 10.1016/j.edurev.2025.100737
@@ -227,7 +227,7 @@ sources:
   - id: SRC-2025-LIU
     year: 2025
     authors: [Xiaohong Liu, Baoxin Guo, Wei He, Xiaoyong Hu]
-    title: Effects of Generative Artificial Intelligence on K-12 and Higher Education Students' Learning Outcomes: A Meta-Analysis
+    title: "Effects of Generative Artificial Intelligence on K-12 and Higher Education Students' Learning Outcomes: A Meta-Analysis"
     publication: Journal of Educational Computing Research
     type: peer_reviewed_meta_analysis
     doi: 10.1177/07356331251329185
@@ -242,7 +242,7 @@ secondary_foundational_sources:
   - id: SRC-2024-TUTORCOPILOT
     year: 2024
     authors: [Rose E. Wang, Ana T. Ribeiro, Carly D. Robinson, Susanna Loeb, Dora Demszky]
-    title: Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise
+    title: "Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise"
     publication: arXiv preprint / field RCT report
     type: preprint_randomized_controlled_trial
     published: 2024-10-03
