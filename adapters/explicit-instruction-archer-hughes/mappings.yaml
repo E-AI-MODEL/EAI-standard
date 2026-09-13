@@ -1,0 +1,232 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-EI-ARCHER-HUGHES
+
+mapping_policy:
+  - Mappings identify plausible EAI concepts associated with the source model; they do not declare universal core actions.
+  - Candidate core actions become actual core human actions only in a concrete case with a stated goal and actor.
+  - Teacher and learner actions are represented separately.
+  - AI actions are descriptive possibilities, not recommendations.
+
+function_mappings:
+  - source_id: EI-F1
+    source_label: Review
+    mapping_status: mapped
+    teacher_professional:
+      source_actions_paraphrase:
+        - select relevant prior learning and prerequisites to revisit
+        - elicit responses that reveal whether prerequisites are available
+        - interpret whether learners are ready to proceed
+      candidate_skills: [TSK-002, TSK-026, TSK-030, TSK-031, TSK-035, TSK-036]
+      candidate_core_actions:
+        - determine whether relevant prerequisite knowledge is sufficiently available for the next instructional step
+      plausible_ai_actions:
+        - AIA-02
+        - AIA-07
+        - AIA-08
+        - AIA-09
+      displacement_risks:
+        - AI may pre-classify learner readiness and reduce the teacher's direct interpretation of learner evidence.
+        - AI-generated retrieval questions may be harmless when they merely supply items, but may displace design judgement if the question choice is itself educationally consequential.
+    learner:
+      source_actions_paraphrase:
+        - retrieve relevant prior learning
+        - respond to prerequisite checks
+        - reconnect earlier learning to the current goal
+      candidate_skills: [LSK-002, LSK-013, LSK-014, LSK-070]
+      candidate_core_actions:
+        - retrieve and reconstruct relevant prerequisite knowledge
+      plausible_ai_actions: [AIA-01, AIA-02, AIA-03, AIA-07]
+      displacement_risks:
+        - AI may provide the prerequisite answer before retrieval occurs.
+    evidence_points:
+      - learner response before substantive AI answer provision
+      - teacher interpretation of readiness where that judgement matters
+    handback_points:
+      - require unaided retrieval on a fresh item when AI supplied the reviewed content
+
+  - source_id: EI-F2
+    source_label: Presentation
+    mapping_status: mapped
+    teacher_professional:
+      source_actions_paraphrase:
+        - state the learning goal
+        - introduce material in manageable steps
+        - model procedures or reasoning
+        - select examples and contrasts
+        - maintain clear focused explanation
+      candidate_skills: [TSK-001, TSK-003, TSK-004, TSK-020, TSK-021, TSK-022, TSK-023, TSK-024]
+      candidate_core_actions:
+        - select and sequence what is made explicit for this learner group and goal
+        - model the target process in a way that preserves the distinction between demonstration and learner mastery
+      plausible_ai_actions: [AIA-01, AIA-04, AIA-05, AIA-06, AIA-09]
+      displacement_risks:
+        - AI may produce an explanation or sequence that the teacher adopts without judging fit to the learners or goal.
+        - AI modelling may be mistaken for evidence that the learner can execute the modelled process.
+    learner:
+      source_actions_paraphrase:
+        - attend to explanation and modelling
+        - distinguish relevant features in examples and nonexamples
+        - connect new material to prior knowledge
+      candidate_skills: [LSK-010, LSK-012, LSK-013, LSK-014, LSK-015]
+      candidate_core_actions:
+        - construct an initial representation of the new concept, procedure or strategy
+      plausible_ai_actions: [AIA-01, AIA-04, AIA-06]
+      displacement_risks:
+        - AI may summarise or reorganise the content so completely that the learner no longer has to identify the relevant relations.
+    evidence_points:
+      - learner explanation or discrimination after modelling
+      - responses showing whether the modelled distinction has been understood
+    handback_points:
+      - move from model inspection to learner execution before making a mastery claim
+
+  - source_id: EI-F3
+    source_label: Guided practice
+    mapping_status: mapped
+    teacher_professional:
+      source_actions_paraphrase:
+        - elicit frequent learner responses
+        - regulate task difficulty and support
+        - monitor success and errors
+        - provide prompts, clues and feedback
+        - decide when support can be reduced or more practice is required
+      candidate_skills: [TSK-006, TSK-007, TSK-026, TSK-030, TSK-031, TSK-032, TSK-035, TSK-040, TSK-041, TSK-042, TSK-043]
+      candidate_core_actions:
+        - interpret learner performance and regulate support contingently
+        - decide when to reduce support without removing the learner's opportunity to perform the target action
+      plausible_ai_actions: [AIA-02, AIA-03, AIA-07, AIA-08, AIA-09, AIA-10]
+      displacement_risks:
+        - AI may convert a hint into a substantive solution step and thereby perform the target learner operation.
+        - AI may recommend support levels that the teacher follows without evaluating learner evidence.
+    learner:
+      source_actions_paraphrase:
+        - attempt the target skill or strategy repeatedly
+        - respond to questions and prompts
+        - use feedback to correct performance
+        - increasingly perform with less support
+      candidate_skills: [LSK-016, LSK-024, LSK-043, LSK-044, LSK-045, LSK-047, LSK-071]
+      candidate_core_actions:
+        - execute and refine the target operation while support is still available
+      plausible_ai_actions: [AIA-02, AIA-03, AIA-07, AIA-08, AIA-10, AIA-11]
+      displacement_risks:
+        - partial or full AI performance may create successful practice output without corresponding human practice.
+        - rapid AI correction may remove the learner's opportunity to detect and repair an error.
+    evidence_points:
+      - observable learner attempt before answer provision
+      - learner correction after feedback
+      - repeated execution with decreasing support
+    handback_points:
+      - reduce AI support once success becomes stable
+      - require the learner to perform the same operation on a fresh item
+    remediation_candidates: [REM-02, REM-03, REM-05, REM-06]
+
+  - source_id: EI-F4
+    source_label: Corrections and feedback
+    mapping_status: mapped
+    teacher_professional:
+      source_actions_paraphrase:
+        - distinguish simple execution errors from deeper misunderstanding
+        - select corrective feedback
+        - determine whether reteaching is required
+      candidate_skills: [TSK-032, TSK-033, TSK-034, TSK-035, TSK-040, TSK-044, TSK-045]
+      candidate_core_actions:
+        - determine what the learner's error indicates and choose an appropriate next instructional response
+      plausible_ai_actions: [AIA-07, AIA-08, AIA-09]
+      displacement_risks:
+        - AI may correctly flag an error but incorrectly infer its cause.
+        - AI may select a reteaching route before the teacher has established what the learner does and does not understand.
+    learner:
+      source_actions_paraphrase:
+        - attend to corrective information
+        - reconstruct the failed operation
+        - reperform the target action
+      candidate_skills: [LSK-043, LSK-044, LSK-047, LSK-048, LSK-071]
+      candidate_core_actions:
+        - use corrective information to repair the learner's own performance
+      plausible_ai_actions: [AIA-03, AIA-07, AIA-08, AIA-10, AIA-11]
+      displacement_risks:
+        - AI may rewrite the incorrect work rather than enabling the learner to correct it.
+    evidence_points:
+      - learner can identify or explain the correction
+      - learner re-demonstrates the repaired operation
+      - teacher can justify reteaching or continued practice when that decision is consequential
+    handback_points:
+      - after corrective AI support, require new human execution
+    remediation_candidates: [REM-03, REM-04, REM-05, REM-06, REM-09]
+
+  - source_id: EI-F5
+    source_label: Independent practice
+    mapping_status: mapped
+    teacher_professional:
+      source_actions_paraphrase:
+        - select practice appropriate for independent execution
+        - monitor initial attempts without unnecessarily reintroducing support
+        - determine whether performance is sufficiently stable to continue independently
+      candidate_skills: [TSK-006, TSK-008, TSK-010, TSK-026, TSK-030, TSK-035, TSK-054]
+      candidate_core_actions:
+        - judge whether learner performance warrants reduced support and an independence claim
+      plausible_ai_actions: [AIA-07, AIA-08, AIA-09]
+      displacement_risks:
+        - constant AI hinting can silently turn independent practice back into guided practice.
+        - AI monitoring can produce a mastery label without sufficient direct human evidence.
+    learner:
+      source_actions_paraphrase:
+        - execute the target action with substantially reduced instructional support
+        - sustain accurate performance across practice attempts
+      candidate_skills: [LSK-016, LSK-024, LSK-071]
+      candidate_core_actions:
+        - independently execute the target operation
+      plausible_ai_actions: [AIA-00, AIA-07, AIA-08, AIA-10, AIA-11]
+      displacement_risks:
+        - substantive AI help invalidates a strong independence claim for the operation that AI performed.
+    evidence_points:
+      - fresh human execution without substantive AI performance of the target operation
+      - repeated successful independent attempts where the claim requires stability
+    handback_points:
+      - mandatory when prior AI support performed the target operation and independent mastery is now being claimed
+    remediation_candidates: [REM-01, REM-02, REM-06]
+
+  - source_id: EI-F6
+    source_label: Weekly and monthly reviews
+    mapping_status: mapped
+    teacher_professional:
+      source_actions_paraphrase:
+        - select earlier learning for distributed cumulative review
+        - vary review enough to check continued accessibility rather than simple answer memory
+        - interpret whether previous learning remains available
+      candidate_skills: [TSK-003, TSK-004, TSK-006, TSK-010, TSK-026, TSK-035]
+      candidate_core_actions:
+        - select and interpret review evidence relevant to retention
+      plausible_ai_actions: [AIA-01, AIA-02, AIA-05, AIA-07, AIA-08]
+      displacement_risks:
+        - AI may repeat prior answers or cues and thereby contaminate retention evidence.
+    learner:
+      source_actions_paraphrase:
+        - retrieve and reperform previously learned material after time has passed
+        - integrate earlier and more recent learning where cumulative practice requires it
+      candidate_skills: [LSK-002, LSK-016, LSK-072, LSK-073]
+      candidate_core_actions:
+        - retrieve and execute previously learned operations after delay
+      plausible_ai_actions: [AIA-00, AIA-02, AIA-03, AIA-07]
+      displacement_risks:
+        - answer exposure before retrieval weakens the evidential value of the review for retention.
+    evidence_points:
+      - delayed human reperformance
+      - cumulative application without reuse of prior AI answer text
+    handback_points:
+      - remove answer access before retention evidence is collected
+    remediation_candidates: [REM-06, REM-07, REM-08]
+
+cross_function_relations:
+  - id: EI-X01
+    relation: support_fading
+    source_basis: EI-E10 and EI-P05
+    description: Support is expected to decrease as success becomes evident, creating an explicit transition relevant to handback.
+  - id: EI-X02
+    relation: monitor_then_adjust
+    source_basis: EI-E12 and EI-E13
+    description: Learner responses are used to inform feedback and instructional adjustment; observation and professional interpretation should remain distinguishable.
+  - id: EI-X03
+    relation: distributed_reperformance
+    source_basis: EI-E16 and EI-F6
+    description: Performance is revisited over time, allowing retention evidence to be separated from immediate supported performance.
