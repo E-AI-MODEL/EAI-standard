@@ -1,0 +1,20 @@
+version: 0.1.0-candidate
+status: non_normative_companion
+
+artifacts:
+  taxonomy: capability-taxonomy.yaml
+  profile_schema: system-profile.schema.json
+  human_system_boundary: human-system-boundary.yaml
+  action_bridge: action-bridge.yaml
+  eai_extension_schema: eai-system-profile-extension.schema.json
+
+examples:
+  - id: SYS-EXAMPLE-AGENTIC-LLM
+    path: examples/generic-agentic-llm.yaml
+    type: system_profile
+  - id: CASE-SYSTEM-PROFILE-EXTENSION-EXAMPLE
+    path: examples/eai-extension-example.yaml
+    type: eai_case_with_system_profile_extension
+
+status_rule: >-
+  These artifacts are intentionally outside the normative EAI public interface. They may support comparison, audit, implementation and explanation, but they do not redefine EAI human-action semantics or conformance rules.
