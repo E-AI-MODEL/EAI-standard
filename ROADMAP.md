@@ -2,106 +2,65 @@
 
 The roadmap follows two tracks at the same time:
 
-1. build a semantically precise and implementable standard;
-2. build the evidence, governance and adoption needed for eventual sector-wide registration.
+1. build a semantically precise and independently implementable standard;
+2. build the evidence, governance, architecture and adoption needed for eventual sector-wide registration.
 
-The second track is not postponed until the specification is finished. The development process should continuously produce the material needed to assess added value, support, openness, architectural fit and future sustainability.
+The version headings below describe the current release plan, not a fixed promise that every activity can occur only in one version. Work may start earlier when that reduces later rework.
 
-## 0.1.x — Semantic foundation
+## 0.1.x-0.3.x — Foundation and reference cases
 
-Goal: stabilise the model-independent language of the standard.
+Completed or substantially implemented:
 
-Deliverables:
-
-- scope and problem statement;
-- core definitions;
-- normative rules;
+- model-independent definitions and normative rules;
 - teacher/professional and learner as first-class actors;
-- process position without prescribing a universal instructional sequence;
 - core human action and microstructure semantics;
-- AI action vocabulary;
-- evidence vocabulary;
-- handback and remediation semantics;
-- initial conformance rules.
+- AI-action vocabulary;
+- evidence, handback and remediation semantics;
+- actor profiles and reusable microstructure registries;
+- source-preserving model adapters;
+- scientific evidence layer;
+- machine-readable schemas;
+- initial diagnostics and conformance fixtures;
+- optional technical AI system profiles.
 
-Exit condition:
+## 0.4.x — Standardisation hardening
 
-Two reviewers can describe the same simple case without major disagreement about the meaning of the core fields.
-
-## 0.2.x — Actor profiles
-
-Goal: develop the generic human-action layer for teachers/professionals and learners.
-
-Deliverables:
-
-- teacher/professional skill families;
-- learner skill families;
-- microstructure model for both actors;
-- distinction between pedagogical, didactic, cognitive, metacognitive, social and professional actions where relevant;
-- initial remediation patterns.
-
-Exit condition:
-
-The actor profiles remain usable without referring to one age group, subject, curriculum or teaching model.
-
-## 0.3.x — First full model adapter
-
-Goal: prove that an existing instructional model can connect to the standard without being rewritten by it.
+Goal: make the existing semantics publishable as a coherent candidate standard without redesigning the substantive model.
 
 Deliverables:
 
-- selection and source documentation for a widely used direct/explicit instruction model;
-- preservation of the model's own phase names and ordering;
-- mapping of teacher and learner actions per phase;
-- candidate core human actions per phase;
-- allowed AI action descriptions;
-- handback and evidence examples;
-- adapter conformance tests.
+- one authoritative canonical manifest;
+- formal normative language;
+- explicit standard-version versus artifact/source/profile version semantics;
+- stable canonical identifier classes and URI strategy;
+- conformance separated from information uncertainty;
+- canonical diagnostic effects;
+- publication model for specification, machine contracts, conformance and implementation guidance;
+- migration guidance for breaking candidate changes;
+- documented license/IPR decision before stable open-standard positioning.
 
 Exit condition:
 
-The adapter adds model-specific depth while the normative core remains unchanged.
+An external implementer can determine from public repository material which artifacts are normative, which standard version they implement, how identifiers behave and how conformance results must be interpreted.
 
-## 0.4.x — Skills and microstructures registry
+## 0.5.x — Executable conformance and reference implementation
 
-Goal: create reusable semantic registers for human actions.
-
-First reference case: argumentation.
+Goal: make interpretation differences detectable by machines.
 
 Deliverables:
 
-- stable identifiers;
-- family/skill/subskill/microstructure hierarchy;
-- actor field;
-- definitions and observable behaviour;
-- AI-overwrite risk description where relevant;
-- diagnostic signal;
-- prevention;
-- remediation;
-- renewed human evidence;
-- relation model without forcing a single hierarchy.
+- release-versioned conformance suite;
+- coverage of structural, allocation, evidence, handback, adapter, extension and uncertainty cases;
+- automated canonical-reference checks;
+- schema validation in CI;
+- identifier uniqueness and reference-resolution checks;
+- version consistency checks;
+- first reference validator after semantics are sufficiently fixed;
+- implementation guide for developers.
 
 Exit condition:
 
-The same microstructure can be referenced from more than one model adapter or educational context without duplication.
-
-## 0.5.x — Machine-readable implementation
-
-Goal: make the standard independently implementable.
-
-Deliverables:
-
-- JSON Schemas;
-- validation fixtures;
-- canonical identifiers;
-- version metadata;
-- conformance examples;
-- valid and invalid test cases;
-- generated human-readable exports where useful.
-
-Exit condition:
-
-At least two independent implementations can create and validate compatible representations of the same cases.
+At least two independent implementations can represent the same cases and obtain compatible conformance outcomes against the published suite.
 
 ## 0.6.x — Pilots and adoption evidence
 
@@ -110,7 +69,7 @@ Goal: move from design plausibility to practical experience.
 Deliverables:
 
 - pilots in more than one education organisation or implementation context;
-- participation from both users and suppliers/implementers;
+- participation from users and suppliers/implementers;
 - documented interpretation problems;
 - changes resulting from pilot feedback;
 - implementation reports;
@@ -132,11 +91,12 @@ Deliverables:
 - architectural scope;
 - overlap analysis with existing standards;
 - first ROSA crosswalk;
-- distinction between normative core, adapters, profiles and implementations.
+- crosswalks to relevant international standards where they prevent duplication;
+- clear distinction between canonical standard, registries, adapters, context profiles, system profiles and implementations.
 
 Exit condition:
 
-Architecture reviewers can determine where the standard sits in the Dutch education information architecture and where it does not.
+Architecture reviewers can determine where EAI Standard sits in the Dutch education information architecture, what existing standards it reuses or complements, and what lies outside its scope.
 
 ## 0.8.x — Open maintenance model
 
@@ -149,6 +109,7 @@ Deliverables:
 - lifecycle and deprecation policy;
 - release policy;
 - compatibility policy;
+- explicit license and contribution/IPR arrangements;
 - documented stakeholder participation;
 - transparent decision records for material normative changes.
 
@@ -174,11 +135,14 @@ An external reviewer can answer the intake questions using public repository mat
 
 ## 1.0.0 — Stable standard
 
-Version 1.0 is not defined only by specification completeness. It also requires:
+Version 1.0 requires more than specification completeness. It also requires:
 
 - stable semantics;
+- persistent canonical identifiers;
+- executable conformance evidence;
 - independent implementation experience;
 - sustainable governance;
+- explicit licensing/IPR conditions;
 - a documented compatibility policy;
 - sufficient stakeholder review;
 - a clear architectural position;
