@@ -1,0 +1,60 @@
+version: 0.1.0-candidate
+status: candidate
+
+ai_actions:
+  - id: AIA-00
+    label: absent
+    description: AI is not used in relation to the relevant human action.
+
+  - id: AIA-01
+    label: provide_information
+    description: AI supplies information, references, examples or background without performing the target operation.
+
+  - id: AIA-02
+    label: ask_question
+    description: AI prompts the human with a question intended to elicit the human operation.
+
+  - id: AIA-03
+    label: give_hint
+    description: AI provides a partial cue that narrows the next step without completing it.
+
+  - id: AIA-04
+    label: model_example
+    description: AI demonstrates an example of an operation for inspection or comparison.
+
+  - id: AIA-05
+    label: generate_alternatives
+    description: AI produces multiple options that the human must compare, select or reject.
+
+  - id: AIA-06
+    label: structure
+    description: AI organises existing human or source material without deciding the substantive outcome.
+
+  - id: AIA-07
+    label: check
+    description: AI checks work against explicit criteria and reports possible mismatches.
+
+  - id: AIA-08
+    label: give_feedback
+    description: AI interprets submitted work and provides feedback intended to change subsequent human performance.
+
+  - id: AIA-09
+    label: propose_decision
+    description: AI recommends a choice, judgement or next action while a human remains responsible for evaluating the proposal.
+
+  - id: AIA-10
+    label: partial_performance
+    description: AI performs one or more microstructures that contribute directly to a core human action.
+
+  - id: AIA-11
+    label: full_performance
+    description: AI performs the complete relevant human action or produces the substantive result that action was intended to generate.
+
+  - id: AIA-12
+    label: execute_authorized_action
+    description: AI carries out an external action within explicitly delegated authority after the relevant human judgement has been made.
+
+notes:
+  - An AI action is descriptive, not inherently acceptable or unacceptable.
+  - The same AI action may be appropriate in one process position and displacing in another.
+  - Classification should occur at the smallest useful microstructure level when allocation differs within a task.
