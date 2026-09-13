@@ -142,6 +142,13 @@ diagnostics:
     label: unsupported_optional_semantics
     message: The implementation does not support an optional canonical semantic element and has retained it as unknown.
 
+  - code: EAI-D020
+    severity: info
+    state: unknown
+    label: claim_relevant_information_unknown
+    message: Information that could materially change the interpretation or claim is explicitly unknown; the uncertainty must remain visible until new evidence is available.
+    related_rule: EAI-R012
+
 constraints:
   - Diagnostics must never silently delete source data.
   - Unknown and invalid are distinct states.
