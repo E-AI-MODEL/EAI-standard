@@ -1,0 +1,205 @@
+id: ADP-EDI-2
+standard_version: 0.3.0-candidate
+model_name: Expliciete Directe Instructie 2.0
+model_family: explicit_direct_instruction
+source_reference: Hollingsworth & Ybarra (2025), Dutch adaptation by Marcel Schmeier; public phase artifact by Uitgeverij Pica
+source_version: 2.0 / current Dutch edition 2025
+source_license: source_referenced_not_reproduced
+
+source_elements:
+  - id: EDI-P1
+    source_type: process_position
+    source_label: Voorkennis
+    source_definition: Activate knowledge relevant to the lesson goal.
+    source_order: 1
+    source_metadata: {pointer: public_phase_poster_phase_1}
+  - id: EDI-P2
+    source_type: process_position
+    source_label: Lesdoel
+    source_definition: Make the intended concept and skill explicit.
+    source_order: 2
+    source_metadata: {pointer: public_phase_poster_phase_2}
+  - id: EDI-P3
+    source_type: process_position
+    source_label: Instructie
+    source_definition: Teach and model the knowledge or procedure needed for the lesson goal.
+    source_order: 3
+    source_metadata: {pointer: public_phase_poster_phase_3}
+  - id: EDI-P4
+    source_type: process_position
+    source_label: Begeleide inoefening
+    source_definition: Practise together while responsibility is progressively transferred to learners.
+    source_order: 4
+    source_metadata: {pointer: public_phase_poster_phase_4}
+  - id: EDI-P5
+    source_type: process_position
+    source_label: Kleine lesafsluiting
+    source_definition: Check whether learners can proceed sufficiently independently.
+    source_order: 5
+    source_metadata: {pointer: public_phase_poster_phase_5}
+  - id: EDI-P6
+    source_type: process_position
+    source_label: Zelfstandige verwerking
+    source_definition: Learners practise the lesson goal independently.
+    source_order: 6
+    source_metadata: {pointer: public_phase_poster_phase_6}
+  - id: EDI-P7
+    source_type: process_position
+    source_label: Verlengde instructie
+    source_definition: Provide additional instruction and learning time for learners who need further support.
+    source_order: 7
+    source_metadata: {pointer: public_phase_poster_phase_7}
+  - id: EDI-P8
+    source_type: process_position
+    source_label: Verdiepende instructie
+    source_definition: Provide additional challenge for learners ready for deeper work.
+    source_order: 8
+    source_metadata: {pointer: public_phase_poster_phase_8}
+  - id: EDI-P9
+    source_type: process_position
+    source_label: Grote lesafsluiting
+    source_definition: Look back on the lesson and learning process.
+    source_order: 9
+    source_metadata: {pointer: public_phase_poster_phase_9}
+  - id: EDI-T1
+    source_type: principle
+    source_label: Betrekken en activeren
+    source_definition: Keep learners actively participating through reading, writing, thinking and interaction.
+    source_metadata: {pointer: public_phase_poster_technique_1}
+  - id: EDI-T2
+    source_type: principle
+    source_label: Herhalen
+    source_definition: Revisit learning so knowledge remains accessible over time.
+    source_metadata: {pointer: public_phase_poster_technique_2}
+  - id: EDI-T3
+    source_type: principle
+    source_label: Controleren van begrip
+    source_definition: Gather information about learner understanding during the lesson.
+    source_metadata: {pointer: public_phase_poster_technique_3}
+  - id: EDI-T4
+    source_type: principle
+    source_label: Feedback
+    source_definition: Respond to learner performance with information intended to improve subsequent performance.
+    source_metadata: {pointer: public_phase_poster_technique_4}
+  - id: EDI-R1
+    source_type: relation
+    source_label: guided_practice_to_small_closure
+    source_definition: Guided practice is followed by a decision point that checks readiness for more independent execution.
+    source_relations:
+      - {type: from, target: EDI-P4}
+      - {type: to, target: EDI-P5}
+  - id: EDI-R2
+    source_type: relation
+    source_label: small_closure_routes_next_support
+    source_definition: Evidence at the small lesson closure informs whether learners can continue independently or need a different instructional route.
+    source_relations:
+      - {type: from, target: EDI-P5}
+      - {type: may_route_to, target: EDI-P6}
+      - {type: may_route_to, target: EDI-P7}
+      - {type: may_route_to, target: EDI-P8}
+
+mappings:
+  - source_element_id: EDI-P1
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-002, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-026, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-002, actor: learner}
+    rationale: Prior-knowledge activation can make learner retrieval and teacher readiness interpretation relevant human actions.
+    confidence: high
+  - source_element_id: EDI-P2
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-001, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-001, actor: learner}
+    rationale: The phase depends on a distinction between defining the intended learning and the learner understanding what is to be learned.
+    confidence: high
+  - source_element_id: EDI-P3
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-020, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-021, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-012, actor: learner}
+      - {type: skill, id_or_label: LSK-013, actor: learner}
+    rationale: Instruction includes professional explanation and modelling while learner understanding remains a distinct human process.
+    confidence: high
+  - source_element_id: EDI-P4
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-042, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-043, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TSF-03, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-04, actor: learner}
+      - {type: microstructure, id_or_label: MS-LRI-07, actor: learner}
+    rationale: Guided practice creates a direct need to distinguish support from performance of the learner's target operation.
+    confidence: high
+  - source_element_id: EDI-P5
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-035, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-054, actor: teacher_professional}
+      - {type: evidence_point, id_or_label: EV-03, actor: learner}
+      - {type: relation, id_or_label: REL-009, actor: learner}
+    rationale: The small lesson closure is a consequential evidence point before a more independent or differentiated route.
+    confidence: high
+  - source_element_id: EDI-P6
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: LSK-071, actor: learner}
+      - {type: microstructure, id_or_label: MS-LRI-04, actor: learner}
+      - {type: evidence_point, id_or_label: EV-03, actor: learner}
+    rationale: Substantive AI performance of the target operation changes the evidential meaning of independent practice.
+    confidence: high
+  - source_element_id: EDI-P7
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TDJ-05, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-044, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-045, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-09, actor: learner}
+    rationale: Additional instruction should be linked to a bounded diagnosis and followed by renewed learner evidence.
+    confidence: high
+  - source_element_id: EDI-P8
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-005, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-073, actor: learner}
+    rationale: Deeper challenge may be used to extend or vary the learner's action, but the public source is too high-level for a stronger mapping.
+    confidence: medium
+  - source_element_id: EDI-P9
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: LSK-048, actor: learner}
+      - {type: skill, id_or_label: TSK-051, actor: teacher_professional}
+    rationale: End-of-lesson reflection and evaluation should remain distinct from claims about longer-term retention.
+    confidence: medium
+  - source_element_id: EDI-T3
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TDJ-01, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TDJ-03, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TDJ-09, actor: teacher_professional}
+    rationale: Checking understanding generates evidence; observing, interpreting and deciding from that evidence are separable professional operations.
+    confidence: high
+  - source_element_id: EDI-T4
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TSF-05, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-08, actor: learner}
+    rationale: Feedback and learner revision are different operations and may be allocated differently between human and AI.
+    confidence: high
+  - source_element_id: EDI-R2
+    mapping_type: related
+    eai_targets:
+      - {type: core_human_action, id_or_label: professional_routing_decision, actor: teacher_professional}
+      - {type: evidence_point, id_or_label: EV-03, actor: learner}
+    rationale: Routing after the small closure illustrates why learner evidence and teacher professional judgement must be represented separately.
+    confidence: high
+
+unmapped_source_elements:
+  - EDI-T1
+  - EDI-T2
+  - EDI-R1
+
+notes: >-
+  The full book may contain additional detail. This canonical adapter intentionally does not infer unavailable substructure. Supporting model.yaml and mappings.yaml contain richer candidate notes that can be promoted after source verification.
