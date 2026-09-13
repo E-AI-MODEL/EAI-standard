@@ -1,0 +1,37 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-EDI-2
+
+purpose: >-
+  Connects EAI interpretations in the adapter to the standard's current scientific claim map. These links support the EAI-side interpretation; they do not turn EDI source phases into scientifically validated EAI constructs.
+
+links:
+  - source_elements: [EDI-P4, EDI-P5, EDI-P6]
+    eai_interpretation: Support level and who performs the target operation matter when moving from guided to independent performance.
+    evidence_claims: [CLM-002, CLM-003, CLM-005, CLM-015]
+    strength_note: Strong recent AI-specific support for distinguishing supported performance from independent execution and for analysing substitution at action level.
+
+  - source_elements: [EDI-P5]
+    eai_interpretation: A routing decision based on learner performance requires evidence that matches the claim being made.
+    evidence_claims: [CLM-002, CLM-009]
+    strength_note: Recent assessment-validity and post-support evidence support keeping product success separate from unaided capability.
+
+  - source_elements: [EDI-T3]
+    eai_interpretation: Checking understanding is evidence collection; professional interpretation and the resulting instructional decision are separate actions.
+    evidence_claims: [CLM-007, CLM-008, CLM-015]
+    strength_note: Recent teacher-AI work supports separating observed data, professional judgement and AI recommendation.
+
+  - source_elements: [EDI-T4, EDI-P4, EDI-P7]
+    eai_interpretation: Feedback or support can be helpful while still becoming takeover when it supplies the substantive target operation.
+    evidence_claims: [CLM-003, CLM-004, CLM-005]
+    strength_note: Recent experimental and meta-analytic AI evidence shows that design of help changes learning effects.
+
+  - source_elements: [EDI-T2, EDI-P9]
+    eai_interpretation: Immediate lesson success should remain distinct from retention and transfer claims.
+    evidence_claims: [CLM-010, CLM-012]
+    strength_note: Current evidence remains limited for long-term outcomes, which is why the standard preserves separate claim types rather than inferring them.
+
+model_effectiveness_context:
+  sources: [EDI-EVID-01]
+  note: >-
+    The AERO rapid literature scan provides recent context for explicit instruction across settings, but is not treated as direct validation of the Dutch EDI 2.0 package or of each individual phase.
