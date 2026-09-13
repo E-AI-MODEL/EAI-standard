@@ -24,7 +24,7 @@ actors:
               - teacher records which AI cluster was accepted, rejected or reinterpreted and why
             handback_required: false
             remediation: null
-          - id: MS-TDJ-09
+          - id: MS-TDJ-10
             label: preserve_uncertainty
             human_execution: full
             ai_action: AIA-09
