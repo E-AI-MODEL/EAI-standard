@@ -1,0 +1,107 @@
+version: 0.1.0-candidate
+status: non_normative_companion
+
+purpose: >-
+  Shows how technical system capabilities can enable observable EAI AI actions without treating capability and action as the same construct. The mapping is many-to-many and context dependent.
+
+bridge_examples:
+  - system_capabilities:
+      - text_generation
+      - prompt_context
+    possible_ai_actions:
+      - AIA-01
+      - AIA-02
+      - AIA-03
+      - AIA-04
+      - AIA-05
+      - AIA-08
+      - AIA-09
+      - AIA-16
+      - AIA-17
+      - AIA-19
+      - AIA-23
+    note: >-
+      Base generation capability can support many observable actions. The concrete prompt, workflow and human target operation determine which action is actually occurring.
+
+  - system_capabilities:
+      - retrieval_augmented_generation
+      - search_tool
+      - source_access
+    possible_ai_actions:
+      - AIA-01
+      - AIA-07
+      - AIA-13
+      - AIA-14
+      - AIA-16
+    note: >-
+      Retrieval infrastructure does not itself establish source quality, verification or claim-source fit.
+
+  - system_capabilities:
+      - classification
+      - embedding_or_similarity
+      - batch_processing
+    possible_ai_actions:
+      - AIA-15
+      - AIA-21
+      - AIA-22
+    note: >-
+      Classification or clustering may provide a signal. It does not by itself establish professional diagnosis or educational meaning.
+
+  - system_capabilities:
+      - tool_use
+      - external_api_access
+      - write_permission
+    possible_ai_actions:
+      - AIA-12
+    note: >-
+      External action capability becomes `execute_authorized_action` only when the system actually acts in an external system. Permission scope and human decision points belong in the system profile.
+
+  - system_capabilities:
+      - planner
+      - agent_loop
+      - workflow_state
+    possible_ai_actions:
+      - AIA-25
+      - AIA-09
+      - AIA-12
+    note: >-
+      Agentic orchestration can increase autonomy and persistence without changing the EAI rule that each material action must be interpreted against the relevant human action and responsibility structure.
+
+  - system_capabilities:
+      - adaptive_policy
+      - learner_model_or_user_state
+      - item_generator
+    possible_ai_actions:
+      - AIA-18
+      - AIA-24
+      - AIA-25
+    note: >-
+      Adaptation describes system behaviour. Whether adaptation is educationally appropriate still depends on the process position, intended human action and available evidence.
+
+  - system_capabilities:
+      - code_execution
+      - calculator_or_solver
+      - structured_tool_use
+    possible_ai_actions:
+      - AIA-07
+      - AIA-10
+      - AIA-11
+      - AIA-12
+    note: >-
+      Tool execution can range from verification to full performance. The relevant distinction is which target human microstructure is performed by the system.
+
+non_equivalence_rules:
+  - model_capability_does_not_equal_observed_ai_action
+  - observed_ai_action_does_not_equal_human_construct
+  - technical_autonomy_does_not_equal_human_responsibility
+  - system_memory_does_not_equal_human_retention
+  - novel_system_task_success_does_not_equal_human_transfer
+  - system_verification_loop_does_not_equal_human_metacognition
+
+interpretation_sequence:
+  - identify_system_configuration
+  - observe_concrete_ai_action
+  - identify_relevant_human_action_or_microstructure
+  - determine_human_and_ai_execution
+  - inspect_claim_and_human_evidence
+  - determine_handback_or_remediation_if_required
