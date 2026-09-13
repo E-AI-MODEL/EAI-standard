@@ -121,6 +121,15 @@ registry_families:
     note: >-
       Recent experimental evidence supports the importance of how help is delivered and whether it substitutes for learner activity. The EAI support-regulation decomposition remains candidate.
 
+  teacher_pedagogical_relational_judgement:
+    registry: ../registries/microstructures/teacher-pedagogical-judgement.yaml
+    evidence:
+      - {claim: CLM-007, relation: direct_support}
+      - {claim: CLM-008, relation: direct_support}
+      - {claim: CLM-015, relation: conceptual_alignment}
+    note: >-
+      Recent teacher-AI research supports keeping pedagogical judgement, professional agency and AI recommendation distinct. The relational substructure in this registry extends beyond what current AI studies directly validate and therefore remains a candidate taxonomy requiring domain-specific validation.
+
   learner_retrieval_and_independent_performance:
     registry: ../registries/microstructures/learner-retrieval-and-independent-performance.yaml
     evidence:
