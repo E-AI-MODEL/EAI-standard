@@ -3,11 +3,12 @@
   "$id": "https://e-ai-model.github.io/EAI-standard/schemas/conformance-result.schema.json",
   "title": "EAI Conformance Result",
   "type": "object",
-  "required": ["profile", "state", "diagnostics"],
+  "required": ["profile", "standard_version", "conformance", "information_state", "diagnostics"],
   "properties": {
     "profile": {"type": "string", "minLength": 1},
-    "state": {"enum": ["valid", "unknown", "invalid"]},
-    "supported_version": {"type": ["string", "null"]},
+    "standard_version": {"type": "string", "minLength": 1},
+    "conformance": {"enum": ["conformant", "non_conformant"]},
+    "information_state": {"enum": ["complete", "contains_unknowns", "incomplete"]},
     "diagnostics": {
       "type": "array",
       "items": {"$ref": "diagnostic.schema.json"}
