@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/schemas/adapter.schema.json",
+  "title": "EAI Model Adapter",
+  "type": "object",
+  "required": ["id", "model_name", "source_reference", "phases"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "model_name": {"type": "string", "minLength": 1},
+    "model_family": {"type": ["string", "null"]},
+    "source_reference": {"type": "string", "minLength": 1},
+    "notes": {"type": ["string", "null"]},
+    "phases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "source_label"],
+        "properties": {
+          "id": {"type": "string"},
+          "source_label": {"type": "string"},
+          "source_purpose": {"type": ["string", "null"]},
+          "precedes": {"type": "array", "items": {"type": "string"}},
+          "may_return_to": {"type": "array", "items": {"type": "string"}},
+          "teacher_actions": {"type": "array", "items": {"type": "string"}},
+          "learner_actions": {"type": "array", "items": {"type": "string"}},
+          "candidate_core_actions": {
+            "type": "object",
+            "properties": {
+              "teacher_professional": {"type": "array", "items": {"type": "string"}},
+              "learner": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          },
+          "candidate_microstructures": {"type": "array", "items": {"type": "string"}},
+          "plausible_ai_actions": {"type": "array", "items": {"type": "string"}},
+          "evidence_points": {"type": "array", "items": {"type": "string"}},
+          "handback_points": {"type": "array", "items": {"type": "string"}},
+          "remediation_points": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
