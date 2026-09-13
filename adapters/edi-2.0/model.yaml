@@ -1,0 +1,128 @@
+version: 0.3.0-candidate
+status: candidate
+id: ADP-EDI-2
+model_name: Expliciete Directe Instructie 2.0
+model_family: explicit_direct_instruction
+source_reference: Hollingsworth & Ybarra (2025), Dutch adaptation by Marcel Schmeier, Uitgeverij Pica
+source_url: https://www.uitgeverijpica.nl/titels/expliciete-directe-instructie-pica
+public_phase_source: https://www.uitgeverijpica.nl/wp-content/uploads/2015/01/Pica.EDI_2.0_Lesfasen.pdf
+
+source_preservation:
+  terminology_preserved: true
+  ordering_preserved: true
+  cross_cutting_techniques_preserved: true
+  inferred_book_content_prohibited: true
+  unmapped_elements_retained: true
+
+source_structure:
+  lesson_phases:
+    - id: EDI-P1
+      source_label: Voorkennis
+      order: 1
+      source_pointer: public_phase_poster_phase_1
+      purpose_paraphrase: Activate knowledge relevant to the new lesson so new learning can connect to what learners already know.
+
+    - id: EDI-P2
+      source_label: Lesdoel
+      order: 2
+      source_pointer: public_phase_poster_phase_2
+      purpose_paraphrase: Make the intended concept and skill explicit to learners.
+
+    - id: EDI-P3
+      source_label: Instructie
+      order: 3
+      source_pointer: public_phase_poster_phase_3
+      purpose_paraphrase: Teach and model the knowledge or procedure needed to reach the lesson goal.
+
+    - id: EDI-P4
+      source_label: Begeleide inoefening
+      order: 4
+      source_pointer: public_phase_poster_phase_4
+      purpose_paraphrase: Practise together while responsibility is gradually transferred toward learners.
+
+    - id: EDI-P5
+      source_label: Kleine lesafsluiting
+      order: 5
+      source_pointer: public_phase_poster_phase_5
+      purpose_paraphrase: Check whether learners can perform sufficiently independently before moving to independent processing.
+
+    - id: EDI-P6
+      source_label: Zelfstandige verwerking
+      order: 6
+      source_pointer: public_phase_poster_phase_6
+      purpose_paraphrase: Learners practise the lesson goal independently to strengthen and consolidate learning.
+
+    - id: EDI-P7
+      source_label: Verlengde instructie
+      order: 7
+      source_pointer: public_phase_poster_phase_7
+      purpose_paraphrase: Provide additional instruction and learning time for learners who need further support to reach the goal.
+
+    - id: EDI-P8
+      source_label: Verdiepende instructie
+      order: 8
+      source_pointer: public_phase_poster_phase_8
+      purpose_paraphrase: Provide additional challenge for learners who are ready for deeper or more demanding work.
+
+    - id: EDI-P9
+      source_label: Grote lesafsluiting
+      order: 9
+      source_pointer: public_phase_poster_phase_9
+      purpose_paraphrase: Look back on the learning process and lesson outcome at the end of the lesson.
+
+  cross_cutting_techniques:
+    - id: EDI-T1
+      source_label: Betrekken en activeren
+      source_pointer: public_phase_poster_technique_1
+      interpretation_paraphrase: Keep learners actively responding through reading, writing, thinking and interaction.
+
+    - id: EDI-T2
+      source_label: Herhalen
+      source_pointer: public_phase_poster_technique_2
+      interpretation_paraphrase: Revisit learning over time so knowledge remains accessible and connected.
+
+    - id: EDI-T3
+      source_label: Controleren van begrip
+      source_pointer: public_phase_poster_technique_3
+      interpretation_paraphrase: Gather information about understanding through responses and checks during the lesson.
+
+    - id: EDI-T4
+      source_label: Feedback
+      source_pointer: public_phase_poster_technique_4
+      interpretation_paraphrase: Respond to learner performance through correction, reinforcement, clarification or further instruction.
+
+source_relations:
+  - from: EDI-P4
+    relation: precedes
+    to: EDI-P5
+  - from: EDI-P5
+    relation: decision_point_before
+    to: EDI-P6
+  - from: EDI-P5
+    relation: may_route_to
+    to: EDI-P7
+  - from: EDI-P5
+    relation: may_route_to
+    to: EDI-P8
+  - from: EDI-P6
+    relation: may_coexist_with
+    to: EDI-P7
+  - from: EDI-P6
+    relation: may_coexist_with
+    to: EDI-P8
+  - from: EDI-T1
+    relation: cross_cuts
+    to: all_phases
+  - from: EDI-T2
+    relation: cross_cuts
+    to: multiple_phases
+  - from: EDI-T3
+    relation: cross_cuts
+    to: multiple_phases
+  - from: EDI-T4
+    relation: cross_cuts
+    to: multiple_phases
+
+unknowns:
+  - Exact internal substructure of each phase beyond the public poster and current official public training descriptions is not canonical in this adapter until verified from the authorised source edition.
+  - The adapter does not assume that every phase must occur identically in every lesson unless the source explicitly requires it.
