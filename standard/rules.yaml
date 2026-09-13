@@ -1,4 +1,4 @@
-version: 0.1.0-candidate
+version: 0.2.0-candidate
 status: candidate
 
 normative_rules:
@@ -20,7 +20,7 @@ normative_rules:
   - id: EAI-R004
     title: Decompose when allocation differs
     requirement: >-
-      A core human action SHOULD be decomposed into microstructures whenever human and AI execution differ across parts of that action.
+      A core human action SHOULD be decomposed into microstructures whenever human and AI execution differ across parts of that action, when evidence requirements differ, or when remediation depends on a smaller operation.
 
   - id: EAI-R005
     title: Human and AI action must be separated
@@ -35,7 +35,7 @@ normative_rules:
   - id: EAI-R007
     title: Evidence must match the claim
     requirement: >-
-      Claims about current performance, independent mastery, retention and transfer MUST use evidence appropriate to that specific claim.
+      Claims about current performance, professional judgement, independent mastery, retention and transfer MUST use evidence appropriate to that specific claim.
 
   - id: EAI-R008
     title: Generated performance is not mastery
@@ -45,12 +45,12 @@ normative_rules:
   - id: EAI-R009
     title: Responsibility is not equivalent to execution
     requirement: >-
-      A human MAY remain responsible for a decision while AI performs supporting operations, but accountability MUST NOT be inferred merely from nominal human approval.
+      A human MAY remain responsible for a decision while AI performs supporting operations, but accountable human judgement MUST NOT be inferred merely from nominal approval, presence in the workflow or a final confirmation click.
 
   - id: EAI-R010
-    title: Handback before mastery claims
+    title: Handback before stronger human claims
     requirement: >-
-      When AI has performed a core human action and a claim about human mastery or professional judgement is required, the action MUST be handed back and re-demonstrated by the human.
+      When AI has materially performed or obscured a core human action and a claim about human mastery or professional judgement is required, the relevant action MUST be handed back and re-demonstrated by the human unless equivalent direct human evidence already exists.
 
   - id: EAI-R011
     title: Remediation ends in new evidence
@@ -60,7 +60,7 @@ normative_rules:
   - id: EAI-R012
     title: Unknown remains unknown
     requirement: >-
-      Missing or ambiguous information MUST be represented as unknown and MUST NOT be silently interpreted as low quality, low mastery or safe allocation.
+      Missing or ambiguous information MUST be represented as unknown and MUST NOT be silently interpreted as low quality, low mastery, safe allocation or acceptable human control.
 
   - id: EAI-R013
     title: Multiple actors may have different core actions
@@ -70,14 +70,64 @@ normative_rules:
   - id: EAI-R014
     title: Model adapters preserve source models
     requirement: >-
-      A model adapter MUST preserve the source model's own terminology, phase structure and internal ordering. It MAY map these to EAI concepts but MUST NOT rewrite the source model as if the mapping were the model itself.
+      A model adapter MUST preserve the source model's own terminology, phase structure and internal ordering where these are part of the source model. It MAY map these to EAI concepts but MUST NOT rewrite the source model as if the mapping were the model itself.
 
   - id: EAI-R015
     title: Context overlays do not redefine the core
     requirement: >-
-      Age, education level, subject and curriculum MAY refine expected complexity or evidence, but MUST NOT silently change the meaning of core EAI terms.
+      Age, education level, subject and curriculum MAY refine expected complexity, independence or evidence, but MUST NOT silently change the meaning of core EAI terms.
 
   - id: EAI-R016
     title: No mandatory total score
     requirement: >-
       Conformance to this standard MUST NOT depend on a single aggregate score that collapses distinct evidence, responsibility and allocation questions into one number.
+
+  - id: EAI-R017
+    title: Support conditions travel with evidence
+    requirement: >-
+      When a claim depends on the degree of human independence, implementations MUST preserve the material support conditions under which the evidence was produced.
+
+  - id: EAI-R018
+    title: Observation and interpretation are distinct
+    requirement: >-
+      A system SHOULD distinguish direct observations or source evidence from human or AI interpretations of that evidence whenever the distinction affects professional judgement, diagnosis or assessment.
+
+  - id: EAI-R019
+    title: Detection is not diagnosis
+    requirement: >-
+      An AI flag, classification, cluster or detected pattern MUST NOT by itself be represented as a professional diagnosis, pedagogical meaning or mastery judgement.
+
+  - id: EAI-R020
+    title: Stable identifiers for exchange
+    requirement: >-
+      Canonical skills, microstructures, AI actions, evidence types, remediation patterns and adapters intended for exchange MUST use stable identifiers within a released version.
+
+  - id: EAI-R021
+    title: Extensions identify their namespace
+    requirement: >-
+      Local or third-party extensions MUST identify their own namespace or provenance and MUST NOT present locally added semantics as canonical EAI Standard content.
+
+  - id: EAI-R022
+    title: Source and mapping provenance
+    requirement: >-
+      A model adapter or external mapping SHOULD record enough source provenance to distinguish source-model content from EAI interpretation or mapping.
+
+  - id: EAI-R023
+    title: AI action labels are descriptive
+    requirement: >-
+      An AI action type MUST NOT be treated as inherently permitted or prohibited. Suitability depends on the relevant goal, actor, process position, core human action, responsibility and evidence claim.
+
+  - id: EAI-R024
+    title: Final product quality is not process evidence
+    requirement: >-
+      Quality of a final artefact MUST NOT be used as sole evidence for which human microstructures were executed during its production.
+
+  - id: EAI-R025
+    title: Pedagogical meaning requires bounded inference
+    requirement: >-
+      Where a case concerns learner vulnerability, wellbeing, relational meaning or sensitive pedagogical judgement, AI-mediated artefacts MUST NOT be treated as sufficient substitutes for direct human interaction unless the case explicitly establishes why that evidence is adequate.
+
+  - id: EAI-R026
+    title: Conformance and effectiveness are separate
+    requirement: >-
+      Conformance to the EAI Standard MUST NOT be represented as evidence that an educational intervention is effective. Effectiveness claims require separate empirical evidence.
