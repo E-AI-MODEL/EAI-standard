@@ -1,0 +1,80 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate_non_normative_guidance
+language: en
+
+purpose: >-
+  Connects bounded scientific claims to candidate protection recommendations. This file does not create legal obligations and does not make the protection dimensions themselves empirically validated EAI measurement constructs.
+
+principles:
+  - Scientific evidence informs protection recommendations but does not determine legal bindingness.
+  - Recommendations apply only when the stated condition matches the concrete goal, core human action, process position, AI allocation and evidence claim.
+  - The exact EAI protection taxonomy remains a candidate interoperability structure requiring implementation and inter-rater validation.
+
+patterns:
+  - id: SCI-PRT-01
+    condition: >-
+      Independent learner mastery is the claim of interest and AI materially performed or supplied a target cognitive operation that the learner would otherwise need to perform.
+    recommendations:
+      - requirement_id: PRT-03
+        status: strongly_recommended
+        rationale: Direct human evidence is needed to distinguish supported performance from independent capability.
+      - requirement_id: PRT-06
+        status: strongly_recommended
+        rationale: Returning the target operation to the learner creates an opportunity to observe the learner rather than the AI-supported product.
+      - requirement_id: PRT-07
+        status: strongly_recommended
+        rationale: Renewed human execution is a stronger basis for an independent-mastery claim than the supported product alone.
+    evidence_claims: [CLM-002, CLM-003, CLM-005, CLM-009]
+    note: >-
+      EAI-R007, EAI-R008 and EAI-R010 may make these requirements normatively required within an EAI assessment case even though the scientific layer itself is non-binding.
+
+  - id: SCI-PRT-02
+    condition: >-
+      Performing a cognitive or metacognitive operation is itself part of the intended learner learning rather than merely a means to obtain a product.
+    recommendations:
+      - requirement_id: PRT-01
+        status: conditional
+        rationale: Human execution should be preserved to the extent needed for the intended learning operation to occur and become observable.
+    evidence_claims: [CLM-003, CLM-004, CLM-005, CLM-015]
+    note: >-
+      This is intentionally conditional. The same operation may be delegable when it is peripheral to the learning goal.
+
+  - id: SCI-PRT-03
+    condition: >-
+      A claim is made about professional judgement in a teacher/professional-AI interaction.
+    recommendations:
+      - requirement_id: PRT-02
+        status: strongly_recommended
+        rationale: Professional judgement should remain distinguishable from tool operation, AI recommendation and nominal approval.
+      - requirement_id: PRT-03
+        status: recommended
+        rationale: Evidence of the human interpretation or decision is needed when the claim concerns human professional judgement.
+    evidence_claims: [CLM-006, CLM-007, CLM-008, CLM-009]
+
+  - id: SCI-PRT-04
+    condition: >-
+      Retention or transfer is the claim of interest after prior AI-supported performance.
+    recommendations:
+      - requirement_id: PRT-03
+        status: strongly_recommended
+        rationale: Retention and transfer require evidence distinct from immediate supported performance.
+      - requirement_id: PRT-07
+        status: strongly_recommended
+        rationale: Later or meaningfully different human performance is needed to support the stronger claim.
+    evidence_claims: [CLM-002, CLM-009, CLM-010]
+
+  - id: SCI-PRT-05
+    condition: >-
+      AI provides information, solutions or recommendations and the human role shifts toward verification, selection or integration.
+    recommendations:
+      - requirement_id: PRT-02
+        status: conditional
+        rationale: Where verification or selection is the relevant human operation, nominal acceptance of AI output is not equivalent to performing that operation.
+      - requirement_id: PRT-03
+        status: recommended
+        rationale: Observable comparison, verification or selection provides stronger evidence than a final approval signal alone.
+    evidence_claims: [CLM-006, CLM-008, CLM-011]
+
+boundary_note: >-
+  These patterns are evidence-informed defaults for analysis, not universal prescriptions. Implementations must preserve the distinction between scientific support, EAI normative requirements, legal obligations and local policy.
