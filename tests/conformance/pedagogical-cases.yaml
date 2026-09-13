@@ -1,0 +1,26 @@
+version: 0.3.0-candidate
+status: candidate
+
+cases:
+  - case: ../../examples/pedagogical/mentor-conversation-valid.yaml
+    expected_state: valid
+    expected_diagnostics: []
+    rationale: Direct learner contact, clarification, weighing and professional justification remain human and evidenced while AI only structures notes or offers options.
+
+  - case: ../../examples/pedagogical/ai-mediated-judgement-invalid.yaml
+    expected_state: invalid
+    expected_diagnostics:
+      - EAI-D007
+      - EAI-D009
+      - EAI-D010
+    rationale: A professional-judgement claim is made although AI performed material interpretation and recommendation and the human has not re-demonstrated the relevant pedagogical judgement.
+
+  - case: ../../examples/pedagogical/incomplete-context-unknown.yaml
+    expected_state: unknown
+    expected_diagnostics:
+      - EAI-D020
+    rationale: The learner's own account and the cause of the change remain unknown, but the professional explicitly preserves that uncertainty and limits action to proportionate information gathering.
+
+notes:
+  - These cases demonstrate that EAI conformance is not limited to instructional lesson models.
+  - Unknown is not a failure state where missing meaning is explicitly preserved and no unsupported substantive claim is made.
