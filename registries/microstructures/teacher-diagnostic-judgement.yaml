@@ -1,0 +1,185 @@
+version: 0.3.0-candidate
+status: candidate
+skill:
+  id: TSK-DIAG-JUDGEMENT
+  label: diagnostic_professional_judgement
+  actor: teacher_professional
+  description: Gathering, interpreting and testing evidence about learner understanding or performance before selecting a professional response.
+  note: >-
+    These microstructures are reusable professional operations. None is automatically a core human action; that depends on the concrete goal, process position and consequence of the judgement.
+
+groups:
+  - id: TDJ-G1
+    label: define_and_elicit
+  - id: TDJ-G2
+    label: observe_and_localise
+  - id: TDJ-G3
+    label: interpret_and_test
+  - id: TDJ-G4
+    label: decide_and_follow_up
+
+microstructures:
+  - id: MS-TDJ-01
+    group: TDJ-G1
+    actor: teacher_professional
+    label: define_what_evidence_is_needed
+    description: Determine what learner information would be relevant to the instructional or professional question at hand.
+    ai_takeover_risk: AI may determine what counts as relevant evidence before the teacher has defined the question or claim.
+    observable_signal: The teacher accepts an AI-generated metric or indicator but cannot explain why it bears on the judgement.
+    diagnostic_prompt: What exactly do you need to know about the learner before deciding the next step?
+    remediation_hint: Restate the instructional question and identify the minimum evidence needed before looking at AI analysis.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TDJ-02
+    group: TDJ-G1
+    actor: teacher_professional
+    label: elicit_discriminating_response
+    description: Select or create a prompt that helps distinguish among plausible learner states rather than merely producing another answer.
+    ai_takeover_risk: AI may generate a follow-up that is fluent but does not discriminate among the relevant explanations.
+    observable_signal: The follow-up produces more work but no clearer basis for deciding what the learner understands.
+    diagnostic_prompt: What response would help you distinguish between the two most plausible explanations?
+    remediation_hint: Define competing explanations first, then design one human-selected probe that would separate them.
+    evidence_types: [EV-01, EV-09]
+
+  - id: MS-TDJ-03
+    group: TDJ-G2
+    actor: teacher_professional
+    label: observe_relevant_response
+    description: Notice and record the learner response or behaviour that is relevant to the current question before interpreting it.
+    ai_takeover_risk: AI summaries can compress or reframe the original learner evidence before the teacher sees it.
+    observable_signal: The teacher can report the AI interpretation but not the learner response on which it was based.
+    diagnostic_prompt: What did the learner actually say, write or do before you interpret it?
+    remediation_hint: Return to the original response and record the observation separately from any interpretation.
+    evidence_types: [EV-01, EV-09]
+
+  - id: MS-TDJ-04
+    group: TDJ-G2
+    actor: teacher_professional
+    label: separate_observation_from_inference
+    description: Distinguish what was directly observed from what is inferred about understanding, motivation, misconception or need.
+    ai_takeover_risk: AI language can make an inference sound like an observed fact.
+    observable_signal: Interpretive labels are stated without traceable learner evidence.
+    diagnostic_prompt: Which part is directly visible, and which part is your interpretation?
+    remediation_hint: Rewrite the judgement in two columns: observation and inference.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TDJ-05
+    group: TDJ-G2
+    actor: teacher_professional
+    label: locate_first_breakdown
+    description: Trace the learner's performance to identify the earliest point at which the target process becomes insufficient.
+    ai_takeover_risk: AI may flag the final wrong answer rather than the upstream breakdown that produced it.
+    observable_signal: Intervention targets the last visible error while the same error recurs in a new item.
+    diagnostic_prompt: At which step does the learner first depart from a workable approach?
+    remediation_hint: Reconstruct the learner path step by step and identify the first unsupported transition.
+    evidence_types: [EV-02, EV-09]
+
+  - id: MS-TDJ-06
+    group: TDJ-G2
+    actor: teacher_professional
+    label: distinguish_error_type
+    description: Distinguish among plausible categories such as missing knowledge, procedural error, misapplied strategy, language issue, attention lapse or task misunderstanding when such distinctions matter for the response.
+    ai_takeover_risk: AI may assign a diagnostic label from surface features without sufficient evidence.
+    observable_signal: A diagnostic label is used but no evidence is given that rules out plausible alternatives.
+    diagnostic_prompt: What alternative explanation could produce the same response?
+    remediation_hint: Name at least two plausible error types and seek evidence that discriminates between them.
+    evidence_types: [EV-02, EV-09]
+
+  - id: MS-TDJ-07
+    group: TDJ-G3
+    actor: teacher_professional
+    label: generate_competing_explanations
+    description: Form more than one plausible explanation for a learner response before selecting the most likely interpretation.
+    ai_takeover_risk: AI may present one polished explanation that anchors subsequent judgement.
+    observable_signal: The teacher cannot name a credible alternative interpretation.
+    diagnostic_prompt: What else could explain the same learner response?
+    remediation_hint: Delay the AI recommendation and generate at least one alternative explanation from the raw evidence.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TDJ-08
+    group: TDJ-G3
+    actor: teacher_professional
+    label: test_explanation_against_new_evidence
+    description: Seek or inspect additional evidence that can strengthen, weaken or distinguish a proposed explanation.
+    ai_takeover_risk: AI may convert a tentative interpretation into a confident diagnosis without an additional test.
+    observable_signal: The explanation remains unchanged despite conflicting learner evidence.
+    diagnostic_prompt: What evidence would make you revise this explanation?
+    remediation_hint: Use a fresh probe selected to challenge the current interpretation.
+    evidence_types: [EV-01, EV-09]
+
+  - id: MS-TDJ-09
+    group: TDJ-G3
+    actor: teacher_professional
+    label: bound_the_interpretation
+    description: State only what the available evidence warrants and avoid extending the judgement beyond the observed task, moment or construct.
+    ai_takeover_risk: AI may generalise from one response to broad claims about ability, motivation or mastery.
+    observable_signal: A local error becomes a global learner label without additional evidence.
+    diagnostic_prompt: What is the strongest claim the current evidence actually supports?
+    remediation_hint: Narrow the judgement to the task, action or evidence currently available.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TDJ-10
+    group: TDJ-G3
+    actor: teacher_professional
+    label: preserve_uncertainty
+    description: Keep uncertainty explicit when evidence does not support a confident interpretation.
+    ai_takeover_risk: AI confidence language may encourage premature closure.
+    observable_signal: The teacher chooses a definitive diagnosis despite acknowledged missing information.
+    diagnostic_prompt: What remains unknown, and does that uncertainty matter for the next decision?
+    remediation_hint: Record the unknown explicitly and collect the smallest additional evidence that would matter.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TDJ-11
+    group: TDJ-G4
+    actor: teacher_professional
+    label: select_next_instructional_response
+    description: Choose a next step that follows from the bounded interpretation and educational goal.
+    ai_takeover_risk: AI may recommend an intervention that is accepted because it sounds plausible rather than because it matches the diagnosed gap.
+    observable_signal: The chosen action cannot be linked to the evidence or identified breakdown.
+    diagnostic_prompt: Which specific evidence makes this the best next response?
+    remediation_hint: Compare at least two plausible responses and justify the selection against the evidence.
+    evidence_types: [EV-05, EV-08]
+
+  - id: MS-TDJ-12
+    group: TDJ-G4
+    actor: teacher_professional
+    label: justify_professional_judgement
+    description: Make the evidence, interpretation and considerations behind a professional decision traceable.
+    ai_takeover_risk: Human approval can become nominal when the AI recommendation supplies both conclusion and rationale.
+    observable_signal: The teacher endorses the recommendation but cannot independently reconstruct the reasoning.
+    diagnostic_prompt: If the AI recommendation disappeared, how would you justify the same decision from the learner evidence?
+    remediation_hint: Hide the recommendation and reconstruct the decision from original evidence before comparing with AI output.
+    evidence_types: [EV-02, EV-08]
+
+  - id: MS-TDJ-13
+    group: TDJ-G4
+    actor: teacher_professional
+    label: evaluate_response_effect
+    description: Inspect subsequent learner evidence to determine whether the selected response addressed the intended gap.
+    ai_takeover_risk: AI may mark an intervention complete without evidence that the learner's performance changed.
+    observable_signal: Completion of the intervention is treated as proof of recovery.
+    diagnostic_prompt: What changed in the learner's performance after the intervention?
+    remediation_hint: Require a fresh learner performance and compare it with the earlier breakdown.
+    evidence_types: [EV-03, EV-04, EV-09]
+
+relations:
+  - type: contributes_to
+    target: TSK-030
+  - type: contributes_to
+    target: TSK-031
+  - type: contributes_to
+    target: TSK-032
+  - type: contributes_to
+    target: TSK-033
+  - type: contributes_to
+    target: TSK-034
+  - type: contributes_to
+    target: TSK-035
+  - type: contributes_to
+    target: TSK-036
+  - type: contributes_to
+    target: TSK-055
+  - type: contributes_to
+    target: TSK-056
+  - type: contributes_to
+    target: TSK-057
