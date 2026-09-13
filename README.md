@@ -1,6 +1,6 @@
 # EAI Standard
 
-**Status:** Candidate 0.3.0  
+**Status:** Candidate 0.3.1  
 **Scope:** modeloverstijgende beschrijving van menselijk handelen wanneer AI deelneemt aan onderwijsprocessen.
 
 De EAI Standard schrijft geen didactisch of pedagogisch model voor. De standaard maakt zichtbaar welke menselijke handelingen in een concrete onderwijs- of leersituatie bedoeld zijn, welke rol AI daarin krijgt, welk menselijk bewijs nodig blijft en wat er gebeurt wanneer AI een bedoelde menselijke handeling overneemt.
@@ -40,12 +40,42 @@ De repository is bewust gelaagd:
 - [`adapters/`](adapters/) bevat **source-preserving** mappings naar bestaande didactische, pedagogische en professionele modellen;
 - [`context/`](context/) is gereserveerd voor overlays zoals leeftijd, niveau, vak, curriculum en jurisdictie;
 - [`evidence/`](evidence/) bevat de wetenschappelijke onderbouwing en claim-source mappings;
+- [`system-profiles/`](system-profiles/) is een **niet-normatieve technische add-on** voor model, inference, orchestration, context/data, tools, toepassing, evaluatie en governance;
 - [`schemas/`](schemas/) bevat de machineleesbare contracten;
 - [`examples/`](examples/) bevat uitgewerkte cases;
 - [`tests/`](tests/) bevat conformance-fixtures;
 - [`implementations/`](implementations/) bevat niet-normatieve implementatieafspraken.
 
-De canonieke interoperability surface staat in [`standard/public-interface.yaml`](standard/public-interface.yaml).
+De canonieke interoperability surface staat in [`standard/public-interface.yaml`](standard/public-interface.yaml). De toevoeging van `system-profiles/` in 0.3.1 verandert die normatieve interface niet.
+
+## Mens en systeem zijn verschillende analyselagen
+
+De standaard maakt drie vragen expliciet verschillend:
+
+1. **Wat kan het technische systeem?** Dit staat in een optioneel system profile.
+2. **Wat doet het systeem daadwerkelijk in deze taak?** Dit wordt beschreven met de canonieke AI-actions.
+3. **Wat betekent die AI-action voor de bedoelde menselijke handeling en het beschikbare menselijke bewijs?** Dit is de EAI-analyse.
+
+```text
+SYSTEM PROFILE
+model + inference + orchestration + context + tools + autonomy
+                         |
+                         v
+OBSERVABLE AI ACTION
+question / hint / classify / recommend / perform / execute
+                         |
+                         v
+EAI STANDARD
+human action / allocation / evidence / handback / remediation
+```
+
+De centrale grensregel luidt:
+
+> **Functionele overeenkomst betekent geen constructgelijkheid.**
+
+Een systeem kan bijvoorbeeld informatie persistent bewaren, een nieuwe taak oplossen of een interventie aanbevelen. Dat maakt systeemgeheugen niet hetzelfde construct als menselijke retentie, nieuwe-taakprestatie niet automatisch menselijke transfer en een systeemadvies niet hetzelfde als professioneel oordeel.
+
+Zie [`docs/09-human-system-boundary.md`](docs/09-human-system-boundary.md) en [`system-profiles/human-system-boundary.yaml`](system-profiles/human-system-boundary.yaml).
 
 ## Source-preserving adapters
 
@@ -73,6 +103,21 @@ Naast de brede docent- en leerlingskills zijn nu diepere, herbruikbare registrie
 
 De actuele registry-index staat in [`registries/index.yaml`](registries/index.yaml).
 
+## System profile add-on
+
+[`system-profiles/`](system-profiles/) maakt het mogelijk om een concrete AI-configuratie technisch te beschrijven zonder technische eigenschappen in de normatieve EAI-semantiek te trekken.
+
+De add-on bevat:
+
+- een achtlaagse capability-taxonomie;
+- een JSON Schema voor system profiles;
+- een mens-systeemgrensmatrix;
+- een many-to-many bridge tussen systeemfunctionaliteit en EAI AI-actions;
+- een optionele namespaced koppeling vanuit een EAI-case;
+- een vendor-neutraal agentic-LLM voorbeeld.
+
+Een zeer krachtig model, agent loop, RAG-laag of toolset bepaalt dus niet automatisch de EAI-classificatie. De concrete **AI-action ten opzichte van de menselijke kernhandeling** blijft bepalend.
+
 ## Conformance
 
 Conformance is profielspecifiek en gebruikt drie toestanden:
@@ -91,6 +136,8 @@ Dat is bewust: de standaard moet ook buiten een lesmodel kunnen beschrijven wat 
 
 Lokale of leverancier-specifieke data mag worden toegevoegd via expliciet genamespace-de extensions. Een extensie mag een canoniek begrip niet herdefiniëren. Implementaties die een extensie niet begrijpen mogen die informatie bewaren zonder haar te interpreteren.
 
+System profiles gebruiken precies dit mechanisme: een EAI-case kan optioneel verwijzen naar een technisch profiel zonder dat ondersteuning daarvan vereist wordt voor basisconformance.
+
 ## Wat de standaard niet doet
 
 De EAI Standard:
@@ -101,7 +148,8 @@ De EAI Standard:
 - gebruikt geen totaalscore voor "goed" of "fout" AI-gebruik;
 - koppelt de basis niet aan één leeftijd, onderwijsniveau, vak of curriculum;
 - behandelt een geproduceerd eindproduct niet als vanzelfsprekend bewijs van leren;
-- presenteert structurele conformance niet als bewijs van onderwijskwaliteit of effectiviteit.
+- presenteert structurele conformance niet als bewijs van onderwijskwaliteit of effectiviteit;
+- stelt technische AI-capability niet gelijk aan menselijke kennis, leren, oordeel of verantwoordelijkheid.
 
 Niveau, leeftijd, vak, curriculum en specifieke onderwijsmodellen worden als uitbreidbare context of adapter toegevoegd.
 
@@ -117,8 +165,10 @@ Bij modeladapters wordt daarnaast onderscheid gemaakt tussen **model-definition 
 
 `Argumenteren` is de eerste uitgebreide leerling-microstructure-case. De instructie-adapters voegen daar docentdiagnose, support regulation en onafhankelijke heruitvoering aan toe. De pedagogische cases testen dezelfde standaardgrammatica zonder een didactisch fasemodel.
 
+De system-profile voorbeelden voegen daar een technische analyselaag aan toe zonder de conformancebetekenis van de menselijke case te veranderen.
+
 ## Versie
 
 De repository gebruikt semantische versies. Tot versie 1.0 kan de structuur nog wijzigen.
 
-Huidige versie: **0.3.0-candidate**.
+Huidige versie: **0.3.1-candidate**.
