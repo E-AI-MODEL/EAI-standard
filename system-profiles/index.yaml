@@ -1,9 +1,13 @@
-version: 0.1.0-candidate
+version: 0.2.0-candidate
 status: non_normative_companion
 
 artifacts:
   taxonomy: capability-taxonomy.yaml
   profile_schema: system-profile.schema.json
+  feature_state_contract: status-evidence-contract.yaml
+  feature_state_schema: feature-state.schema.json
+  verification_taxonomy: verification-types.yaml
+  verification_event_schema: verification-event.schema.json
   human_system_boundary: human-system-boundary.yaml
   action_bridge: action-bridge.yaml
   eai_extension_schema: eai-system-profile-extension.schema.json
@@ -15,6 +19,9 @@ examples:
   - id: CASE-SYSTEM-PROFILE-EXTENSION-EXAMPLE
     path: examples/eai-extension-example.yaml
     type: eai_case_with_system_profile_extension
+
+semantic_stability_rule: >-
+  Human-readable regrouping of system-profile information may change without changing the semantic eight-layer profile, provided fields retain the same meaning and machine-readable references remain stable.
 
 status_rule: >-
   These artifacts are intentionally outside the normative EAI public interface. They may support comparison, audit, implementation and explanation, but they do not redefine EAI human-action semantics or conformance rules.
