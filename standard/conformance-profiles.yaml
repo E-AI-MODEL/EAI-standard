@@ -1,0 +1,81 @@
+version: 0.3.0-candidate
+status: candidate
+
+profiles:
+  - id: CP-01
+    label: basic_case_exchange
+    purpose: Exchange a minimally interpretable EAI case between systems.
+    requires:
+      - context
+      - goal
+      - actor
+      - process_position
+      - at_least_one_core_action_or_unknown_marker
+    may_report:
+      - extensions
+      - retained_unknowns
+
+  - id: CP-02
+    label: human_ai_allocation
+    purpose: Describe how relevant human and AI operations are distributed within a case.
+    requires:
+      - all_CP-01_requirements
+      - microstructure_level_analysis_when_allocation_differs
+      - separate_human_execution
+      - explicit_ai_action
+      - unknowns_preserved
+
+  - id: CP-03
+    label: assessment_evidence
+    purpose: Support bounded claims about performance, professional judgement, mastery, retention or transfer.
+    requires:
+      - all_CP-02_requirements
+      - explicit_claim_type
+      - claim_matched_evidence
+      - handback_and_redemonstration_when_required
+    prohibitions:
+      - generated_product_as_sole_independent_mastery_evidence
+      - unknown_coerced_to_judgement
+
+  - id: CP-04
+    label: source_preserving_model_adapter
+    purpose: Map an external didactic, pedagogical or professional model while preserving the source model.
+    requires:
+      - source_reference
+      - source_elements
+      - original_source_labels
+      - retained_unmapped_elements
+      - explicit_mapping_type
+    prohibitions:
+      - silent_source_element_deletion
+      - source_terminology_replacement
+      - mapping_presented_as_source_model_content
+
+  - id: CP-05
+    label: registry_item
+    purpose: Exchange reusable skills, microstructures or remediation content.
+    requires:
+      - stable_item_identifier
+      - human_readable_label
+      - definition_or_description
+    constraints:
+      - registry_item_not_globally_core
+      - extensions_namespaced
+
+  - id: CP-06
+    label: full_interoperability
+    purpose: Declare broad implementation support for the candidate standard.
+    requires:
+      - CP-01
+      - CP-02
+      - CP-03
+      - CP-04
+      - CP-05
+      - structured_diagnostics
+      - declared_supported_version
+      - declared_unsupported_optional_semantics
+
+notes:
+  - Conformance is profile-specific; a system may conform to one profile without implementing all others.
+  - Profiles describe structural interoperability, not educational effectiveness.
+  - Passing conformance does not validate the quality of an instructional design or AI system.
