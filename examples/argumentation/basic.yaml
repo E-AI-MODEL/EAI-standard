@@ -1,0 +1,76 @@
+id: EX-ARG-001
+context: A learner writes a short argumentative text with optional AI support.
+goal: The learner independently constructs and defends a reasoned position.
+process_position:
+  model: null
+  label: argumentation_task
+  source_term: null
+claim_type: independent_mastery
+
+actors:
+  - actor: learner
+    core_actions:
+      - label: construct_and_defend_argument
+        status: candidate
+        microstructures:
+          - id: MS-ARG-04
+            label: formulate_explicit_thesis
+            human_execution: full
+            ai_action: AIA-00
+            evidence:
+              - EV-03
+            handback_required: false
+            remediation: null
+
+          - id: MS-ARG-07
+            label: generate_main_argument
+            human_execution: full
+            ai_action: AIA-00
+            evidence:
+              - EV-03
+              - EV-02
+            handback_required: false
+            remediation: null
+
+          - id: MS-ARG-15
+            label: recognise_counterargument
+            human_execution: partial
+            ai_action: AIA-05
+            evidence:
+              - EV-05
+            handback_required: true
+            remediation: REM-06
+
+          - id: MS-ARG-17
+            label: formulate_rebuttal
+            human_execution: full
+            ai_action: AIA-02
+            evidence:
+              - EV-03
+              - EV-02
+            handback_required: false
+            remediation: null
+
+          - id: MS-ARG-21
+            label: order_arguments_logically
+            human_execution: full
+            ai_action: AIA-07
+            evidence:
+              - EV-02
+            handback_required: false
+            remediation: null
+
+          - id: MS-ARG-22
+            label: draw_conclusion
+            human_execution: full
+            ai_action: AIA-00
+            evidence:
+              - EV-03
+            handback_required: false
+            remediation: null
+
+responsibility: The learner remains responsible for the thesis, reasoning, rebuttal and final conclusion.
+unknowns:
+  - Whether recognition of counterarguments is independently mastered, because AI generated alternatives in the first attempt.
+notes: >-
+  The first product may show successful supported performance. Independent mastery of counterargument recognition requires a fresh item without AI-generated counterarguments.
