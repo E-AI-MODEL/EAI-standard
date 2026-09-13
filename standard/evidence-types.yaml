@@ -1,0 +1,79 @@
+version: 0.1.0-candidate
+status: candidate
+
+evidence_types:
+  - id: EV-01
+    label: observed_attempt
+    supports:
+      - current_performance
+    description: The human visibly attempts the relevant action.
+
+  - id: EV-02
+    label: explanation_or_justification
+    supports:
+      - current_performance
+      - professional_judgement
+    description: The human explains or justifies a choice, interpretation or reasoning step in their own words.
+
+  - id: EV-03
+    label: independent_execution
+    supports:
+      - independent_mastery
+      - professional_judgement
+    description: The human performs the relevant action with support reduced to the level required by the claim.
+
+  - id: EV-04
+    label: correction_or_revision
+    supports:
+      - current_performance
+      - independent_mastery
+    description: The human detects or responds to an error and revises the relevant action or product.
+
+  - id: EV-05
+    label: comparison_and_selection
+    supports:
+      - current_performance
+      - professional_judgement
+    description: The human compares alternatives using explicit criteria and makes a reasoned selection.
+
+  - id: EV-06
+    label: delayed_reperformance
+    supports:
+      - retention
+    description: The human performs the relevant action again after a meaningful delay.
+
+  - id: EV-07
+    label: novel_context_performance
+    supports:
+      - transfer
+    description: The human performs the relevant action in a meaningfully different task, context or representation.
+
+  - id: EV-08
+    label: trace_of_decision
+    supports:
+      - professional_judgement
+    description: A trace shows what information the human considered, what decision was made and how it was justified.
+
+  - id: EV-09
+    label: multi_source_observation
+    supports:
+      - current_performance
+      - professional_judgement
+    description: Evidence from more than one observation, source or moment supports the claim.
+
+claim_types:
+  current_performance:
+    description: The human can perform or explain the action in the current situation.
+  professional_judgement:
+    description: The professional has interpreted information and made a reasoned, accountable judgement.
+  independent_mastery:
+    description: The learner can execute the relevant action with appropriately reduced support.
+  retention:
+    description: The learner can still perform the action after delay.
+  transfer:
+    description: The learner can perform the action in a meaningfully different context.
+
+constraints:
+  - A product created with AI support is not sufficient evidence of independent mastery by itself.
+  - Self-report may supplement evidence but should not be the sole basis for a strong mastery claim.
+  - Evidence requirements should be proportional to the claim being made.
