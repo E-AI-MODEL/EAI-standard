@@ -1,0 +1,70 @@
+version: 0.2.0-candidate
+status: non_normative_companion
+
+purpose: >-
+  Distinguishes materially different forms of verification used inside or around an AI system. The categories describe verification method, not correctness or trustworthiness by themselves.
+
+verification_types:
+  - id: VER-INT-CONSISTENCY
+    label: internal_consistency_check
+    description: The same model or model stack checks output for internal consistency, contradiction or format compliance without an independent external reference.
+    independence: none
+    typical_evidence: model_trace_or_system_log
+
+  - id: VER-MODEL-EVALUATOR
+    label: model_evaluator
+    description: A separate model call or evaluator component assesses a candidate output using configured criteria.
+    independence: limited
+    typical_evidence: evaluator_trace_or_system_log
+    note: A separate model call may reduce some errors but does not automatically constitute independent verification.
+
+  - id: VER-TOOL
+    label: tool_verification
+    description: A calculator, code execution environment, test suite, database query or other tool checks a material part of the output.
+    independence: method_dependent
+    typical_evidence: tool_result
+
+  - id: VER-SOURCE
+    label: source_verification
+    description: A material claim is compared against an identifiable source or dataset relevant to that claim.
+    independence: source_dependent
+    typical_evidence: source_reference_and_comparison
+
+  - id: VER-EXTERNAL-INDEPENDENT
+    label: independent_external_verification
+    description: A materially independent source, system, dataset, method or evaluator checks the claim or result.
+    independence: high_when_genuinely_independent
+    typical_evidence: independent_test_or_source
+
+  - id: VER-HUMAN
+    label: human_verification
+    description: A human checks a material claim, recommendation, output or action using information and authority appropriate to the task.
+    independence: context_dependent
+    typical_evidence: human_review_trace
+    note: Human presence alone does not establish effective verification.
+
+  - id: VER-NONE
+    label: no_verification
+    description: No verification mechanism relevant to the stated claim or task is configured or observed.
+    independence: none
+
+  - id: VER-UNKNOWN
+    label: unknown_verification
+    description: Available evidence does not establish whether or how verification occurs.
+    independence: unknown
+
+rules:
+  - A verification label MUST NOT be interpreted as proof that the verified output is correct.
+  - Internal consistency and model-evaluator checks MUST NOT be represented as independent external verification.
+  - Source verification SHOULD preserve the source used and the claim or output checked.
+  - Human verification SHOULD record whether the human had sufficient information, authority and timing to change the relevant outcome when that matters.
+  - Verification type and verification result are separate fields.
+
+recommended_record:
+  id: verification-event-id
+  type: VER-SOURCE
+  target: claim_or_output_reference
+  result: passed | failed | mixed | inconclusive | unknown
+  evidence_refs: []
+  performed_by: system | human | external_party | mixed
+  notes: null
