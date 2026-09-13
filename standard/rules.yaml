@@ -1,0 +1,83 @@
+version: 0.1.0-candidate
+status: candidate
+
+normative_rules:
+  - id: EAI-R001
+    title: Goal before allocation
+    requirement: >-
+      An AI-supported educational situation MUST state the relevant goal before human-AI allocation is judged.
+
+  - id: EAI-R002
+    title: Process position must be explicit
+    requirement: >-
+      The relevant process position MUST be identified using the terminology of the process or model actually being used. The EAI Standard MUST NOT invent a replacement phase model.
+
+  - id: EAI-R003
+    title: Core actions are contextual
+    requirement: >-
+      A core human action MUST be defined for an actor, goal and concrete situation. A skill or microstructure MUST NOT be labelled globally as a core action.
+
+  - id: EAI-R004
+    title: Decompose when allocation differs
+    requirement: >-
+      A core human action SHOULD be decomposed into microstructures whenever human and AI execution differ across parts of that action.
+
+  - id: EAI-R005
+    title: Human and AI action must be separated
+    requirement: >-
+      Human execution and AI execution MUST be recorded separately. AI output MUST NOT be described as human performance without independent evidence.
+
+  - id: EAI-R006
+    title: Amount of output is not the measure
+    requirement: >-
+      Task takeover MUST be judged by which relevant human actions AI performs, not by the length, fluency or volume of AI output.
+
+  - id: EAI-R007
+    title: Evidence must match the claim
+    requirement: >-
+      Claims about current performance, independent mastery, retention and transfer MUST use evidence appropriate to that specific claim.
+
+  - id: EAI-R008
+    title: Generated performance is not mastery
+    requirement: >-
+      A successful AI-supported product MUST NOT by itself be treated as evidence that the human independently masters the relevant action.
+
+  - id: EAI-R009
+    title: Responsibility is not equivalent to execution
+    requirement: >-
+      A human MAY remain responsible for a decision while AI performs supporting operations, but accountability MUST NOT be inferred merely from nominal human approval.
+
+  - id: EAI-R010
+    title: Handback before mastery claims
+    requirement: >-
+      When AI has performed a core human action and a claim about human mastery or professional judgement is required, the action MUST be handed back and re-demonstrated by the human.
+
+  - id: EAI-R011
+    title: Remediation ends in new evidence
+    requirement: >-
+      Remediation MUST end with renewed human execution or evidence. The intervention itself is not proof of recovery.
+
+  - id: EAI-R012
+    title: Unknown remains unknown
+    requirement: >-
+      Missing or ambiguous information MUST be represented as unknown and MUST NOT be silently interpreted as low quality, low mastery or safe allocation.
+
+  - id: EAI-R013
+    title: Multiple actors may have different core actions
+    requirement: >-
+      The same situation MAY contain distinct core human actions for teacher/professional and learner. These MUST be analysed separately when relevant.
+
+  - id: EAI-R014
+    title: Model adapters preserve source models
+    requirement: >-
+      A model adapter MUST preserve the source model's own terminology, phase structure and internal ordering. It MAY map these to EAI concepts but MUST NOT rewrite the source model as if the mapping were the model itself.
+
+  - id: EAI-R015
+    title: Context overlays do not redefine the core
+    requirement: >-
+      Age, education level, subject and curriculum MAY refine expected complexity or evidence, but MUST NOT silently change the meaning of core EAI terms.
+
+  - id: EAI-R016
+    title: No mandatory total score
+    requirement: >-
+      Conformance to this standard MUST NOT depend on a single aggregate score that collapses distinct evidence, responsibility and allocation questions into one number.
