@@ -1,0 +1,103 @@
+id: CASE-ARG-EI-001
+context: >-
+  A learner is practising argumentation in a guided-practice setting. The learner must build and defend a position.
+  AI may challenge the reasoning with a counterargument after the learner has produced an initial argument.
+goal: >-
+  The learner can formulate a defensible position, generate a relevant argument, respond to a counterargument and draw a warranted conclusion.
+process_position:
+  model: explicit_instruction_family
+  label: guided_practice
+  source_term: guided practice
+claim_type: current_performance
+
+actors:
+  - actor: learner
+    core_actions:
+      - label: build_and_test_argumentation
+        status: confirmed
+        microstructures:
+          - id: MS-ARG-04
+            label: formulate_explicit_thesis
+            human_execution: full
+            ai_action: none
+            evidence:
+              - learner_formulates_thesis_before_ai_challenge
+            handback_required: false
+            remediation: null
+          - id: MS-ARG-07
+            label: generate_main_argument
+            human_execution: full
+            ai_action: none
+            evidence:
+              - learner_generates_initial_argument
+              - learner_explains_why_argument_supports_thesis
+            handback_required: false
+            remediation: null
+          - id: MS-ARG-08
+            label: determine_argument_relevance
+            human_execution: full
+            ai_action: ask_question
+            evidence:
+              - learner_explains_relevance
+            handback_required: false
+            remediation: null
+          - id: MS-ARG-15
+            label: recognise_counterargument
+            human_execution: partial
+            ai_action: generate_alternative
+            evidence:
+              - learner_identifies_what_the_ai_counterargument_challenges
+            handback_required: true
+            remediation: REM-06
+          - id: MS-ARG-17
+            label: formulate_rebuttal
+            human_execution: full
+            ai_action: ask_question
+            evidence:
+              - learner_formulates_own_rebuttal
+              - learner_explains_weakness_or_limit_in_counterargument
+            handback_required: false
+            remediation: null
+          - id: MS-ARG-22
+            label: draw_conclusion
+            human_execution: full
+            ai_action: none
+            evidence:
+              - learner_draws_conclusion_from_own_reasoning
+            handback_required: false
+            remediation: null
+
+  - actor: teacher_professional
+    core_actions:
+      - label: regulate_support_from_learner_evidence
+        status: confirmed
+        microstructures:
+          - label: observe_relevant_signal
+            human_execution: full
+            ai_action: organise_input
+            evidence:
+              - teacher_inspects_learner_original_response
+            handback_required: false
+            remediation: null
+          - label: select_hint
+            human_execution: full
+            ai_action: generate_alternatives
+            evidence:
+              - teacher_selects_or_rejects_hint_based_on_observed_need
+            handback_required: false
+            remediation: null
+          - label: adjust_support
+            human_execution: full
+            ai_action: none
+            evidence:
+              - teacher_changes_support_level_with_reason
+            handback_required: false
+            remediation: null
+
+responsibility: >-
+  The teacher remains responsible for interpreting learner evidence and deciding support level. The learner remains responsible for the substantive argumentation steps required by the goal.
+unknowns:
+  - Whether performance persists after a delay is not established in this case.
+  - Transfer to a different argumentative context is not established in this case.
+notes: >-
+  Because AI generated the counterargument, this interaction alone does not evidence that the learner can independently generate counterarguments. A fresh item requiring the learner to generate an objection is used as handback.
