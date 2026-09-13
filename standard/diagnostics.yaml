@@ -150,6 +150,41 @@ diagnostics:
     message: Information that could materially change the interpretation or claim is explicitly unknown; the uncertainty must remain visible until new evidence is available.
     related_rule: EAI-R012
 
+  - code: EAI-D021
+    severity: error
+    effect: non_conformance
+    label: core_action_anchor_missing
+    message: A core human action cannot be interpreted through all four required anchors: context, goal, actor and process position.
+    related_rule: EAI-R027
+
+  - code: EAI-D022
+    severity: error
+    effect: non_conformance
+    label: microstructure_not_constituent_of_case_core_action
+    message: A microstructure is analysed as a parallel or free-standing case action rather than as a constituent operation of the selected core human action.
+    related_rule: EAI-R028
+
+  - code: EAI-D023
+    severity: error
+    effect: non_conformance
+    label: unqualified_protection_flag
+    message: A protection conclusion is recorded without identifying the protected dimension and its supporting basis.
+    related_rule: EAI-R029
+
+  - code: EAI-D024
+    severity: error
+    effect: non_conformance
+    label: protection_basis_authority_overstated
+    message: The authority, applicability or bindingness of a protection basis is represented more strongly than the recorded source supports.
+    related_rule: EAI-R030
+
+  - code: EAI-D025
+    severity: error
+    effect: non_conformance
+    label: protection_status_propagated_across_dimensions
+    message: A protection status assigned to one dimension has been automatically applied to another dimension without a separate assessment.
+    related_rule: EAI-R031
+
 constraints:
   - Diagnostics must never silently delete source data.
   - Conformance and information uncertainty are separate result dimensions.
