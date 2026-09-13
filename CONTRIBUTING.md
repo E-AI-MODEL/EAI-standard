@@ -2,6 +2,12 @@
 
 EAI Standard is developed as an open candidate standard. Contributions are welcome from teachers, school leaders, researchers, developers, suppliers, architects and other parties working in education.
 
+## Canonical boundary
+
+Before proposing a change, check `standard/public-interface.yaml`. It is the authoritative manifest of canonical EAI Standard artifacts.
+
+Registries, adapters, context overlays, evidence, system profiles, examples, documentation and implementations may support or instantiate the standard, but they do not become normative merely because they are useful or widely used.
+
 ## What can be proposed
 
 Contributions may concern:
@@ -15,7 +21,8 @@ Contributions may concern:
 - a context profile;
 - an example or conformance case;
 - a schema or validation improvement;
-- evidence relevant to a normative choice.
+- evidence relevant to a normative choice;
+- an identifier, conformance or versioning improvement.
 
 ## Before proposing a normative change
 
@@ -30,9 +37,24 @@ A normative proposal should describe:
 7. compatibility impact;
 8. impact on existing adapters, registries and schemas;
 9. known alternatives;
-10. supporting evidence where the proposal makes an empirical claim.
+10. supporting evidence where the proposal makes an empirical claim;
+11. whether the proposal changes meaning or only presentation.
 
 A proposal does not need to start with a complete solution. A well-described problem can be opened first for discussion.
+
+## Semantic change versus presentation change
+
+A different grouping, UI, table, diagram, file layout or human-readable view is not by itself a reason to alter canonical semantics.
+
+A canonical change should address at least one real problem such as:
+
+- two implementations could interpret the same field differently;
+- a necessary distinction cannot currently be represented;
+- a normative rule cannot be tested or exchanged consistently;
+- an identifier or version has ambiguous meaning;
+- an existing construct produces a demonstrable interoperability problem.
+
+Presentation improvements should normally stay in documentation or implementation layers.
 
 ## Open discussion
 
@@ -43,7 +65,14 @@ Discussion should distinguish between:
 - **empirical claims**: claims about learning, behaviour, technology or implementation that require evidence;
 - **normative choices**: design decisions about what the standard requires;
 - **terminology choices**: decisions about labels and definitions;
-- **implementation choices**: choices that belong in a product or adapter rather than the standard.
+- **implementation choices**: choices that belong in a product or adapter rather than the standard;
+- **presentation choices**: alternative human-readable views of unchanged semantics.
+
+## Normative language
+
+Canonical `MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT` and `MAY` requirements follow BCP 14 as described in `standard/normative-language.md`.
+
+Do not use capitalized requirement keywords casually in canonical artifacts. A `MUST` creates a conformance obligation.
 
 ## Decision principles
 
@@ -79,15 +108,18 @@ Relevant stakeholder roles include:
 
 Pull requests should be small enough to review and should identify whether they change:
 
-- documentation only;
+- documentation/presentation only;
 - registries/adapters;
 - optional schema fields;
+- canonical identifiers or versioning;
 - normative semantics;
 - conformance behaviour.
 
-Breaking normative changes require a changelog entry.
+Breaking normative candidate changes require a changelog entry and, where existing implementations are affected, migration information and updated conformance fixtures.
 
 ## Versioning
+
+`standard_version` is the version of the EAI Standard release. Other version fields such as `source_version`, `profile_version` or `artifact_version` have narrower meanings and must not be used interchangeably.
 
 The repository uses semantic versioning:
 
@@ -96,6 +128,10 @@ The repository uses semantic versioning:
 - **major**: incompatible normative changes.
 
 Before 1.0, breaking changes may occur in minor candidate releases, but they must remain explicit and traceable.
+
+## Identifiers
+
+Canonical identifier rules are defined in `standard/identifiers.yaml`. Do not reuse a canonical ID for a different meaning. Third-party additions should use their own namespace rather than imitate the reserved EAI identifier space.
 
 ## Conduct
 
