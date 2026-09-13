@@ -1,5 +1,5 @@
 id: EX-PED-MENTOR-001
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 context: >-
   A learner tells a mentor that participation in school has become difficult and asks to discuss a temporary adjustment. An AI tool structures factual notes after the conversation but does not interpret the learner's meaning or recommend the decision.
 goal: Reach a proportionate educational follow-up that reflects the learner's own account, relevant context and professional responsibility.
