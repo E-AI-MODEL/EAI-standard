@@ -2,7 +2,7 @@
 
 Conformance means that a case, registry item, model adapter or implementation uses the EAI Standard consistently enough to be exchanged, inspected and compared without silently changing meaning.
 
-Conformance is **profile-specific**. Supporting one profile does not imply support for the full standard. Canonical profiles are defined in `standard/conformance-profiles.yaml`.
+Conformance is **profile-specific**. Supporting one profile does not imply support for the full standard. Canonical profiles are defined in `standard/conformance-profiles.yaml`. Machine-readable conformance results identify the selected profile by its canonical `CP-*` identifier, for example `CP-03`, rather than by the descriptive profile label.
 
 ## Two separate result dimensions
 
@@ -46,6 +46,8 @@ Diagnostics may identify, for example:
 - an adapter dropping or rewriting source-model content;
 - an unnamespaced extension;
 - material information that remains explicitly unknown.
+
+A retained source-model element without an EAI mapping is permitted under `CP-04`. `EAI-D015` may report that condition informationally, but it does not by itself create uncertainty or non-conformance.
 
 ## Basic case exchange
 
