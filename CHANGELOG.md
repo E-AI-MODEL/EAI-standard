@@ -18,20 +18,34 @@ Non-normative AI system profile add-on and explicit human-system boundary.
 - vendor-neutral agentic LLM system-profile example;
 - worked EAI case showing a technical system profile alongside teacher professional judgement;
 - human-system boundary documentation covering system memory versus retention, system novelty performance versus transfer, recommendation versus professional judgement and autonomy versus responsibility;
-- machine-readable system-profile index.
+- machine-readable system-profile index;
+- cross-cutting `status-evidence-contract.yaml` distinguishing system capability, enabled deployment configuration, observed case behaviour and evidential basis;
+- strict `feature-state.schema.json` for machine-readable feature-state records;
+- typed `verification-types.yaml` distinguishing internal consistency, model evaluation, tool verification, source verification, independent external verification and human verification;
+- strict `verification-event.schema.json` for verification traces.
 
 ### Changed
 
 - repository README now explicitly separates system capability, observable AI action and EAI human-AI allocation;
-- repository status advanced to `0.3.1-candidate`.
+- repository status advanced to `0.3.1-candidate`;
+- system-profile schema now accepts optional cross-cutting `feature_states` and `verification_events` while preserving the existing eight-layer structure;
+- system-profile taxonomy now states explicitly that a different human-readable grouping of the same information does not require a new semantic structure;
+- system-profile example now demonstrates the difference between `supported`, `enabled` and `observed`, including the provenance of those assertions;
+- internal system verification is no longer semantically interchangeable with independent verification.
 
 ### Normative impact
 
 None. The canonical EAI public interoperability surface remains unchanged. System profiles are optional and non-normative. Basic EAI conformance does not depend on model name, vendor, model size, benchmark score, orchestration complexity or the presence of a system profile.
 
-### Design rule
+The system-profile hardening deliberately adds semantic distinctions only where two implementations could otherwise mean materially different things. It does not replace the eight-layer profile with a new information architecture.
+
+### Design rules
 
 Technical capability changes what a system may be able to perform. It does not determine which human action should be delegated or what counts as evidence of human learning, mastery, retention, transfer, professional judgement or responsibility.
+
+A clearer human-readable grouping of the same system information is a presentation view, not by itself a reason to revise the semantic standard.
+
+`Supported`, `enabled` and `observed` are different statements. A provider claim, deployment observation and independent test are also different evidence bases.
 
 ## 0.3.0-candidate
 
