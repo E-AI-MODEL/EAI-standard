@@ -1,5 +1,5 @@
 standard_version: 0.4.0-candidate
-artifact_version: 0.1.0-candidate
+artifact_version: 0.1.1-candidate
 status: candidate_jurisdiction_overlay
 language: en
 jurisdiction: European_Union
@@ -45,8 +45,10 @@ protection_mappings:
       authority: European Union
       jurisdiction: European_Union
       source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
-      applicability: conditional_on_high_risk_classification
+      applicability: potentially_applicable
       bindingness: legally_binding
+    applicability_condition: >-
+      Becomes `applicable` only after the concrete system/use is established as high-risk and Article 14 applies.
     interpretation: >-
       Article 14 requires high-risk AI systems to support effective human oversight. Oversight measures are proportionate to risk, autonomy and context and should enable assigned natural persons to understand relevant capabilities and limitations, monitor operation, recognise automation bias, interpret outputs and intervene appropriately.
 
@@ -61,8 +63,10 @@ protection_mappings:
       authority: European Union
       jurisdiction: European_Union
       source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
-      applicability: conditional_on_high_risk_classification
+      applicability: potentially_applicable
       bindingness: legally_binding
+    applicability_condition: >-
+      Becomes `applicable` only after the concrete system/use is established as high-risk and Article 14 applies.
     interpretation: >-
       Assigned human overseers must, as appropriate and proportionate, be enabled to decide not to use the system or to disregard, override or reverse its output, and to intervene in or interrupt system operation.
 
@@ -77,8 +81,10 @@ protection_mappings:
       authority: European Union
       jurisdiction: European_Union
       source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
-      applicability: conditional_on_deployer_status_and_high_risk_classification
+      applicability: potentially_applicable
       bindingness: legally_binding
+    applicability_condition: >-
+      Becomes `applicable` after deployer status, high-risk classification and Article 26 applicability are established.
     interpretation: >-
       Article 26(2) requires deployers to assign human oversight to natural persons with the necessary competence, training and authority, together with the necessary support.
 
@@ -95,6 +101,8 @@ protection_mappings:
       source_uri: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
       applicability: potentially_applicable
       bindingness: legally_binding
+    applicability_condition: >-
+      Depends on the deployer category and system/use covered by Article 27.
     interpretation: >-
       Article 27 requires a fundamental-rights impact assessment before deployment for specified deployers and systems and includes description of the implementation of human-oversight measures. Whether an educational organisation falls within the specified deployer categories must be established separately.
 
@@ -111,6 +119,8 @@ protection_mappings:
       source_uri: https://eur-lex.europa.eu/eli/reg/2016/679/oj
       applicability: potentially_applicable
       bindingness: legally_binding
+    applicability_condition: >-
+      Depends on whether the concrete processing and decision fall within Article 22 and whether an exception and its safeguards apply.
     interpretation: >-
       Article 22 provides a right not to be subject to certain solely automated decisions and, in specified exception cases, requires safeguards that include at least the right to obtain human intervention, express a point of view and contest the decision. Applicability must be assessed separately from AI Act classification.
 
