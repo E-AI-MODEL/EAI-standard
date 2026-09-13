@@ -1,0 +1,138 @@
+id: SYS-EXAMPLE-AGENTIC-LLM
+profile_version: 0.1.0-candidate
+system_name: generic_agentic_llm_assistant
+description: >-
+  Vendor-neutral example showing how a generative AI application with retrieval, tools and bounded autonomous workflow can be described without making claims about human-like cognition.
+observed_at: null
+source_references: []
+
+layers:
+  model:
+    model_name: generic_frontier_language_model
+    model_version: unknown
+    provider: unknown
+    deployment_type: hosted_api
+    modalities: [text, image_input]
+    context_window: unknown
+    base_capabilities:
+      - text_generation
+      - summarisation
+      - classification
+      - structured_output
+      - tool_call_generation
+    known_limitations:
+      - may_generate_incorrect_content
+      - output_quality_depends_on_context_and_task
+      - model_updates_may_change_behaviour
+
+  inference:
+    inference_mode: configurable
+    reasoning_effort_or_compute: configurable
+    sampling_configuration: null
+    deterministic_constraints:
+      - structured_output_schema_when_required
+    candidate_generation: single_or_multiple_candidates
+    self_consistency_or_voting: optional
+    verification_steps:
+      - external_tool_checks_when_configured
+      - source_comparison_when_configured
+    inference_limits:
+      - finite_context_and_compute
+
+  orchestration:
+    routing: task_based_router
+    model_selection: may_select_model_by_task
+    multi_model_configuration: []
+    planner: optional_planning_component
+    executor: tool_execution_controller
+    evaluator: optional_output_checker
+    agent_loops: bounded_iterations
+    fallback: human_handoff_or_simpler_response
+    retry_policy: bounded_retry
+    stop_conditions:
+      - task_complete
+      - tool_failure_threshold
+      - iteration_limit
+      - human_handoff_required
+
+  context_and_data:
+    prompt_context: system_instructions_plus_conversation_and_task_data
+    retrieval_augmented_generation: optional
+    knowledge_sources:
+      - approved_documents_when_connected
+      - web_or_search_results_when_enabled
+    source_freshness: source_dependent
+    session_memory: conversation_context
+    persistent_memory: optional_and_policy_dependent
+    user_context: optional
+    task_context: explicit_workflow_state
+    organisation_context: optional
+    data_boundaries:
+      - access_limited_to_configured_sources
+      - personal_or_sensitive_data_subject_to_local_policy
+
+  tools_and_actions:
+    search: optional
+    code_execution: optional
+    file_access: optional
+    databases: []
+    external_apis: []
+    communication_tools: []
+    write_actions: []
+    transaction_actions: []
+    physical_or_device_actions: []
+    tool_permissions:
+      - explicit_configuration_required
+      - least_privilege_preferred
+
+  application:
+    use_case: educational_or_professional_assistant
+    workflow: user_request_to_model_to_optional_tools_to_response_or_action
+    interface: chat_or_embedded_workflow
+    user_role: learner_or_teacher_professional
+    system_role: assistant
+    autonomy_level: bounded_autonomy
+    proactive_behaviour: configurable
+    human_decision_points:
+      - approval_before_high_consequence_action
+      - professional_judgement_when_required_by_context
+    escalation_points:
+      - insufficient_information
+      - safety_or_policy_boundary
+      - action_outside_authority
+    task_boundaries:
+      - configured_use_case
+      - tool_permissions
+      - organisational_policy
+    output_destination: user_interface_or_authorized_external_system
+
+  evaluation:
+    task_quality: task_specific
+    accuracy_or_validity: task_specific
+    reliability: requires_empirical_evaluation
+    robustness: requires_empirical_evaluation
+    calibration: unknown
+    latency: deployment_dependent
+    cost_per_task: deployment_dependent
+    safety: requires_context_specific_evaluation
+    security: requires_deployment_specific_evaluation
+    bias_or_fairness: requires_context_specific_evaluation
+    regression_testing: recommended
+    version_drift: must_be_monitored_when_model_or_orchestration_changes
+
+  governance_and_control:
+    owner: deploying_organisation
+    accountable_role: human_role_defined_by_use_case
+    authorisation: explicit_scope_required
+    access_control: role_or_policy_based
+    logging: recommended_for_material_actions
+    auditability: required_for_high_consequence_workflows
+    human_override: required_for_bounded_autonomy
+    escalation: human_handoff
+    change_control: model_prompt_tool_and_workflow_changes_should_be_versioned
+    release_management: deployment_specific
+    incident_handling: organisational_process_required
+    monitoring: recommended
+    retention_policy: organisational_and_legal_policy
+
+extensions: []
