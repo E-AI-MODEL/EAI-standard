@@ -23,6 +23,8 @@ This means an artefact can be **conformant and still contain unknown information
 
 For example, a representation that states that the evidence for a professional judgement is unavailable may still conform when that uncertainty remains visible and no unsupported stronger claim is presented. A representation becomes non-conformant when it silently turns the missing evidence into a substantive conclusion.
 
+The same rule applies to protection assessment. A case may conform while legal applicability or another protection basis remains `unknown` or `potentially_applicable`, provided the implementation does not upgrade that uncertainty into an unsupported `required` or `delegable` conclusion.
+
 ## Diagnostics
 
 Validators return structured diagnostics rather than only a Boolean result. Canonical diagnostic codes are defined in `standard/diagnostics.yaml` and exchanged using `schemas/diagnostic.schema.json` and `schemas/conformance-result.schema.json`.
@@ -40,9 +42,14 @@ Diagnostics may identify, for example:
 
 - a missing goal;
 - a missing process position;
+- a core human action that cannot be interpreted through context, goal, actor and process position;
+- a microstructure represented as a parallel case action rather than a constituent operation of its core human action;
 - human and AI execution being conflated;
 - claim-evidence mismatch;
 - required handback not occurring before a stronger human claim;
+- a protection conclusion with no stated dimension or basis;
+- a scientific or framework source being misrepresented as legally binding;
+- protection status being copied across dimensions without separate assessment;
 - an adapter dropping or rewriting source-model content;
 - an unnamespaced extension;
 - material information that remains explicitly unknown.
@@ -59,9 +66,13 @@ A minimally interpretable case states:
 - process position;
 - at least one candidate/confirmed human action or an explicit unknown marker.
 
-Richer profiles add human-AI allocation, evidence, handback, remediation or source-model mapping requirements.
+A core human action must be interpretable through all four anchors even when some anchors are inherited from the enclosing case structure.
 
-## Conformance does not mean educational quality
+Richer profiles add human-AI allocation, protection assessment, evidence, handback, remediation or source-model mapping requirements.
+
+A protection assessment is optional in a basic case. When reported, however, it must use the canonical dimensions and preserve the type, applicability and bindingness of its bases.
+
+## Conformance does not mean educational quality, legal compliance or correctness
 
 A conforming case can still describe an educationally weak or undesirable situation. Conformance only means the situation is represented without collapsing distinctions the standard requires.
 
@@ -72,19 +83,24 @@ The standard does not certify that:
 - the AI system is accurate, safe or lawful;
 - a professional judgement is correct;
 - learning has occurred;
+- a protection recommendation is legally correct for the real-world deployment;
 - a particular intervention will improve learning.
 
-Those claims require separate evidence.
+Those claims require separate evidence or competent assessment.
 
 ## Required distinctions
 
 Depending on profile, a conforming representation must not silently collapse:
 
 - teacher/professional action and learner action;
+- core human action and reusable skill;
+- core human action and its constituent microstructures;
 - AI output and human performance;
 - current task success and independent mastery;
 - mastery, retention and transfer;
 - execution and responsibility;
+- human execution, human judgement, human evidence, oversight and intervention authority;
+- scientific evidence, law, recognised frameworks, professional standards and institutional rules;
 - support, handback and remediation;
 - source-model terminology and EAI terminology;
 - missing information and negative judgement;
