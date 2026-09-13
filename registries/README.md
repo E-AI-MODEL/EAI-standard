@@ -56,6 +56,17 @@ Where the same smaller operation recurs across skills, reuse is preferred over d
 
 Their microstructure coverage should therefore reuse existing human-action microstructures wherever possible. A dedicated AI-interaction microstructure should only be added when a genuinely distinct human operation remains after reuse.
 
+## Version metadata
+
+Registries are non-canonical supporting artifacts and may have an artifact lifecycle separate from the EAI Standard release. New or materially revised registry files should prefer:
+
+```yaml
+standard_version: 0.4.0-candidate
+artifact_version: x.y.z-candidate
+```
+
+Some earlier candidate registry files still use a generic top-level `version` field. In those files that value denotes the registry artifact revision, not the EAI Standard release. These files can be migrated when they are substantively revised; their legacy metadata does not redefine canonical version semantics.
+
 ## Stability
 
 Registry items should use stable identifiers. Their descriptions may be refined in backward-compatible releases. A semantic change that would cause an existing identifier to mean something materially different should use a new identifier.
