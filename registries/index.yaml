@@ -1,4 +1,5 @@
-version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.2.0-candidate
 status: candidate
 
 skill_registries:
@@ -8,6 +9,10 @@ skill_registries:
   - id: REG-SKILL-LEARNER
     actor: learner
     path: skills/learner.yaml
+  - id: REG-SKILL-AI-INTERACTION
+    actor: cross_cutting
+    applies_to: [teacher_professional, learner]
+    path: skills/ai-interaction.yaml
 
 microstructure_registries:
   - id: REG-MS-ARGUMENTATION
@@ -35,7 +40,17 @@ remediation_registries:
   - id: REG-REM-INTERVENTIONS
     path: remediation/interventions.yaml
 
+coverage_audits:
+  - id: AUDIT-SKILL-MS-COVERAGE-001
+    path: coverage/skill-microstructure-coverage.yaml
+    status: candidate_audit
+    purpose: >-
+      Makes current skill-to-microstructure coverage and priority gaps explicit without treating absence of a dedicated decomposition as a conformance failure.
+
 rules:
   - Registry entries instantiate or refine reusable content but do not redefine canonical EAI vocabulary.
   - A registry skill or microstructure becomes a core human action only in a concrete case.
   - Registry identifiers should remain stable within a major standard version once promoted from candidate status.
+  - A skill does not require a dedicated microstructure registry merely because it exists in the skill inventory.
+  - Microstructure decomposition should be added when it materially improves human-AI allocation, evidence interpretation, handback or remediation.
+  - Cross-cutting AI-interaction skills should reuse existing human-action microstructures where possible instead of creating a parallel decomposition automatically.
