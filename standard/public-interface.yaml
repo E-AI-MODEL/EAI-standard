@@ -1,8 +1,12 @@
-version: 0.3.1-candidate
+standard_version: 0.4.0-candidate
 status: candidate
+manifest_authority: canonical
 
 purpose: >-
-  Defines the stable public interoperability surface of the EAI Standard. Files outside this surface may support documentation, evidence, examples, technical system description or implementation, but do not redefine canonical semantics.
+  Defines the authoritative public interoperability surface of the EAI Standard. Files outside this manifest may support documentation, evidence, examples, technical system description or implementation, but they do not redefine canonical semantics.
+
+manifest_rule: >-
+  This file is the single authoritative manifest for canonical EAI Standard artifacts. Governance documents and explanatory documentation MUST refer to this manifest rather than maintain an independent list of normative files.
 
 canonical_artifacts:
   vocabulary:
@@ -15,6 +19,8 @@ canonical_artifacts:
     - rules.yaml
   conformance:
     - conformance-profiles.yaml
+  normative_language:
+    - normative-language.md
   schemas:
     - ../schemas/case.schema.json
     - ../schemas/adapter.schema.json
@@ -23,11 +29,37 @@ canonical_artifacts:
     - ../schemas/conformance-result.schema.json
     - ../schemas/extension.schema.json
 
+normative_language:
+  keywords: [MUST, MUST_NOT, SHOULD, SHOULD_NOT, MAY]
+  interpretation: BCP14
+  references:
+    - RFC2119
+    - RFC8174
+  rule: >-
+    Capitalized requirement keywords are interpreted as described in BCP 14. Lower-case ordinary-language uses are not automatically normative requirements.
+
+version_contract:
+  standard_version: Identifies the EAI Standard release against which a canonical artifact is published.
+  artifact_version: Optional version for a non-canonical or independently versioned artifact. It MUST NOT be substituted for standard_version.
+  source_version: Version of an external source model represented by an adapter.
+  profile_version: Version of an optional non-normative profile format or profile instance.
+  deprecated_field: >-
+    A generic top-level field named `version` is deprecated for canonical artifacts because it does not distinguish standard release from artifact revision.
+
+identifier_policy:
+  canonical_id_rule: >-
+    Canonical concepts intended for exchange MUST have a stable canonical identifier. Within candidate releases before 1.0 identifiers may still change, but changes MUST be explicit and accompanied by migration information.
+  post_1_0_rule: >-
+    After 1.0 a released canonical identifier MUST NOT be repurposed for incompatible semantics. A materially incompatible replacement requires a new identifier and deprecation of the old identifier.
+  candidate_uri_base: https://e-ai-model.github.io/EAI-standard/id/
+  uri_rule: >-
+    A globally scoped HTTP URI MAY be derived from a canonical identifier for cross-system exchange. URI resolution is a publication requirement before stable 1.0 and MUST NOT depend on a Git branch or mutable file path.
+
 stability_rules:
-  - Canonical identifiers MUST remain unique within a major version.
+  - Canonical identifiers MUST remain unique within a released standard version.
   - A patch release MUST NOT change the meaning of a canonical identifier.
   - A minor release MAY add backward-compatible identifiers or optional fields.
-  - A major release is required when a canonical term, required field or conformance rule changes meaning incompatibly.
+  - Before 1.0 a breaking candidate change MAY occur only when explicitly documented in CHANGELOG.md with migration impact.
   - Registries, adapters, context profiles, system profiles and implementations MUST NOT silently redefine canonical terms.
 
 non_canonical_layers:
@@ -38,6 +70,7 @@ non_canonical_layers:
   system_profiles: optional technical descriptions of AI-system configuration and capability; never substitutes for observed AI-action analysis
   examples: non-normative worked cases
   implementations: software, UI, APIs and exports
+  docs: human-readable explanation unless explicitly listed as canonical in this manifest
 
 implementation_principle: >-
-  Conforming implementations may expose only part of the public interface, but MUST identify which profile or artifacts they support and MUST NOT present unsupported canonical semantics as implemented.
+  Conforming implementations may expose only part of the public interface, but MUST identify which conformance profile and standard version they support and MUST NOT present unsupported canonical semantics as implemented.
