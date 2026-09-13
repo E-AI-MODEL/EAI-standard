@@ -24,13 +24,13 @@ relations:
     label: decomposes_into
     domain: core_human_action
     range: microstructure
-    description: A larger human action contains one or more smaller operations useful for analysing allocation.
+    description: A larger human action contains one or more smaller constituent operations useful for analysing allocation.
 
   - id: REL-005
     label: contributes_to
     domain: microstructure
     range: [core_human_action, skill]
-    description: A reusable microstructure contributes to a broader action or capability.
+    description: A reusable microstructure contributes to a broader action or capability. In a concrete case, any selected microstructure is interpreted as part of the core human action being analysed.
 
   - id: REL-006
     label: allocated_to_ai
@@ -86,7 +86,32 @@ relations:
     range: [case, adapter, registry_entry, conformance_result]
     description: A namespaced extension adds non-canonical data without changing the meaning of canonical fields.
 
+  - id: REL-015
+    label: situated_at_process_position
+    domain: core_human_action
+    range: process_position
+    description: Identifies the process position in which the core human action has its current meaning. Core status is not interpreted independently of process position.
+
+  - id: REL-016
+    label: has_protection_assessment
+    domain: core_human_action
+    range: protection_assessment
+    description: Links a contextual core human action to a source-qualified assessment of which human dimensions should remain protected, evidenced, controlled or returned to human execution.
+
+  - id: REL-017
+    label: protects_dimension
+    domain: protection_assessment
+    range: protection_requirement
+    description: Identifies the specific protection dimension being assessed, such as human execution, judgement, evidence, oversight, authority, handback or re-demonstration.
+
+  - id: REL-018
+    label: grounded_in
+    domain: protection_assessment
+    range: protection_basis
+    description: Records the legal, scientific, normative, professional, framework-based or institutional basis for a protection conclusion without conflating their authority or bindingness.
+
 constraints:
   - Relations are descriptive and do not themselves make a skill a core human action.
   - A mapping relation does not imply equivalence unless the mapping explicitly states equivalence.
   - Context refinement must not redefine canonical identifiers.
+  - A protection relation does not make every dimension protected; protection status is recorded separately per dimension and basis.
