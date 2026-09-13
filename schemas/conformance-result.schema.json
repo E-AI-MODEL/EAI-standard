@@ -5,7 +5,7 @@
   "type": "object",
   "required": ["profile", "standard_version", "conformance", "information_state", "diagnostics"],
   "properties": {
-    "profile": {"type": "string", "minLength": 1},
+    "profile": {"enum": ["CP-01", "CP-02", "CP-03", "CP-04", "CP-05", "CP-06"]},
     "standard_version": {"type": "string", "minLength": 1},
     "conformance": {"enum": ["conformant", "non_conformant"]},
     "information_state": {"enum": ["complete", "contains_unknowns", "incomplete"]},
