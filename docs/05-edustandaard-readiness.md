@@ -2,7 +2,7 @@
 
 Dit document is **geen normatief onderdeel** van de EAI Standard. Het beschrijft de ontwikkelrichting waarmee de repository wordt voorbereid op mogelijke aanmelding bij Edustandaard.
 
-Edustandaard toetst een nieuwe standaard op vijf criteria. De ontwikkeling van EAI Standard gebruikt deze criteria vanaf het begin als kwaliteitsrichtlijn.
+De ontwikkeling gebruikt vijf beoordelingsgebieden als doorlopende kwaliteitscheck: toegevoegde waarde, draagvlak, open standaardisatieproces, aansluiting op architectuur en toekomstbestendigheid.
 
 ## 1. Toegevoegde waarde
 
@@ -19,17 +19,24 @@ Benodigde bewijslast:
 - expliciete risico- en nadelenanalyse;
 - voorbeelden waarin dezelfde beschrijving door verschillende systemen kan worden gelezen of toegepast.
 
-Repo-artifacts:
+Huidige relevante artifacts:
 
-- `docs/04-use-cases.md`
-- toekomstige `docs/problem-statement.md`
-- toekomstige `docs/alternatives-analysis.md`
+- `docs/04-use-cases.md`;
+- `docs/10-standard-publication-model.md`;
+- `standard/public-interface.yaml`;
+- source-preserving adapters en conformance-cases.
+
+Nog nodig:
+
+- expliciete problem statement;
+- alternatives analysis;
+- praktijkbewijs dat meerdere partijen hetzelfde interoperabiliteitsprobleem ervaren.
 
 ## 2. Draagvlak
 
 Doel: aantonen dat aanbieders en gebruikers voldoende praktijkervaring hebben en dat de standaard niet alleen door de initiatiefnemer wordt gedragen.
 
-Voor EAI Standard betekent dit dat validatie nodig is met minimaal:
+Voor EAI Standard betekent dit validatie met minimaal:
 
 - onderwijsprofessionals;
 - onderwijsorganisaties;
@@ -38,40 +45,46 @@ Voor EAI Standard betekent dit dat validatie nodig is met minimaal:
 - experts in onderwijsarchitectuur en interoperabiliteit;
 - waar passend onderzoekers en publieke organisaties.
 
-Draagvlak wordt niet gelijkgesteld aan instemming met elke ontwerpkeuze. Het gaat om aantoonbare deelname, gebruikservaring, feedback en een transparante verwerking daarvan.
+Draagvlak wordt niet gelijkgesteld aan instemming met elke ontwerpkeuze. Het gaat om aantoonbare deelname, gebruikservaring, feedback en transparante verwerking daarvan.
 
 Benodigde bewijslast:
 
 - publieke issues en wijzigingsvoorstellen;
 - pilotimplementaties;
 - implementatieverslagen;
-- lijst van deelnemende organisaties/rollen, voor zover openbaar;
+- deelnemende organisaties/rollen, voor zover openbaar;
 - gedocumenteerde besluiten over ontvangen feedback;
 - meerdere onafhankelijke implementaties vóór een 1.0-kandidaat.
+
+Dit is op dit moment nog een belangrijk open onderdeel.
 
 ## 3. Open standaardisatieproces
 
 Doel: ontwikkeling en beheer open, eerlijk, duidelijk, duurzaam en toegankelijk organiseren.
 
-Voor deze repository gelden daarom de volgende ontwikkelregels:
+De repository heeft inmiddels:
 
-- normatieve bestanden zijn publiek leesbaar;
-- wijzigingen aan normatieve semantiek zijn traceerbaar via Git;
-- wijzigingsvoorstellen bevatten probleem, voorgestelde wijziging, impact en voorbeelden;
-- besluiten en breaking changes worden vastgelegd;
-- wetenschappelijke onderbouwing en normatieve keuzes blijven van elkaar onderscheiden;
-- deelnemers kunnen via publieke issues en pull requests voorstellen doen;
-- governance en releasebeleid zijn openbaar;
-- belangen van gebruikers, aanbieders en publieke partijen worden zichtbaar meegewogen;
-- beheer na 1.0 moet vooraf georganiseerd zijn en niet afhankelijk zijn van één persoon.
+- een autoritatief canoniek manifest in `standard/public-interface.yaml`;
+- formele normatieve taal via BCP 14;
+- publieke governance en contribution guidance;
+- expliciete versie- en identifierregels;
+- een scheiding tussen canonieke standaard, evidence, adapters, registries en implementaties;
+- traceerbare breaking candidate changes in `CHANGELOG.md`.
 
-Zie `GOVERNANCE.md` en `CONTRIBUTING.md`.
+Nog nodig vóór stabiele positionering als open standaard:
+
+- expliciete licentie en IPR/contribution-policy;
+- formele multi-party besluitvorming;
+- aantoonbare externe participatie;
+- gedocumenteerde lifecycle- en deprecationprocedures die ook in de praktijk worden gebruikt.
+
+Publiek leesbaar op GitHub is niet hetzelfde als juridisch herbruikbaar onder een open licentie. Dat verschil moet vóór 1.0 zijn opgelost.
 
 ## 4. Aansluiting op architectuur
 
 Edustandaard toetst aansluiting op de sectorarchitectuur via een ROSA-scan.
 
-EAI Standard moet daarom niet alleen inhoudelijk begrijpelijk zijn, maar ook helder positioneren:
+EAI Standard moet daarom helder positioneren:
 
 - welk interoperabiliteitsprobleem wordt opgelost;
 - op welke architectuurlagen de standaard werkt;
@@ -79,31 +92,53 @@ EAI Standard moet daarom niet alleen inhoudelijk begrijpelijk zijn, maar ook hel
 - welke bestaande standaarden of begrippen worden hergebruikt;
 - welke overlap met bestaande afspraken bestaat;
 - welke onderdelen semantisch, technisch of organisatorisch zijn;
-- hoe de standaard zich verhoudt tot ROSA-principes en -begrippen.
+- wat expliciet buiten scope blijft.
 
-De huidige candidate-versie is hiervoor nog niet gereed. ROSA-mapping wordt pas normatief relevant nadat de semantische basis voldoende stabiel is.
+De kandidaatstandaard heeft nu een duidelijker publicatie- en lagenmodel, maar de formele architectuurpositionering is nog niet voltooid.
 
 Benodigde toekomstige artifacts:
 
-- `architecture/positioning.md`
-- `architecture/rosa-crosswalk.md`
-- `architecture/information-model.md`
-- machineleesbare schemas en identifiers.
+- `architecture/positioning.md`;
+- `architecture/information-model.md`;
+- `architecture/rosa-crosswalk.md`;
+- gerichte crosswalks naar relevante internationale standaarden waar dat duplicatie voorkomt.
+
+Belangrijk ontwerpprincipe: EAI moet generieke AI-systeem-, risk-, governance- of identity-standaarden niet opnieuw uitvinden wanneer bestaande standaarden dat probleem al oplossen.
 
 ## 5. Toekomstbestendigheid
 
 Doel: voorkomen dat de standaard gekoppeld raakt aan één product, modelleverancier, AI-generatie, didactisch model of tijdelijk beleidsbegrip.
 
-Dit leidt tot de volgende ontwerpregels:
+Huidige ontwerpkeuzes ondersteunen dit door:
 
-- AI-acties worden functioneel beschreven, niet per merk of product;
-- onderwijsmodellen worden via adapters gekoppeld en niet in de basis ingebouwd;
-- leeftijd, niveau, vak en curriculum blijven contextlagen;
-- identifiers blijven stabiel over tekstuele herformuleringen heen;
-- uitbreidingen mogen de betekenis van bestaande begrippen niet stilzwijgend wijzigen;
-- versiebeheer en deprecatie worden expliciet geregeld;
-- normatieve data moet machineleesbaar zijn;
-- implementaties moeten zonder één specifieke leverancier mogelijk zijn.
+- AI-acties functioneel te beschrijven, niet per merk of product;
+- onderwijsmodellen via source-preserving adapters te koppelen;
+- leeftijd, niveau, vak en curriculum als contextlagen te behandelen;
+- technische system profiles buiten de canonieke human-action semantiek te houden;
+- identifiers los te koppelen van repositorybestandspaden;
+- extensies te namespacen;
+- conformance en informatie-onzekerheid niet te vermengen;
+- één canoniek manifest te gebruiken voor de publieke interface.
+
+Nog nodig:
+
+- persistente URI-resolutie vóór 1.0;
+- geautomatiseerde versie- en referentiechecks;
+- executable conformance suite;
+- onafhankelijke implementaties;
+- compatibility/deprecationbeleid bewezen in releases.
+
+## Huidige readiness per kandidaat 0.4.0
+
+**Semantische basis:** gevorderd, nog candidate.  
+**Machineleesbaarheid:** aanwezig, verdere consistency checks nodig.  
+**Conformance:** semantisch aangescherpt; executable suite en reference validator nog te bouwen.  
+**Identifiers/versioning:** contract aanwezig; persistente publicatie en automatisering nog nodig.  
+**Wetenschappelijke onderbouwing:** aanwezig als gescheiden evidence-laag; directe validatie van EAI-constructen blijft nodig.  
+**Draagvlak/pilots:** onvoldoende voor registratie.  
+**Architectuur/ROSA:** nog uit te werken.  
+**Governance:** publieke basis aanwezig; multi-party beheer nog nodig.  
+**Licentie/IPR:** open beslissing en daarmee een registratie-/open-standard blocker.
 
 ## Wanneer is een Edustandaard-intake zinvol?
 
@@ -111,13 +146,15 @@ Niet bij een inhoudelijk mooi model alleen. Een intake wordt pas logisch zodra t
 
 - stabiele scope en probleemdefinitie;
 - een werkende machineleesbare specificatie;
+- executable conformance suite;
 - minimaal twee onafhankelijke implementatie- of pilotcontexten;
 - aantoonbare gebruikers- en leveranciersbetrokkenheid;
 - publiek wijzigings- en beheerproces;
+- expliciete licentie/IPR-voorwaarden;
 - eerste architectuurpositionering en ROSA-verkenning;
 - concrete businesscase voor sectorbrede interoperabiliteit;
-- duidelijk onderscheid tussen standaard, implementatieprofiel en modeladapter.
+- duidelijk onderscheid tussen canonieke standaard, implementation guidance, adapters, registries en contextprofielen.
 
 ## Ontwikkelprincipe
 
-Edustandaard-readiness is geen laatste documentatieronde. De vijf toetsingscriteria worden gebruikt als doorlopende ontwerpcheck tijdens de ontwikkeling van de standaard.
+Edustandaard-readiness is geen laatste documentatieronde. De beoordelingscriteria worden gebruikt als doorlopende ontwerpcheck, maar mogen niet leiden tot inhoudelijke toevoegingen die het eigen interoperabiliteitsprobleem van EAI niet dienen.
