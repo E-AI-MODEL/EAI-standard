@@ -1,0 +1,22 @@
+standard_version: 0.4.0-candidate
+status: candidate
+
+cases:
+  - case: ../../examples/protection/high-risk-assessment-oversight.yaml
+    expected_conformance: conformant
+    expected_information_state: complete
+    expected_diagnostics: []
+    rationale: >-
+      The case keeps human judgement, evidence, effective oversight and intervention authority distinct. Legal and scientific bases retain their own bindingness, while technical clustering remains separately delegable.
+
+  - case: ../../examples/protection/science-as-law-invalid.yaml
+    expected_conformance: non_conformant
+    expected_information_state: complete
+    expected_diagnostics:
+      - EAI-D024
+    rationale: >-
+      A scientific-evidence basis is incorrectly serialized as legally binding. The source may support a protection recommendation or an EAI normative rule, but its scientific status must not be converted into legal authority.
+
+notes:
+  - Protection is assessed per dimension rather than as a single protected/unprotected flag.
+  - Legal applicability, scientific support and EAI normative requirements remain distinct sources of authority.
