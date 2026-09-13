@@ -22,11 +22,16 @@
         "type": "object",
         "required": ["type", "target"],
         "properties": {
-          "type": {"type": "string"},
-          "target": {"type": "string"}
-        }
+          "type": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
       }
+    },
+    "extensions": {
+      "type": "array",
+      "items": {"$ref": "extension.schema.json"}
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
