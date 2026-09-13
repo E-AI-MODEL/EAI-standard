@@ -1,4 +1,4 @@
-version: 0.2.0-candidate
+standard_version: 0.4.0-candidate
 status: candidate
 language: en
 
@@ -130,8 +130,8 @@ terms:
 
   conformance:
     definition: >-
-      The degree to which an implementation or artefact satisfies the structural and normative requirements of the EAI Standard. Conformance is not evidence of educational effectiveness.
+      Whether an implementation or artefact satisfies the structural and normative requirements of a selected EAI conformance profile. Conformance is separate from whether substantive information is complete or remains unknown, and it is not evidence of educational effectiveness.
 
   unknown:
     definition: >-
-      A state used when required information is absent, ambiguous or unsupported. Unknown must not be silently converted into a low, negative or safe judgement.
+      A state used when required or interpretation-relevant information is absent, ambiguous or unsupported. Unknown must not be silently converted into a low, negative, safe or conformant/non-conformant judgement.
