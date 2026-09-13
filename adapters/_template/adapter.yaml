@@ -1,5 +1,6 @@
 id: ADAPTER-TEMPLATE
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.4.0-candidate
 model_name: replace_with_source_model_name
 model_family: null
 source_reference: replace_with_primary_source
