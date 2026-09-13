@@ -10,6 +10,13 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 
 - canonical `standard/normative-language.md` using BCP 14 / RFC 2119 / RFC 8174 requirement semantics;
 - canonical `standard/identifiers.yaml` with stable identifier classes and a candidate HTTP URI strategy;
+- canonical `standard/protection.yaml` defining source-qualified, multi-dimensional protection assessment rather than a binary protected/unprotected flag;
+- canonical `schemas/protection-assessment.schema.json` and optional protection assessment on case-level core human actions;
+- canonical `PRT-*` protection requirement identifiers for human execution, human judgement, human evidence, effective human oversight, intervention authority, handback, re-demonstration and direct human interaction;
+- normative rules and diagnostics requiring four core-action anchors, constituent microstructure semantics and non-conflation of legal, scientific, framework and institutional protection bases;
+- `docs/16-protection-assessment.md` explaining how EAI proposes what should remain human, evidenced or under human control;
+- `context/eu-regulatory-protection.yaml` as a non-canonical jurisdiction overlay for selected EU AI Act and GDPR mappings, with applicability and bindingness preserved;
+- `evidence/protection-guidance.yaml` with evidence-informed candidate protection patterns that remain distinct from legal or EAI-normative requirements;
 - explicit publication model separating specification, machine contract, conformance and implementation guidance;
 - documentation for standard versioning and identifiers;
 - documentation for the future executable conformance suite;
@@ -27,6 +34,11 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - `standard/public-interface.yaml` is now explicitly the single authoritative manifest for the canonical public interface;
 - canonical YAML artifacts use `standard_version` instead of an ambiguous generic top-level `version` field;
 - governance now refers to the public-interface manifest instead of maintaining an independent canonical-file list;
+- `core_human_action` now explicitly requires interpretation through context, goal, actor and process position;
+- `microstructure` is now explicitly defined as a reusable registry operation that becomes a constituent operation within the selected core human action when used in a concrete case;
+- protection is assessed per dimension and source rather than inferred from the skill, microstructure or AI-action label;
+- case exchange may carry a structured protection assessment on each core human action without requiring protection on every case;
+- conformance profiles now require source-qualified protection semantics when a protection assessment is reported;
 - conformance and information completeness are separate result dimensions;
 - conformance values are now `conformant` and `non_conformant`;
 - information state is now `complete`, `contains_unknowns` or `incomplete`;
@@ -81,6 +93,10 @@ Implementations of 0.3.x conformance output must migrate before claiming 0.4.0 c
 Unknown information is not itself a standards violation. A representation may conform precisely because it preserves uncertainty rather than inventing a stronger judgement. Conversely, an explicit normative violation remains non-conformant even when all underlying information is known.
 
 This change repairs that distinction without changing the substantive EAI concepts of human action, AI action, evidence, handback, remediation, adapters or system profiles.
+
+The protection-assessment addition makes an existing EAI question explicit: after a contextual core human action and human-AI allocation are known, what exactly should remain human, evidenced, overseen or returned to the human, and on what basis? It does not create a global list of protected skills. The same operation may receive a different protection assessment in a different goal, process position, claim or jurisdiction.
+
+Legal, scientific, professional and framework-based sources remain distinct. EAI records their contribution and authority but does not convert scientific evidence into law or legal human-oversight requirements into a universal requirement for personal human execution of every operation.
 
 The new self-regulation registry is non-canonical reusable content. It makes regulatory allocation inspectable without turning self-regulation into a universally protected action or changing the canonical standard surface.
 
