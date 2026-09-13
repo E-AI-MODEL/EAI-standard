@@ -1,0 +1,58 @@
+id: EX-SR-VALID-001
+standard_version: 0.4.0-candidate
+context: >-
+  A learner is working on a multi-step inquiry task. The AI may ask reflective questions or provide a bounded hint after the learner requests help, but the learner defines the learning goal, chooses the strategy, monitors progress and decides when to change approach.
+goal: >-
+  Practise and make visible the learner's ability to regulate their own approach while using bounded AI support.
+process_position:
+  model: null
+  label: self_regulated_ai_supported_work
+  source_term: learner planning monitoring and adjustment during task execution
+  source_element_id: null
+actors:
+  - actor: learner
+    core_actions:
+      - id: learner_regulates_own_learning_process
+        label: regulate goal strategy monitoring and adjustment during the task
+        status: confirmed
+        microstructures:
+          - id: MS-LSR-02
+            label: set_or_restate_learning_goal
+            human_execution: full
+            ai_action: AIA-02
+            evidence: [EV-02, EV-14]
+            handback_required: false
+            remediation: null
+          - id: MS-LSR-04
+            label: select_strategy_for_goal
+            human_execution: full
+            ai_action: AIA-05
+            evidence: [EV-05, EV-14]
+            handback_required: false
+            remediation: null
+          - id: MS-LSR-06
+            label: monitor_progress_against_goal
+            human_execution: full
+            ai_action: AIA-02
+            evidence: [EV-02, EV-14]
+            handback_required: false
+            remediation: null
+          - id: MS-LSR-09
+            label: formulate_targeted_help_request
+            human_execution: full
+            ai_action: AIA-03
+            evidence: [EV-02, EV-14]
+            handback_required: false
+            remediation: null
+          - id: MS-LSR-12
+            label: change_strategy_from_evidence
+            human_execution: full
+            ai_action: AIA-05
+            evidence: [EV-05, EV-14]
+            handback_required: false
+            remediation: null
+claim_type: current_performance
+responsibility: The learner makes the regulatory decisions that are part of the stated learning goal; AI support remains bounded to prompts, hints and alternatives.
+unknowns: []
+notes: >-
+  AI participation does not by itself displace self-regulation. The relevant distinction is whether the learner still performs the goal-setting, strategy, monitoring and adjustment operations that the case intends to practise.
