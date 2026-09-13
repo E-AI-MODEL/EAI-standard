@@ -38,6 +38,9 @@ identifier_classes:
   remediation:
     id_pattern: '^REM-[0-9]{2}$'
     uri_template: 'https://e-ai-model.github.io/EAI-standard/id/remediation/{id}'
+  protection_requirement:
+    id_pattern: '^PRT-[0-9]{2}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/protection-requirement/{id}'
   adapter:
     id_pattern: '^ADP-[A-Z0-9.-]+$'
     uri_template: 'https://e-ai-model.github.io/EAI-standard/id/adapter/{id}'
