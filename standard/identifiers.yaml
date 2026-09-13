@@ -30,7 +30,7 @@ identifier_classes:
     id_pattern: '^CP-[0-9]{2}$'
     uri_template: 'https://e-ai-model.github.io/EAI-standard/id/conformance-profile/{id}'
   skill:
-    id_pattern: '^[TL]SK-[0-9]{3}$'
+    id_pattern: '^(TSK|LSK|AIS)-[0-9]{3}$'
     uri_template: 'https://e-ai-model.github.io/EAI-standard/id/skill/{id}'
   microstructure:
     id_pattern: '^MS-[A-Z0-9-]+$'
