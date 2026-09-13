@@ -1,0 +1,53 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-EDI-2
+
+model_definition_sources:
+  - id: EDI-SRC-01
+    type: current_book_edition_metadata
+    authors: [John Hollingsworth, Silvia Ybarra]
+    dutch_adaptation: Marcel Schmeier
+    year: 2025
+    title: Expliciete Directe Instructie 2.0: Tips en technieken voor een goede les
+    publisher: Uitgeverij Pica
+    url: https://www.uitgeverijpica.nl/titels/expliciete-directe-instructie-pica
+    note: >-
+      Used for current edition identity and authorship. Book content beyond publicly available extracts is not inferred.
+
+  - id: EDI-SRC-02
+    type: official_public_model_artifact
+    title: Expliciete Directe Instructie 2.0 - Lesfasen
+    publisher: Uitgeverij Pica
+    url: https://www.uitgeverijpica.nl/wp-content/uploads/2015/01/Pica.EDI_2.0_Lesfasen.pdf
+    use_in_adapter:
+      - nine lesson phase labels and ordering
+      - four cross-cutting technique labels
+      - high-level phase purpose as visually indicated on the poster
+
+  - id: EDI-SRC-03
+    type: official_training_site
+    author: Marcel Schmeier
+    title: Expliciete Directe Instructie 2.0
+    url: https://directeinstructie.nl/nascholing/expliciete-directe-instructie-2-0/
+    use_in_adapter:
+      - current public description of lesson phases and techniques
+      - gradual transfer of responsibility based on checks for understanding
+      - public training distinctions among goals, instruction, guided practice, closure, independent work and differentiation
+
+effectiveness_context_sources:
+  - id: EDI-EVID-01
+    type: rapid_literature_review
+    organisation: Australian Education Research Organisation
+    authors: [Zid Mancenido, Karen Gonsalkorale, Nuella Flynn, Jessica Brosnan]
+    year: 2024
+    updated: 2025-12-15
+    title: The impact of context on evidence-based practices: A rapid literature scan on formative assessment, explicit instruction and mastery learning
+    url: https://www.edresearch.edu.au/research/research-reports/impact-context-evidence-based-practices-rapid-literature-scan
+    note: >-
+      Provides recent evidence context for explicit instruction as a broader practice. It is not direct validation of the Dutch EDI 2.0 model as a complete package.
+
+boundaries:
+  - Marketing descriptions are not treated as scientific evidence.
+  - The adapter does not infer detailed book content from public summaries.
+  - Evidence for broader explicit instruction is not automatically evidence for every EDI phase or technique.
+  - Direct Instruction in the Engelmann tradition remains a distinct model and evidence base.
