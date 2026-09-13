@@ -10,6 +10,7 @@ artifacts:
   verification_event_schema: verification-event.schema.json
   human_system_boundary: human-system-boundary.yaml
   action_bridge: action-bridge.yaml
+  transparency_view: transparency-view.yaml
   eai_extension_schema: eai-system-profile-extension.schema.json
 
 examples:
