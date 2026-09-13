@@ -34,7 +34,10 @@ Canonical concepts intended for exchange use stable IDs such as:
 - `AIA-09` for an AI action;
 - `EV-03` for an evidence type;
 - `EAI-D020` for a diagnostic;
-- `CP-03` for a conformance profile.
+- `CP-03` for a conformance profile;
+- `TSK-035` for a teacher/professional skill;
+- `LSK-071` for a learner skill;
+- `AIS-001` for a cross-cutting AI-interaction skill.
 
 Identifier patterns and the candidate URI namespace are defined in `standard/identifiers.yaml`.
 
