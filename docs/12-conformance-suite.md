@@ -8,7 +8,7 @@ The suite should allow independent implementations to determine whether they int
 
 A conformance test case should therefore specify:
 
-- the selected conformance profile;
+- the selected canonical conformance profile identifier (`CP-*`);
 - the `standard_version`;
 - the input artefact or case;
 - expected `conformance`;
@@ -47,6 +47,8 @@ Tests should assert the smallest diagnostic set needed to establish the expected
 
 Additional non-blocking diagnostics may be permitted when they are independently true and do not change the expected conformance result.
 
+A retained unmapped source element under `CP-04` may produce informational diagnostic `EAI-D015`; that diagnostic is not a conformance failure and does not by itself make the information state incomplete or unknown.
+
 ## Reference validator
 
 A future reference validator should:
@@ -56,7 +58,7 @@ A future reference validator should:
 - emit canonical diagnostics;
 - preserve unresolved information as unknown;
 - return conformance and information state separately;
-- identify the standard version and conformance profile it evaluated;
+- identify the standard version and canonical conformance profile it evaluated;
 - avoid hidden implementation rules that do not exist in canonical artifacts.
 
 The validator should not:
