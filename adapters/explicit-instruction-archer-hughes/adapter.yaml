@@ -1,5 +1,6 @@
 id: ADP-EI-ARCHER-HUGHES
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.3.1-candidate
 model_name: Explicit Instruction
 model_family: explicit_instruction
 source_reference: Archer & Hughes (2011), Explicit Instruction: Effective and Efficient Teaching, Chapter 1
