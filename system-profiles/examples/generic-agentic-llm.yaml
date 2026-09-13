@@ -1,5 +1,5 @@
 id: SYS-EXAMPLE-AGENTIC-LLM
-profile_version: 0.1.0-candidate
+profile_version: 0.2.0-candidate
 system_name: generic_agentic_llm_assistant
 description: >-
   Vendor-neutral example showing how a generative AI application with retrieval, tools and bounded autonomous workflow can be described without making claims about human-like cognition.
@@ -134,5 +134,68 @@ layers:
     incident_handling: organisational_process_required
     monitoring: recommended
     retention_policy: organisational_and_legal_policy
+
+feature_states:
+  - id: FS-SEARCH
+    feature_ref: layers.tools_and_actions.search
+    capability_status: supported
+    deployment_status: enabled
+    observation_status: not_observed
+    evidence_basis:
+      - documentation_verified
+      - deployment_observed
+    scope: example_deployment
+    observed_at: null
+    evidence_refs:
+      - EXAMPLE-DOC-SEARCH
+      - EXAMPLE-CONFIG-SEARCH
+    notes: Search is available but did not occur in the bounded example interaction.
+
+  - id: FS-PERSISTENT-MEMORY
+    feature_ref: layers.context_and_data.persistent_memory
+    capability_status: supported
+    deployment_status: disabled
+    observation_status: not_observed
+    evidence_basis:
+      - deployment_observed
+    scope: example_deployment
+    observed_at: null
+    evidence_refs:
+      - EXAMPLE-CONFIG-MEMORY
+    notes: The product may support persistent memory, but it is disabled in this deployment.
+
+  - id: FS-EXTERNAL-WRITE
+    feature_ref: layers.tools_and_actions.write_actions
+    capability_status: unknown
+    deployment_status: disabled
+    observation_status: not_observed
+    evidence_basis:
+      - deployment_observed
+    scope: example_deployment
+    observed_at: null
+    evidence_refs:
+      - EXAMPLE-CONFIG-WRITE
+    notes: Deployment configuration establishes that no write action is available here; product-level capability is not inferred.
+
+verification_events:
+  - id: VER-EVENT-001
+    type: VER-SOURCE
+    target: material_claim_example
+    result: passed
+    performed_by: system
+    evidence_refs:
+      - EXAMPLE-SOURCE-001
+    observed_at: null
+    notes: The material claim was compared with an identifiable configured source.
+
+  - id: VER-EVENT-002
+    type: VER-HUMAN
+    target: high_consequence_recommendation_example
+    result: inconclusive
+    performed_by: human
+    evidence_refs:
+      - EXAMPLE-HUMAN-REVIEW-001
+    observed_at: null
+    notes: Human review occurred, but this record alone does not establish that the reviewer had sufficient information and authority for effective oversight.
 
 extensions: []
