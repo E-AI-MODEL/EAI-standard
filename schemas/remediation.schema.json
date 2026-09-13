@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/E-AI-MODEL/EAI-standard/schemas/remediation.schema.json",
+  "title": "EAI Remediation Registry Entry",
+  "type": "object",
+  "required": ["id", "label", "purpose", "pattern"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "label": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string", "minLength": 1},
+    "applies_to": {
+      "oneOf": [
+        {"enum": ["teacher_professional", "learner", "multiple_humans"]},
+        {
+          "type": "array",
+          "items": {"enum": ["teacher_professional", "learner", "multiple_humans"]},
+          "uniqueItems": true
+        }
+      ]
+    },
+    "trigger": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "pattern": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "required_end_state": {"type": "string"},
+    "evidence_type": {"type": "string"},
+    "notes": {"type": ["string", "array"]}
+  },
+  "additionalProperties": true
+}
