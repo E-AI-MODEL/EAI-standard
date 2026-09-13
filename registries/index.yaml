@@ -1,0 +1,37 @@
+version: 0.3.0-candidate
+status: candidate
+
+skill_registries:
+  - id: REG-SKILL-TEACHER
+    actor: teacher_professional
+    path: skills/teacher.yaml
+  - id: REG-SKILL-LEARNER
+    actor: learner
+    path: skills/learner.yaml
+
+microstructure_registries:
+  - id: REG-MS-ARGUMENTATION
+    actor: learner
+    skill: argumentation
+    path: microstructures/argumentation.yaml
+  - id: REG-MS-TEACHER-DIAGNOSTIC
+    actor: teacher_professional
+    skill: diagnostic_professional_judgement
+    path: microstructures/teacher-diagnostic-judgement.yaml
+  - id: REG-MS-TEACHER-SCAFFOLD
+    actor: teacher_professional
+    skill: scaffolding_and_feedback_regulation
+    path: microstructures/teacher-scaffolding-and-feedback.yaml
+  - id: REG-MS-LEARNER-RETRIEVAL
+    actor: learner
+    skill: retrieval_and_independent_reperformance
+    path: microstructures/learner-retrieval-and-independent-performance.yaml
+
+remediation_registries:
+  - id: REG-REM-INTERVENTIONS
+    path: remediation/interventions.yaml
+
+rules:
+  - Registry entries instantiate or refine reusable content but do not redefine canonical EAI vocabulary.
+  - A registry skill or microstructure becomes a core human action only in a concrete case.
+  - Registry identifiers should remain stable within a major standard version once promoted from candidate status.
