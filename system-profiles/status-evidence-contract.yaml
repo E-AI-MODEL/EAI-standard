@@ -1,0 +1,82 @@
+version: 0.2.0-candidate
+status: non_normative_companion
+
+purpose: >-
+  Provides one cross-cutting way to distinguish what an AI system can support, what is enabled in a concrete deployment, what was actually observed in a case, and what evidence supports each statement. This contract does not change the eight-layer system-profile structure.
+
+principle: >-
+  Capability, deployment configuration and observed behaviour are different facts and MUST NOT be inferred from one another without evidence.
+
+feature_state_fields:
+  capability_status:
+    description: Whether the system or configured stack supports the feature in principle.
+    values:
+      supported: The feature is supported by the identified system or stack.
+      unsupported: The feature is not supported within the identified system or stack.
+      unknown: Available evidence does not establish support status.
+
+  deployment_status:
+    description: Whether the feature is available for use in the concrete deployment being described.
+    values:
+      enabled: The feature is configured and available in this deployment.
+      disabled: The feature is explicitly unavailable or disabled in this deployment.
+      not_applicable: The feature does not apply to the described deployment.
+      unknown: Deployment configuration is not established.
+
+  observation_status:
+    description: Whether the feature or action was actually observed during the bounded case or observation window.
+    values:
+      observed: Direct evidence shows that the feature or action occurred.
+      not_observed: It was not observed in the stated observation window.
+      not_observable: The available interface or trace cannot establish whether it occurred.
+      unknown: Evidence is insufficient to determine observation status.
+
+  evidence_basis:
+    description: What kind of evidence supports the statement.
+    values:
+      provider_declared: Stated by the model or product provider.
+      documentation_verified: Confirmed in identifiable technical or product documentation.
+      deployment_observed: Confirmed from the actual configured deployment, trace, settings or direct inspection.
+      independently_tested: Confirmed through a test not controlled by the provider whose claim is being examined.
+      third_party_audit: Reported through an identifiable external audit or assurance process.
+      user_reported: Reported by a user or operator without independent technical verification.
+      unknown: The evidential basis is not established.
+
+record_contract:
+  required:
+    - id
+    - feature_ref
+    - capability_status
+    - deployment_status
+    - observation_status
+    - evidence_basis
+  optional:
+    - scope
+    - observed_at
+    - evidence_refs
+    - notes
+
+interpretation_rules:
+  - supported does not imply enabled.
+  - enabled does not imply observed.
+  - not_observed does not imply disabled or unsupported.
+  - provider_declared does not imply independently_tested.
+  - absence of provider disclosure should normally produce unknown, not unsupported.
+  - observation status is bounded by the stated case or observation window.
+  - an observed AI action should still be represented through the canonical EAI AI-action vocabulary when the system profile is linked to an EAI case.
+  - evidence basis describes provenance of the system-profile statement; it is not a quality score.
+
+example:
+  id: FS-SEARCH-001
+  feature_ref: layers.tools_and_actions.search
+  capability_status: supported
+  deployment_status: enabled
+  observation_status: not_observed
+  evidence_basis:
+    - documentation_verified
+    - deployment_observed
+  scope: example_classroom_deployment
+  evidence_refs:
+    - DOC-SEARCH-001
+    - DEPLOYMENT-CONFIG-001
+  notes: Search is available in the deployment but was not invoked in the analysed case.
