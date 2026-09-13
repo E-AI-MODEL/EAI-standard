@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/schemas/diagnostic.schema.json",
+  "title": "EAI Diagnostic",
+  "type": "object",
+  "required": ["code", "severity", "state", "message"],
+  "properties": {
+    "code": {"type": "string", "minLength": 1},
+    "severity": {"enum": ["info", "warning", "error"]},
+    "state": {"enum": ["valid", "unknown", "invalid"]},
+    "message": {"type": "string", "minLength": 1},
+    "path": {"type": ["string", "null"]},
+    "related_rule": {"type": ["string", "null"]},
+    "details": {"type": ["object", "null"], "additionalProperties": true}
+  },
+  "additionalProperties": false
+}
