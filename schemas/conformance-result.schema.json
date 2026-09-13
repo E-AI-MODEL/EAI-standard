@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/schemas/conformance-result.schema.json",
+  "title": "EAI Conformance Result",
+  "type": "object",
+  "required": ["profile", "state", "diagnostics"],
+  "properties": {
+    "profile": {"type": "string", "minLength": 1},
+    "state": {"enum": ["valid", "unknown", "invalid"]},
+    "supported_version": {"type": ["string", "null"]},
+    "diagnostics": {
+      "type": "array",
+      "items": {"$ref": "diagnostic.schema.json"}
+    },
+    "retained_unknowns": {
+      "type": "array",
+      "items": {"type": "object", "additionalProperties": true}
+    },
+    "extensions": {
+      "type": "array",
+      "items": {"$ref": "extension.schema.json"}
+    }
+  },
+  "additionalProperties": false
+}
