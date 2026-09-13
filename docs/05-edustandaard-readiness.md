@@ -1,160 +1,160 @@
-# Edustandaard-readiness
+# Edustandaard readiness
 
-Dit document is **geen normatief onderdeel** van de EAI Standard. Het beschrijft de ontwikkelrichting waarmee de repository wordt voorbereid op mogelijke aanmelding bij Edustandaard.
+This document is **not a normative part** of the EAI Standard. It describes the development path toward a possible future submission to Edustandaard.
 
-De ontwikkeling gebruikt vijf beoordelingsgebieden als doorlopende kwaliteitscheck: toegevoegde waarde, draagvlak, open standaardisatieproces, aansluiting op architectuur en toekomstbestendigheid.
+Development uses the five Edustandaard assessment areas as an ongoing quality check: **Toegevoegde waarde** (added value), **Draagvlak** (stakeholder support), **Open standaardisatieproces** (open standardisation process), **Aansluiting op architectuur** (architecture alignment) and **Toekomstbestendigheid** (future readiness).
 
-## 1. Toegevoegde waarde
+## 1. Toegevoegde waarde (added value)
 
-Doel: aantonen dat gebruik van de standaard meerwaarde heeft ten opzichte van lokale, niet-uitwisselbare afspraken en dat de voordelen groter zijn dan mogelijke nadelen.
+Goal: demonstrate that using the standard creates value compared with local, non-interoperable agreements and that the benefits outweigh possible disadvantages.
 
-Voor EAI Standard betekent dit dat we aantoonbaar moeten maken dat meerdere partijen dezelfde semantiek nodig hebben voor het beschrijven van menselijk handelen en AI-handelen in onderwijsprocessen.
+For EAI Standard this means demonstrating that multiple parties need shared semantics for describing human and AI action in educational processes.
 
-Benodigde bewijslast:
+Evidence required:
 
-- concrete use cases met meerdere partijen;
-- beschrijving van het probleem zonder standaard;
-- aantoonbare vermindering van lokale interpretatieverschillen;
-- vergelijking met bestaande standaarden en kaders;
-- expliciete risico- en nadelenanalyse;
-- voorbeelden waarin dezelfde beschrijving door verschillende systemen kan worden gelezen of toegepast.
+- concrete use cases involving multiple parties;
+- a description of the problem without a standard;
+- demonstrable reduction of local interpretation differences;
+- comparison with existing standards and frameworks;
+- explicit analysis of risks and disadvantages;
+- examples in which the same description can be read or applied by different systems.
 
-Huidige relevante artifacts:
+Current relevant artifacts:
 
 - `docs/04-use-cases.md`;
 - `docs/10-standard-publication-model.md`;
 - `standard/public-interface.yaml`;
-- source-preserving adapters en conformance-cases.
+- source-preserving adapters and conformance cases.
 
-Nog nodig:
+Still required:
 
-- expliciete problem statement;
-- alternatives analysis;
-- praktijkbewijs dat meerdere partijen hetzelfde interoperabiliteitsprobleem ervaren.
+- an explicit problem statement;
+- an alternatives analysis;
+- practical evidence that multiple parties experience the same interoperability problem.
 
-## 2. Draagvlak
+## 2. Draagvlak (stakeholder support)
 
-Doel: aantonen dat aanbieders en gebruikers voldoende praktijkervaring hebben en dat de standaard niet alleen door de initiatiefnemer wordt gedragen.
+Goal: demonstrate that providers and users have sufficient practical experience and that the standard is not supported only by its originating project.
 
-Voor EAI Standard betekent dit validatie met minimaal:
+For EAI Standard this means validation involving at least:
 
-- onderwijsprofessionals;
-- onderwijsorganisaties;
-- leveranciers van AI- of leertechnologie;
-- experts in didactiek/pedagogiek;
-- experts in onderwijsarchitectuur en interoperabiliteit;
-- waar passend onderzoekers en publieke organisaties.
+- education professionals;
+- education organisations;
+- AI or learning-technology suppliers;
+- didactic and pedagogical experts;
+- education architecture and interoperability experts;
+- where appropriate, researchers and public-sector or sector organisations.
 
-Draagvlak wordt niet gelijkgesteld aan instemming met elke ontwerpkeuze. Het gaat om aantoonbare deelname, gebruikservaring, feedback en transparante verwerking daarvan.
+Stakeholder support does not mean agreement with every design decision. It means demonstrable participation, use experience, feedback and transparent handling of that feedback.
 
-Benodigde bewijslast:
+Evidence required:
 
-- publieke issues en wijzigingsvoorstellen;
-- pilotimplementaties;
-- implementatieverslagen;
-- deelnemende organisaties/rollen, voor zover openbaar;
-- gedocumenteerde besluiten over ontvangen feedback;
-- meerdere onafhankelijke implementaties vóór een 1.0-kandidaat.
+- public issues and change proposals;
+- pilot implementations;
+- implementation reports;
+- participating organisations or roles where they can be made public;
+- documented decisions about received feedback;
+- multiple independent implementations before a 1.0 candidate.
 
-Dit is op dit moment nog een belangrijk open onderdeel.
+This remains a major open area.
 
-## 3. Open standaardisatieproces
+## 3. Open standaardisatieproces (open standardisation process)
 
-Doel: ontwikkeling en beheer open, eerlijk, duidelijk, duurzaam en toegankelijk organiseren.
+Goal: organise development and maintenance in an open, fair, clear, sustainable and accessible way.
 
-De repository heeft inmiddels:
+The repository currently provides:
 
-- een autoritatief canoniek manifest in `standard/public-interface.yaml`;
-- formele normatieve taal via BCP 14;
-- publieke governance en contribution guidance;
-- expliciete versie- en identifierregels;
-- een scheiding tussen canonieke standaard, evidence, adapters, registries en implementaties;
-- traceerbare breaking candidate changes in `CHANGELOG.md`.
+- an authoritative canonical manifest in `standard/public-interface.yaml`;
+- formal normative language through BCP 14;
+- public governance and contribution guidance;
+- explicit version and identifier rules;
+- separation between canonical standard, evidence, adapters, registries and implementations;
+- traceable breaking candidate changes in `CHANGELOG.md`.
 
-Nog nodig vóór stabiele positionering als open standaard:
+Still required before stable positioning as an open standard:
 
-- expliciete licentie en IPR/contribution-policy;
-- formele multi-party besluitvorming;
-- aantoonbare externe participatie;
-- gedocumenteerde lifecycle- en deprecationprocedures die ook in de praktijk worden gebruikt.
+- an explicit license and IPR/contribution policy;
+- formal multi-party decision-making;
+- demonstrable external participation;
+- documented lifecycle and deprecation procedures that are also used in practice.
 
-Publiek leesbaar op GitHub is niet hetzelfde als juridisch herbruikbaar onder een open licentie. Dat verschil moet vóór 1.0 zijn opgelost.
+Publicly readable on GitHub is not the same as legally reusable under an open license. That distinction must be resolved before 1.0.
 
-## 4. Aansluiting op architectuur
+## 4. Aansluiting op architectuur (architecture alignment)
 
-Edustandaard toetst aansluiting op de sectorarchitectuur via een ROSA-scan.
+Edustandaard evaluates alignment with the Dutch education sector architecture through a ROSA scan.
 
-EAI Standard moet daarom helder positioneren:
+EAI Standard therefore needs to position clearly:
 
-- welk interoperabiliteitsprobleem wordt opgelost;
-- op welke architectuurlagen de standaard werkt;
-- welke actoren en informatieobjecten betrokken zijn;
-- welke bestaande standaarden of begrippen worden hergebruikt;
-- welke overlap met bestaande afspraken bestaat;
-- welke onderdelen semantisch, technisch of organisatorisch zijn;
-- wat expliciet buiten scope blijft.
+- which interoperability problem it solves;
+- on which architecture layers it operates;
+- which actors and information objects are involved;
+- which existing standards or concepts are reused;
+- where overlap with existing agreements exists;
+- which elements are semantic, technical or organisational;
+- what is explicitly outside scope.
 
-De kandidaatstandaard heeft nu een duidelijker publicatie- en lagenmodel, maar de formele architectuurpositionering is nog niet voltooid.
+The candidate standard now has a clearer publication and layering model, but formal architecture positioning is not yet complete.
 
-Benodigde toekomstige artifacts:
+Future artifacts required:
 
 - `architecture/positioning.md`;
 - `architecture/information-model.md`;
 - `architecture/rosa-crosswalk.md`;
-- gerichte crosswalks naar relevante internationale standaarden waar dat duplicatie voorkomt.
+- targeted crosswalks to relevant international standards where they prevent duplication.
 
-Belangrijk ontwerpprincipe: EAI moet generieke AI-systeem-, risk-, governance- of identity-standaarden niet opnieuw uitvinden wanneer bestaande standaarden dat probleem al oplossen.
+Important design principle: EAI should not reinvent generic AI system, risk, governance or identity standards where existing standards already solve those interoperability problems.
 
-## 5. Toekomstbestendigheid
+## 5. Toekomstbestendigheid (future readiness)
 
-Doel: voorkomen dat de standaard gekoppeld raakt aan één product, modelleverancier, AI-generatie, didactisch model of tijdelijk beleidsbegrip.
+Goal: prevent the standard from becoming dependent on one product, model provider, AI generation, instructional model or temporary policy term.
 
-Huidige ontwerpkeuzes ondersteunen dit door:
+Current design choices support this by:
 
-- AI-acties functioneel te beschrijven, niet per merk of product;
-- onderwijsmodellen via source-preserving adapters te koppelen;
-- leeftijd, niveau, vak en curriculum als contextlagen te behandelen;
-- technische system profiles buiten de canonieke human-action semantiek te houden;
-- identifiers los te koppelen van repositorybestandspaden;
-- extensies te namespacen;
-- conformance en informatie-onzekerheid niet te vermengen;
-- één canoniek manifest te gebruiken voor de publieke interface.
+- describing AI actions functionally rather than by brand or product;
+- linking educational models through source-preserving adapters;
+- treating age, level, subject and curriculum as context layers;
+- keeping technical system profiles outside canonical human-action semantics;
+- separating identifiers from repository file paths;
+- namespacing extensions;
+- separating conformance from information uncertainty;
+- using one canonical manifest for the public interface.
 
-Nog nodig:
+Still required:
 
-- persistente URI-resolutie vóór 1.0;
-- geautomatiseerde versie- en referentiechecks;
-- executable conformance suite;
-- onafhankelijke implementaties;
-- compatibility/deprecationbeleid bewezen in releases.
+- persistent URI resolution before 1.0;
+- automated version and reference checks;
+- an executable conformance suite;
+- independent implementations;
+- compatibility and deprecation policy demonstrated across releases.
 
-## Huidige readiness per kandidaat 0.4.0
+## Current readiness for candidate 0.4.0
 
-**Semantische basis:** gevorderd, nog candidate.  
-**Machineleesbaarheid:** aanwezig, verdere consistency checks nodig.  
-**Conformance:** semantisch aangescherpt; executable suite en reference validator nog te bouwen.  
-**Identifiers/versioning:** contract aanwezig; persistente publicatie en automatisering nog nodig.  
-**Wetenschappelijke onderbouwing:** aanwezig als gescheiden evidence-laag; directe validatie van EAI-constructen blijft nodig.  
-**Draagvlak/pilots:** onvoldoende voor registratie.  
-**Architectuur/ROSA:** nog uit te werken.  
-**Governance:** publieke basis aanwezig; multi-party beheer nog nodig.  
-**Licentie/IPR:** open beslissing en daarmee een registratie-/open-standard blocker.
+**Semantic foundation:** advanced, still candidate.  
+**Machine readability:** present, further consistency checks still required.  
+**Conformance:** semantically hardened; executable suite and reference validator still to be built.  
+**Identifiers/versioning:** contract present; persistent publication and automation still required.  
+**Scientific grounding:** present as a separate evidence layer; direct validation of EAI constructs remains required.  
+**Stakeholder support/pilots:** insufficient for registration.  
+**Architecture/ROSA:** still to be developed.  
+**Governance:** public foundation present; multi-party maintenance still required.  
+**License/IPR:** unresolved and therefore a blocker for stable open-standard positioning and registration.
 
-## Wanneer is een Edustandaard-intake zinvol?
+## When is an Edustandaard intake sensible?
 
-Niet bij een inhoudelijk mooi model alleen. Een intake wordt pas logisch zodra ten minste het volgende aanwezig is:
+Not when the specification is merely conceptually attractive. An intake becomes sensible once at least the following exist:
 
-- stabiele scope en probleemdefinitie;
-- een werkende machineleesbare specificatie;
-- executable conformance suite;
-- minimaal twee onafhankelijke implementatie- of pilotcontexten;
-- aantoonbare gebruikers- en leveranciersbetrokkenheid;
-- publiek wijzigings- en beheerproces;
-- expliciete licentie/IPR-voorwaarden;
-- eerste architectuurpositionering en ROSA-verkenning;
-- concrete businesscase voor sectorbrede interoperabiliteit;
-- duidelijk onderscheid tussen canonieke standaard, implementation guidance, adapters, registries en contextprofielen.
+- stable scope and problem definition;
+- a working machine-readable specification;
+- an executable conformance suite;
+- at least two independent implementation or pilot contexts;
+- demonstrable user and supplier participation;
+- a public change and maintenance process;
+- explicit license/IPR conditions;
+- initial architecture positioning and ROSA exploration;
+- a concrete business case for sector-wide interoperability;
+- a clear distinction between canonical standard, implementation guidance, adapters, registries and context profiles.
 
-## Ontwikkelprincipe
+## Development principle
 
-Edustandaard-readiness is geen laatste documentatieronde. De beoordelingscriteria worden gebruikt als doorlopende ontwerpcheck, maar mogen niet leiden tot inhoudelijke toevoegingen die het eigen interoperabiliteitsprobleem van EAI niet dienen.
+Edustandaard readiness is not a final documentation exercise. The assessment criteria are used as continuous design checks, but they must not drive additions that do not serve EAI Standard's own interoperability problem.
