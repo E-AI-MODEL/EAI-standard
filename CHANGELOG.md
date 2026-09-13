@@ -2,6 +2,37 @@
 
 All notable changes to the EAI Standard are recorded here.
 
+## 0.3.1-candidate
+
+Non-normative AI system profile add-on and explicit human-system boundary.
+
+### Added
+
+- `system-profiles/` companion layer for technical AI-system description;
+- eight-layer capability taxonomy covering model, inference, orchestration, context/data, tools/actions, application, evaluation and governance/control;
+- strict JSON Schema for vendor-neutral system profiles;
+- machine-readable human-system boundary matrix;
+- explicit rule that functional correspondence does not imply construct equivalence;
+- many-to-many bridge from system capabilities to observable canonical EAI AI-actions;
+- optional namespaced extension schema linking an EAI case to a system profile;
+- vendor-neutral agentic LLM system-profile example;
+- worked EAI case showing a technical system profile alongside teacher professional judgement;
+- human-system boundary documentation covering system memory versus retention, system novelty performance versus transfer, recommendation versus professional judgement and autonomy versus responsibility;
+- machine-readable system-profile index.
+
+### Changed
+
+- repository README now explicitly separates system capability, observable AI action and EAI human-AI allocation;
+- repository status advanced to `0.3.1-candidate`.
+
+### Normative impact
+
+None. The canonical EAI public interoperability surface remains unchanged. System profiles are optional and non-normative. Basic EAI conformance does not depend on model name, vendor, model size, benchmark score, orchestration complexity or the presence of a system profile.
+
+### Design rule
+
+Technical capability changes what a system may be able to perform. It does not determine which human action should be delegated or what counts as evidence of human learning, mastery, retention, transfer, professional judgement or responsibility.
+
 ## 0.3.0-candidate
 
 Architecture hardening for interoperability and first deep model adapters.
