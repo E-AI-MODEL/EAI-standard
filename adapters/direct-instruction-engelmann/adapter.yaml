@@ -1,0 +1,145 @@
+id: ADP-DI-ENGELMANN
+standard_version: 0.3.0-candidate
+model_name: Direct Instruction
+model_family: direct_instruction_capital_DI
+source_reference: National Institute for Direct Instruction public model materials; Engelmann tradition
+source_version: current_public_model_description_2025_2026
+source_license: source_referenced_not_reproduced
+
+source_elements:
+  - id: DI-E01
+    source_type: principle
+    source_label: incremental_program_design
+    source_definition: Instruction is designed in small increments so new learning builds on mastered prerequisites.
+    source_metadata: {source: NIFDI_basic_philosophy_and_mastery_guidance}
+  - id: DI-E02
+    source_type: action
+    source_label: field_test_and_revise_programs
+    source_definition: Programs are field tested and revised based on learner and teacher performance.
+    source_metadata: {source: NIFDI_authentic_DI_features}
+  - id: DI-E03
+    source_type: action
+    source_label: use_precisely_designed_teacher_presentations
+    source_definition: Teacher presentations are tightly specified to reduce ambiguity and instructional variation that could distort the intended learning sequence.
+    source_metadata: {source: NIFDI_authentic_DI_features}
+  - id: DI-E04
+    source_type: action
+    source_label: align_student_materials_with_instruction
+    source_definition: Learner materials are designed to correspond with the instructional sequence and teacher presentation.
+    source_metadata: {source: NIFDI_authentic_DI_features}
+  - id: DI-E05
+    source_type: action
+    source_label: place_students_by_current_skill_level
+    source_definition: Learner placement is based on demonstrated current performance so instruction starts at an appropriate point in the program.
+    source_metadata: {source: NIFDI_mastery_and_core_program_guidance}
+  - id: DI-E06
+    source_type: action
+    source_label: group_students_by_instructional_level
+    source_definition: Learners are grouped according to current instructional needs, with grouping intended to remain responsive to progress.
+    source_metadata: {source: NIFDI_core_program_guidance}
+  - id: DI-E07
+    source_type: evidence_point
+    source_label: in_program_mastery_assessment
+    source_definition: Program assessments are used to determine whether taught material has reached the required performance standard.
+    source_metadata: {source: NIFDI_authentic_DI_and_mastery_guidance}
+  - id: DI-E08
+    source_type: action
+    source_label: elicit_coordinated_student_responses
+    source_definition: Signals and response routines are used to create frequent observable learner responses and support monitoring.
+    source_metadata: {source: NIFDI_authentic_DI_delivery_features}
+  - id: DI-E09
+    source_type: action
+    source_label: correct_errors_systematically
+    source_definition: Errors are corrected through defined procedures intended to restore accurate learner performance.
+    source_metadata: {source: NIFDI_authentic_DI_delivery_features}
+  - id: DI-E10
+    source_type: action
+    source_label: manage_presentation_pace
+    source_definition: Instructional pacing is managed to maintain engagement, response opportunities and efficient progression.
+    source_metadata: {source: NIFDI_authentic_DI_delivery_features}
+  - id: DI-E11
+    source_type: action
+    source_label: record_student_progress
+    source_definition: Learner performance data are recorded and used to inform progress through the program.
+    source_metadata: {source: NIFDI_authentic_DI_delivery_features}
+  - id: DI-E12
+    source_type: relation
+    source_label: performance_drives_placement_and_progression
+    source_definition: Learner performance informs initial placement, grouping and movement through the instructional sequence.
+    source_relations:
+      - {type: evidence_from, target: DI-E07}
+      - {type: informs, target: DI-E05}
+      - {type: informs, target: DI-E06}
+      - {type: informs, target: DI-E11}
+  - id: DI-E13
+    source_type: relation
+    source_label: support_progresses_toward_independent_application
+    source_definition: Modelled and guided learning is followed by increasing learner execution and application in program-specific sequences.
+    source_metadata: {source: NIFDI_program_descriptions_and_gradual_release_materials}
+
+mappings:
+  - source_element_id: DI-E05
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-002, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-051, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-055, actor: teacher_professional}
+    rationale: Placement uses learner evidence to make a consequential instructional decision; the source program constrains the decision but does not eliminate the need to interpret performance accurately.
+    confidence: high
+  - source_element_id: DI-E07
+    mapping_type: related
+    eai_targets:
+      - {type: evidence_point, id_or_label: EV-03, actor: learner}
+      - {type: skill, id_or_label: TSK-054, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-057, actor: teacher_professional}
+    rationale: Mastery decisions require alignment between observed learner performance and the bounded claim used for progression.
+    confidence: high
+  - source_element_id: DI-E08
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-026, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-030, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-04, actor: learner}
+    rationale: Frequent coordinated responses make learner performance visible, but response frequency alone is not mastery evidence.
+    confidence: high
+  - source_element_id: DI-E09
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-040, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-045, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-08, actor: learner}
+    rationale: Error correction can be decomposed into detecting the error, supplying corrective information and learner reperformance.
+    confidence: high
+  - source_element_id: DI-E11
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-052, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-057, actor: teacher_professional}
+    rationale: Recorded progress can inform professional judgement but should not automatically become the judgement itself.
+    confidence: high
+  - source_element_id: DI-E12
+    mapping_type: related
+    eai_targets:
+      - {type: core_human_action, id_or_label: interpret_performance_for_instructional_routing, actor: teacher_professional}
+      - {type: relation, id_or_label: REL-007, actor: teacher_professional}
+    rationale: The model makes performance-driven instructional routing central, which is a strong case for separating evidence from interpretation and decision.
+    confidence: high
+  - source_element_id: DI-E13
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-043, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-071, actor: learner}
+      - {type: relation, id_or_label: REL-009, actor: learner}
+    rationale: Movement toward learner application creates an allocation transition where substantive AI performance can change the meaning of learner independence.
+    confidence: medium
+
+unmapped_source_elements:
+  - DI-E01
+  - DI-E02
+  - DI-E03
+  - DI-E04
+  - DI-E06
+  - DI-E10
+
+notes: >-
+  This adapter intentionally does not create a universal DI lesson-phase sequence. Specific DI curricula may contain program-specific sequences that should be represented in child adapters.
