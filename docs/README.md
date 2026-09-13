@@ -9,7 +9,7 @@ This directory contains human-readable documentation for the candidate standard.
 3. [`02-core-concepts.md`](02-core-concepts.md) — core human action, microstructures, AI action, evidence and related concepts.
 4. [`03-conformance.md`](03-conformance.md) — conformance profiles, information state and diagnostics.
 5. [`04-use-cases.md`](04-use-cases.md) — interoperability use cases.
-6. [`06-actor-profiles-and-skills.md`](06-actor-profiles-and-skills.md) — teacher/professional and learner action registries.
+6. [`06-actor-profiles-and-skills.md`](06-actor-profiles-and-skills.md) — registry-derived teacher/professional and learner actor views and skills.
 7. [`07-core-action-analysis.md`](07-core-action-analysis.md) — analysing human-AI allocation at action level.
 8. [`08-evidence-handback-remediation.md`](08-evidence-handback-remediation.md) — evidence, handback and renewed human performance.
 9. [`09-human-system-boundary.md`](09-human-system-boundary.md) — distinction between technical system functionality and human constructs.
