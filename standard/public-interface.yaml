@@ -14,6 +14,7 @@ canonical_artifacts:
     - relations.yaml
     - ai-actions.yaml
     - evidence-types.yaml
+    - protection.yaml
     - diagnostics.yaml
     - identifiers.yaml
   rules:
@@ -26,6 +27,7 @@ canonical_artifacts:
     - ../schemas/case.schema.json
     - ../schemas/adapter.schema.json
     - ../schemas/microstructure.schema.json
+    - ../schemas/protection-assessment.schema.json
     - ../schemas/diagnostic.schema.json
     - ../schemas/conformance-result.schema.json
     - ../schemas/extension.schema.json
@@ -75,7 +77,7 @@ stability_rules:
 non_canonical_layers:
   registries: reusable content that instantiates standard concepts
   adapters: source-preserving mappings to external models
-  context: overlays for level, age, subject, curriculum or jurisdiction
+  context: overlays for level, age, subject, curriculum, jurisdiction or externally defined requirements
   evidence: scientific support and claim maps
   system_profiles: optional technical descriptions of AI-system configuration and capability; never substitutes for observed AI-action analysis
   examples: non-normative worked cases
