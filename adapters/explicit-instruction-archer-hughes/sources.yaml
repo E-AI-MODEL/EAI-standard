@@ -1,0 +1,52 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-EI-ARCHER-HUGHES
+
+model_definition_sources:
+  - id: EI-SRC-01
+    type: primary_model_source
+    authors: [Anita L. Archer, Charles A. Hughes]
+    year: 2011
+    title: Explicit Instruction: Effective and Efficient Teaching
+    publisher: Guilford Press
+    public_sample: https://explicitinstruction.org/download/sample-chapter.pdf
+    use_in_adapter:
+      - six teaching functions
+      - sixteen instructional elements
+      - underlying principles
+      - scaffold-to-independence relation
+
+  - id: EI-SRC-02
+    type: author_companion_site
+    title: Explicit Instruction - Effective and Efficient Teaching
+    url: https://explicitinstruction.org/
+    use_in_adapter:
+      - publication metadata
+      - companion materials and model context
+
+effectiveness_context_sources:
+  - id: EI-EVID-01
+    type: rapid_literature_review
+    organisation: Australian Education Research Organisation
+    authors: [Zid Mancenido, Karen Gonsalkorale, Nuella Flynn, Jessica Brosnan]
+    year: 2024
+    updated: 2025-12-15
+    title: The impact of context on evidence-based practices: A rapid literature scan on formative assessment, explicit instruction and mastery learning
+    url: https://www.edresearch.edu.au/research/research-reports/impact-context-evidence-based-practices-rapid-literature-scan
+    note: >-
+      Used only as recent context on the evidence base for explicit instruction across settings. It does not validate every element or sequence in the Archer-Hughes model.
+
+  - id: EI-EVID-02
+    type: domain_specific_meta_analysis
+    authors: [Fei Li, Yunmei Sun]
+    year: 2024
+    title: Effects of different forms of explicit instruction on L2 development: A meta-analysis
+    publication: Foreign Language Annals
+    doi: 10.1111/flan.12726
+    note: >-
+      Domain-specific evidence that explicit instruction effects vary with form, practice type, delivery mode, duration and measurement. It is not treated as direct validation of this adapter.
+
+boundaries:
+  - Model-definition evidence and effectiveness evidence are separate.
+  - Research on capital-D Direct Instruction is not treated as evidence for this model unless an explicit equivalence is established.
+  - Domain-specific explicit-instruction studies are not generalised beyond their studied contexts without qualification.
