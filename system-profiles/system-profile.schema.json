@@ -37,11 +37,8 @@
   },
   "$defs": {
     "stringOrUnknown": {
-      "oneOf": [
-        {"type": "string"},
-        {"const": "unknown"},
-        {"type": "null"}
-      ]
+      "type": ["string", "null"],
+      "description": "Use the literal string 'unknown' when the value is materially relevant but not known."
     },
     "stringArray": {
       "type": "array",
