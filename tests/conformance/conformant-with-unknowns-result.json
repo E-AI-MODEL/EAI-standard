@@ -1,0 +1,24 @@
+{
+  "profile": "assessment_evidence",
+  "standard_version": "0.4.0-candidate",
+  "conformance": "conformant",
+  "information_state": "contains_unknowns",
+  "diagnostics": [
+    {
+      "code": "EAI-D020",
+      "severity": "info",
+      "effect": "uncertainty",
+      "message": "Information that could materially change the interpretation or claim is explicitly unknown; the uncertainty must remain visible until new evidence is available.",
+      "path": "$.unknowns",
+      "related_rule": "EAI-R012",
+      "details": null
+    }
+  ],
+  "retained_unknowns": [
+    {
+      "field": "claim_relevant_information",
+      "reason": "explicitly unavailable"
+    }
+  ],
+  "extensions": []
+}
