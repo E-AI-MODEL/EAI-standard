@@ -1,0 +1,235 @@
+version: 0.3.0-candidate
+status: candidate
+adapter: ADP-EDI-2
+
+mapping_policy:
+  - Source phases and EAI mappings are separate layers.
+  - Candidate core actions below are EAI interpretations, not claims that the source model uses the term core human action.
+  - AI actions are hypothetical possibilities within the phase, not recommendations.
+  - Where source material is incomplete, mapping status remains partial or unknown.
+
+phase_mappings:
+  - source_id: EDI-P1
+    source_label: Voorkennis
+    mapping_status: mapped
+    teacher_professional:
+      candidate_skills: [TSK-002, TSK-026, TSK-030, TSK-031, TSK-035]
+      candidate_core_actions:
+        - determine whether relevant prior knowledge is available and usable for the lesson goal
+      plausible_ai_actions: [AIA-01, AIA-02, AIA-07, AIA-08, AIA-09]
+      displacement_risks:
+        - AI may classify learner readiness before the teacher has inspected learner responses.
+    learner:
+      candidate_skills: [LSK-002, LSK-013, LSK-014, LSK-070]
+      candidate_core_actions:
+        - retrieve and connect relevant prior knowledge
+      plausible_ai_actions: [AIA-01, AIA-02, AIA-03, AIA-11]
+      displacement_risks:
+        - AI may answer the retrieval prompt and thereby replace retrieval itself.
+    evidence_points:
+      - learner retrieval before substantive AI answer provision
+      - teacher interpretation of readiness when it affects the next step
+
+  - source_id: EDI-P2
+    source_label: Lesdoel
+    mapping_status: mapped
+    teacher_professional:
+      candidate_skills: [TSK-001, TSK-005, TSK-010]
+      candidate_core_actions:
+        - formulate and communicate a goal that identifies the intended learning and relevant learner action
+      plausible_ai_actions: [AIA-01, AIA-05, AIA-06, AIA-09]
+      displacement_risks:
+        - AI may generate an attractive goal statement that is not aligned with the actual learning target or task.
+    learner:
+      candidate_skills: [LSK-001, LSK-040]
+      candidate_core_actions:
+        - construct an accurate representation of what is to be learned rather than only what is to be done
+      plausible_ai_actions: [AIA-01, AIA-06]
+    evidence_points:
+      - learner can restate the intended learning in relation to the task
+
+  - source_id: EDI-P3
+    source_label: Instructie
+    mapping_status: mapped
+    teacher_professional:
+      candidate_skills: [TSK-003, TSK-004, TSK-020, TSK-021, TSK-022, TSK-023, TSK-024, TSK-025, TSK-026]
+      candidate_core_actions:
+        - select, sequence and make the target knowledge or process explicit in a way suited to the learners and goal
+        - interpret learner responses during instruction and adjust the next step when needed
+      plausible_ai_actions: [AIA-01, AIA-04, AIA-05, AIA-06, AIA-08, AIA-09]
+      displacement_risks:
+        - AI may supply explanation, examples or sequencing that the teacher adopts without professional judgement about fit.
+        - AI may move from support to diagnosis without sufficient learner evidence.
+    learner:
+      candidate_skills: [LSK-010, LSK-012, LSK-013, LSK-014, LSK-015]
+      candidate_core_actions:
+        - build an initial understanding of the concept or procedure being modelled
+      plausible_ai_actions: [AIA-01, AIA-04, AIA-06]
+      displacement_risks:
+        - AI restructuring may remove the learner's need to identify relations among the new material.
+    evidence_points:
+      - learner responses that reveal discrimination, explanation or understanding after modelling
+
+  - source_id: EDI-P4
+    source_label: Begeleide inoefening
+    mapping_status: mapped
+    teacher_professional:
+      candidate_skills: [TSK-006, TSK-007, TSK-026, TSK-030, TSK-031, TSK-032, TSK-035, TSK-040, TSK-041, TSK-042, TSK-043]
+      candidate_core_actions:
+        - interpret learner performance while regulating the amount and type of support
+        - decide when responsibility can shift further toward the learner
+      plausible_ai_actions: [AIA-02, AIA-03, AIA-07, AIA-08, AIA-09, AIA-10]
+      displacement_risks:
+        - AI may provide a solution step that changes practice into answer following.
+        - AI may determine support level without the teacher evaluating learner evidence.
+    learner:
+      candidate_skills: [LSK-016, LSK-024, LSK-043, LSK-044, LSK-045, LSK-047, LSK-071]
+      candidate_core_actions:
+        - perform the target operation under temporary support and increasingly resume responsibility
+      plausible_ai_actions: [AIA-02, AIA-03, AIA-07, AIA-08, AIA-10, AIA-11]
+      displacement_risks:
+        - AI may perform precisely the operation intended for guided practice.
+        - immediate answer correction may remove error detection and self-correction opportunities.
+    evidence_points:
+      - first human attempt
+      - correction after feedback
+      - successful performance with decreasing support
+    handback_points:
+      - before transition to the small lesson closure, substantive AI performance of the target operation should be reduced if independence is about to be checked
+    remediation_candidates: [REM-02, REM-03, REM-05, REM-06]
+
+  - source_id: EDI-P5
+    source_label: Kleine lesafsluiting
+    mapping_status: mapped
+    teacher_professional:
+      candidate_skills: [TSK-026, TSK-030, TSK-031, TSK-035, TSK-036, TSK-051, TSK-054, TSK-057]
+      candidate_core_actions:
+        - judge from current evidence whether learners can proceed to independent work or need another route
+      plausible_ai_actions: [AIA-07, AIA-08, AIA-09]
+      displacement_risks:
+        - AI may turn a decision point into an automated mastery label.
+    learner:
+      candidate_skills: [LSK-070, LSK-071]
+      candidate_core_actions:
+        - demonstrate the target learning sufficiently independently for the next instructional decision
+      plausible_ai_actions: [AIA-00, AIA-07, AIA-08, AIA-10, AIA-11]
+      displacement_risks:
+        - substantive AI help undermines the evidential value of the phase for deciding whether the learner can proceed independently.
+    evidence_points:
+      - fresh learner performance with support matched to the claim
+      - explicit unknown when evidence is insufficient
+    handback_points:
+      - mandatory before an independence-based routing decision if AI previously performed the target operation
+    remediation_candidates: [REM-01, REM-02, REM-06]
+
+  - source_id: EDI-P6
+    source_label: Zelfstandige verwerking
+    mapping_status: mapped
+    teacher_professional:
+      candidate_skills: [TSK-006, TSK-008, TSK-010, TSK-030, TSK-035]
+      candidate_core_actions:
+        - preserve genuinely independent practice while monitoring for evidence that requires intervention
+      plausible_ai_actions: [AIA-07, AIA-08, AIA-09]
+      displacement_risks:
+        - always-on AI support can silently convert independent work back into guided work.
+    learner:
+      candidate_skills: [LSK-016, LSK-024, LSK-071]
+      candidate_core_actions:
+        - execute the target operation without substantive assistance that performs the operation
+      plausible_ai_actions: [AIA-00, AIA-07, AIA-08, AIA-10, AIA-11]
+      displacement_risks:
+        - AI completion can yield a correct product while independent execution remains unknown.
+    evidence_points:
+      - human execution on the target operation without substantive AI performance
+      - repeated successful attempts where stable performance is the intended claim
+
+  - source_id: EDI-P7
+    source_label: Verlengde instructie
+    mapping_status: mapped
+    teacher_professional:
+      candidate_skills: [TSK-032, TSK-033, TSK-034, TSK-035, TSK-040, TSK-041, TSK-042, TSK-044, TSK-045]
+      candidate_core_actions:
+        - diagnose the relevant learning gap and choose additional instruction that addresses it
+      plausible_ai_actions: [AIA-01, AIA-03, AIA-08, AIA-09, AIA-10]
+      displacement_risks:
+        - AI may supply a generic reteaching route that is not linked to the learner's actual breakdown.
+    learner:
+      candidate_skills: [LSK-014, LSK-016, LSK-044, LSK-045, LSK-071]
+      candidate_core_actions:
+        - reconstruct the missing or insufficient operation and re-demonstrate it
+      plausible_ai_actions: [AIA-02, AIA-03, AIA-04, AIA-08, AIA-10]
+    evidence_points:
+      - new human performance after targeted additional instruction
+    remediation_candidates: [REM-03, REM-05, REM-06]
+
+  - source_id: EDI-P8
+    source_label: Verdiepende instructie
+    mapping_status: partial
+    teacher_professional:
+      candidate_skills: [TSK-002, TSK-005, TSK-006, TSK-024]
+      candidate_core_actions:
+        - select additional challenge that deepens the intended learning rather than merely increasing workload
+      plausible_ai_actions: [AIA-01, AIA-05, AIA-06, AIA-09]
+    learner:
+      candidate_skills: [LSK-020, LSK-023, LSK-024, LSK-029, LSK-073]
+      candidate_core_actions:
+        - extend or transfer the target knowledge or skill in a more demanding context
+      plausible_ai_actions: [AIA-02, AIA-03, AIA-05, AIA-08, AIA-10, AIA-11]
+    evidence_points:
+      - human performance on a more demanding or varied task
+    unknowns:
+      - The public phase poster provides only a high-level description; detailed substructure requires source-edition verification.
+
+  - source_id: EDI-P9
+    source_label: Grote lesafsluiting
+    mapping_status: partial
+    teacher_professional:
+      candidate_skills: [TSK-051, TSK-052, TSK-057]
+      candidate_core_actions:
+        - interpret end-of-lesson evidence without overstating what the lesson establishes about longer-term learning
+      plausible_ai_actions: [AIA-06, AIA-07, AIA-08, AIA-09]
+    learner:
+      candidate_skills: [LSK-047, LSK-048, LSK-070]
+      candidate_core_actions:
+        - reconstruct what was learned and what remains uncertain
+      plausible_ai_actions: [AIA-02, AIA-06, AIA-08]
+    evidence_points:
+      - learner explanation or reflection tied to actual task performance
+    unknowns:
+      - Detailed distinctions within the phase are not inferred beyond the public source.
+
+technique_mappings:
+  - source_id: EDI-T1
+    source_label: Betrekken en activeren
+    mapping_status: mapped
+    eai_relation: elicitation_of_human_action
+    interpretation: Learner activity is relevant because it makes human operations available for learning and observation; activity alone is not evidence of mastery.
+
+  - source_id: EDI-T2
+    source_label: Herhalen
+    mapping_status: mapped
+    eai_relation: repeated_and_delayed_reperformance
+    interpretation: Repetition may support current performance, retention or fluency depending on delay and task design; those claims should remain separate.
+
+  - source_id: EDI-T3
+    source_label: Controleren van begrip
+    mapping_status: mapped
+    eai_relation: evidence_collection_for_instructional_decision
+    interpretation: The check generates evidence; interpretation and instructional response are distinct teacher actions.
+
+  - source_id: EDI-T4
+    source_label: Feedback
+    mapping_status: mapped
+    eai_relation: support_or_correction_after_evidence
+    interpretation: Feedback can support learning while still displacing the learner's action if it supplies the substantive operation rather than information for revision.
+
+critical_decision_points:
+  - id: EDI-DP1
+    source_position: between_EDI-P4_and_EDI-P5
+    description: Support should have been reduced enough for the learner's own target action to become interpretable.
+  - id: EDI-DP2
+    source_position: EDI-P5
+    description: Evidence is used to route toward independent work, additional instruction or deeper challenge; this makes the quality of human evidence especially consequential.
+  - id: EDI-DP3
+    source_position: EDI-P6
+    description: Continued substantive AI performance changes the meaning of 'independent' practice and should be recorded as such.
