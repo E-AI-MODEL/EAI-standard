@@ -1,14 +1,14 @@
-version: 0.2.0-candidate
+version: 0.2.1-candidate
 status: candidate
 scope: recent_scientific_spine_2025_2026
 
 policy:
   recency_priority: >-
-    For AI-specific claims, the evidence spine prioritises 2025-2026 empirical studies, meta-analyses and current large-scale datasets. Older learning-science sources may later be added as foundational theory, but they do not substitute for recent AI-specific evidence.
+    For AI-specific claims, the evidence spine prioritises 2025-2026 empirical studies, meta-analyses and current large-scale datasets. Older learning-science sources may be added as foundational theory, but they do not substitute for recent AI-specific evidence.
   discovery_rule: >-
     Internal literature maps, reviews and synthesis documents may be used to discover sources, but claims should link to the original publication whenever possible.
   status_rule: >-
-    Preprints and working papers are explicitly marked and receive lower evidence weight than peer-reviewed publications unless their design or scale materially adds evidence not yet available elsewhere.
+    Preprints, working papers, industry research and policy datasets are explicitly marked and are not treated as equivalent to peer-reviewed causal evidence.
 
 sources:
   - id: SRC-2026-BOOLZEN
@@ -23,9 +23,9 @@ sources:
     design: 85 eligible studies; 49 studies and 59 effect sizes meta-analysed
     key_findings:
       - Conventional random-effects analysis was positive but highly heterogeneous.
-      - Robust Bayesian analysis suggested much of the overall positive main effect could be attributable to publication bias.
-      - Learning outcome type and whether AI augmented or substituted student cognitive activity explained part of the heterogeneity.
-      - The review concludes that substitution of student activity can be detrimental and that process variables such as task delegation and verification remain under-measured.
+      - The prediction interval was very wide and funnel-plot asymmetry indicated potential publication bias.
+      - Learning-outcome type and whether AI augmented or substituted student cognitive activity explained part of the heterogeneity.
+      - Process variables such as task delegation and verification remain under-measured.
     role: primary_recent_anchor
 
   - id: SRC-2026-STROMBERG
@@ -56,11 +56,11 @@ sources:
     type: peer_reviewed_meta_analysis
     doi: 10.1057/s41599-026-07019-z
     published: 2026-03-26
-    scope: 35 experimental studies; 4193 participants
+    scope: 35 experimental and quasi-experimental studies; 4193 participants; 134 effect sizes
     key_findings:
       - Moderate positive mean effect on learning outcomes.
       - Subject, intervention duration and instructional mode significantly moderated outcomes.
-      - Authors note limits in coverage of multidimensional moderators and long-term outcomes.
+      - Authors identify limitations in multidimensional moderators and long-term outcomes.
     role: recent_synthesis
 
   - id: SRC-2026-OECD-PISA
@@ -68,15 +68,16 @@ sources:
     authors: [OECD]
     title: PISA 2025 Results Volume I - Future-Ready Students
     publication: OECD Publishing
-    type: large_scale_international_assessment
+    type: large_scale_international_assessment_observational
     doi: 10.1787/73451bc5-en
     published: 2026-09-08
-    scope: international PISA 2025 student dataset
+    scope: more than 760000 students across 91 countries and economies
     key_findings:
       - AI use for specific schoolwork tasks such as drafting, summarising and research is associated with lower science performance than non-use on average.
       - Weekly general-purpose AI use shows a different pattern and can be similar to non-use.
-      - Students who use AI for learning and receive school opportunities to evaluate AI-generated information tend to perform slightly better than comparable users without such opportunities.
-      - Relationships are observational and depend on use pattern and learning context.
+      - Students who frequently use AI for learning and report school opportunities to evaluate AI-generated information tend to perform slightly better than comparable users without those opportunities.
+    limitations:
+      - Observational associations; not causal estimates of AI effects.
     role: current_large_scale_context
 
   - id: SRC-2026-WEIDLICH
@@ -94,6 +95,66 @@ sources:
     limitations:
       - Preprint; conceptual rather than intervention-effect study.
     role: recent_validity_framework
+
+  - id: SRC-2026-VELANDER
+    year: 2026
+    authors: [Johanna Velander]
+    title: Beyond operational skills: Teachers' AI knowledge and interactions with generative AI in lesson planning
+    publication: Computers and Education Open
+    type: peer_reviewed_mixed_methods_teacher_practice
+    doi: 10.1016/j.caeo.2026.100371
+    published: 2026-06
+    scope: K-12 teachers; 61 questionnaire participants; approximately 1300 prompt-response pairs plus group reflection
+    key_findings:
+      - AI-related teacher knowledge is enacted in situated teacher-AI collaboration, not captured fully by self-report alone.
+      - Teacher-AI interaction displayed different distributions of epistemic agency, initiative and authority.
+      - Teachers often positioned GenAI as the primary generator of instructional content, with fewer instances of iterative negotiation or co-construction.
+    role: primary_recent_teacher_anchor
+
+  - id: SRC-2026-ALDIGHRIR
+    year: 2026
+    authors: [Wafa Mohammed Aldighrir]
+    title: Development and validation of the teachers generative AI professional competence scale
+    publication: Scientific Reports
+    type: peer_reviewed_scale_development_validation
+    doi: 10.1038/s41598-026-65021-6
+    published: 2026-08-04
+    scope: 648 teachers; sequential exploratory mixed-method scale development and validation
+    key_findings:
+      - Teacher GenAI professional competence was modelled as pedagogical judgement, ethical leadership and professional agency.
+      - Pedagogical judgement includes deciding whether, when and for what educational purpose AI is appropriate.
+      - Professional agency includes retaining authorship, autonomy and final responsibility rather than treating AI output as a substitute for judgement.
+    limitations:
+      - Psychometric validation of a proposed construct; not evidence that these dimensions causally improve learning.
+    role: primary_recent_teacher_anchor
+
+  - id: SRC-2026-COSTACHE
+    year: 2026
+    authors: [Oana Costache, Roald Pieter Verhoeff, Pierre Gorissen]
+    title: Teacher-AI Collaboration and the Professionalization of Teachers in the Age of Automation: A Systematic Review
+    publication: Education Sciences
+    type: peer_reviewed_systematic_review
+    doi: 10.3390/educsci16060938
+    published: 2026-06-13
+    scope: 39 empirical studies on teacher professionalization and AI collaboration published 2015-2025
+    key_findings:
+      - Reviews how responsibilities for detecting, diagnosing and acting on educational data are distributed between teachers and AI systems.
+      - Treats teacher-AI collaboration as a professionalization and responsibility-distribution question rather than only a technology-use question.
+    role: primary_recent_teacher_synthesis
+
+  - id: SRC-2026-GAA-LS
+    year: 2026
+    authors: [Juntao Nie, Zeyu Zhang, Xiaomei Lu, Yinlan Zhang, Min Zhang]
+    title: Development and validation of the generative AI assessment literacy scale for higher education students: psychometric evidence and associations with feedback engagement and academic integrity
+    publication: Frontiers in Education
+    type: peer_reviewed_scale_development_validation
+    doi: 10.3389/feduc.2026.1934632
+    published: 2026-09-10
+    scope: two-study psychometric validation; 486 and 798 higher-education students
+    key_findings:
+      - Assessment-specific GenAI literacy includes assessment-criteria awareness, AI-task appropriateness judgement, verification and evidence checking, ethical attribution and feedback uptake.
+      - General AI-use frequency did not replace task-specific assessment judgement as the construct of interest.
+    role: recent_skill_and_assessment_context
 
   - id: SRC-2025-BASTANI
     year: 2025
@@ -145,26 +206,7 @@ sources:
       - Cognitive work shifted from information gathering to verification, from problem solving to response integration, and from execution to stewardship.
     limitations:
       - Self-reported enaction and effort; not a direct learning-outcome experiment.
-    role: teacher_professional_and_expertise_context
-
-  - id: SRC-2025-TUTORCOPILOT
-    year: 2025
-    authors: [Rose E. Wang, Ana T. Ribeiro, Carly D. Robinson, Susanna Loeb, Dorottya Demszky]
-    title: Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise
-    publication: EdWorkingPaper / National Student Support Accelerator
-    type: randomized_controlled_trial_working_paper
-    doi: 10.26300/81nh-8262
-    published: 2025-11
-    scope: K-12 tutoring; large live tutoring deployment
-    key_findings:
-      - Students working with tutors who had access to real-time AI guidance were more likely to master topics.
-      - Benefits were largest for lower-rated tutors.
-      - AI-supported tutors used more high-quality pedagogical strategies and were less likely to give away answers.
-      - AI guidance supported human tutors rather than replacing the tutoring interaction.
-    limitations:
-      - Working paper status.
-      - Effects concern a specific tutoring system and context.
-    role: primary_recent_teacher_support_case
+    role: professional_and_expertise_context
 
   - id: SRC-2025-CHEN-CHEUNG
     year: 2025
@@ -173,6 +215,7 @@ sources:
     publication: Educational Research Review
     type: peer_reviewed_systematic_review_meta_analysis
     doi: 10.1016/j.edurev.2025.100737
+    published: 2025-10
     scope: 57 studies; 97 estimations; higher education
     key_findings:
       - Positive pooled effects were reported for academic achievement, language skills, affective-motivational outcomes and higher-order thinking.
@@ -191,17 +234,21 @@ sources:
     scope: 49 articles across K-12 and higher education
     key_findings:
       - Positive average effects were reported for learning achievement and motivation.
-      - Moderator analyses indicate that effects depend on implementation and study conditions.
+      - Effects varied by education level, subject, interface, interaction approach and experimentation time.
     role: recent_synthesis
 
-  - id: SRC-2026-GAA-LS
-    year: 2026
-    title: Development and validation of the generative AI assessment literacy scale for higher education students: psychometric evidence and associations with feedback engagement and academic integrity
-    publication: Frontiers in Education
-    type: peer_reviewed_scale_development_validation
-    published: 2026-09
-    scope: two-study psychometric validation; higher education students
+secondary_foundational_sources:
+  - id: SRC-2024-TUTORCOPILOT
+    year: 2024
+    authors: [Rose E. Wang, Ana T. Ribeiro, Carly D. Robinson, Susanna Loeb, Dora Demszky]
+    title: Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise
+    publication: arXiv preprint / field RCT report
+    type: preprint_randomized_controlled_trial
+    published: 2024-10-03
+    scope: 900 tutors and 1800 K-12 students in live tutoring
     key_findings:
-      - Assessment-specific GenAI literacy includes task-boundary judgement, verification, interpretation of criteria and disclosure practices.
-      - General AI use frequency or general AI literacy should not be treated as sufficient evidence of assessment-specific judgement.
-    role: recent_skill_and_assessment_context
+      - Students with AI-supported tutors were more likely to master topics.
+      - Benefits were largest for lower-rated tutors.
+      - AI-supported tutors used more high-quality pedagogical strategies and were less likely to give away answers.
+    note: >-
+      Retained as useful earlier evidence on human-AI tutoring, but no longer treated as part of the recent 2025-2026 scientific spine.
