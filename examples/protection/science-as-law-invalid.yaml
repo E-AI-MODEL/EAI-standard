@@ -1,0 +1,50 @@
+id: CASE-PROTECTION-INVALID-001
+standard_version: 0.4.0-candidate
+context: >-
+  Learner uses generative AI during practice. Independent mastery is later claimed from the AI-supported product.
+goal: Determine whether the learner independently masters the target reasoning operation.
+process_position:
+  model: generic_learning_process
+  label: practice_and_assessment
+  source_term: null
+  source_element_id: null
+actors:
+  - actor: learner
+    core_actions:
+      - id: CHA-LEARN-001
+        label: perform_target_reasoning_operation
+        status: confirmed
+        microstructures:
+          - id: MS-EXAMPLE-REASON
+            label: generate_reasoning_step
+            human_execution: partial
+            ai_action: AIA-10
+            evidence:
+              - final AI-supported product
+            handback_required: true
+            remediation: REM-03
+        protection:
+          dimensions:
+            - requirement_id: PRT-01
+              status: required
+              condition: null
+              rationale: >-
+                The implementation incorrectly presents a scientific finding as a legal obligation.
+              bases:
+                - type: scientific_evidence
+                  reference: CLM-005
+                  authority: EAI evidence layer
+                  jurisdiction: European_Union
+                  source_uri: null
+                  applicability: applicable
+                  bindingness: legally_binding
+                  support_relation: direct_support
+                  notes: This intentionally incorrect bindingness is the condition under test.
+          unknowns: []
+          notes: null
+claim_type: independent_mastery
+responsibility: null
+unknowns: []
+extensions: []
+notes: >-
+  Negative conformance fixture. Scientific evidence may support a recommendation or EAI rule but must not be serialized as legally binding merely because the evidence is strong.
