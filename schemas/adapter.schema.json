@@ -7,6 +7,7 @@
   "properties": {
     "id": {"type": "string", "minLength": 1},
     "standard_version": {"type": ["string", "null"]},
+    "artifact_version": {"type": ["string", "null"]},
     "model_name": {"type": "string", "minLength": 1},
     "model_family": {"type": ["string", "null"]},
     "source_reference": {"type": "string", "minLength": 1},
