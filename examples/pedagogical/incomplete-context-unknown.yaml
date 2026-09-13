@@ -1,5 +1,5 @@
 id: EX-PED-UNKNOWN-001
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 context: >-
   A teacher notices a marked change in a learner's participation. An AI system summarises recent attendance and assignment patterns, but the learner has not yet been available for a conversation and the reason for the change is unknown.
 goal: Decide what immediate educational follow-up is proportionate without inferring unsupported causes.
@@ -50,4 +50,4 @@ unknowns:
   - The reason for the change in participation is unknown.
   - It is unknown whether historical context is relevant to the current situation.
 notes: >-
-  Unknown is the intended state for the unresolved interpretation. The standard does not require speculative completion of the missing meaning before a proportionate information-gathering step can be taken.
+  The representation is conformant while the unresolved interpretation remains explicit. The standard does not require speculative completion of the missing meaning before a proportionate information-gathering step can be taken.
