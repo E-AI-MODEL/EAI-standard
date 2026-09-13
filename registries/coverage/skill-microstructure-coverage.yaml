@@ -1,0 +1,344 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate_audit
+
+audit_scope:
+  - registries/skills/teacher.yaml
+  - registries/skills/learner.yaml
+  - registries/skills/ai-interaction.yaml
+  - registries/microstructures/argumentation.yaml
+  - registries/microstructures/learner-retrieval-and-independent-performance.yaml
+  - registries/microstructures/teacher-diagnostic-judgement.yaml
+  - registries/microstructures/teacher-scaffolding-and-feedback.yaml
+  - registries/microstructures/teacher-pedagogical-judgement.yaml
+
+purpose: >-
+  Audits whether current reusable skill entries have sufficient microstructure coverage for action-level human-AI allocation. Coverage is not a quality score and does not imply that every skill requires its own dedicated microstructure registry.
+
+coverage_states:
+  deep:
+    description: >-
+      A current microstructure registry directly and substantially covers the skill through an explicit registry link or explicit contributes_to relation.
+  partial:
+    description: >-
+      Current microstructures cover material parts of the skill, but the skill is not yet fully represented at action level or the link is not explicit enough for reliable exchange.
+  none:
+    description: >-
+      No current microstructure registry provides sufficient action-level coverage for this skill.
+
+decomposition_priorities:
+  high: >-
+    Missing decomposition is likely to hide materially different human-AI allocations, evidence conditions or handback/remediation requirements.
+  medium: >-
+    Decomposition would improve consistency and reuse, but the skill can often still be represented meaningfully at skill level.
+  low: >-
+    No dedicated decomposition should be added until implementation experience demonstrates a recurring interoperability problem.
+  covered: Existing decomposition is currently sufficient for candidate-stage testing; this is not a claim of scientific completeness.
+
+summary:
+  teacher_professional:
+    skill_count: 57
+    deep: 21
+    partial: 21
+    none: 15
+  learner:
+    skill_count: 56
+    deep: 4
+    partial: 18
+    none: 34
+  ai_interaction_cross_cutting:
+    skill_count: 24
+    deep: 0
+    partial: 11
+    none: 13
+  microstructure_registries: 5
+  microstructure_count: 77
+  note: >-
+    AI-interaction skills are cross-cutting and apply to teacher/professional and/or learner. They are therefore reported separately rather than added to either actor's primary skill inventory.
+
+teacher_professional:
+  TSF-DESIGN:
+    - {id: TSK-001, label: define_educational_goal, coverage: none, decomposition_priority: medium, recommended_action: create_shared_teacher_design_registry}
+    - {id: TSK-002, label: interpret_starting_point, coverage: partial, decomposition_priority: medium, basis: teacher-diagnostic-judgement, recommended_action: link_or_extend_existing}
+    - {id: TSK-003, label: select_content, coverage: none, decomposition_priority: medium, recommended_action: create_shared_teacher_design_registry}
+    - {id: TSK-004, label: sequence_learning, coverage: none, decomposition_priority: medium, recommended_action: create_shared_teacher_design_registry}
+    - {id: TSK-005, label: select_learning_activity, coverage: none, decomposition_priority: high, recommended_action: create_shared_teacher_design_registry}
+    - {id: TSK-006, label: design_practice, coverage: none, decomposition_priority: high, recommended_action: create_shared_teacher_design_registry}
+    - {id: TSK-007, label: design_support, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback, recommended_action: link_or_extend_existing}
+    - {id: TSK-008, label: design_for_independence, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback_and_learner-retrieval, recommended_action: link_or_extend_existing}
+    - {id: TSK-009, label: anticipate_misconception_or_error, coverage: partial, decomposition_priority: medium, basis: teacher-diagnostic-judgement, recommended_action: extend_existing_or_design_registry}
+    - {id: TSK-010, label: design_evidence_opportunity, coverage: partial, decomposition_priority: high, basis: evidence-semantics_and_teacher-diagnostic-judgement, recommended_action: include_in_teacher_assessment_registry}
+
+  TSF-INSTRUCT:
+    - {id: TSK-020, label: explain, coverage: none, decomposition_priority: medium, recommended_action: create_shared_instruction_modelling_registry}
+    - {id: TSK-021, label: model_process, coverage: partial, decomposition_priority: medium, basis: teacher-scaffolding-and-feedback, recommended_action: extend_existing_or_instruction_registry}
+    - {id: TSK-022, label: choose_example, coverage: none, decomposition_priority: medium, recommended_action: create_shared_instruction_modelling_registry}
+    - {id: TSK-023, label: choose_nonexample, coverage: none, decomposition_priority: medium, recommended_action: create_shared_instruction_modelling_registry}
+    - {id: TSK-024, label: regulate_complexity, coverage: none, decomposition_priority: medium, recommended_action: create_shared_instruction_modelling_registry}
+    - {id: TSK-025, label: ask_instructional_question, coverage: partial, decomposition_priority: medium, basis: teacher-scaffolding-and-feedback_and_teacher-diagnostic-judgement, recommended_action: link_existing}
+    - {id: TSK-026, label: check_understanding_during_instruction, coverage: partial, decomposition_priority: high, basis: teacher-diagnostic-judgement_and_teacher-scaffolding-and-feedback, recommended_action: link_existing}
+
+  TSF-DIAG:
+    - {id: TSK-030, label: observe_relevant_signal, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-031, label: elicit_diagnostic_evidence, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-032, label: locate_error_or_breakdown, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-033, label: generate_possible_explanations, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-034, label: test_diagnostic_explanation, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-035, label: interpret_learning_state, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-036, label: identify_missing_evidence, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement, recommended_action: keep_and_validate}
+
+  TSF-GUIDE:
+    - {id: TSK-040, label: select_feedback, coverage: deep, decomposition_priority: covered, basis: teacher-scaffolding-and-feedback, recommended_action: keep_and_validate}
+    - {id: TSK-041, label: select_hint, coverage: deep, decomposition_priority: covered, basis: teacher-scaffolding-and-feedback, recommended_action: keep_and_validate}
+    - {id: TSK-042, label: scaffold, coverage: deep, decomposition_priority: covered, basis: teacher-scaffolding-and-feedback, recommended_action: keep_and_validate}
+    - {id: TSK-043, label: fade_support, coverage: deep, decomposition_priority: covered, basis: teacher-scaffolding-and-feedback, recommended_action: keep_and_validate}
+    - {id: TSK-044, label: decide_on_reinstruction, coverage: deep, decomposition_priority: covered, basis: teacher-scaffolding-and-feedback, recommended_action: keep_and_validate}
+    - {id: TSK-045, label: remediate_target_action, coverage: deep, decomposition_priority: covered, basis: teacher-scaffolding-and-feedback, recommended_action: keep_and_validate}
+    - {id: TSK-046, label: support_self_regulation, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback, recommended_action: extend_existing_with_regulatory_actions}
+
+  TSF-ASSESS:
+    - {id: TSK-050, label: define_assessment_claim, coverage: none, decomposition_priority: high, recommended_action: create_shared_teacher_assessment_registry}
+    - {id: TSK-051, label: interpret_evidence, coverage: partial, decomposition_priority: high, basis: teacher-diagnostic-judgement_and_evidence-semantics, recommended_action: create_or_link_teacher_assessment_registry}
+    - {id: TSK-052, label: weigh_multiple_sources, coverage: partial, decomposition_priority: high, basis: teacher-diagnostic-judgement_and_pedagogical-judgement, recommended_action: create_or_link_teacher_assessment_registry}
+    - {id: TSK-053, label: judge_quality, coverage: none, decomposition_priority: high, recommended_action: create_shared_teacher_assessment_registry}
+    - {id: TSK-054, label: determine_mastery, coverage: partial, decomposition_priority: high, basis: learner-retrieval-and-independent-performance_and_evidence-semantics, recommended_action: create_shared_teacher_assessment_registry}
+    - {id: TSK-055, label: make_professional_decision, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement_and_teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-056, label: justify_professional_decision, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement_and_teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-057, label: preserve_uncertainty, coverage: deep, decomposition_priority: covered, basis: teacher-diagnostic-judgement_and_teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+
+  TSF-PED:
+    - {id: TSK-060, label: establish_and_maintain_contact, coverage: deep, decomposition_priority: covered, basis: teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-061, label: listen_for_meaning, coverage: deep, decomposition_priority: covered, basis: teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-062, label: recognise_vulnerability_or_tension, coverage: deep, decomposition_priority: covered, basis: teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-063, label: perspective_taking, coverage: deep, decomposition_priority: covered, basis: teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-064, label: support_autonomy, coverage: deep, decomposition_priority: covered, basis: teacher-pedagogical-judgement, recommended_action: keep_and_validate}
+    - {id: TSK-065, label: set_professional_boundary, coverage: none, decomposition_priority: high, recommended_action: extend_pedagogical_registry_or_add_boundary_pattern}
+    - {id: TSK-066, label: interpret_behaviour_in_context, coverage: partial, decomposition_priority: high, basis: teacher-pedagogical-judgement_semantic_coverage_but_relation_missing, recommended_action: add_explicit_relation_then_validate}
+    - {id: TSK-067, label: make_pedagogical_judgement, coverage: partial, decomposition_priority: high, basis: teacher-pedagogical-judgement_semantic_coverage_but_relation_missing, recommended_action: add_explicit_relation_then_validate}
+    - {id: TSK-068, label: determine_pedagogical_follow_up, coverage: partial, decomposition_priority: high, basis: teacher-pedagogical-judgement_semantic_coverage_but_relation_missing, recommended_action: add_explicit_relation_then_validate}
+
+  TSF-COLLAB:
+    - {id: TSK-070, label: communicate_goal_and_expectation, coverage: partial, decomposition_priority: medium, basis: teacher-pedagogical-judgement_communication, recommended_action: extend_or_link_existing}
+    - {id: TSK-071, label: discuss_evidence_with_learner, coverage: partial, decomposition_priority: medium, basis: teacher-pedagogical-judgement_and_teacher-diagnostic-judgement, recommended_action: link_or_add_dialogic_evidence_pattern}
+    - {id: TSK-072, label: coordinate_professional_action, coverage: none, decomposition_priority: medium, recommended_action: defer_or_create_shared_professional-collaboration_registry}
+    - {id: TSK-073, label: document_professional_reasoning, coverage: partial, decomposition_priority: medium, basis: teacher-diagnostic-judgement_and_teacher-pedagogical-judgement, recommended_action: link_existing}
+
+  TSF-EVAL:
+    - {id: TSK-080, label: monitor_effect_of_action, coverage: partial, decomposition_priority: medium, basis: teacher-diagnostic-judgement_and_teacher-pedagogical-judgement_follow-up, recommended_action: link_existing}
+    - {id: TSK-081, label: examine_assumption, coverage: partial, decomposition_priority: medium, basis: teacher-diagnostic-judgement, recommended_action: link_or_extend_existing}
+    - {id: TSK-082, label: compare_alternatives, coverage: partial, decomposition_priority: medium, basis: teacher-diagnostic-judgement_and_teacher-pedagogical-judgement, recommended_action: link_or_extend_existing}
+    - {id: TSK-083, label: reflect_on_professional_process, coverage: none, decomposition_priority: low, recommended_action: keep_at_skill_level_until_recurrent_gap}
+    - {id: TSK-084, label: adapt_future_practice, coverage: none, decomposition_priority: low, recommended_action: keep_at_skill_level_until_recurrent_gap}
+
+learner:
+  LSF-ORIENT:
+    - {id: LSK-001, label: interpret_task, coverage: none, decomposition_priority: high, recommended_action: create_shared_orientation_task-representation_registry}
+    - {id: LSK-002, label: activate_prior_knowledge, coverage: partial, decomposition_priority: medium, basis: learner-retrieval-and-independent-performance, recommended_action: link_or_extend_existing}
+    - {id: LSK-003, label: define_problem, coverage: none, decomposition_priority: high, recommended_action: include_in_reasoning_problem-solving_registry}
+    - {id: LSK-004, label: formulate_initial_question, coverage: none, decomposition_priority: medium, recommended_action: include_in_orientation_or_research_registry}
+    - {id: LSK-005, label: formulate_initial_hypothesis, coverage: none, decomposition_priority: medium, recommended_action: include_in_reasoning_or_research_registry}
+
+  LSF-KNOW:
+    - {id: LSK-010, label: select_relevant_information, coverage: none, decomposition_priority: high, recommended_action: create_shared_knowledge-building_registry}
+    - {id: LSK-011, label: distinguish_main_and_secondary_information, coverage: none, decomposition_priority: medium, recommended_action: create_shared_knowledge-building_registry}
+    - {id: LSK-012, label: form_concept, coverage: none, decomposition_priority: high, recommended_action: create_shared_knowledge-building_registry}
+    - {id: LSK-013, label: connect_concepts, coverage: none, decomposition_priority: high, recommended_action: create_shared_knowledge-building_registry}
+    - {id: LSK-014, label: explain_in_own_words, coverage: none, decomposition_priority: high, recommended_action: create_shared_knowledge-building_registry}
+    - {id: LSK-015, label: compare_and_contrast, coverage: none, decomposition_priority: medium, recommended_action: create_shared_knowledge-building_registry}
+    - {id: LSK-016, label: apply_knowledge, coverage: partial, decomposition_priority: high, basis: learner-retrieval-and-independent-performance_target-operation, recommended_action: extend_or_link_existing}
+    - {id: LSK-017, label: organise_information, coverage: none, decomposition_priority: medium, recommended_action: create_shared_knowledge-building_registry}
+
+  LSF-REASON:
+    - {id: LSK-020, label: analyse, coverage: partial, decomposition_priority: high, basis: argumentation_domain-specific_analysis, recommended_action: create_general_reasoning_registry}
+    - {id: LSK-021, label: infer, coverage: partial, decomposition_priority: high, basis: argumentation_domain-specific_inference, recommended_action: create_general_reasoning_registry}
+    - {id: LSK-022, label: reason_causally, coverage: none, decomposition_priority: high, recommended_action: create_general_reasoning_registry}
+    - {id: LSK-023, label: think_critically, coverage: partial, decomposition_priority: high, basis: argumentation_assumption-evidence-counterargument_operations, recommended_action: create_general_reasoning_registry}
+    - {id: LSK-024, label: solve_problem, coverage: none, decomposition_priority: high, recommended_action: create_general_reasoning_problem-solving_registry}
+    - {id: LSK-025, label: argue, coverage: deep, decomposition_priority: covered, basis: argumentation, recommended_action: keep_and_validate}
+    - {id: LSK-026, label: evaluate, coverage: partial, decomposition_priority: high, basis: argumentation_evaluation_operations, recommended_action: create_general_reasoning_registry}
+    - {id: LSK-027, label: decide, coverage: partial, decomposition_priority: high, basis: argumentation_weighing-and-judgement_operations, recommended_action: create_general_reasoning_registry}
+    - {id: LSK-028, label: reason_ethically, coverage: partial, decomposition_priority: medium, basis: argumentation_value-judgement_and_perspective_operations, recommended_action: extend_general_reasoning_registry_if_needed}
+    - {id: LSK-029, label: think_creatively, coverage: none, decomposition_priority: medium, recommended_action: include_in_creation_registry}
+
+  LSF-CREATE:
+    - {id: LSK-030, label: generate_ideas, coverage: none, decomposition_priority: medium, recommended_action: create_shared_creation-revision_registry}
+    - {id: LSK-031, label: select_and_develop_idea, coverage: none, decomposition_priority: medium, recommended_action: create_shared_creation-revision_registry}
+    - {id: LSK-032, label: design, coverage: none, decomposition_priority: high, recommended_action: create_shared_creation-revision_registry}
+    - {id: LSK-033, label: formulate, coverage: none, decomposition_priority: high, recommended_action: create_shared_creation-revision_registry}
+    - {id: LSK-034, label: revise, coverage: partial, decomposition_priority: high, basis: learner-retrieval_self-correction, recommended_action: extend_into_creation-revision_registry}
+
+  LSF-SELFREG:
+    - {id: LSK-040, label: set_learning_goal, coverage: none, decomposition_priority: high, recommended_action: create_shared_self-regulation_registry}
+    - {id: LSK-041, label: plan, coverage: none, decomposition_priority: high, recommended_action: create_shared_self-regulation_registry}
+    - {id: LSK-042, label: choose_learning_strategy, coverage: none, decomposition_priority: high, recommended_action: create_shared_self-regulation_registry}
+    - {id: LSK-043, label: monitor_understanding, coverage: partial, decomposition_priority: high, basis: learner-retrieval-and-independent-performance, recommended_action: extend_into_self-regulation_registry}
+    - {id: LSK-044, label: recognise_impasse, coverage: partial, decomposition_priority: high, basis: learner-retrieval-and-independent-performance, recommended_action: extend_into_self-regulation_registry}
+    - {id: LSK-045, label: seek_help, coverage: none, decomposition_priority: high, recommended_action: create_shared_self-regulation_registry}
+    - {id: LSK-046, label: regulate_effort_and_attention, coverage: none, decomposition_priority: medium, recommended_action: create_shared_self-regulation_registry}
+    - {id: LSK-047, label: evaluate_own_performance, coverage: partial, decomposition_priority: high, basis: learner-retrieval-and-independent-performance, recommended_action: extend_into_self-regulation_registry}
+    - {id: LSK-048, label: reflect_on_process, coverage: partial, decomposition_priority: medium, basis: argumentation_domain-specific_reflection, recommended_action: create_shared_self-regulation_registry}
+
+  LSF-SOCIAL:
+    - {id: LSK-050, label: listen_and_interpret, coverage: none, decomposition_priority: medium, recommended_action: create_shared_social-collaboration_registry_if_recurrent}
+    - {id: LSK-051, label: explain_to_other, coverage: none, decomposition_priority: medium, recommended_action: create_shared_social-collaboration_registry_if_recurrent}
+    - {id: LSK-052, label: give_feedback, coverage: none, decomposition_priority: medium, recommended_action: create_shared_social-collaboration_registry_if_recurrent}
+    - {id: LSK-053, label: process_feedback, coverage: partial, decomposition_priority: high, basis: learner-retrieval_self-correction, recommended_action: extend_or_link_existing}
+    - {id: LSK-054, label: collaborate, coverage: none, decomposition_priority: medium, recommended_action: create_shared_social-collaboration_registry_if_recurrent}
+    - {id: LSK-055, label: perspective_taking, coverage: partial, decomposition_priority: medium, basis: argumentation_multiple-perspectives, recommended_action: link_or_extend_if_generalised}
+    - {id: LSK-056, label: negotiate_and_reach_joint_decision, coverage: none, decomposition_priority: medium, recommended_action: create_shared_social-collaboration_registry_if_recurrent}
+
+  LSF-RESEARCH:
+    - {id: LSK-060, label: formulate_research_question, coverage: none, decomposition_priority: high, recommended_action: create_shared_research-source-evaluation_registry}
+    - {id: LSK-061, label: search_for_information, coverage: none, decomposition_priority: high, recommended_action: create_shared_research-source-evaluation_registry}
+    - {id: LSK-062, label: evaluate_source, coverage: partial, decomposition_priority: high, basis: argumentation_source-evaluation, recommended_action: extend_into_research_registry}
+    - {id: LSK-063, label: choose_method, coverage: none, decomposition_priority: high, recommended_action: create_shared_research-source-evaluation_registry}
+    - {id: LSK-064, label: collect_data_or_evidence, coverage: none, decomposition_priority: high, recommended_action: create_shared_research-source-evaluation_registry}
+    - {id: LSK-065, label: analyse_data_or_evidence, coverage: none, decomposition_priority: high, recommended_action: create_shared_research-source-evaluation_registry}
+    - {id: LSK-066, label: draw_research_conclusion, coverage: partial, decomposition_priority: high, basis: argumentation_conclusion-and-evidence-linking, recommended_action: extend_into_research_registry}
+    - {id: LSK-067, label: evaluate_inquiry, coverage: none, decomposition_priority: medium, recommended_action: create_shared_research-source-evaluation_registry}
+
+  LSF-EVIDENCE:
+    - {id: LSK-070, label: explain_own_reasoning, coverage: partial, decomposition_priority: high, basis: learner-retrieval-and-independent-performance, recommended_action: extend_or_link_existing}
+    - {id: LSK-071, label: independently_reperform, coverage: deep, decomposition_priority: covered, basis: learner-retrieval-and-independent-performance, recommended_action: keep_and_validate}
+    - {id: LSK-072, label: demonstrate_retention, coverage: deep, decomposition_priority: covered, basis: learner-retrieval-and-independent-performance, recommended_action: keep_and_validate}
+    - {id: LSK-073, label: demonstrate_transfer, coverage: deep, decomposition_priority: covered, basis: learner-retrieval-and-independent-performance, recommended_action: keep_and_validate}
+
+ai_interaction_cross_cutting:
+  - {id: AIS-001, label: define_ai_role, coverage: none, decomposition_priority: low, recommended_action: keep_at_skill_level_until_recurrent_gap}
+  - {id: AIS-002, label: frame_request, coverage: none, decomposition_priority: medium, recommended_action: review_after_primary-skill-coverage}
+  - {id: AIS-003, label: select_ai_action_type, coverage: none, decomposition_priority: low, recommended_action: keep_at_skill_level_until_recurrent_gap}
+  - {id: AIS-004, label: inspect_ai_output, coverage: none, decomposition_priority: high, recommended_action: reuse_future_reasoning-and-source-evaluation_microstructures}
+  - {id: AIS-005, label: verify_ai_claim, coverage: partial, decomposition_priority: high, basis: argumentation_source-evaluation_and_EV-13, recommended_action: link_future_research-source-evaluation_registry}
+  - {id: AIS-006, label: evaluate_ai_fit, coverage: none, decomposition_priority: high, recommended_action: reuse_future_evaluation-and-decision_microstructures}
+  - {id: AIS-007, label: preserve_human_action, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback_and_learner-retrieval, recommended_action: link_existing}
+  - {id: AIS-008, label: choose_handback_point, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback_and_learner-retrieval, recommended_action: link_existing}
+  - {id: AIS-009, label: distinguish_ai_output_from_human_evidence, coverage: none, decomposition_priority: high, recommended_action: keep_as_cross-cutting_skill_and_test_before_decomposing}
+  - {id: AIS-010, label: recognise_model_limit, coverage: none, decomposition_priority: medium, recommended_action: keep_at_skill_level_or_reuse_source-evaluation}
+  - {id: AIS-011, label: manage_sensitive_information, coverage: none, decomposition_priority: low, recommended_action: keep_at_skill_level_and_avoid_turning_EAI_into_security-standard}
+  - {id: AIS-012, label: document_material_ai_contribution, coverage: none, decomposition_priority: low, recommended_action: keep_at_skill_level_until_traceability-profile_requires_more}
+  - {id: AIS-013, label: compare_ai_and_human_alternatives, coverage: partial, decomposition_priority: medium, basis: argumentation_comparison-and-judgement, recommended_action: reuse_future_general-reasoning_registry}
+  - {id: AIS-014, label: resist_automation_bias, coverage: none, decomposition_priority: medium, recommended_action: test_as_skill_before_dedicated_microstructures}
+  - {id: AIS-015, label: calibrate_reliance, coverage: none, decomposition_priority: high, recommended_action: candidate_for_shared_ai-reliance-verification_microstructures}
+  - {id: AIS-016, label: recover_after_overreliance, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback_and_learner-retrieval, recommended_action: link_existing_handback-remediation_patterns}
+  - {id: AIS-017, label: configure_ai_for_learning, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback, recommended_action: reuse_teacher-design-and-support_microstructures}
+  - {id: AIS-018, label: evaluate_ai_impact_on_task, coverage: none, decomposition_priority: high, recommended_action: include_in_teacher-design_task-architecture_registry}
+  - {id: AIS-019, label: evaluate_ai_impact_on_assessment, coverage: none, decomposition_priority: high, recommended_action: include_in_teacher-assessment_registry}
+  - {id: AIS-020, label: configure_support_density, coverage: partial, decomposition_priority: high, basis: teacher-scaffolding-and-feedback, recommended_action: link_existing}
+  - {id: AIS-021, label: use_ai_feedback_productively, coverage: partial, decomposition_priority: high, basis: learner-retrieval_self-correction, recommended_action: link_future_feedback-regulation_microstructures}
+  - {id: AIS-022, label: formulate_targeted_help_request, coverage: partial, decomposition_priority: high, basis: learner-retrieval_hint-use, recommended_action: link_future_self-regulation_microstructures}
+  - {id: AIS-023, label: challenge_ai_response, coverage: partial, decomposition_priority: high, basis: argumentation_assumption-and-reasoning-testing, recommended_action: link_future_general-reasoning_registry}
+  - {id: AIS-024, label: reconstruct_after_ai_support, coverage: partial, decomposition_priority: high, basis: learner-retrieval-and-independent-performance, recommended_action: link_existing}
+
+microstructure_registry_audit:
+  - id: REG-MS-ARGUMENTATION
+    path: registries/microstructures/argumentation.yaml
+    microstructure_count: 27
+    strengths: [rich_action_descriptions, ai_takeover_risk, observable_signal, diagnostic_prompt, remediation_hint]
+    gaps:
+      - per-item actor is not recorded even though the registry is learner-scoped
+      - evidence_types are not linked per microstructure
+      - no explicit contributes_to relation to LSK-025 is stored in the registry itself
+      - legacy top-level version field is ambiguous under the 0.4 versioning policy
+    priority: high
+
+  - id: REG-MS-LEARNER-RETRIEVAL
+    path: registries/microstructures/learner-retrieval-and-independent-performance.yaml
+    microstructure_count: 12
+    strengths: [actor_explicit, evidence_types, contributes_to_relations, handback-and-evidence_focus]
+    gaps:
+      - top-level skill id is a registry-focus identifier rather than an id from registries/skills/learner.yaml
+      - legacy top-level version field is ambiguous under the 0.4 versioning policy
+    priority: medium
+
+  - id: REG-MS-TEACHER-DIAGNOSTIC
+    path: registries/microstructures/teacher-diagnostic-judgement.yaml
+    microstructure_count: 13
+    strengths: [actor_explicit, evidence_types, contributes_to_relations, observation-inference-separation]
+    gaps:
+      - top-level skill id is a registry-focus identifier rather than an id from registries/skills/teacher.yaml
+      - legacy top-level version field is ambiguous under the 0.4 versioning policy
+    priority: medium
+
+  - id: REG-MS-TEACHER-SCAFFOLD
+    path: registries/microstructures/teacher-scaffolding-and-feedback.yaml
+    microstructure_count: 12
+    strengths: [actor_explicit, evidence_types, contributes_to_relations, support-fading-handback]
+    gaps:
+      - top-level skill id is a registry-focus identifier rather than an id from registries/skills/teacher.yaml
+      - legacy top-level version field is ambiguous under the 0.4 versioning policy
+    priority: medium
+
+  - id: REG-MS-TEACHER-PEDAGOGICAL
+    path: registries/microstructures/teacher-pedagogical-judgement.yaml
+    microstructure_count: 13
+    strengths: [actor_explicit, evidence_types, contributes_to_relations, direct-human-contact-and-bounded-inference]
+    gaps:
+      - semantic coverage clearly extends to TSK-066, TSK-067 and TSK-068 but these relations are not currently declared
+      - top-level skill id is a registry-focus identifier rather than an id from registries/skills/teacher.yaml
+      - legacy top-level version field is ambiguous under the 0.4 versioning policy
+    priority: high
+
+structural_findings:
+  - id: COV-F01
+    finding: >-
+      The primary teacher and learner skill inventories are broad, but deep microstructure coverage is selective rather than comprehensive.
+    implication: The repository must not describe all skills as fully decomposed.
+
+  - id: COV-F02
+    finding: >-
+      A dedicated microstructure registry should not be created for every skill automatically.
+    implication: Reusable cross-skill microstructures are preferred where the same operation appears across skills.
+
+  - id: COV-F03
+    finding: >-
+      The current top-level `skill` object in microstructure registry files sometimes names a registry focus bundle rather than a canonical skill id.
+    implication: The reference semantics of that field should be clarified before registry-level validation is made strict.
+
+  - id: COV-F04
+    finding: >-
+      The argumentation registry is structurally older than the four newer deep registries.
+    implication: It should be upgraded to the same metadata profile before being treated as a template for new registries.
+
+  - id: COV-F05
+    finding: >-
+      The AI-interaction skill registry currently has no dedicated microstructure registry and should primarily reuse human-action microstructures instead of creating a parallel AI-literacy decomposition for every skill.
+    implication: Add dedicated AI-interaction microstructures only where a genuinely new human operation remains after reuse.
+
+  - id: COV-F06
+    finding: >-
+      No dedicated JSON Schema currently validates complete skill registry entries to the same degree that `schemas/microstructure.schema.json` validates individual microstructure items.
+    implication: A skill registry schema or a more general registry-item schema is needed before executable registry conformance.
+
+recommended_build_order:
+  - priority: 1
+    target: learner_self_regulation_and_metacognition
+    rationale: >-
+      AI can leave visible task execution with the learner while taking over goal setting, route selection, monitoring and adjustment. This is a known allocation blind spot if only task execution is decomposed.
+  - priority: 2
+    target: teacher_assessment_and_evidence_judgement
+    rationale: >-
+      Claims about evidence, mastery and professional judgement are central to the standard, but TSK-050 through TSK-054 are not yet deeply decomposed.
+  - priority: 3
+    target: learner_reasoning_and_problem_solving
+    rationale: >-
+      Argumentation is deeply represented, but analysis, inference, causal reasoning, problem solving, evaluation and decision remain only partially or not at all decomposed.
+  - priority: 4
+    target: teacher_design_and_task_architecture
+    rationale: >-
+      AI changes tasks before execution begins. Goal, activity, practice, support, independence and evidence design therefore need action-level coverage.
+  - priority: 5
+    target: learner_research_and_source_evaluation
+    rationale: >-
+      Search, source selection, method choice, evidence analysis and conclusion are common AI-assisted operations with materially different evidence implications.
+  - priority: 6
+    target: teacher_instruction_and_modelling
+    rationale: >-
+      Explanation, modelling, example selection, questioning and checking understanding are only partly covered by diagnostic and scaffolding registries.
+  - priority: 7
+    target: learner_knowledge_building_and_orientation
+    rationale: >-
+      Task representation, concept formation, information selection and connection need coverage once the higher-risk regulatory, assessment and reasoning gaps are addressed.
+  - priority: 8
+    target: creation_social_collaboration_and_professional_reflection
+    rationale: >-
+      These remain important but are less urgent for the first executable interoperability profile than regulation, evidence and reasoning.
