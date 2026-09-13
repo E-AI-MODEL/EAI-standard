@@ -19,13 +19,14 @@ The current order of preference is:
 
 Internal literature maps, prior reviews and project documents may be used for **source discovery**, but the public evidence files should cite the original scientific publication whenever possible.
 
-## Three linked files
+## Four linked views
 
-The scientific layer uses three complementary views:
+The scientific layer now uses four complementary views:
 
 - `sources.yaml` records source identity, design, publication status, scope, findings and limitations;
 - `claims.yaml` expresses bounded scientific claims and identifies which sources support or qualify them;
-- `construct-map.yaml` works in the opposite direction and shows which scientific claims support, bound or merely align with EAI rules, terms and registry families.
+- `construct-map.yaml` works in the opposite direction and shows which scientific claims support, bound or merely align with EAI rules, terms and registry families;
+- `protection-guidance.yaml` translates bounded claims into candidate, non-binding protection recommendations under explicit conditions.
 
 This prevents a bibliography from becoming a decorative appendix. A reviewer can move in either direction:
 
@@ -33,7 +34,7 @@ This prevents a bibliography from becoming a decorative appendix. A reviewer can
 
 or
 
-`EAI construct -> evidence claim -> original source`.
+`EAI construct/protection question -> evidence claim -> original source`.
 
 ## Claim-first structure
 
@@ -58,7 +59,15 @@ Strength belongs to the **claim**, not permanently to a source.
 - `boundary_support`: evidence supports a caution or non-inference rule;
 - `context_support`: evidence is relevant only to a narrower model or implementation context.
 
-This distinction is important for candidate concepts such as `core_human_action`, `microstructure` and `handback`. Current research can strongly motivate those distinctions without yet proving that the EAI operationalisation is the only or best measurement model.
+This distinction is important for candidate concepts such as `core_human_action`, `microstructure`, `handback` and protection assessment. Current research can strongly motivate those distinctions without yet proving that the EAI operationalisation is the only or best measurement model.
+
+## Evidence-informed protection is not law
+
+`protection-guidance.yaml` can recommend preserving human execution, judgement, evidence, handback or re-demonstration under stated conditions. These recommendations remain scientific or evidence-informed guidance unless a separate EAI normative rule, legal source or other binding basis applies.
+
+For example, evidence that AI-supported performance does not establish independent mastery can support a strong recommendation for renewed human evidence. That does not turn the scientific study itself into a legal obligation.
+
+Conversely, a legal human-oversight requirement is not scientific evidence that every underlying educational microstructure must be personally executed by a human.
 
 ## Mixed findings are required
 
@@ -98,6 +107,7 @@ Before a stable 1.0 release, the standard still requires direct validation of at
 - construct clarity of `core_human_action` and `microstructure`;
 - inter-rater agreement when independent users classify the same case;
 - discriminability between AI action categories;
+- discriminability and inter-rater reliability of protection dimensions and statuses;
 - validity of handback and re-demonstration rules for the claims they are intended to support;
 - usability across didactic, pedagogical and professional contexts;
 - applicability across subjects, age groups and education sectors;
