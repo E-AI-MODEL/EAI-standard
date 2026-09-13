@@ -1,0 +1,115 @@
+version: 0.1.0-candidate
+status: non_normative_companion
+
+principle:
+  id: HSB-001
+  statement: Functional correspondence between a human action and a system function does not imply construct equivalence.
+
+comparison_dimensions:
+  - human_side: knowledge_and_experience
+    system_side: model_weights_context_data_and_retrieval
+    relationship: functional_support_or_input_correspondence
+    equivalence: false
+    note: >-
+      A system may have access to information relevant to a task. This does not establish human-like knowing or experienced understanding.
+
+  - human_side: attention_and_observation
+    system_side: input_processing_detection_and_extraction
+    relationship: partial_functional_correspondence
+    equivalence: false
+    note: >-
+      Detection of a pattern or feature can support human observation but does not by itself establish educational or professional meaning.
+
+  - human_side: reasoning_or_problem_solving_action
+    system_side: inference_generation_search_planning_and_tool_use
+    relationship: task_level_functional_correspondence
+    equivalence: false
+    note: >-
+      Similar task outputs do not establish equivalence between the underlying human construct and the system process.
+
+  - human_side: professional_judgement
+    system_side: classification_scoring_recommendation_or_proposed_decision
+    relationship: output_correspondence
+    equivalence: false
+    note: >-
+      A recommendation can be technically useful while professional judgement remains a distinct accountable human action.
+
+  - human_side: responsibility
+    system_side: configured_authority_permissions_and_autonomy
+    relationship: governance_relation
+    equivalence: false
+    note: >-
+      Technical authority describes what a system is allowed to execute. It does not create human moral, legal or professional responsibility in the system.
+
+  - human_side: learning
+    system_side: successful_task_completion_or_adaptation
+    relationship: no_construct_equivalence
+    equivalence: false
+    note: >-
+      System performance is not evidence that a learner learned.
+
+  - human_side: independent_mastery
+    system_side: autonomous_system_task_completion
+    relationship: no_construct_equivalence
+    equivalence: false
+    note: >-
+      System autonomy and learner independence are different constructs.
+
+  - human_side: retention
+    system_side: context_persistence_memory_storage_or_retrieval
+    relationship: no_construct_equivalence
+    equivalence: false
+    note: >-
+      Persistent storage or recoverable context is not the same construct as retained human learning.
+
+  - human_side: transfer
+    system_side: successful_performance_on_a_novel_input_or_task
+    relationship: possible_functional_analogy_only
+    equivalence: false
+    note: >-
+      Novel-task performance by a system does not establish human transfer of learning.
+
+  - human_side: metacognition
+    system_side: self_check_evaluator_loop_or_verification
+    relationship: possible_functional_analogy_only
+    equivalence: false
+    note: >-
+      A verification loop may functionally inspect output but should not be labelled human metacognition without an explicit construct argument outside this standard.
+
+  - human_side: communication
+    system_side: text_audio_image_or_multimodal_generation
+    relationship: observable_functional_correspondence
+    equivalence: false
+    note: >-
+      Similar communicative output can be described functionally without claiming equivalent intention, understanding or relationship.
+
+bridge_to_eai:
+  system_profile_describes:
+    - technical_configuration
+    - available_capabilities
+    - permissions_and_autonomy
+    - context_and_data_access
+    - technical_evaluation
+
+  ai_action_describes:
+    - observable_function_in_the_concrete_task
+
+  eai_case_describes:
+    - intended_human_action
+    - actual_human_execution
+    - actual_ai_action
+    - allocation_between_human_and_ai
+    - available_human_evidence
+    - handback_and_remediation_when_relevant
+
+anti_patterns:
+  - inference_configuration_is_human_reasoning
+  - persistent_memory_is_human_retention
+  - novel_task_success_is_human_transfer
+  - model_recommendation_is_professional_judgement
+  - system_autonomy_is_human_responsibility
+  - generated_explanation_is_learner_understanding
+  - benchmark_score_is_learning_effectiveness
+
+interpretation_rule: >-
+  When human and system labels appear similar, implementations SHOULD compare the observable operation and its role in the task, not assume that the underlying constructs are the same.
