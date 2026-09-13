@@ -1,0 +1,128 @@
+version: 0.3.0-candidate
+status: candidate
+id: ADP-EI-ARCHER-HUGHES
+model_name: Explicit Instruction
+model_family: explicit_instruction
+source_reference: Archer & Hughes (2011), Explicit Instruction: Effective and Efficient Teaching
+source_url: https://explicitinstruction.org/download/sample-chapter.pdf
+
+source_preservation:
+  terminology_preserved: true
+  ordering_preserved: true
+  unmapped_elements_retained: true
+  mapping_is_not_equivalence: true
+
+source_structure:
+  teaching_functions:
+    - id: EI-F1
+      source_label: Review
+      order: 1
+      source_pointer: figure_1_2_function_1
+      purpose_paraphrase: Activate and verify relevant prior learning and prerequisites before new instruction.
+
+    - id: EI-F2
+      source_label: Presentation
+      order: 2
+      source_pointer: figure_1_2_function_2
+      purpose_paraphrase: Introduce goals and new material through small steps, modelling, examples and clear language.
+
+    - id: EI-F3
+      source_label: Guided practice
+      order: 3
+      source_pointer: figure_1_2_function_3
+      purpose_paraphrase: Elicit frequent learner responses under support, maintain high success and continue practice toward fluent performance.
+
+    - id: EI-F4
+      source_label: Corrections and feedback
+      order: 4
+      source_pointer: figure_1_2_function_4
+      purpose_paraphrase: Correct errors, provide feedback and reteach where the evidence indicates that this is needed.
+
+    - id: EI-F5
+      source_label: Independent practice
+      order: 5
+      source_pointer: figure_1_2_function_5
+      purpose_paraphrase: Move responsibility toward the learner while initially monitoring performance and continuing practice toward automatic or independent use where appropriate.
+
+    - id: EI-F6
+      source_label: Weekly and monthly reviews
+      order: 6
+      source_pointer: figure_1_2_function_6
+      purpose_paraphrase: Revisit previously learned material over time to strengthen retention and continued accessibility.
+
+  instructional_elements:
+    - id: EI-E01
+      source_pointer: figure_1_1_element_1
+      label_paraphrase: prioritise_critical_content
+    - id: EI-E02
+      source_pointer: figure_1_1_element_2
+      label_paraphrase: sequence_skills_logically
+    - id: EI-E03
+      source_pointer: figure_1_1_element_3
+      label_paraphrase: segment_complex_learning_into_manageable_steps
+    - id: EI-E04
+      source_pointer: figure_1_1_element_4
+      label_paraphrase: organise_and_focus_lessons
+    - id: EI-E05
+      source_pointer: figure_1_1_element_5
+      label_paraphrase: make_goals_and_expectations_explicit
+    - id: EI-E06
+      source_pointer: figure_1_1_element_6
+      label_paraphrase: review_relevant_prior_knowledge
+    - id: EI-E07
+      source_pointer: figure_1_1_element_7
+      label_paraphrase: demonstrate_process_step_by_step
+    - id: EI-E08
+      source_pointer: figure_1_1_element_8
+      label_paraphrase: use_clear_consistent_language
+    - id: EI-E09
+      source_pointer: figure_1_1_element_9
+      label_paraphrase: use_examples_and_nonexamples_to_define_boundaries
+    - id: EI-E10
+      source_pointer: figure_1_1_element_10
+      label_paraphrase: provide_guided_supported_practice
+    - id: EI-E11
+      source_pointer: figure_1_1_element_11
+      label_paraphrase: elicit_frequent_learner_responses
+    - id: EI-E12
+      source_pointer: figure_1_1_element_12
+      label_paraphrase: monitor_learner_performance_closely
+    - id: EI-E13
+      source_pointer: figure_1_1_element_13
+      label_paraphrase: provide_timely_affirmative_and_corrective_feedback
+    - id: EI-E14
+      source_pointer: figure_1_1_element_14
+      label_paraphrase: maintain_appropriate_instructional_pace
+    - id: EI-E15
+      source_pointer: figure_1_1_element_15
+      label_paraphrase: help_learners_organise_knowledge
+    - id: EI-E16
+      source_pointer: figure_1_1_element_16
+      label_paraphrase: provide_distributed_and_cumulative_practice
+
+  underlying_principles:
+    - id: EI-P01
+      source_pointer: figure_1_3_principle_1
+      label_paraphrase: maximise_productive_engagement
+    - id: EI-P02
+      source_pointer: figure_1_3_principle_2
+      label_paraphrase: maintain_high_success_during_learning
+    - id: EI-P03
+      source_pointer: figure_1_3_principle_3
+      label_paraphrase: cover_relevant_content_effectively
+    - id: EI-P04
+      source_pointer: figure_1_3_principle_4
+      label_paraphrase: use_instructional_group_time_productively
+    - id: EI-P05
+      source_pointer: figure_1_3_principle_5
+      label_paraphrase: scaffold_then_fade_support
+    - id: EI-P06
+      source_pointer: figure_1_3_principle_6
+      label_paraphrase: address_declarative_procedural_and_conditional_knowledge
+
+adapter_interpretation:
+  notes:
+    - The six teaching functions are used as process positions for this adapter; the EAI Standard does not generalise them to other models.
+    - The sixteen instructional elements are model content, not EAI normative rules.
+    - The transition from guided practice toward independent practice is especially relevant for analysing handback and support fading.
+    - Monitoring, correction and reteaching create distinct teacher/professional actions that should not be collapsed into generic supervision.
