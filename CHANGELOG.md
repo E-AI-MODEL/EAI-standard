@@ -19,7 +19,8 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - `REM-11 return_regulatory_control` remediation pattern;
 - self-regulation worked examples and conformance fixtures showing the difference between visible task execution and learner regulation;
 - human-readable self-regulation and metacognition documentation;
-- reverse evidence mapping for the new self-regulation registry with explicit candidate-validation limits.
+- reverse evidence mapping for the new self-regulation registry with explicit candidate-validation limits;
+- explicit repository language policy: English is the default public language while original-language source terms remain preserved in source-preserving adapters and external official terminology.
 
 ### Changed
 
@@ -31,16 +32,28 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - information state is now `complete`, `contains_unknowns` or `incomplete`;
 - diagnostics use an explicit `effect` of `none`, `uncertainty` or `non_conformance` rather than overloading a generic validity state;
 - diagnostics whose underlying normative rule is mandatory now consistently block conformance when violated;
+- `EAI-D015 source_element_unmapped` is now informational with `effect: none`, because CP-04 explicitly permits retained unmapped source elements;
 - conformance result and diagnostic JSON Schemas were updated to the separated result model;
+- conformance-result serialization now uses canonical `CP-*` profile identifiers rather than human-readable profile labels;
 - EDI and pedagogical conformance fixtures were migrated to the two-axis result model;
 - README and governance now distinguish standard version, supporting artifact versions and external source versions;
 - README now states that a different presentation of existing semantics is not by itself reason for a canonical model change;
+- the public README and Edustandaard-readiness documentation are now English by default;
+- the non-normative system-profile transparency view now uses English default labels and questions;
+- official Dutch EDI source labels and official Dutch Edustandaard assessment terms remain preserved where they are source terminology rather than EAI terminology;
+- canonical skill identifier syntax now includes `AIS-*` cross-cutting AI-interaction skills in addition to `TSK-*` and `LSK-*`;
+- adapter index references now use canonical conformance profile `CP-04` instead of the undefined `CP-ADAPTER` label;
+- the argumentation guided-practice example now references the source-preserving Archer & Hughes adapter and canonical `AIA-*` action identifiers;
+- evidence claim `CLM-008` now distinguishes professional judgement from tool operation, AI recommendation and nominal approval without turning EAI into a general teacher-competence framework;
+- evidence claim `CLM-015` now keeps the strong empirical claim about AI role and remaining human work separate from the still-candidate EAI design response of action-level constructs;
 - the pedagogical judgement registry now explicitly links its existing operations to `TSK-066`, `TSK-067` and `TSK-068`;
 - current registry coverage is now reported separately from the original audit snapshot; learner deep candidate coverage increases from 4 to 13 skills and total microstructure count from 77 to 93.
 
 ### Removed
 
-- superseded `valid-result.json`, `unknown-result.json` and `invalid-result.json` fixtures that conflated structural conformance with substantive uncertainty.
+- superseded `valid-result.json`, `unknown-result.json` and `invalid-result.json` fixtures that conflated structural conformance with substantive uncertainty;
+- superseded `profiles/teacher.yaml` and `profiles/learner.yaml` artifacts that duplicated the current registry structure;
+- superseded `schemas/profile.schema.json` associated with those legacy actor-profile files.
 
 ### Breaking candidate change
 
@@ -58,6 +71,8 @@ information_state: complete | contains_unknowns | incomplete
 ```
 
 Diagnostic serialization changes from `state` to `effect`.
+
+The conformance-result `profile` field now carries the canonical conformance profile identifier such as `CP-03`, not the descriptive label `assessment_evidence`.
 
 Implementations of 0.3.x conformance output must migrate before claiming 0.4.0 compatibility.
 
@@ -191,18 +206,18 @@ Initial repository structure and first normative layer.
 
 ### Added
 
-- model-overstijgende scope en begrippen;
-- docent/professional- en leerlingprofielen;
-- normatieve regels voor kernhandelingen, AI-overname, bewijs, handback en remediatie;
-- machineleesbare definities, AI-acties en evidence-types;
-- eerste microstructure-registry voor argumenteren;
-- eerste voorbeeldcase en conformance-structuur;
-- adaptercontract voor externe didactische en pedagogische modellen.
+- model-independent scope and definitions;
+- teacher/professional and learner profiles;
+- normative rules for core human actions, AI takeover, evidence, handback and remediation;
+- machine-readable definitions, AI actions and evidence types;
+- first argumentation microstructure registry;
+- first example case and conformance structure;
+- adapter contract for external didactic and pedagogical models.
 
 ### Deliberately not included
 
-- vaste universele lesfasen;
-- leeftijds- of niveaunormen;
-- curriculumspecifieke doelen;
-- totaalscore voor AI-gebruik;
-- interne ontwikkelgeschiedenis of verwijzingen naar eerdere interne modellen.
+- fixed universal lesson phases;
+- age- or level-specific norms;
+- curriculum-specific goals;
+- a total score for AI use;
+- internal development history or references to predecessor models.
