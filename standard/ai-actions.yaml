@@ -1,60 +1,148 @@
-version: 0.1.0-candidate
+version: 0.2.0-candidate
 status: candidate
+
+principles:
+  - AI actions are descriptive and do not carry an inherent judgement of acceptability.
+  - Classification occurs in relation to a human action or microstructure.
+  - Implementations SHOULD use the most specific canonical action that materially affects allocation or evidence.
+  - Multiple AI actions MAY occur in relation to one human microstructure.
 
 ai_actions:
   - id: AIA-00
     label: absent
+    family: none
     description: AI is not used in relation to the relevant human action.
 
   - id: AIA-01
     label: provide_information
-    description: AI supplies information, references, examples or background without performing the target operation.
+    family: information
+    description: AI supplies information, references or background without intentionally performing the target human operation.
 
   - id: AIA-02
     label: ask_question
+    family: elicitation
     description: AI prompts the human with a question intended to elicit the human operation.
 
   - id: AIA-03
     label: give_hint
-    description: AI provides a partial cue that narrows the next step without completing it.
+    family: support
+    description: AI provides a partial cue that narrows the next step without completing the target operation.
 
   - id: AIA-04
     label: model_example
+    family: modelling
     description: AI demonstrates an example of an operation for inspection or comparison.
 
   - id: AIA-05
     label: generate_alternatives
-    description: AI produces multiple options that the human must compare, select or reject.
+    family: generation
+    description: AI produces multiple options that the human may compare, select, adapt or reject.
 
   - id: AIA-06
     label: structure
-    description: AI organises existing human or source material without deciding the substantive outcome.
+    family: transformation
+    description: AI organises existing human or source material without intentionally deciding the substantive outcome.
 
   - id: AIA-07
     label: check
-    description: AI checks work against explicit criteria and reports possible mismatches.
+    family: verification
+    description: AI checks work against explicit criteria, rules or source information and reports possible mismatches.
 
   - id: AIA-08
     label: give_feedback
-    description: AI interprets submitted work and provides feedback intended to change subsequent human performance.
+    family: feedback
+    description: AI interprets submitted work and provides information intended to change subsequent human performance.
 
   - id: AIA-09
     label: propose_decision
-    description: AI recommends a choice, judgement or next action while a human remains responsible for evaluating the proposal.
+    family: recommendation
+    description: AI recommends a choice, judgement or next action while the human may still evaluate the proposal.
 
   - id: AIA-10
     label: partial_performance
-    description: AI performs one or more microstructures that contribute directly to a core human action.
+    family: performance
+    description: AI performs one or more substantive microstructures that contribute directly to a core human action.
 
   - id: AIA-11
     label: full_performance
+    family: performance
     description: AI performs the complete relevant human action or produces the substantive result that action was intended to generate.
 
   - id: AIA-12
     label: execute_authorized_action
-    description: AI carries out an external action within explicitly delegated authority after the relevant human judgement has been made.
+    family: external_action
+    description: AI carries out an external action within explicitly delegated authority after or alongside relevant human judgement.
 
-notes:
-  - An AI action is descriptive, not inherently acceptable or unacceptable.
-  - The same AI action may be appropriate in one process position and displacing in another.
-  - Classification should occur at the smallest useful microstructure level when allocation differs within a task.
+  - id: AIA-13
+    label: retrieve
+    family: information
+    description: AI searches for or retrieves potentially relevant information or source material from an available corpus or tool.
+
+  - id: AIA-14
+    label: extract
+    family: information
+    description: AI extracts specified information, entities, passages or fields from supplied material.
+
+  - id: AIA-15
+    label: classify_or_cluster
+    family: analysis
+    description: AI assigns items to categories or groups items by detected similarity or pattern.
+
+  - id: AIA-16
+    label: summarise
+    family: transformation
+    description: AI compresses supplied information while attempting to preserve selected meaning or structure.
+
+  - id: AIA-17
+    label: translate_or_rephrase
+    family: transformation
+    description: AI changes language, wording, register or representation while intending to preserve the underlying content.
+
+  - id: AIA-18
+    label: generate_practice_item
+    family: generation
+    description: AI generates a new task, question, case or item intended for practice or evidence collection.
+
+  - id: AIA-19
+    label: generate_example_or_nonexample
+    family: generation
+    description: AI creates an example, worked example, contrast case or non-example for instruction, modelling or comparison.
+
+  - id: AIA-20
+    label: simulate
+    family: generation
+    description: AI simulates a role, perspective, dialogue, process or scenario for human interaction or analysis.
+
+  - id: AIA-21
+    label: compare
+    family: analysis
+    description: AI identifies similarities, differences or relations between supplied alternatives, items or versions.
+
+  - id: AIA-22
+    label: detect_or_flag
+    family: analysis
+    description: AI flags a possible feature, error, risk, pattern or anomaly without by itself establishing the meaning or diagnosis of that flag.
+
+  - id: AIA-23
+    label: draft
+    family: generation
+    description: AI produces a provisional substantive formulation, plan or product intended for later human review or revision.
+
+  - id: AIA-24
+    label: adapt_difficulty_or_support
+    family: adaptation
+    description: AI changes item difficulty, amount of support or presentation in response to observed or inferred information.
+
+  - id: AIA-25
+    label: route_or_sequence
+    family: orchestration
+    description: AI selects or proposes a next resource, task, branch or process step.
+
+interpretation_notes:
+  - `classify_or_cluster` does not equal professional diagnosis.
+  - `detect_or_flag` does not establish that the flagged feature is correct or educationally meaningful.
+  - `draft` may amount to `partial_performance` or `full_performance` when drafting is itself part of the core human action.
+  - `translate_or_rephrase` may be peripheral in one context and core performance in a language-learning context.
+  - `generate_practice_item` does not by itself establish the validity or difficulty of the item.
+  - `adapt_difficulty_or_support` requires separate analysis of who determined the instructional meaning and acceptable support level.
+  - An implementation MAY record both a functional action such as `draft` and an allocation action such as `partial_performance` when both are materially relevant.
