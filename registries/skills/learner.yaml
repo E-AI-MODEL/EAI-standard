@@ -1,0 +1,327 @@
+version: 0.2.0-candidate
+status: candidate
+actor: learner
+language: en
+
+principles:
+  - Skills are reusable descriptions of human capability.
+  - A skill is not automatically a core human action.
+  - Core status is determined by goal, process position and context.
+  - Skills may overlap and may share microstructures.
+  - Age, level, subject and curriculum expectations belong in context profiles, not in this registry.
+
+families:
+  - id: LSF-ORIENT
+    label: orientation_and_task_representation
+    description: Understanding what the task, issue or learning situation requires before substantive execution begins.
+  - id: LSF-KNOW
+    label: knowledge_building_and_understanding
+    description: Selecting, connecting, explaining and reorganising information and concepts.
+  - id: LSF-REASON
+    label: reasoning_and_problem_solving
+    description: Analysing, inferring, arguing, evaluating, deciding and solving problems.
+  - id: LSF-CREATE
+    label: creation_and_production
+    description: Generating, selecting, designing, formulating, revising and producing ideas or products.
+  - id: LSF-SELFREG
+    label: self_regulation_and_metacognition
+    description: Planning, monitoring, regulating and evaluating one's own learning and action.
+  - id: LSF-SOCIAL
+    label: social_learning_and_communication
+    description: Learning and acting through interaction, feedback, explanation and collaboration.
+  - id: LSF-RESEARCH
+    label: inquiry_and_research
+    description: Framing questions, gathering evidence, analysing data and drawing warranted conclusions.
+  - id: LSF-EVIDENCE
+    label: demonstration_retention_and_transfer
+    description: Making capability visible beyond supported task completion.
+
+skills:
+  - id: LSK-001
+    family: LSF-ORIENT
+    label: interpret_task
+    description: Determine what a task asks, what constraints apply and what successful completion requires.
+    observable_examples: [restate_task, identify_constraints, identify_expected_output]
+  - id: LSK-002
+    family: LSF-ORIENT
+    label: activate_prior_knowledge
+    description: Retrieve relevant prior knowledge before or during a new task.
+    observable_examples: [recall_relevant_concept, connect_prior_example, identify_known_and_unknown]
+  - id: LSK-003
+    family: LSF-ORIENT
+    label: define_problem
+    description: State and delimit the problem before attempting a solution.
+    observable_examples: [state_problem, delimit_scope, separate_problem_from_symptom]
+  - id: LSK-004
+    family: LSF-ORIENT
+    label: formulate_initial_question
+    description: Formulate a question that directs inquiry or learning.
+    observable_examples: [ask_relevant_question, refine_question, distinguish_broad_from_answerable_question]
+  - id: LSK-005
+    family: LSF-ORIENT
+    label: formulate_initial_hypothesis
+    description: Propose a provisional explanation or expectation that can be examined further.
+    observable_examples: [state_expectation, connect_expectation_to_prior_knowledge, identify_uncertainty]
+
+  - id: LSK-010
+    family: LSF-KNOW
+    label: select_relevant_information
+    description: Distinguish information that materially contributes to the current task from information that does not.
+    observable_examples: [identify_relevant_detail, discard_irrelevant_detail, justify_selection]
+  - id: LSK-011
+    family: LSF-KNOW
+    label: distinguish_main_and_secondary_information
+    description: Separate central ideas from supporting or peripheral information.
+    observable_examples: [identify_main_idea, classify_supporting_detail, preserve_red_thread]
+  - id: LSK-012
+    family: LSF-KNOW
+    label: form_concept
+    description: Build a meaningful representation of a concept from examples, explanations or evidence.
+    observable_examples: [define_in_own_words, identify_example_and_nonexample, distinguish_related_concepts]
+  - id: LSK-013
+    family: LSF-KNOW
+    label: connect_concepts
+    description: Identify and explain meaningful relations among concepts or pieces of information.
+    observable_examples: [state_relation, explain_connection, build_concept_map]
+  - id: LSK-014
+    family: LSF-KNOW
+    label: explain_in_own_words
+    description: Reconstruct meaning without merely reproducing source wording.
+    observable_examples: [paraphrase_accurately, explain_example, answer_why_or_how]
+  - id: LSK-015
+    family: LSF-KNOW
+    label: compare_and_contrast
+    description: Identify relevant similarities and differences using explicit criteria.
+    observable_examples: [name_similarity, name_difference, use_comparison_criterion]
+  - id: LSK-016
+    family: LSF-KNOW
+    label: apply_knowledge
+    description: Use knowledge or a learned procedure in a task where it is relevant.
+    observable_examples: [choose_relevant_concept, execute_application, explain_fit]
+  - id: LSK-017
+    family: LSF-KNOW
+    label: organise_information
+    description: Restructure information into a form that makes relations, sequence or hierarchy visible.
+    observable_examples: [categorise, sequence, summarise, map_relations]
+
+  - id: LSK-020
+    family: LSF-REASON
+    label: analyse
+    description: Decompose a question, object, text, situation or problem into relevant parts and relations.
+    observable_examples: [identify_components, identify_relation, distinguish_cause_from_symptom]
+  - id: LSK-021
+    family: LSF-REASON
+    label: infer
+    description: Derive a warranted conclusion from available information.
+    observable_examples: [state_inference, identify_support, distinguish_inference_from_given_fact]
+  - id: LSK-022
+    family: LSF-REASON
+    label: reason_causally
+    description: Identify, test and explain relevant cause-effect relations.
+    observable_examples: [state_causal_link, distinguish_correlation, test_alternative_cause]
+  - id: LSK-023
+    family: LSF-REASON
+    label: think_critically
+    description: Examine claims, assumptions, evidence and alternatives before accepting a conclusion.
+    observable_examples: [question_assumption, test_claim, compare_perspectives, revise_judgement]
+  - id: LSK-024
+    family: LSF-REASON
+    label: solve_problem
+    description: Define, analyse and address a problem through a reasoned solution process.
+    observable_examples: [generate_options, choose_strategy, test_solution, evaluate_result]
+  - id: LSK-025
+    family: LSF-REASON
+    label: argue
+    description: Build, test, structure and justify a reasoned position.
+    microstructure_registry: ../microstructures/argumentation.yaml
+    observable_examples: [formulate_thesis, generate_argument, respond_to_counterargument, draw_conclusion]
+  - id: LSK-026
+    family: LSF-REASON
+    label: evaluate
+    description: Judge quality, validity, relevance or suitability using explicit or defensible criteria.
+    observable_examples: [state_criteria, compare_against_criteria, justify_judgement]
+  - id: LSK-027
+    family: LSF-REASON
+    label: decide
+    description: Make and justify a choice among alternatives under the available conditions.
+    observable_examples: [identify_options, weigh_criteria, choose, justify_choice]
+  - id: LSK-028
+    family: LSF-REASON
+    label: reason_ethically
+    description: Recognise ethical dimensions, examine consequences and perspectives, and justify a value-sensitive judgement.
+    observable_examples: [identify_ethical_issue, compare_values, reason_about_consequences, justify_principle]
+  - id: LSK-029
+    family: LSF-REASON
+    label: think_creatively
+    description: Generate and develop multiple or novel possibilities while remaining responsive to the problem and constraints.
+    observable_examples: [generate_multiple_ideas, reframe_problem, combine_ideas, elaborate_option]
+
+  - id: LSK-030
+    family: LSF-CREATE
+    label: generate_ideas
+    description: Produce candidate ideas, approaches or representations before selection.
+    observable_examples: [produce_multiple_options, vary_approach, defer_premature_selection]
+  - id: LSK-031
+    family: LSF-CREATE
+    label: select_and_develop_idea
+    description: Select an idea using relevant criteria and develop it beyond its initial form.
+    observable_examples: [state_selection_criterion, choose_option, elaborate_selected_option]
+  - id: LSK-032
+    family: LSF-CREATE
+    label: design
+    description: Construct a solution, product, model or plan that responds to goals and constraints.
+    observable_examples: [identify_requirements, construct_design, test_against_requirements]
+  - id: LSK-033
+    family: LSF-CREATE
+    label: formulate
+    description: Express an idea, explanation, argument or response in a form suited to purpose and audience.
+    observable_examples: [choose_wording, organise_expression, adjust_to_audience]
+  - id: LSK-034
+    family: LSF-CREATE
+    label: revise
+    description: Improve a product or line of thought using evidence, criteria or feedback.
+    observable_examples: [identify_weakness, make_targeted_change, explain_revision]
+
+  - id: LSK-040
+    family: LSF-SELFREG
+    label: set_learning_goal
+    description: Formulate what one intends to learn, improve or complete.
+    observable_examples: [state_goal, distinguish_learning_from_performance_goal, refine_goal]
+  - id: LSK-041
+    family: LSF-SELFREG
+    label: plan
+    description: Determine steps, resources, timing and priorities before or during execution.
+    observable_examples: [sequence_steps, estimate_time, identify_resources, prioritise]
+  - id: LSK-042
+    family: LSF-SELFREG
+    label: choose_learning_strategy
+    description: Select a learning approach suited to the task and intended learning.
+    observable_examples: [name_strategy, explain_fit, switch_strategy_when_needed]
+  - id: LSK-043
+    family: LSF-SELFREG
+    label: monitor_understanding
+    description: Check during learning or task performance whether understanding and progress remain adequate.
+    observable_examples: [self_question, detect_confusion, compare_progress_to_goal]
+  - id: LSK-044
+    family: LSF-SELFREG
+    label: recognise_impasse
+    description: Detect that current understanding or strategy is insufficient.
+    observable_examples: [name_where_stuck, distinguish_knowledge_gap_from_execution_error, request_targeted_help]
+  - id: LSK-045
+    family: LSF-SELFREG
+    label: seek_help
+    description: Formulate and direct a useful help request without unnecessarily outsourcing the target action.
+    observable_examples: [state_problem, ask_targeted_question, use_help_then_resume]
+  - id: LSK-046
+    family: LSF-SELFREG
+    label: regulate_effort_and_attention
+    description: Sustain or redirect effort and attention in relation to the task and goal.
+    observable_examples: [resume_after_distraction, persist, change_environment]
+  - id: LSK-047
+    family: LSF-SELFREG
+    label: evaluate_own_performance
+    description: Judge one's own result and process using relevant evidence and criteria.
+    observable_examples: [identify_strength, identify_error, compare_to_goal, propose_next_step]
+  - id: LSK-048
+    family: LSF-SELFREG
+    label: reflect_on_process
+    description: Reconstruct and examine one's approach, decisions, difficulties and changes.
+    observable_examples: [name_difficult_step, explain_change, identify_future_adjustment]
+
+  - id: LSK-050
+    family: LSF-SOCIAL
+    label: listen_and_interpret
+    description: Attend to another person's contribution and construct an accurate understanding before responding.
+    observable_examples: [paraphrase_other, ask_clarifying_question, respond_to_actual_point]
+  - id: LSK-051
+    family: LSF-SOCIAL
+    label: explain_to_other
+    description: Make one's understanding or reasoning accessible to another person.
+    observable_examples: [adapt_explanation, provide_example, respond_to_question]
+  - id: LSK-052
+    family: LSF-SOCIAL
+    label: give_feedback
+    description: Provide relevant, usable feedback tied to a goal, criterion or observed work.
+    observable_examples: [identify_specific_point, connect_to_criterion, suggest_next_step]
+  - id: LSK-053
+    family: LSF-SOCIAL
+    label: process_feedback
+    description: Interpret feedback, decide what is useful and revise action or product accordingly.
+    observable_examples: [restate_feedback, accept_or_reject_with_reason, implement_change]
+  - id: LSK-054
+    family: LSF-SOCIAL
+    label: collaborate
+    description: Coordinate goals, roles, contributions and responsibility with others.
+    observable_examples: [agree_roles, contribute, coordinate, address_problem]
+  - id: LSK-055
+    family: LSF-SOCIAL
+    label: perspective_taking
+    description: Represent another perspective sufficiently accurately to reason with or about it.
+    observable_examples: [state_other_view, distinguish_from_own_view, use_other_view_in_judgement]
+  - id: LSK-056
+    family: LSF-SOCIAL
+    label: negotiate_and_reach_joint_decision
+    description: Compare interests or positions and work toward a defensible shared decision.
+    observable_examples: [state_interest, compare_options, make_tradeoff, document_joint_choice]
+
+  - id: LSK-060
+    family: LSF-RESEARCH
+    label: formulate_research_question
+    description: Formulate a sufficiently clear and investigable question for the intended inquiry.
+    observable_examples: [define_scope, identify_variables_or_focus, test_feasibility]
+  - id: LSK-061
+    family: LSF-RESEARCH
+    label: search_for_information
+    description: Search purposefully and iteratively for information relevant to a question.
+    observable_examples: [choose_search_terms, vary_search_strategy, document_source_path]
+  - id: LSK-062
+    family: LSF-RESEARCH
+    label: evaluate_source
+    description: Judge source relevance, reliability, context and suitability for the claim or question at hand.
+    observable_examples: [identify_source_type, check_origin, compare_sources, justify_use]
+  - id: LSK-063
+    family: LSF-RESEARCH
+    label: choose_method
+    description: Select and justify an inquiry or research method suited to the question and constraints.
+    observable_examples: [compare_methods, justify_fit, identify_limitation]
+  - id: LSK-064
+    family: LSF-RESEARCH
+    label: collect_data_or_evidence
+    description: Gather relevant data or evidence systematically enough for the intended inquiry.
+    observable_examples: [follow_collection_plan, record_data, maintain_traceability]
+  - id: LSK-065
+    family: LSF-RESEARCH
+    label: analyse_data_or_evidence
+    description: Examine collected information to identify patterns, relations, differences or findings.
+    observable_examples: [organise_data, identify_pattern, compare_results, connect_to_question]
+  - id: LSK-066
+    family: LSF-RESEARCH
+    label: draw_research_conclusion
+    description: Formulate a conclusion warranted by the collected evidence and bounded by the method.
+    observable_examples: [answer_question, link_to_evidence, state_limitation]
+  - id: LSK-067
+    family: LSF-RESEARCH
+    label: evaluate_inquiry
+    description: Examine strengths, limitations, errors and possible improvements in an inquiry process.
+    observable_examples: [identify_limitation, assess_method, propose_follow_up]
+
+  - id: LSK-070
+    family: LSF-EVIDENCE
+    label: explain_own_reasoning
+    description: Make the reasoning behind a human response or decision visible without relying on an AI-generated explanation.
+    observable_examples: [reconstruct_steps, justify_choice, answer_probe]
+  - id: LSK-071
+    family: LSF-EVIDENCE
+    label: independently_reperform
+    description: Perform the relevant action again with support reduced to the level required by the claim.
+    observable_examples: [fresh_attempt, no_answer_access, complete_target_action]
+  - id: LSK-072
+    family: LSF-EVIDENCE
+    label: demonstrate_retention
+    description: Reperform the relevant action after a meaningful delay.
+    observable_examples: [delayed_attempt, reconstruct_without_prior_output, maintain_quality]
+  - id: LSK-073
+    family: LSF-EVIDENCE
+    label: demonstrate_transfer
+    description: Perform the relevant action in a meaningfully different context, task or representation.
+    observable_examples: [new_context, preserve_underlying_operation, explain_adaptation]
