@@ -1,4 +1,5 @@
-version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.3.1-candidate
 status: candidate
 skill:
   id: TSK-PED-JUDGEMENT
@@ -164,6 +165,12 @@ microstructures:
 
 relations:
   - type: contributes_to
+    target: TSK-055
+  - type: contributes_to
+    target: TSK-056
+  - type: contributes_to
+    target: TSK-057
+  - type: contributes_to
     target: TSK-060
   - type: contributes_to
     target: TSK-061
@@ -174,8 +181,16 @@ relations:
   - type: contributes_to
     target: TSK-064
   - type: contributes_to
-    target: TSK-055
+    target: TSK-066
   - type: contributes_to
-    target: TSK-056
+    target: TSK-067
   - type: contributes_to
-    target: TSK-057
+    target: TSK-068
+  - type: contributes_to
+    target: TSK-071
+  - type: contributes_to
+    target: TSK-073
+  - type: contributes_to
+    target: TSK-080
+  - type: contributes_to
+    target: TSK-081
