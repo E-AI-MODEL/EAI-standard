@@ -1,79 +1,119 @@
-version: 0.1.0-candidate
+version: 0.2.0-candidate
 status: candidate
+
+principles:
+  - Evidence is interpreted relative to a stated claim.
+  - The support conditions under which evidence was produced are part of the evidence context.
+  - AI-supported products may be evidence of current system performance without being evidence of independent human mastery.
+  - Evidence types may be combined; no single type is universally sufficient.
 
 evidence_types:
   - id: EV-01
     label: observed_attempt
-    supports:
-      - current_performance
+    supports: [current_performance]
     description: The human visibly attempts the relevant action.
 
   - id: EV-02
     label: explanation_or_justification
-    supports:
-      - current_performance
-      - professional_judgement
+    supports: [current_performance, professional_judgement]
     description: The human explains or justifies a choice, interpretation or reasoning step in their own words.
 
   - id: EV-03
     label: independent_execution
-    supports:
-      - independent_mastery
-      - professional_judgement
+    supports: [independent_mastery, professional_judgement]
     description: The human performs the relevant action with support reduced to the level required by the claim.
 
   - id: EV-04
     label: correction_or_revision
-    supports:
-      - current_performance
-      - independent_mastery
+    supports: [current_performance, independent_mastery]
     description: The human detects or responds to an error and revises the relevant action or product.
 
   - id: EV-05
     label: comparison_and_selection
-    supports:
-      - current_performance
-      - professional_judgement
+    supports: [current_performance, professional_judgement]
     description: The human compares alternatives using explicit criteria and makes a reasoned selection.
 
   - id: EV-06
     label: delayed_reperformance
-    supports:
-      - retention
+    supports: [retention]
     description: The human performs the relevant action again after a meaningful delay.
 
   - id: EV-07
     label: novel_context_performance
-    supports:
-      - transfer
+    supports: [transfer]
     description: The human performs the relevant action in a meaningfully different task, context or representation.
 
   - id: EV-08
     label: trace_of_decision
-    supports:
-      - professional_judgement
+    supports: [professional_judgement]
     description: A trace shows what information the human considered, what decision was made and how it was justified.
 
   - id: EV-09
     label: multi_source_observation
-    supports:
-      - current_performance
-      - professional_judgement
+    supports: [current_performance, professional_judgement]
     description: Evidence from more than one observation, source or moment supports the claim.
+
+  - id: EV-10
+    label: reconstruction_without_prior_output
+    supports: [current_performance, independent_mastery]
+    description: The human reconstructs the relevant reasoning, product structure or operation without access to the prior AI-produced formulation.
+
+  - id: EV-11
+    label: fresh_item_same_operation
+    supports: [independent_mastery]
+    description: The human performs the same underlying operation on a new item that reduces answer reuse and surface copying.
+
+  - id: EV-12
+    label: direct_probe_response
+    supports: [current_performance, professional_judgement]
+    description: The human responds directly to a follow-up question or probe that targets the relevant action or judgement.
+
+  - id: EV-13
+    label: source_based_verification
+    supports: [current_performance, professional_judgement]
+    description: The human verifies or challenges a material claim using an appropriate source and can explain the comparison.
+
+  - id: EV-14
+    label: process_trace
+    supports: [current_performance, professional_judgement]
+    description: A trace records relevant human choices, revisions or decision points during the process rather than only the final product.
+
+  - id: EV-15
+    label: repeated_consistent_performance
+    supports: [independent_mastery]
+    description: The relevant human action is performed successfully across multiple sufficiently varied opportunities under comparable support conditions.
+
+  - id: EV-16
+    label: direct_interaction_evidence
+    supports: [professional_judgement]
+    description: Evidence from direct human interaction, observation or dialogue is used where relational or pedagogical meaning cannot be inferred reliably from mediated artefacts alone.
 
 claim_types:
   current_performance:
-    description: The human can perform or explain the action in the current situation.
+    description: The human can perform or explain the action in the current situation under the recorded support conditions.
   professional_judgement:
-    description: The professional has interpreted information and made a reasoned, accountable judgement.
+    description: The professional has interpreted relevant information and made a reasoned, accountable judgement.
   independent_mastery:
-    description: The learner can execute the relevant action with appropriately reduced support.
+    description: The learner can execute the relevant action with support reduced to the level required by the claim.
   retention:
-    description: The learner can still perform the action after delay.
+    description: The learner can still perform the action after a meaningful delay.
   transfer:
-    description: The learner can perform the action in a meaningfully different context.
+    description: The learner can perform the action in a meaningfully different context, task or representation.
+
+support_context_fields:
+  - prior_ai_output_visible
+  - proactive_ai_help_available
+  - on_request_ai_help_available
+  - substantive_ai_reasoning_supplied
+  - human_prompt_or_probe_available
+  - same_item_or_fresh_item
+  - time_since_prior_attempt
+  - context_similarity_to_prior_attempt
 
 constraints:
   - A product created with AI support is not sufficient evidence of independent mastery by itself.
   - Self-report may supplement evidence but should not be the sole basis for a strong mastery claim.
-  - Evidence requirements should be proportional to the claim being made.
+  - A human explanation copied or generated by AI is not human explanation evidence.
+  - Repeated performance only strengthens a claim when the relevant action remains human-executed across attempts.
+  - A fresh item should preserve the intended underlying operation while reducing direct reuse of prior output.
+  - Evidence requirements should be proportional to the claim and consequence of error.
