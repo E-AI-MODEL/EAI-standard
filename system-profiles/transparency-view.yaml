@@ -1,4 +1,5 @@
-version: 0.1.0-candidate
+standard_version: 0.4.0-candidate
+artifact_version: 0.2.0-candidate
 status: non_normative_presentation_view
 
 purpose: >-
@@ -11,8 +12,8 @@ projection_rule: >-
 
 sections:
   - id: VIEW-01
-    label_nl: Identiteit
-    question_nl: Welk systeem en welke modellen zijn feitelijk in gebruik?
+    label: Identity
+    question: Which system and models are actually in use?
     sources:
       - layers.model.model_name
       - layers.model.model_version
@@ -21,8 +22,8 @@ sections:
       - layers.model.modalities
 
   - id: VIEW-02
-    label_nl: Berekening en orkestratie
-    question_nl: Hoe wordt output technisch tot stand gebracht en gecontroleerd?
+    label: Computation and orchestration
+    question: How is output technically produced and checked?
     sources:
       - layers.inference
       - layers.orchestration
@@ -32,8 +33,8 @@ sections:
       - Verification method and verification result are shown separately.
 
   - id: VIEW-03
-    label_nl: Data en context
-    question_nl: Welke informatie kan het systeem gebruiken en waar komt die vandaan?
+    label: Data and context
+    question: Which information can the system use and where does it come from?
     sources:
       - layers.context_and_data
       - source_references
@@ -49,8 +50,8 @@ sections:
       - data_boundaries
 
   - id: VIEW-04
-    label_nl: Handelingsvermogen
-    question_nl: Welke externe handelingen kan het systeem uitvoeren en welke zijn hier beschikbaar of daadwerkelijk gebruikt?
+    label: Action capability
+    question: Which external actions can the system perform, which are available here and which were actually used?
     sources:
       - layers.tools_and_actions
       - layers.application.autonomy_level
@@ -62,8 +63,8 @@ sections:
       - Do not infer product capability from a deployment in which a feature is disabled.
 
   - id: VIEW-05
-    label_nl: Menselijke zeggenschap
-    question_nl: Waar kan een bevoegde mens beslissen, stoppen, wijzigen of escaleren?
+    label: Human authority and control
+    question: Where can an authorised human decide, stop, modify, override or escalate?
     sources:
       - layers.application.human_decision_points
       - layers.application.escalation_points
@@ -77,8 +78,8 @@ sections:
       - A human approval step should not be presented as effective oversight without evidence that intervention was timely and meaningful.
 
   - id: VIEW-06
-    label_nl: Veiligheid en risicobeheersing
-    question_nl: Welke technische en organisatorische waarborgen en bekende beperkingen zijn zichtbaar?
+    label: Safety and risk controls
+    question: Which technical and organisational safeguards and known limitations are visible?
     sources:
       - layers.model.known_limitations
       - layers.evaluation.safety
@@ -92,8 +93,8 @@ sections:
       - Unknown provider information remains unknown.
 
   - id: VIEW-07
-    label_nl: Bewijs en evaluatie
-    question_nl: Welke claims worden over het systeem gedaan, wat is gemeten en waarop berust dat bewijs?
+    label: Evidence and evaluation
+    question: What is claimed about the system, what has been measured and what evidence supports those claims?
     sources:
       - layers.evaluation
       - feature_states.evidence_basis
@@ -105,8 +106,8 @@ sections:
       - Technical benchmark or task performance is not evidence of human learning effectiveness.
 
   - id: VIEW-08
-    label_nl: Veranderlijkheid
-    question_nl: Welke onderdelen kunnen veranderen en hoe is dat traceerbaar?
+    label: Change and version history
+    question: Which parts can change and how are material changes traceable?
     sources:
       - layers.model.model_version
       - layers.inference
