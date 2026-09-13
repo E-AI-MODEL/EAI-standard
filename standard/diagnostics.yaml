@@ -111,10 +111,10 @@ diagnostics:
     related_rule: EAI-R014
 
   - code: EAI-D015
-    severity: warning
-    effect: uncertainty
+    severity: info
+    effect: none
     label: source_element_unmapped
-    message: A source-model element has no current EAI mapping. The source element must be retained rather than discarded.
+    message: A source-model element has no current EAI mapping. Retaining it explicitly as unmapped is permitted and preserves the source model without inventing an interpretation.
 
   - code: EAI-D016
     severity: error
