@@ -1,0 +1,24 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate
+
+cases:
+  - case: ../../examples/self-regulation/learner-regulates-ai-supported-task.yaml
+    expected_conformance: conformant
+    expected_information_state: complete
+    expected_diagnostics: []
+    rationale: >-
+      The learner performs the goal-setting, strategy, monitoring, help-request and adjustment operations that are relevant to the stated goal while AI remains bounded to questions, hints and alternatives.
+
+  - case: ../../examples/self-regulation/ai-routes-learner-invalid.yaml
+    expected_conformance: non_conformant
+    expected_information_state: contains_unknowns
+    expected_diagnostics:
+      - EAI-D007
+      - EAI-D010
+    rationale: >-
+      Independent self-regulation is claimed even though AI selected or performed the planning, strategy, monitoring and adaptation operations and no human handback or re-demonstration occurred.
+
+notes:
+  - These fixtures test the distinction between visible task execution and learner regulation of that task.
+  - AI support is not treated as inherently non-conformant; the result depends on the stated goal, relevant core action, actual allocation and evidence claim.
