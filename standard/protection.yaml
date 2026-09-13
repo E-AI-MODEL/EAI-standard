@@ -1,0 +1,119 @@
+standard_version: 0.4.0-candidate
+status: candidate
+language: en
+
+purpose: >-
+  Defines how the EAI Standard records which aspects of a core human action should remain human, be directly evidenced, remain under effective human control, or be returned to human execution. Protection is multi-dimensional and source-qualified; it is not a single protected/unprotected flag.
+
+principles:
+  - Protection is assessed for a concrete core human action in relation to context, goal, actor, process position, AI allocation and the claim being made.
+  - No skill, microstructure or AI action is globally protected or globally delegable by name alone.
+  - Different protection requirements may legitimately have different statuses in the same case.
+  - A legal requirement, scientific recommendation, recognised framework and local institutional rule are different kinds of basis and MUST remain distinguishable.
+  - Scientific evidence does not become a legal requirement merely because its evidence strength is high.
+  - A non-binding framework does not become legally binding because it is widely recognised.
+  - `delegable` means that no protection requirement has been identified for that dimension within the recorded scope and bases; it is not a universal permission, safety claim or compliance decision.
+  - `unknown` is a valid result when the basis or its applicability cannot yet be established.
+  - Protection assessment MUST NOT be collapsed into a single aggregate score.
+
+statuses:
+  required:
+    definition: >-
+      The assessed dimension must remain or return to the human under an applicable EAI normative rule, binding legal or regulatory requirement, or other explicitly binding rule identified in the assessment.
+  strongly_recommended:
+    definition: >-
+      The assessed dimension should remain or return to the human because strong and directly relevant evidence or recognised non-binding guidance supports that conclusion, although no applicable binding requirement has been established.
+  recommended:
+    definition: >-
+      The assessed dimension should remain or return to the human because relevant evidence, professional guidance or a recognised framework supports that conclusion.
+  conditional:
+    definition: >-
+      The protection status depends on a stated condition such as claim type, risk classification, system use, process position, jurisdiction or required level of independence.
+  delegable:
+    definition: >-
+      Within the recorded scope, bases and conditions, human execution or control of this dimension is not identified as necessary. This does not imply that every form of delegation is safe, lawful or educationally effective.
+  unknown:
+    definition: >-
+      The available information is insufficient to determine an appropriate protection status for the assessed dimension.
+
+requirements:
+  - id: PRT-01
+    label: human_execution
+    definition: The human must personally perform the relevant action or operation rather than AI performing it on their behalf.
+
+  - id: PRT-02
+    label: human_judgement
+    definition: The substantive interpretation, weighing or decision must be performed by an accountable human rather than inferred from nominal approval of AI output.
+
+  - id: PRT-03
+    label: human_evidence
+    definition: Direct evidence of human performance, judgement or capability must remain available for the claim being made.
+
+  - id: PRT-04
+    label: effective_human_oversight
+    definition: A human must be able to meaningfully monitor and oversee AI-supported or AI-performed activity rather than being present only nominally in the workflow.
+
+  - id: PRT-05
+    label: human_authority_to_intervene
+    definition: A human must have timely and meaningful authority to reject, change, override, stop or otherwise intervene in the AI-supported process where the applicable basis requires it.
+
+  - id: PRT-06
+    label: handback
+    definition: An action that AI supported or materially performed must be returned to human execution before the relevant stronger human claim is made.
+
+  - id: PRT-07
+    label: re_demonstration
+    definition: New human execution or other equivalent direct human evidence is required after support, handback or remediation before the relevant claim can be strengthened.
+
+  - id: PRT-08
+    label: direct_human_interaction
+    definition: Direct human interaction must remain part of the process because the relational, pedagogical or professional meaning cannot be adequately established through AI-mediated artefacts alone.
+
+basis_types:
+  eai_normative_rule:
+    definition: A requirement stated by a canonical EAI normative rule.
+    default_bindingness: eai_normative
+  law_or_regulation:
+    definition: An applicable legal or regulatory source whose jurisdiction and applicability are explicitly recorded.
+    default_bindingness: legally_binding
+  scientific_evidence:
+    definition: A bounded empirical or conceptual evidence claim linked through the EAI evidence layer or an identified external scientific source.
+    default_bindingness: evidence_only
+  recognised_framework:
+    definition: A named external framework or guideline from an identified authority. Bindingness must be recorded rather than assumed.
+    default_bindingness: non_binding
+  professional_standard:
+    definition: A named professional standard or code relevant to the assessed action. Bindingness depends on the applicable professional context.
+    default_bindingness: unknown
+  institutional_rule:
+    definition: A local organisational rule, policy or contractual requirement. Its scope and local bindingness must be explicit.
+    default_bindingness: locally_binding
+
+bindingness_values:
+  - eai_normative
+  - legally_binding
+  - locally_binding
+  - non_binding
+  - evidence_only
+  - unknown
+
+applicability_values:
+  - applicable
+  - potentially_applicable
+  - not_applicable
+  - unknown
+
+support_relations:
+  - direct_support
+  - conceptual_alignment
+  - boundary_support
+  - context_support
+
+interpretation_rules:
+  - A `required` status MUST identify at least one applicable basis that is EAI-normative, legally binding or locally binding for the assessed scope.
+  - A scientific-evidence basis MAY support `strongly_recommended`, `recommended` or `conditional`, and MAY support an EAI normative rule, but MUST NOT itself be represented as a legal requirement.
+  - A recognised framework MUST retain its actual bindingness and authority.
+  - A protection status MUST be recorded per requirement dimension; the strongest status on one dimension MUST NOT automatically propagate to another dimension.
+  - Effective human oversight MUST distinguish nominal human presence from timely, informed and empowered intervention.
+  - A legal basis MUST record jurisdiction and applicability; unresolved applicability MUST remain `potentially_applicable` or `unknown` rather than being silently treated as applicable.
+  - A protection assessment is a traceable standards assessment, not legal advice and not proof of educational effectiveness.
