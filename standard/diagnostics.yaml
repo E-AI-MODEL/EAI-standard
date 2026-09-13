@@ -1,0 +1,148 @@
+version: 0.3.0-candidate
+status: candidate
+
+severities:
+  info: Informational condition that does not block conformance.
+  warning: Potential interoperability or interpretation problem that should be reviewed.
+  error: Violation that blocks conformance for the relevant profile.
+
+states:
+  valid: Required information is present and does not violate the selected profile.
+  unknown: Information needed for interpretation is absent or unsupported; this is not equivalent to invalid.
+  invalid: A normative rule or required schema condition is violated.
+
+diagnostics:
+  - code: EAI-D001
+    severity: error
+    state: invalid
+    label: missing_goal
+    message: A relevant goal is required before human-AI allocation can be interpreted.
+    related_rule: EAI-R001
+
+  - code: EAI-D002
+    severity: error
+    state: invalid
+    label: missing_process_position
+    message: A process position using the source model or process terminology is required.
+    related_rule: EAI-R002
+
+  - code: EAI-D003
+    severity: error
+    state: invalid
+    label: global_core_action_label
+    message: A skill or microstructure has been labelled as universally core without actor, goal and context.
+    related_rule: EAI-R003
+
+  - code: EAI-D004
+    severity: warning
+    state: valid
+    label: undecomposed_mixed_allocation
+    message: Human and AI execution appear to differ inside a larger action; microstructure decomposition is recommended.
+    related_rule: EAI-R004
+
+  - code: EAI-D005
+    severity: error
+    state: invalid
+    label: human_ai_execution_conflated
+    message: AI-produced output is represented as human execution without separate evidence.
+    related_rule: EAI-R005
+
+  - code: EAI-D006
+    severity: warning
+    state: invalid
+    label: output_volume_used_as_takeover_measure
+    message: AI takeover is inferred from output quantity rather than the relevant operations performed.
+    related_rule: EAI-R006
+
+  - code: EAI-D007
+    severity: error
+    state: invalid
+    label: evidence_claim_mismatch
+    message: The evidence supplied does not support the claim type being made.
+    related_rule: EAI-R007
+
+  - code: EAI-D008
+    severity: error
+    state: invalid
+    label: generated_product_used_as_mastery_evidence
+    message: An AI-supported product is used as sole evidence of independent mastery.
+    related_rule: EAI-R008
+
+  - code: EAI-D009
+    severity: warning
+    state: unknown
+    label: nominal_human_approval_only
+    message: Human accountability is asserted, but no evidence of the relevant human judgement is provided.
+    related_rule: EAI-R009
+
+  - code: EAI-D010
+    severity: error
+    state: invalid
+    label: missing_handback_before_mastery_claim
+    message: AI performed a relevant core action but no human re-demonstration precedes the mastery or professional-judgement claim.
+    related_rule: EAI-R010
+
+  - code: EAI-D011
+    severity: error
+    state: invalid
+    label: remediation_without_new_evidence
+    message: Remediation is reported as complete without renewed human execution or evidence.
+    related_rule: EAI-R011
+
+  - code: EAI-D012
+    severity: error
+    state: invalid
+    label: unknown_coerced_to_judgement
+    message: Missing or ambiguous information has been silently converted into a substantive judgement.
+    related_rule: EAI-R012
+
+  - code: EAI-D013
+    severity: warning
+    state: valid
+    label: multiple_actor_actions_not_separated
+    message: Teacher/professional and learner actions are both relevant but are not analysed separately.
+    related_rule: EAI-R013
+
+  - code: EAI-D014
+    severity: error
+    state: invalid
+    label: adapter_rewrites_source_model
+    message: A model adapter changes source terminology or structure without preserving the original source representation.
+    related_rule: EAI-R014
+
+  - code: EAI-D015
+    severity: warning
+    state: unknown
+    label: source_element_unmapped
+    message: A source-model element has no current EAI mapping. The source element must be retained rather than discarded.
+
+  - code: EAI-D016
+    severity: error
+    state: invalid
+    label: context_overlay_redefines_canonical_term
+    message: A context overlay changes the meaning of a canonical EAI concept rather than refining expectation.
+    related_rule: EAI-R015
+
+  - code: EAI-D017
+    severity: error
+    state: invalid
+    label: aggregate_score_required_for_conformance
+    message: Conformance depends on a single aggregate score that collapses distinct constructs.
+    related_rule: EAI-R016
+
+  - code: EAI-D018
+    severity: warning
+    state: invalid
+    label: unnamespaced_extension
+    message: Non-canonical extension data is present without a globally unique namespace.
+
+  - code: EAI-D019
+    severity: info
+    state: unknown
+    label: unsupported_optional_semantics
+    message: The implementation does not support an optional canonical semantic element and has retained it as unknown.
+
+constraints:
+  - Diagnostics must never silently delete source data.
+  - Unknown and invalid are distinct states.
+  - Implementations may add vendor diagnostics only in a namespace outside the EAI-D code space.
