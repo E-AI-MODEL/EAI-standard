@@ -1,4 +1,4 @@
-version: 0.1.0-candidate
+version: 0.2.0-candidate
 status: candidate
 language: en
 
@@ -36,9 +36,17 @@ terms:
       may_be_multiple: true
       never_global_by_skill_name: true
 
+  skill:
+    definition: >-
+      A reusable description of human capability that may occur across multiple contexts, models or tasks. A skill is not automatically a core human action.
+
+  skill_family:
+    definition: >-
+      A grouping used to organise related skills without implying a mandatory process sequence or hierarchy of importance.
+
   microstructure:
     definition: >-
-      A smaller observable or inferable human operation that contributes to a core human action.
+      A smaller observable or inferable human operation that contributes to a skill or core human action.
     properties:
       may_be_reused_across_skills: true
       may_have_multiple_relations: true
@@ -50,11 +58,19 @@ terms:
 
   allocation:
     definition: >-
-      The explicit distribution of relevant actions between human and AI at microstructure level.
+      The explicit distribution of relevant actions between human and AI at the level required to distinguish material contributions.
+
+  support_condition:
+    definition: >-
+      A material condition describing what assistance, prior output, hints, tools or other support was available when human evidence was produced.
 
   human_evidence:
     definition: >-
-      Observable information that supports a claim about human performance, judgement, learning or mastery.
+      Observable information that supports a bounded claim about human performance, judgement, learning or mastery.
+
+  evidence_claim:
+    definition: >-
+      The specific statement that evidence is intended to support, such as current performance, professional judgement, independent mastery, retention or transfer.
 
   responsibility:
     definition: >-
@@ -82,12 +98,40 @@ terms:
 
   retention:
     definition: >-
-      Successful later execution after a meaningful delay.
+      Successful later execution after a meaningful delay under support conditions appropriate to the claim.
 
   transfer:
     definition: >-
       Successful execution of the relevant action in a meaningfully different task, context or representation.
 
+  model_adapter:
+    definition: >-
+      A mapping layer that connects a named educational, pedagogical or professional process model to EAI Standard semantics while preserving the source model's own terminology and structure.
+
+  context_profile:
+    definition: >-
+      An optional overlay that refines expectations for factors such as age, education level, subject, curriculum, language or institutional setting without redefining core EAI terms.
+
+  registry:
+    definition: >-
+      A versioned collection of reusable canonical or candidate entries such as skills, microstructures, AI actions, evidence types or remediation patterns.
+
+  stable_identifier:
+    definition: >-
+      An identifier whose meaning is fixed within a released version and is intended to support reliable reference and exchange.
+
+  extension:
+    definition: >-
+      A local or third-party addition that builds on the EAI Standard without being part of the canonical namespace unless accepted through the governance process.
+
+  provenance:
+    definition: >-
+      Information that records the origin, source or authorship of a model term, mapping, evidence source or extension sufficiently to distinguish source content from EAI interpretation.
+
+  conformance:
+    definition: >-
+      The degree to which an implementation or artefact satisfies the structural and normative requirements of the EAI Standard. Conformance is not evidence of educational effectiveness.
+
   unknown:
     definition: >-
-      A state used when required information is absent, ambiguous or unsupported. Unknown must not be silently converted into a low or negative judgement.
+      A state used when required information is absent, ambiguous or unsupported. Unknown must not be silently converted into a low, negative or safe judgement.
