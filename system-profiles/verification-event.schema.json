@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/system-profiles/verification-event.schema.json",
+  "title": "EAI System Profile Verification Event",
+  "description": "Describes how a system output, claim or action was checked without treating all verification mechanisms as equivalent.",
+  "type": "object",
+  "required": ["id", "type", "target", "result", "performed_by"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "type": {
+      "enum": [
+        "VER-INT-CONSISTENCY",
+        "VER-MODEL-EVALUATOR",
+        "VER-TOOL",
+        "VER-SOURCE",
+        "VER-EXTERNAL-INDEPENDENT",
+        "VER-HUMAN",
+        "VER-NONE",
+        "VER-UNKNOWN"
+      ]
+    },
+    "target": {"type": "string", "minLength": 1},
+    "result": {
+      "enum": ["passed", "failed", "mixed", "inconclusive", "unknown"]
+    },
+    "performed_by": {
+      "enum": ["system", "human", "external_party", "mixed", "unknown"]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "observed_at": {"type": ["string", "null"], "format": "date-time"},
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}
