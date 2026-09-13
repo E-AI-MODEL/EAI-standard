@@ -19,7 +19,7 @@ EAI Standard 0.4.0-candidate hardens standardisation mechanics. The substantive 
 
 ```json
 {
-  "profile": "assessment_evidence",
+  "profile": "CP-03",
   "standard_version": "0.4.0-candidate",
   "conformance": "conformant",
   "information_state": "contains_unknowns",
@@ -27,7 +27,7 @@ EAI Standard 0.4.0-candidate hardens standardisation mechanics. The substantive 
 }
 ```
 
-The old `state` field is removed from the canonical conformance-result schema.
+The old `state` field is removed from the canonical conformance-result schema. Conformance outputs now use the canonical `CP-*` profile identifier rather than the human-readable profile label.
 
 Mapping guidance:
 
@@ -94,6 +94,8 @@ Consumers should stop hard-coding an independent canonical-file list and use the
 ## 5. Identifiers
 
 Existing canonical IDs are retained unless separately documented. 0.4.0 adds a candidate URI strategy in `standard/identifiers.yaml`; implementations are not required to adopt JSON-LD or RDF.
+
+Conformance result objects use the stable conformance-profile identifiers `CP-01` through `CP-06`. Human-readable labels such as `assessment_evidence` remain descriptive metadata in `standard/conformance-profiles.yaml`, not the exchanged profile identifier.
 
 ## 6. Normative language
 
