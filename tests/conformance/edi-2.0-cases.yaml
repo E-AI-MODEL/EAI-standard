@@ -1,27 +1,31 @@
-version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 status: candidate
 
 cases:
   - case: ../../examples/edi-2.0/guided-practice-valid.yaml
-    expected_state: valid
+    expected_conformance: conformant
+    expected_information_state: complete
     expected_diagnostics: []
     rationale: Human learner execution and teacher support regulation remain separately evidenced; AI actions do not perform the target learner operation.
 
   - case: ../../examples/edi-2.0/small-closure-ai-takeover.yaml
-    expected_state: invalid
+    expected_conformance: non_conformant
+    expected_information_state: complete
     expected_diagnostics:
       - EAI-D007
       - EAI-D008
       - EAI-D010
-    rationale: Independent mastery is claimed at a decision point after substantive AI performance, without fresh independent evidence before the claim.
+    rationale: Independent mastery is presented as supported at a decision point after substantive AI performance, without fresh independent evidence before the claim.
 
   - case: ../../examples/edi-2.0/teacher-routing-unknown.yaml
-    expected_state: unknown
+    expected_conformance: conformant
+    expected_information_state: contains_unknowns
     expected_diagnostics:
       - EAI-D009
       - EAI-D020
-    rationale: The teacher remains nominally responsible, but original learner evidence and the AI classification basis are unavailable, so the professional judgement cannot yet be inspected.
+    rationale: The teacher remains nominally responsible, but original learner evidence and the AI classification basis are unavailable. The representation preserves that uncertainty instead of presenting the professional judgement as established.
 
 notes:
   - These are candidate expected outcomes for a future reference validator.
+  - Conformance and information completeness are separate result dimensions.
   - Validator implementation must report the smallest defensible diagnostic set rather than duplicate equivalent diagnostics mechanically.
