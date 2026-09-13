@@ -1,0 +1,260 @@
+id: ADP-EI-ARCHER-HUGHES
+standard_version: 0.3.0-candidate
+model_name: Explicit Instruction
+model_family: explicit_instruction
+source_reference: Archer & Hughes (2011), Explicit Instruction: Effective and Efficient Teaching, Chapter 1
+source_version: 2011
+source_license: copyrighted_source_referenced_not_reproduced
+
+source_elements:
+  - id: EI-F1
+    source_type: process_position
+    source_label: Review
+    source_definition: Activate and verify relevant prior learning and prerequisites before new instruction.
+    source_order: 1
+    source_metadata: {pointer: figure_1_2_function_1, wording: paraphrased_definition}
+  - id: EI-F2
+    source_type: process_position
+    source_label: Presentation
+    source_definition: Introduce goals and new material through manageable steps, modelling, examples and clear language.
+    source_order: 2
+    source_metadata: {pointer: figure_1_2_function_2, wording: paraphrased_definition}
+  - id: EI-F3
+    source_type: process_position
+    source_label: Guided practice
+    source_definition: Elicit frequent learner performance under support and feedback while building toward fluent execution.
+    source_order: 3
+    source_metadata: {pointer: figure_1_2_function_3, wording: paraphrased_definition}
+  - id: EI-F4
+    source_type: process_position
+    source_label: Corrections and feedback
+    source_definition: Correct errors and reteach when learner evidence indicates this is needed.
+    source_order: 4
+    source_metadata: {pointer: figure_1_2_function_4, wording: paraphrased_definition}
+  - id: EI-F5
+    source_type: process_position
+    source_label: Independent practice
+    source_definition: Shift execution toward the learner while monitoring early attempts and continuing practice toward stable independent use.
+    source_order: 5
+    source_metadata: {pointer: figure_1_2_function_5, wording: paraphrased_definition}
+  - id: EI-F6
+    source_type: process_position
+    source_label: Weekly and monthly reviews
+    source_definition: Revisit earlier learning over time to maintain accessibility and strengthen retention.
+    source_order: 6
+    source_metadata: {pointer: figure_1_2_function_6, wording: paraphrased_definition}
+
+  - id: EI-E01
+    source_type: action
+    source_label: prioritise critical content
+    source_order: 1
+    source_metadata: {pointer: figure_1_1_element_1, label_status: paraphrase}
+  - id: EI-E02
+    source_type: action
+    source_label: sequence skills and knowledge logically
+    source_order: 2
+    source_metadata: {pointer: figure_1_1_element_2, label_status: paraphrase}
+  - id: EI-E03
+    source_type: action
+    source_label: segment complex learning into smaller units
+    source_order: 3
+    source_metadata: {pointer: figure_1_1_element_3, label_status: paraphrase}
+  - id: EI-E04
+    source_type: action
+    source_label: organise lessons around the instructional target
+    source_order: 4
+    source_metadata: {pointer: figure_1_1_element_4, label_status: paraphrase}
+  - id: EI-E05
+    source_type: action
+    source_label: make goals and expectations clear
+    source_order: 5
+    source_metadata: {pointer: figure_1_1_element_5, label_status: paraphrase}
+  - id: EI-E06
+    source_type: action
+    source_label: review relevant prior knowledge and prerequisites
+    source_order: 6
+    source_metadata: {pointer: figure_1_1_element_6, label_status: paraphrase}
+  - id: EI-E07
+    source_type: action
+    source_label: demonstrate target processes step by step
+    source_order: 7
+    source_metadata: {pointer: figure_1_1_element_7, label_status: paraphrase}
+  - id: EI-E08
+    source_type: action
+    source_label: use clear consistent language
+    source_order: 8
+    source_metadata: {pointer: figure_1_1_element_8, label_status: paraphrase}
+  - id: EI-E09
+    source_type: action
+    source_label: use examples and contrasts to clarify boundaries
+    source_order: 9
+    source_metadata: {pointer: figure_1_1_element_9, label_status: paraphrase}
+  - id: EI-E10
+    source_type: action
+    source_label: provide guided supported practice
+    source_order: 10
+    source_metadata: {pointer: figure_1_1_element_10, label_status: paraphrase}
+  - id: EI-E11
+    source_type: action
+    source_label: elicit frequent learner responses
+    source_order: 11
+    source_metadata: {pointer: figure_1_1_element_11, label_status: paraphrase}
+  - id: EI-E12
+    source_type: action
+    source_label: monitor learner performance closely
+    source_order: 12
+    source_metadata: {pointer: figure_1_1_element_12, label_status: paraphrase}
+  - id: EI-E13
+    source_type: action
+    source_label: provide timely affirmative and corrective feedback
+    source_order: 13
+    source_metadata: {pointer: figure_1_1_element_13, label_status: paraphrase}
+  - id: EI-E14
+    source_type: action
+    source_label: maintain an appropriate instructional pace
+    source_order: 14
+    source_metadata: {pointer: figure_1_1_element_14, label_status: paraphrase}
+  - id: EI-E15
+    source_type: action
+    source_label: help learners organise and connect knowledge
+    source_order: 15
+    source_metadata: {pointer: figure_1_1_element_15, label_status: paraphrase}
+  - id: EI-E16
+    source_type: action
+    source_label: distribute and cumulate practice over time
+    source_order: 16
+    source_metadata: {pointer: figure_1_1_element_16, label_status: paraphrase}
+
+  - id: EI-P01
+    source_type: principle
+    source_label: productive learner engagement
+    source_order: 1
+    source_metadata: {pointer: figure_1_3_principle_1, label_status: paraphrase}
+  - id: EI-P02
+    source_type: principle
+    source_label: high success during learning
+    source_order: 2
+    source_metadata: {pointer: figure_1_3_principle_2, label_status: paraphrase}
+  - id: EI-P03
+    source_type: principle
+    source_label: effective content coverage
+    source_order: 3
+    source_metadata: {pointer: figure_1_3_principle_3, label_status: paraphrase}
+  - id: EI-P04
+    source_type: principle
+    source_label: productive instructional grouping
+    source_order: 4
+    source_metadata: {pointer: figure_1_3_principle_4, label_status: paraphrase}
+  - id: EI-P05
+    source_type: principle
+    source_label: scaffold and systematically fade support
+    source_order: 5
+    source_metadata: {pointer: figure_1_3_principle_5, label_status: paraphrase}
+  - id: EI-P06
+    source_type: principle
+    source_label: address what how and when knowledge
+    source_order: 6
+    source_metadata: {pointer: figure_1_3_principle_6, label_status: paraphrase}
+
+mappings:
+  - source_element_id: EI-F1
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-002, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-026, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-002, actor: learner}
+    rationale: Review creates a context in which teacher readiness judgement and learner retrieval may become relevant human actions.
+    confidence: high
+  - source_element_id: EI-F2
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-020, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-021, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-012, actor: learner}
+      - {type: skill, id_or_label: LSK-013, actor: learner}
+    rationale: Presentation includes professional explanation/modelling and learner construction of initial understanding.
+    confidence: high
+  - source_element_id: EI-F3
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-042, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-043, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-016, actor: learner}
+      - {type: microstructure, id_or_label: MS-LRI-04, actor: learner}
+    rationale: Guided practice makes the regulation and gradual withdrawal of support directly relevant to human-AI allocation.
+    confidence: high
+  - source_element_id: EI-F4
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TDJ-05, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TSF-05, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-08, actor: learner}
+    rationale: Correction and feedback require distinction among detecting an error, interpreting it, providing information and learner revision.
+    confidence: high
+  - source_element_id: EI-F5
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: LSK-071, actor: learner}
+      - {type: evidence_point, id_or_label: EV-03, actor: learner}
+      - {type: microstructure, id_or_label: MS-TSF-11, actor: teacher_professional}
+    rationale: Independent practice directly bears on the difference between supported performance and independent execution.
+    confidence: high
+  - source_element_id: EI-F6
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: LSK-072, actor: learner}
+      - {type: evidence_point, id_or_label: EV-06, actor: learner}
+    rationale: Delayed review can provide retention evidence when prior answer exposure does not contaminate the attempt.
+    confidence: medium
+  - source_element_id: EI-E10
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-042, actor: teacher_professional}
+      - {type: relation, id_or_label: REL-009, actor: teacher_professional}
+    rationale: Guided support is a direct application context for handback and support allocation.
+    confidence: high
+  - source_element_id: EI-E12
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-030, actor: teacher_professional}
+      - {type: skill, id_or_label: TSK-035, actor: teacher_professional}
+    rationale: Monitoring produces observations that still require professional interpretation.
+    confidence: high
+  - source_element_id: EI-E13
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-040, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-08, actor: learner}
+    rationale: Feedback and learner correction are separate human operations and should not be collapsed.
+    confidence: high
+  - source_element_id: EI-P05
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-043, actor: teacher_professional}
+      - {type: relation, id_or_label: REL-009, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-071, actor: learner}
+    rationale: Systematic fading provides a source-model basis for analysing transfer of execution back to the learner.
+    confidence: high
+
+unmapped_source_elements:
+  - EI-E01
+  - EI-E02
+  - EI-E03
+  - EI-E04
+  - EI-E05
+  - EI-E06
+  - EI-E07
+  - EI-E08
+  - EI-E09
+  - EI-E11
+  - EI-E14
+  - EI-E15
+  - EI-E16
+  - EI-P01
+  - EI-P02
+  - EI-P03
+  - EI-P04
+  - EI-P06
+
+notes: >-
+  Unmapped means not yet mapped in the canonical adapter object, not irrelevant. Supporting model.yaml and mappings.yaml contain richer candidate interpretation and are non-canonical until promoted into this file.
