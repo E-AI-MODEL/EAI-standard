@@ -1,0 +1,56 @@
+id: EX-EDI-GP-001
+standard_version: 0.3.0-candidate
+context: >-
+  During guided practice, learners solve a fresh item. The AI tutor may ask a question or provide a limited cue, but does not supply the substantive solution step that is the lesson target.
+goal: Learners increasingly execute the target procedure themselves while temporary support is reduced.
+process_position:
+  model: Expliciete Directe Instructie 2.0
+  label: Begeleide inoefening
+  source_term: Begeleide inoefening
+  source_element_id: EDI-P4
+actors:
+  - actor: learner
+    core_actions:
+      - id: learner_target_execution
+        label: execute the target procedure while support is reduced
+        status: confirmed
+        microstructures:
+          - id: MS-LRI-04
+            label: execute_target_operation
+            human_execution: full
+            ai_action: AIA-02
+            evidence: [EV-01]
+            handback_required: false
+            remediation: null
+          - id: MS-LRI-05
+            label: monitor_own_progress
+            human_execution: full
+            ai_action: AIA-03
+            evidence: [EV-02]
+            handback_required: false
+            remediation: null
+  - actor: teacher_professional
+    core_actions:
+      - id: regulate_support
+        label: interpret learner performance and regulate support
+        status: confirmed
+        microstructures:
+          - id: MS-TSF-07
+            label: inspect_response_to_support
+            human_execution: full
+            ai_action: AIA-07
+            evidence: [EV-02, EV-08]
+            handback_required: false
+            remediation: null
+          - id: MS-TSF-08
+            label: reduce_support_contingently
+            human_execution: full
+            ai_action: AIA-09
+            evidence: [EV-08]
+            handback_required: false
+            remediation: null
+claim_type: current_performance
+responsibility: The teacher remains responsible for deciding whether support should be reduced or changed.
+unknowns: []
+notes: >-
+  The AI may contribute prompts and checks, but learner execution and teacher interpretation remain directly evidenced.
