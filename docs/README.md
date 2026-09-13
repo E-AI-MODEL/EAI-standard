@@ -21,6 +21,7 @@ This directory contains human-readable documentation for the candidate standard.
 - [`10-standard-publication-model.md`](10-standard-publication-model.md) — specification, machine contracts, conformance and implementation guidance.
 - [`11-versioning-and-identifiers.md`](11-versioning-and-identifiers.md) — version and identifier strategy.
 - [`12-conformance-suite.md`](12-conformance-suite.md) — requirements for executable conformance testing and the future reference validator.
+- [`13-migration-0.3-to-0.4.md`](13-migration-0.3-to-0.4.md) — migration of conformance serialization, diagnostics and version metadata.
 - [`05-edustandaard-readiness.md`](05-edustandaard-readiness.md) — development path toward possible Edustandaard registration.
 
 ## Canonical sources
