@@ -1,0 +1,50 @@
+id: EX-EDI-CLOSE-001
+standard_version: 0.3.0-candidate
+context: >-
+  At the small lesson closure, the learner receives an AI-generated worked solution before submitting the answer. The teacher then considers moving the learner to independent work.
+goal: Determine whether the learner can perform the target operation sufficiently independently to proceed.
+process_position:
+  model: Expliciete Directe Instructie 2.0
+  label: Kleine lesafsluiting
+  source_term: Kleine lesafsluiting
+  source_element_id: EDI-P5
+actors:
+  - actor: learner
+    core_actions:
+      - id: demonstrate_independent_target_execution
+        label: demonstrate the target operation sufficiently independently
+        status: confirmed
+        microstructures:
+          - id: MS-LRI-04
+            label: execute_target_operation
+            human_execution: partial
+            ai_action: AIA-11
+            evidence: []
+            handback_required: true
+            remediation: REM-01
+          - id: MS-LRI-03
+            label: reconstruct_procedure_or_relation
+            human_execution: unknown
+            ai_action: AIA-04
+            evidence: []
+            handback_required: true
+            remediation: REM-06
+  - actor: teacher_professional
+    core_actions:
+      - id: routing_decision
+        label: judge whether the learner can proceed independently
+        status: confirmed
+        microstructures:
+          - id: MS-TDJ-09
+            label: bound_the_interpretation
+            human_execution: full
+            ai_action: AIA-09
+            evidence: [EV-08]
+            handback_required: false
+            remediation: null
+claim_type: independent_mastery
+responsibility: The teacher is responsible for the routing decision, but current learner evidence does not support an independence claim.
+unknowns:
+  - Whether the learner can execute the target operation without the worked AI solution.
+notes: >-
+  This case should trigger a mastery-without-independent-evidence diagnostic and require handback plus a fresh learner attempt before independent mastery is claimed.
