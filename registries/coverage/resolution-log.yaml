@@ -1,0 +1,28 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate
+
+purpose: >-
+  Records immediate repository corrections made as a direct result of the registry coverage audit. This keeps the audit useful as an inspectable snapshot while showing which findings have already been resolved.
+
+resolved:
+  - id: COV-RES-001
+    source_audit: AUDIT-SKILL-MS-COVERAGE-001
+    finding: >-
+      The teacher pedagogical judgement microstructure registry semantically covered interpret_behaviour_in_context, make_pedagogical_judgement and determine_pedagogical_follow_up but did not declare those contributes_to relations.
+    action: >-
+      Added explicit contributes_to relations for TSK-066, TSK-067 and TSK-068. Related links to evidence discussion, documentation and effect monitoring were also made explicit where the current registry already contains the relevant operations.
+    files_changed:
+      - registries/microstructures/teacher-pedagogical-judgement.yaml
+    effect_on_audit: >-
+      The original coverage audit remains an initial snapshot. A later refreshed audit should promote at least TSK-066, TSK-067 and TSK-068 from partial where the declared relation now confirms the existing semantic coverage.
+
+open:
+  - id: COV-OPEN-001
+    finding: Argumentation registry metadata is older and less uniform than the newer deep registries.
+  - id: COV-OPEN-002
+    finding: Several deep registries use a bundle/focus identifier in the top-level skill object rather than a direct skill-registry id.
+  - id: COV-OPEN-003
+    finding: No strict schema currently validates complete skill-registry entries.
+  - id: COV-OPEN-004
+    finding: Registry version metadata still needs full migration to the 0.4 publication policy.
