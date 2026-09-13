@@ -13,6 +13,8 @@ canonical_artifacts:
     - diagnostics.yaml
   rules:
     - rules.yaml
+  conformance:
+    - conformance-profiles.yaml
   schemas:
     - ../schemas/case.schema.json
     - ../schemas/adapter.schema.json
