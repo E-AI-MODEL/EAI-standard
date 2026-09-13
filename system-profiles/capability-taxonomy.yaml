@@ -1,4 +1,4 @@
-version: 0.1.0-candidate
+version: 0.2.0-candidate
 status: non_normative_companion
 
 principles:
@@ -6,6 +6,8 @@ principles:
   - The profile MUST NOT infer human understanding, learning, judgement or responsibility from functional performance.
   - The profile SHOULD describe configured behaviour at a level useful for interpreting observable AI actions.
   - Vendor-specific fields belong in namespaced extensions or source metadata, not in canonical EAI vocabulary.
+  - A different human-readable grouping of the same information does not require a different semantic structure.
+  - Capability, deployment configuration and observed use are separate facts.
 
 layers:
   - id: SYS-L1
@@ -34,7 +36,7 @@ layers:
       - verification_steps
       - inference_limits
     interpretation_note: >-
-      Labels such as reasoning effort are system configuration terms and MUST NOT be treated as evidence of human-like reasoning.
+      Labels such as reasoning effort are system configuration terms and MUST NOT be treated as evidence of human-like reasoning. Typed verification records SHOULD use verification-types.yaml when interoperability requires the difference between internal, tool, source, external and human checks to remain visible.
 
   - id: SYS-L3
     label: orchestration
@@ -136,6 +138,12 @@ layers:
       - monitoring
       - retention_policy
 
+cross_cutting_contracts:
+  feature_state: status-evidence-contract.yaml
+  verification: verification-types.yaml
+  principle: >-
+    Cross-cutting contracts add precision to existing layer fields. They do not create new layers and do not change the meaning of the eight-layer profile.
+
 cross_layer_rules:
   - Capability does not determine allocation.
   - Technical autonomy does not equal professional responsibility.
@@ -143,3 +151,8 @@ cross_layer_rules:
   - System evaluation metrics MUST NOT be substituted for human evidence types such as independent mastery, retention or transfer.
   - The same observable AI action MAY be implemented through materially different technical stacks.
   - A single system MAY produce different observable AI actions depending on workflow position and task configuration.
+  - supported does not imply enabled.
+  - enabled does not imply observed.
+  - not_observed does not imply unsupported.
+  - provider-declared system properties do not automatically equal independently verified system properties.
+  - internal verification MUST NOT be silently represented as independent external verification.
