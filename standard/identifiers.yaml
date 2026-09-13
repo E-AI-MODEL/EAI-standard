@@ -1,0 +1,51 @@
+standard_version: 0.4.0-candidate
+status: candidate
+
+purpose: >-
+  Defines the canonical identifier and URI strategy for concepts exchanged under the EAI Standard without requiring every artifact to duplicate its URI explicitly.
+
+canonical_namespace:
+  base_uri: https://e-ai-model.github.io/EAI-standard/id/
+  status: candidate
+  resolution_requirement: >-
+    Canonical URIs must become persistently resolvable before a stable 1.0 release. Candidate URIs identify semantics but must not depend on branch names or mutable repository file paths.
+
+identifier_classes:
+  rule:
+    id_pattern: '^EAI-R[0-9]{3}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/rule/{id}'
+  relation:
+    id_pattern: '^REL-[0-9]{3}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/relation/{id}'
+  ai_action:
+    id_pattern: '^AIA-[0-9]{2}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/ai-action/{id}'
+  evidence_type:
+    id_pattern: '^EV-[0-9]{2}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/evidence-type/{id}'
+  diagnostic:
+    id_pattern: '^EAI-D[0-9]{3}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/diagnostic/{id}'
+  conformance_profile:
+    id_pattern: '^CP-[0-9]{2}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/conformance-profile/{id}'
+  skill:
+    id_pattern: '^[TL]SK-[0-9]{3}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/skill/{id}'
+  microstructure:
+    id_pattern: '^MS-[A-Z0-9-]+$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/microstructure/{id}'
+  remediation:
+    id_pattern: '^REM-[0-9]{2}$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/remediation/{id}'
+  adapter:
+    id_pattern: '^ADP-[A-Z0-9.-]+$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/adapter/{id}'
+
+rules:
+  - A canonical identifier MUST be unique within its identifier class for a released standard version.
+  - A canonical URI identifies the semantic concept, not the repository file that currently contains it.
+  - A canonical identifier MUST NOT be reassigned to incompatible semantics after stable 1.0.
+  - Before 1.0 an identifier change MUST be recorded in release migration information.
+  - Local or third-party identifiers MUST use their own namespace and MUST NOT use reserved EAI identifier patterns as if canonical.
+  - URI use does not require JSON-LD, RDF or another semantic-web representation.
