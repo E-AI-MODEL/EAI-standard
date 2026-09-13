@@ -10,12 +10,12 @@ cases:
 
   - case: ../../examples/edi-2.0/small-closure-ai-takeover.yaml
     expected_conformance: non_conformant
-    expected_information_state: complete
+    expected_information_state: contains_unknowns
     expected_diagnostics:
       - EAI-D007
       - EAI-D008
       - EAI-D010
-    rationale: Independent mastery is presented as supported at a decision point after substantive AI performance, without fresh independent evidence before the claim.
+    rationale: Independent mastery is presented as supported at a decision point after substantive AI performance, without fresh independent evidence before the claim. The learner's unaided capability also remains explicitly unknown.
 
   - case: ../../examples/edi-2.0/teacher-routing-unknown.yaml
     expected_conformance: conformant
@@ -27,5 +27,5 @@ cases:
 
 notes:
   - These are candidate expected outcomes for a future reference validator.
-  - Conformance and information completeness are separate result dimensions.
+  - Conformance and information completeness are separate result dimensions and can vary independently.
   - Validator implementation must report the smallest defensible diagnostic set rather than duplicate equivalent diagnostics mechanically.
