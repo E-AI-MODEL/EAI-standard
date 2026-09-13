@@ -14,9 +14,9 @@ The EAI Standard therefore treats model-family membership as an organisational r
 
 | Model | Adapter status | Notes |
 | --- | --- | --- |
-| Archer & Hughes Explicit Instruction | implemented | Six source teaching functions and sixteen instructional elements preserved through source pointers and paraphrased descriptions. |
-| Expliciete Directe Instructie 2.0 (Hollingsworth & Ybarra, Dutch adaptation Schmeier) | implemented as candidate | Uses the public Pica phase poster and current 2025 book edition metadata. |
-| Direct Instruction (Engelmann tradition) | not yet implemented | Capital-DI curricular model; must not be treated as a synonym for generic explicit instruction. |
+| Archer & Hughes Explicit Instruction | implemented | Six source teaching functions, sixteen instructional elements and model principles are retained through source pointers and a schema-conformant adapter. |
+| Expliciete Directe Instructie 2.0 (Hollingsworth & Ybarra, Dutch adaptation Schmeier) | implemented as candidate | Uses the current book-edition metadata and official public Pica phase artifact; unavailable book detail remains explicitly unknown. |
+| Direct Instruction (Engelmann tradition) | implemented as candidate | Represents capital-DI as a curricular/instructional system rather than forcing it into a generic phase sequence. |
 | ADI / IGDI and other Dutch variants | not yet implemented | Separate adapters required if included. |
 
 ## Family-level commonalities
@@ -33,6 +33,16 @@ The following are useful comparison dimensions, not universal definitions:
 - fading or transfer of responsibility;
 - independent practice;
 - cumulative or distributed review.
+
+## Structural differences already visible
+
+The adapters show why a family index is useful but cannot replace model-specific mappings:
+
+- **Archer & Hughes Explicit Instruction** can be represented through six teaching functions plus instructional elements and principles.
+- **EDI 2.0** exposes a nine-phase lesson model with cross-cutting techniques and an explicit decision point before independent work.
+- **Direct Instruction** in the Engelmann tradition is more appropriately represented through curricular design, placement, grouping, scripted presentation, response systems, error correction, mastery and progress relations.
+
+These structures overlap at points but are not interchangeable.
 
 ## EAI rule
 
