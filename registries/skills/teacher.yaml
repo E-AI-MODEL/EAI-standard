@@ -1,0 +1,331 @@
+version: 0.2.0-candidate
+status: candidate
+actor: teacher_professional
+language: en
+
+principles:
+  - Skills describe reusable professional capabilities, not prescribed teaching methods.
+  - A professional skill becomes a core human action only in a concrete situation.
+  - Didactic, pedagogical and assessment actions remain distinguishable even when they occur together.
+  - AI may support a professional action without supplying the professional judgement that the situation requires.
+  - Tool-specific operation belongs in implementation guidance; the registry describes professional capability.
+
+families:
+  - id: TSF-DESIGN
+    label: educational_design
+    description: Designing goals, tasks, support, sequences and learning conditions.
+  - id: TSF-INSTRUCT
+    label: instruction_and_modelling
+    description: Making knowledge, strategies and processes accessible through explanation, modelling and examples.
+  - id: TSF-DIAG
+    label: observation_and_diagnosis
+    description: Gathering and interpreting information about learner understanding, performance and needs.
+  - id: TSF-GUIDE
+    label: guidance_feedback_and_remediation
+    description: Selecting and adjusting questions, feedback, scaffolds and corrective action.
+  - id: TSF-ASSESS
+    label: assessment_and_professional_decision
+    description: Weighing evidence and making accountable judgements or decisions.
+  - id: TSF-PED
+    label: pedagogical_and_relational_action
+    description: Acting responsively in relation to learner wellbeing, autonomy, safety, trust and context.
+  - id: TSF-COLLAB
+    label: professional_communication_and_collaboration
+    description: Coordinating professional action, communicating decisions and working with colleagues, learners and other stakeholders.
+  - id: TSF-EVAL
+    label: professional_self_regulation_and_improvement
+    description: Monitoring, evaluating and improving one's own professional action.
+
+skills:
+  - id: TSK-001
+    family: TSF-DESIGN
+    label: define_educational_goal
+    description: Formulate the intended learning, pedagogical or professional outcome in a way that can guide design decisions.
+    observable_examples: [state_goal, distinguish_goal_from_activity, identify_required_human_action]
+  - id: TSK-002
+    family: TSF-DESIGN
+    label: interpret_starting_point
+    description: Build a warranted picture of relevant prior knowledge, readiness, needs and contextual constraints.
+    observable_examples: [identify_prior_knowledge, identify_constraint, distinguish_evidence_from_assumption]
+  - id: TSK-003
+    family: TSF-DESIGN
+    label: select_content
+    description: Select content that is relevant and appropriately bounded for the intended goal.
+    observable_examples: [identify_essential_content, exclude_distractor, justify_selection]
+  - id: TSK-004
+    family: TSF-DESIGN
+    label: sequence_learning
+    description: Arrange content and learner activity in a defensible order while preserving dependencies among steps.
+    observable_examples: [identify_prerequisite, order_steps, justify_transition]
+  - id: TSK-005
+    family: TSF-DESIGN
+    label: select_learning_activity
+    description: Choose an activity because of the human action or learning it is intended to elicit, not merely because of format or novelty.
+    observable_examples: [connect_activity_to_goal, identify_target_action, justify_fit]
+  - id: TSK-006
+    family: TSF-DESIGN
+    label: design_practice
+    description: Design practice that gives the learner sufficient opportunity to perform and refine the intended action.
+    observable_examples: [create_practice_item, vary_item, plan_feedback_point]
+  - id: TSK-007
+    family: TSF-DESIGN
+    label: design_support
+    description: Design temporary support that enables progress without unnecessarily displacing the target human action.
+    observable_examples: [select_scaffold, identify_what_remains_human, plan_fading]
+  - id: TSK-008
+    family: TSF-DESIGN
+    label: design_for_independence
+    description: Plan how responsibility for relevant actions will shift toward the learner or professional over time.
+    observable_examples: [define_handback_point, reduce_support, include_independent_reperformance]
+  - id: TSK-009
+    family: TSF-DESIGN
+    label: anticipate_misconception_or_error
+    description: Anticipate plausible misunderstandings or execution errors that matter for the intended learning.
+    observable_examples: [name_misconception, connect_to_task, plan_detection]
+  - id: TSK-010
+    family: TSF-DESIGN
+    label: design_evidence_opportunity
+    description: Build opportunities that can produce evidence relevant to the claim that may later be made about learning or performance.
+    observable_examples: [align_evidence_to_claim, separate_supported_from_independent_attempt, plan_probe]
+
+  - id: TSK-020
+    family: TSF-INSTRUCT
+    label: explain
+    description: Present an accurate, relevant explanation suited to the learner and the intended goal.
+    observable_examples: [state_explanation, connect_to_prior_knowledge, adapt_language]
+  - id: TSK-021
+    family: TSF-INSTRUCT
+    label: model_process
+    description: Demonstrate a procedure, strategy or reasoning process while making relevant steps visible.
+    observable_examples: [show_step, verbalise_decision, identify_reason_for_step]
+  - id: TSK-022
+    family: TSF-INSTRUCT
+    label: choose_example
+    description: Select an example because it reveals or practises a relevant feature of the target knowledge or action.
+    observable_examples: [state_feature, choose_example, explain_fit]
+  - id: TSK-023
+    family: TSF-INSTRUCT
+    label: choose_nonexample
+    description: Select a contrasting case that clarifies the boundary of a concept, rule or quality criterion.
+    observable_examples: [select_contrast, identify_boundary, explain_difference]
+  - id: TSK-024
+    family: TSF-INSTRUCT
+    label: regulate_complexity
+    description: Control the amount and complexity of new information or task demands in relation to the learner and goal.
+    observable_examples: [chunk_content, remove_distraction, increase_complexity_deliberately]
+  - id: TSK-025
+    family: TSF-INSTRUCT
+    label: ask_instructional_question
+    description: Ask a question that elicits relevant learner thinking or information rather than merely requesting a guess or reproduction.
+    observable_examples: [target_relevant_action, wait_for_response, follow_up_on_reasoning]
+  - id: TSK-026
+    family: TSF-INSTRUCT
+    label: check_understanding_during_instruction
+    description: Gather interpretable information about understanding before moving forward.
+    observable_examples: [sample_response, inspect_reasoning, adapt_next_step]
+
+  - id: TSK-030
+    family: TSF-DIAG
+    label: observe_relevant_signal
+    description: Notice learner behaviour, response or work that is relevant to the current goal or question.
+    observable_examples: [identify_signal, separate_signal_from_noise, record_observation]
+  - id: TSK-031
+    family: TSF-DIAG
+    label: elicit_diagnostic_evidence
+    description: Create or select a prompt, task or interaction that helps distinguish among plausible learner states.
+    observable_examples: [ask_discriminating_question, select_probe, collect_response]
+  - id: TSK-032
+    family: TSF-DIAG
+    label: locate_error_or_breakdown
+    description: Identify where a learner's action, reasoning or understanding first becomes insufficient for the intended task.
+    observable_examples: [trace_steps, identify_breakpoint, distinguish_upstream_from_downstream_error]
+  - id: TSK-033
+    family: TSF-DIAG
+    label: generate_possible_explanations
+    description: Form multiple plausible explanations for an observed learner response before selecting one.
+    observable_examples: [name_alternative_explanations, connect_to_evidence, avoid_single-cause_assumption]
+  - id: TSK-034
+    family: TSF-DIAG
+    label: test_diagnostic_explanation
+    description: Seek additional evidence that can support, weaken or distinguish a proposed explanation.
+    observable_examples: [design_follow_up, compare_prediction_to_response, revise_explanation]
+  - id: TSK-035
+    family: TSF-DIAG
+    label: interpret_learning_state
+    description: Form a bounded professional interpretation of what the available evidence does and does not show about current understanding or performance.
+    observable_examples: [state_interpretation, state_uncertainty, separate_observation_from_inference]
+  - id: TSK-036
+    family: TSF-DIAG
+    label: identify_missing_evidence
+    description: Recognise when the available learner evidence is insufficient for the intended judgement.
+    observable_examples: [name_gap, avoid_overclaim, request_new_evidence]
+
+  - id: TSK-040
+    family: TSF-GUIDE
+    label: select_feedback
+    description: Select feedback that addresses the relevant gap while preserving the learner action that should remain theirs.
+    observable_examples: [identify_feedback_target, choose_specific_feedback, avoid_unnecessary_solution]
+  - id: TSK-041
+    family: TSF-GUIDE
+    label: select_hint
+    description: Provide the least intrusive cue that can help the learner resume the intended action.
+    observable_examples: [locate_impasse, choose_hint_level, observe_resume]
+  - id: TSK-042
+    family: TSF-GUIDE
+    label: scaffold
+    description: Provide temporary structure, cueing or modelling that supports performance while keeping the intended learning trajectory visible.
+    observable_examples: [add_support, define_target_action, plan_removal]
+  - id: TSK-043
+    family: TSF-GUIDE
+    label: fade_support
+    description: Reduce support in response to evidence of increasing capability.
+    observable_examples: [identify_support_layer, remove_support, inspect_reperformance]
+  - id: TSK-044
+    family: TSF-GUIDE
+    label: decide_on_reinstruction
+    description: Decide whether the observed gap requires renewed or alternative instruction rather than further practice alone.
+    observable_examples: [identify_underlying_gap, compare_options, justify_reinstruction]
+  - id: TSK-045
+    family: TSF-GUIDE
+    label: remediate_target_action
+    description: Rebuild a missing, displaced or insufficient human action through targeted practice and renewed evidence.
+    observable_examples: [identify_target_microstructure, isolate_practice, reconnect_to_parent_action, collect_new_evidence]
+  - id: TSK-046
+    family: TSF-GUIDE
+    label: support_self_regulation
+    description: Help the learner plan, monitor or evaluate without taking over those regulatory actions unnecessarily.
+    observable_examples: [prompt_plan, ask_monitoring_question, return_choice_to_learner]
+
+  - id: TSK-050
+    family: TSF-ASSESS
+    label: define_assessment_claim
+    description: State what a judgement or assessment is intended to claim about the learner or professional action.
+    observable_examples: [state_claim, identify_required_evidence, define_scope]
+  - id: TSK-051
+    family: TSF-ASSESS
+    label: interpret_evidence
+    description: Determine what a piece of evidence warrants in relation to an assessment claim.
+    observable_examples: [connect_evidence_to_claim, identify_limitation, avoid_product-only_inference]
+  - id: TSK-052
+    family: TSF-ASSESS
+    label: weigh_multiple_sources
+    description: Combine multiple relevant pieces of evidence without treating all sources as equally informative.
+    observable_examples: [compare_sources, weight_relevance, reconcile_difference]
+  - id: TSK-053
+    family: TSF-ASSESS
+    label: judge_quality
+    description: Judge quality using relevant criteria and evidence.
+    observable_examples: [apply_criterion, cite_evidence, justify_judgement]
+  - id: TSK-054
+    family: TSF-ASSESS
+    label: determine_mastery
+    description: Decide whether available human evidence supports a bounded claim of mastery at the required level of independence.
+    observable_examples: [separate_supported_from_independent, identify_evidence_threshold, state_uncertainty]
+  - id: TSK-055
+    family: TSF-ASSESS
+    label: make_professional_decision
+    description: Make an accountable decision in which relevant educational, pedagogical or procedural information is weighed.
+    observable_examples: [identify_options, weigh_information, choose, record_reason]
+  - id: TSK-056
+    family: TSF-ASSESS
+    label: justify_professional_decision
+    description: Explain the evidence, considerations and professional reasoning behind a decision.
+    observable_examples: [state_evidence, state_considerations, explain_tradeoff]
+  - id: TSK-057
+    family: TSF-ASSESS
+    label: preserve_uncertainty
+    description: Keep uncertainty visible when evidence does not support a stronger conclusion.
+    observable_examples: [use_unknown, state_limit, request_follow_up]
+
+  - id: TSK-060
+    family: TSF-PED
+    label: establish_and_maintain_contact
+    description: Create and maintain sufficiently safe, attentive human contact for the educational or pedagogical situation.
+    observable_examples: [invite_response, attend_to_reaction, adjust_interaction]
+  - id: TSK-061
+    family: TSF-PED
+    label: listen_for_meaning
+    description: Attend to what a learner communicates before interpreting or solving the situation.
+    observable_examples: [paraphrase, clarify, distinguish_statement_from_interpretation]
+  - id: TSK-062
+    family: TSF-PED
+    label: recognise_vulnerability_or_tension
+    description: Notice signs that the learner's wellbeing, safety, autonomy or ability to participate may require attention.
+    observable_examples: [identify_signal, check_with_learner, avoid_unsupported_diagnosis]
+  - id: TSK-063
+    family: TSF-PED
+    label: perspective_taking
+    description: Represent the learner's perspective sufficiently accurately to inform professional action without replacing it with one's own assumptions.
+    observable_examples: [state_learner_view, check_understanding, distinguish_own_view]
+  - id: TSK-064
+    family: TSF-PED
+    label: support_autonomy
+    description: Preserve meaningful learner agency where the situation permits it.
+    observable_examples: [offer_choice, explain_boundary, return_decision]
+  - id: TSK-065
+    family: TSF-PED
+    label: set_professional_boundary
+    description: Set and explain a boundary required by safety, role, ethics or educational responsibility.
+    observable_examples: [state_boundary, explain_reason, define_follow_up]
+  - id: TSK-066
+    family: TSF-PED
+    label: interpret_behaviour_in_context
+    description: Interpret learner behaviour in relation to available contextual information without reducing it to a single unsupported cause.
+    observable_examples: [consider_context, generate_alternatives, test_interpretation]
+  - id: TSK-067
+    family: TSF-PED
+    label: make_pedagogical_judgement
+    description: Weigh relational, developmental, educational and situational considerations in a bounded professional judgement.
+    observable_examples: [state_considerations, identify_uncertainty, justify_action]
+  - id: TSK-068
+    family: TSF-PED
+    label: determine_pedagogical_follow_up
+    description: Decide what human or organisational action should follow a pedagogical judgement.
+    observable_examples: [identify_options, choose_follow_up, define_responsibility]
+
+  - id: TSK-070
+    family: TSF-COLLAB
+    label: communicate_goal_and_expectation
+    description: Make goals, roles, boundaries and expected actions clear to relevant participants.
+    observable_examples: [state_expectation, check_understanding, adjust_message]
+  - id: TSK-071
+    family: TSF-COLLAB
+    label: discuss_evidence_with_learner
+    description: Use evidence as the basis for a dialogue in which the learner can respond, clarify and contribute meaning.
+    observable_examples: [show_evidence, invite_interpretation, check_difference]
+  - id: TSK-072
+    family: TSF-COLLAB
+    label: coordinate_professional_action
+    description: Align roles, information and follow-up with other professionals where responsibility is shared.
+    observable_examples: [assign_owner, share_relevant_information, agree_follow_up]
+  - id: TSK-073
+    family: TSF-COLLAB
+    label: document_professional_reasoning
+    description: Record enough of the evidence and reasoning behind a decision to make it reviewable without exposing unnecessary data.
+    observable_examples: [record_evidence, record_decision, record_uncertainty]
+
+  - id: TSK-080
+    family: TSF-EVAL
+    label: monitor_effect_of_action
+    description: Gather information about whether a professional intervention or design choice has the intended effect.
+    observable_examples: [define_expected_effect, observe_result, compare_to_expectation]
+  - id: TSK-081
+    family: TSF-EVAL
+    label: examine_assumption
+    description: Identify and test assumptions underlying one's own professional interpretation or design.
+    observable_examples: [state_assumption, seek_disconfirming_information, revise_if_needed]
+  - id: TSK-082
+    family: TSF-EVAL
+    label: compare_alternatives
+    description: Compare plausible professional options before or after action using relevant criteria.
+    observable_examples: [generate_alternatives, compare_tradeoffs, justify_selection]
+  - id: TSK-083
+    family: TSF-EVAL
+    label: reflect_on_professional_process
+    description: Reconstruct and examine one's own reasoning, action, uncertainty and adjustment.
+    observable_examples: [identify_decision_point, explain_revision, state_learning]
+  - id: TSK-084
+    family: TSF-EVAL
+    label: adapt_future_practice
+    description: Use evaluated experience to change later professional action in a relevant way.
+    observable_examples: [identify_change, connect_to_evidence, apply_in_new_case]
