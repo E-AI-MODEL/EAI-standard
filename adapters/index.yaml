@@ -1,0 +1,38 @@
+version: 0.3.0-candidate
+status: candidate
+
+adapters:
+  - id: ADP-EI-ARCHER-HUGHES
+    path: explicit-instruction-archer-hughes/adapter.yaml
+    model_name: Explicit Instruction
+    model_family: explicit_instruction
+    conformance_profile: CP-ADAPTER
+    source_status: verified_public_primary_source
+    mapping_status: partial_but_operational
+
+  - id: ADP-EDI-2
+    path: edi-2.0/adapter.yaml
+    model_name: Expliciete Directe Instructie 2.0
+    model_family: explicit_direct_instruction
+    conformance_profile: CP-ADAPTER
+    source_status: verified_public_official_artifacts_with_book_detail_limit
+    mapping_status: partial_but_operational
+
+  - id: ADP-DI-ENGELMANN
+    path: direct-instruction-engelmann/adapter.yaml
+    model_name: Direct Instruction
+    model_family: direct_instruction_capital_DI
+    conformance_profile: CP-ADAPTER
+    source_status: verified_current_NIFDI_public_model_sources
+    mapping_status: partial_but_operational
+
+family_indexes:
+  - id: FAM-DIRECT-EXPLICIT
+    path: direct-explicit-instruction-family/README.md
+    members: [ADP-EI-ARCHER-HUGHES, ADP-EDI-2, ADP-DI-ENGELMANN]
+
+rules:
+  - Family membership does not imply model equivalence.
+  - Every adapter must preserve its own source terminology and structure.
+  - Adapter mappings remain separate from source-model content.
+  - Partial mapping is permitted when source elements are retained and unmapped status is explicit.
