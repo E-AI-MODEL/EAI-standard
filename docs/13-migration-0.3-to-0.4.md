@@ -1,6 +1,6 @@
 # Migration from 0.3.x to 0.4.0-candidate
 
-EAI Standard 0.4.0-candidate hardens standardisation mechanics. The substantive human-action model is not redesigned, but conformance serialization and canonical version metadata change.
+EAI Standard 0.4.0-candidate hardens standardisation mechanics. The substantive human-action model is not redesigned, but conformance serialization, canonical version metadata and the case exchange contract change.
 
 ## 1. Conformance result
 
@@ -39,100 +39,58 @@ Do not migrate `unknown` mechanically without reviewing what the old result mean
 
 ## 2. Diagnostics
 
-### 0.3.x
-
-```json
-{
-  "code": "EAI-D020",
-  "severity": "info",
-  "state": "unknown",
-  "message": "..."
-}
-```
-
-### 0.4.0
-
-```json
-{
-  "code": "EAI-D020",
-  "severity": "info",
-  "effect": "uncertainty",
-  "message": "..."
-}
-```
-
-`effect` now has three values:
-
-- `none`;
-- `uncertainty`;
-- `non_conformance`.
-
-This prevents warning severity, information uncertainty and standards failure from being encoded as one overloaded state.
+0.4 uses `effect: none | uncertainty | non_conformance` rather than an overloaded diagnostic state. This keeps diagnostic severity, information uncertainty and standards failure separate.
 
 ## 3. Canonical version metadata
 
-Canonical YAML artifacts now use:
-
-```yaml
-standard_version: 0.4.0-candidate
-```
-
-rather than an ambiguous generic:
-
-```yaml
-version: ...
-```
-
-`artifact_version`, `source_version` and `profile_version` remain available for narrower lifecycle meanings where appropriate.
+Canonical YAML artifacts use `standard_version: 0.4.0-candidate`. `artifact_version`, `source_version` and `profile_version` remain available for narrower lifecycle meanings where appropriate.
 
 ## 4. Canonical manifest
 
-`standard/public-interface.yaml` is the authoritative list of canonical artifacts.
+`standard/public-interface.yaml` is the authoritative list of canonical artifacts. Consumers should stop hard-coding an independent canonical-file list and use the release manifest as the publication contract.
 
-Consumers should stop hard-coding an independent canonical-file list and use the release manifest as the publication contract.
+## 5. Identifiers and conformance profiles
 
-## 5. Identifiers
+Existing canonical IDs are retained unless separately documented. 0.4 adds a candidate URI strategy in `standard/identifiers.yaml`; implementations are not required to adopt JSON-LD or RDF.
 
-Existing canonical IDs are retained unless separately documented. 0.4.0 adds a candidate URI strategy in `standard/identifiers.yaml`; implementations are not required to adopt JSON-LD or RDF.
+Conformance result objects use stable `CP-*` identifiers. `CP-07` is the protection-assessment profile. Human-readable labels remain descriptive metadata rather than exchanged identifiers.
 
-Conformance result objects use the stable conformance-profile identifiers `CP-01` through `CP-06`. Human-readable labels such as `assessment_evidence` remain descriptive metadata in `standard/conformance-profiles.yaml`, not the exchanged profile identifier.
+## 6. Hardened case contract
 
-## 6. Normative language
+The validator-readiness hardening changes the canonical case shape. This is an explicit breaking candidate change before 1.0.
 
-Canonical all-capital requirement keywords now explicitly follow BCP 14 / RFC 2119 / RFC 8174.
+### Process positions
 
-Implementations should treat a violated applicable `MUST` or `MUST NOT` as non-conformance for the relevant profile.
+Replace singular `process_position` with `process_positions[]`. Give each position a case-local `id`. A core human action now records `process_position_refs[]`, making its process anchor explicit even when a case occupies several positions. `primary_process_position` is optional and does not erase the other positions.
 
-## 7. Test fixtures
+### AI actions
 
-Replace assumptions based on:
+Replace singular free-text or canonical `ai_action` with `ai_actions[]`. Values use canonical `AIA-*` identifiers. Multiple actions may be recorded when they are materially relevant.
 
-- `valid-result.json`;
-- `unknown-result.json`;
-- `invalid-result.json`.
+### Evidence
 
-Use the 0.4 fixtures:
+Replace microstructure `evidence: [EV-*]` with `evidence_refs[]` pointing to structured case-level `evidence_items[]`. Each evidence item records its canonical evidence type, observation and target claim, with optional independence and support conditions.
 
-- `conformant-result.json`;
-- `conformant-with-unknowns-result.json`;
-- `non-conformant-result.json`.
+An `EV-*` code describes an evidence type. It is not itself evidence that the human performed the action.
 
-Domain test fixtures now expose both `expected_conformance` and `expected_information_state`.
+### Human control
+
+Replace free-text `responsibility` with structured `human_control`. The structure distinguishes responsible actor, decision authority, information availability, timing, intervention capabilities and evidence of whether control is effective rather than nominal.
+
+### Core human actions
+
+Each core human action has a case-local `id` and `process_position_refs[]`. Optional `skill_refs[]` classify the action; they do not become parents of the core action. Microstructures remain constituent operations when decomposition is needed.
+
+## 7. Rule executability
+
+`standard/rule-executability.yaml` classifies rules as `machine`, `hybrid` or `human_review`. This classification constrains validator behaviour but does not change rule meaning or importance.
+
+A validator must not use hidden LLM or heuristic judgements to convert a hybrid or human-review rule into a deterministic standard rule.
+
+## 8. Test fixtures
+
+Use the 0.4 result fixtures and domain fixtures exposing both `expected_conformance` and `expected_information_state`. `tests/conformance/machine-rule-matrix.yaml` tracks executable coverage required before a validator is labelled an authoritative reference implementation.
 
 ## What did not change
 
-0.4.0 does not redefine:
-
-- context;
-- goal;
-- actor;
-- core human action;
-- microstructure;
-- AI-action semantics;
-- evidence claim types;
-- handback;
-- remediation;
-- source-preserving adapters;
-- the optional system-profile boundary.
-
-The release is intended to make those semantics more stable and independently implementable, not to replace them.
+The hardened representation does not redefine context, goal, actor, core human action, microstructure, AI-action semantics, evidence claim types, handback, remediation, source-preserving adapters or the optional system-profile boundary. It makes their relations explicit enough for independent validation.
