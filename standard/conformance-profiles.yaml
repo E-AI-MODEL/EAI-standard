@@ -93,10 +93,30 @@ profiles:
       - CP-03
       - CP-04
       - CP-05
+      - CP-07
       - structured_diagnostics
       - declared_standard_version
       - declared_unsupported_optional_semantics
       - protection_assessment_schema_support
+
+  - id: CP-07
+    label: protection_assessment
+    purpose: Exchange a source-qualified, dimension-specific assessment of which aspects of human action or control should remain protected.
+    requires:
+      - protected_dimension_identifier
+      - protection_status
+      - at_least_one_typed_basis_for_non_unknown_status
+      - basis_applicability
+      - basis_bindingness
+      - unknowns_preserved
+    constraints:
+      - status_assessed_per_dimension
+      - source_authority_not_overstated
+      - legal_and_scientific_bases_not_conflated
+      - required_status_has_applicable_binding_or_EAI_normative_basis
+      - no_automatic_status_propagation
+    interpretation_rule: >-
+      CP-07 validates the representation and bounded use of a protection assessment. It does not establish that a legal source applies to the case, that scientific evidence is sufficient for the context, or that the educational judgement itself is substantively correct when those questions require external or human review.
 
 notes:
   - Conformance is profile-specific; a system may conform to one profile without implementing all others.
