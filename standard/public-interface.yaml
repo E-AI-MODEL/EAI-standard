@@ -21,10 +21,13 @@ canonical_artifacts:
     - rules.yaml
   conformance:
     - conformance-profiles.yaml
+    - rule-executability.yaml
   normative_language:
     - normative-language.md
   schemas:
     - ../schemas/case.schema.json
+    - ../schemas/evidence-item.schema.json
+    - ../schemas/human-control.schema.json
     - ../schemas/adapter.schema.json
     - ../schemas/microstructure.schema.json
     - ../schemas/protection-assessment.schema.json
@@ -48,7 +51,7 @@ normative_language:
   interpretation: BCP14
   references:
     - RFC2119
-    - RFC8174
+    - RFC8179
   rule: >-
     Capitalized requirement keywords are interpreted as described in BCP 14. Lower-case ordinary-language uses are not automatically normative requirements.
 
