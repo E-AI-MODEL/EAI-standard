@@ -51,7 +51,7 @@ normative_language:
   interpretation: BCP14
   references:
     - RFC2119
-    - RFC8179
+    - RFC8174
   rule: >-
     Capitalized requirement keywords are interpreted as described in BCP 14. Lower-case ordinary-language uses are not automatically normative requirements.
 
