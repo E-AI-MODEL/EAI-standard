@@ -20,10 +20,12 @@ profiles:
       - context
       - goal
       - actor
-      - process_position
+      - at_least_one_process_position
       - at_least_one_core_action_or_unknown_marker
+      - each_core_action_references_its_relevant_process_position_or_positions
       - core_action_interpretable_through_context_goal_actor_and_process_position
     may_report:
+      - primary_process_position
       - extensions
       - retained_unknowns
 
@@ -35,7 +37,7 @@ profiles:
       - microstructure_level_analysis_when_allocation_differs
       - selected_microstructures_constituent_of_the_case_core_action
       - separate_human_execution
-      - explicit_ai_action
+      - explicit_canonical_ai_actions
       - unknowns_preserved
     may_report:
       - protection_assessment
