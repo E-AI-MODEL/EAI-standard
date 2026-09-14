@@ -6,10 +6,10 @@ purpose: >-
 
 classes:
   machine:
-    description: The rule can be evaluated deterministically from canonical structured data and registries.
+    description: The complete rule can be evaluated deterministically from canonical structured data, schemas, identifiers and registries.
     validator_behaviour: A reference validator MAY emit a definitive conformance diagnostic when the required input is present.
   hybrid:
-    description: Part of the rule can be checked deterministically, but a substantive contextual judgement may still be required.
+    description: A structural part may be checked deterministically, but the complete rule also depends on substantive contextual interpretation.
     validator_behaviour: A validator MAY detect structural or explicit semantic conflicts, but MUST NOT invent the contextual judgement needed to complete the rule.
   human_review:
     description: Conformance depends materially on educational, professional, legal or contextual interpretation not derivable from canonical structured data alone.
@@ -20,37 +20,58 @@ rules:
   EAI-R002: machine
   EAI-R003: hybrid
   EAI-R004: hybrid
-  EAI-R005: machine
+  EAI-R005: hybrid
   EAI-R006: hybrid
   EAI-R007: hybrid
   EAI-R008: hybrid
   EAI-R009: hybrid
-  EAI-R010: machine
+  EAI-R010: hybrid
   EAI-R011: hybrid
-  EAI-R012: machine
-  EAI-R013: machine
+  EAI-R012: hybrid
+  EAI-R013: hybrid
   EAI-R014: hybrid
   EAI-R015: hybrid
-  EAI-R016: machine
+  EAI-R016: hybrid
   EAI-R017: hybrid
-  EAI-R018: machine
+  EAI-R018: hybrid
   EAI-R019: hybrid
   EAI-R020: machine
   EAI-R021: machine
   EAI-R022: hybrid
-  EAI-R023: machine
+  EAI-R023: hybrid
   EAI-R024: hybrid
   EAI-R025: human_review
-  EAI-R026: machine
+  EAI-R026: hybrid
   EAI-R027: machine
   EAI-R028: machine
   EAI-R029: machine
   EAI-R030: hybrid
-  EAI-R031: machine
+  EAI-R031: hybrid
+
+classification_notes:
+  EAI-R005: >-
+    The case schema structurally separates human execution and AI actions, but determining whether AI output has been misrepresented as human performance can require evidence interpretation.
+  EAI-R010: >-
+    Handback fields are machine-readable, but whether AI materially performed or obscured the relevant core action and whether existing evidence is equivalent are contextual judgements.
+  EAI-R012: >-
+    Explicit unknown markers are machine-readable, but a validator cannot generally detect information that was silently omitted or coerced without contextual knowledge.
+  EAI-R013: >-
+    Multiple actors can be represented deterministically, but deciding whether both actors are materially relevant is contextual.
+  EAI-R016: >-
+    The prohibition is machine-checkable only once a canonical implementation-declaration contract represents aggregate-score dependence. That contract does not yet exist.
+  EAI-R018: >-
+    Structured evidence separates observation and interpretation, but deciding when that distinction materially affects judgement remains contextual.
+  EAI-R023: >-
+    AI-action identifiers are deterministic; whether an implementation treats an action as inherently permitted or prohibited is not currently encoded in a canonical field.
+  EAI-R026: >-
+    Detecting a claim that conformance proves educational effectiveness requires claim semantics not currently represented in a canonical machine-readable field.
+  EAI-R031: >-
+    Protection dimensions are structurally separate, but identical statuses across dimensions do not prove that a status was automatically propagated.
 
 constraints:
   - An executability class MUST NOT be interpreted as a strength or importance ranking.
   - Machine classification assumes that the relevant canonical fields are present and does not authorise inference of missing information.
+  - A rule MUST NOT be classified as machine merely because one part of it is schema-checkable.
   - Hybrid and human-review rules MUST preserve unresolved substantive judgements as uncertainty or explicit review requirements.
   - A validator implementation MUST NOT use an LLM or heuristic as hidden authority to convert a hybrid or human-review rule into a machine rule.
   - A future change in executability classification MUST NOT silently change the underlying normative rule.
