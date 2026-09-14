@@ -17,7 +17,7 @@ classes:
 
 rules:
   EAI-R001: hybrid
-  EAI-R002: machine
+  EAI-R002: hybrid
   EAI-R003: hybrid
   EAI-R004: hybrid
   EAI-R005: hybrid
@@ -36,7 +36,7 @@ rules:
   EAI-R018: hybrid
   EAI-R019: hybrid
   EAI-R020: machine
-  EAI-R021: machine
+  EAI-R021: hybrid
   EAI-R022: hybrid
   EAI-R023: hybrid
   EAI-R024: hybrid
@@ -49,6 +49,8 @@ rules:
   EAI-R031: hybrid
 
 classification_notes:
+  EAI-R002: >-
+    Presence of a process position is deterministic, but whether its terminology actually preserves the process or model being used and whether EAI has invented a replacement phase model cannot be established from structure alone.
   EAI-R005: >-
     The case schema structurally separates human execution and AI actions, but determining whether AI output has been misrepresented as human performance can require evidence interpretation.
   EAI-R010: >-
@@ -61,6 +63,8 @@ classification_notes:
     The prohibition is machine-checkable only once a canonical implementation-declaration contract represents aggregate-score dependence. That contract does not yet exist.
   EAI-R018: >-
     Structured evidence separates observation and interpretation, but deciding when that distinction materially affects judgement remains contextual.
+  EAI-R021: >-
+    Namespace presence and URI syntax are deterministic, but deciding whether locally added semantics are being presented as canonical EAI content requires interpretation beyond the extension object itself.
   EAI-R023: >-
     AI-action identifiers are deterministic; whether an implementation treats an action as inherently permitted or prohibited is not currently encoded in a canonical field.
   EAI-R026: >-
