@@ -1,0 +1,80 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate
+
+purpose: >-
+  Coverage contract for canonical rules currently classified as machine-evaluable. Each rule must have executable positive and negative fixtures before the validator is labelled an authoritative reference implementation. Unknown fixtures are required where explicit unknown information can alter the information state without causing non-conformance.
+
+machine_rules:
+  - rule: EAI-R002
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R005
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: pending
+  - rule: EAI-R010
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: pending
+  - rule: EAI-R012
+    positive_fixture: tests/conformance/conformant-with-unknowns-result.json
+    negative_fixture: pending
+    unknown_fixture: tests/conformance/conformant-with-unknowns-result.json
+  - rule: EAI-R013
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R016
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R018
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: pending
+  - rule: EAI-R020
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R021
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R023
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R026
+    positive_fixture: pending
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R027
+    positive_fixture: examples/self-regulation/learner-regulates-ai-supported-task.yaml
+    negative_fixture: pending
+    unknown_fixture: pending
+  - rule: EAI-R028
+    positive_fixture: examples/self-regulation/learner-regulates-ai-supported-task.yaml
+    negative_fixture: pending
+    unknown_fixture: not_applicable
+  - rule: EAI-R029
+    positive_fixture: examples/protection/high-risk-assessment-oversight.yaml
+    negative_fixture: pending
+    unknown_fixture: pending
+  - rule: EAI-R031
+    positive_fixture: examples/protection/high-risk-assessment-oversight.yaml
+    negative_fixture: pending
+    unknown_fixture: pending
+
+release_gate:
+  authoritative_reference_validator_requires:
+    - no_pending_positive_fixture_for_machine_rules
+    - no_pending_negative_fixture_for_machine_rules
+    - required_unknown_fixtures_present
+    - fixtures_schema_valid
+    - expected_diagnostics_resolve_to_canonical_ids
+
+notes:
+  - This matrix makes missing executable coverage visible rather than implying completeness.
+  - A fixture may cover more than one rule, but each expected diagnostic must identify the rule actually under test.
