@@ -105,9 +105,10 @@ profiles:
     requires:
       - protected_dimension_identifier
       - protection_status
-      - at_least_one_typed_basis_for_non_unknown_status
-      - basis_applicability
-      - basis_bindingness
+      - typed_basis_for_required_or_recommended_protection
+      - basis_applicability_when_basis_is_present
+      - basis_bindingness_when_basis_is_present
+      - rationale_or_basis_for_delegable_status
       - unknowns_preserved
     constraints:
       - status_assessed_per_dimension
@@ -116,7 +117,7 @@ profiles:
       - required_status_has_applicable_binding_or_EAI_normative_basis
       - no_automatic_status_propagation
     interpretation_rule: >-
-      CP-07 validates the representation and bounded use of a protection assessment. It does not establish that a legal source applies to the case, that scientific evidence is sufficient for the context, or that the educational judgement itself is substantively correct when those questions require external or human review.
+      CP-07 validates the representation and bounded use of a protection assessment. A delegable conclusion may be justified by an explicit bounded rationale when no positive protection basis applies. CP-07 does not establish that a legal source applies to the case, that scientific evidence is sufficient for the context, or that the educational judgement itself is substantively correct when those questions require external or human review.
 
 notes:
   - Conformance is profile-specific; a system may conform to one profile without implementing all others.
