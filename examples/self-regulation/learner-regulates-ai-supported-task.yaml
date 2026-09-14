@@ -4,55 +4,102 @@ context: >-
   A learner is working on a multi-step inquiry task. The AI may ask reflective questions or provide a bounded hint after the learner requests help, but the learner defines the learning goal, chooses the strategy, monitors progress and decides when to change approach.
 goal: >-
   Practise and make visible the learner's ability to regulate their own approach while using bounded AI support.
-process_position:
-  model: null
-  label: self_regulated_ai_supported_work
-  source_term: learner planning monitoring and adjustment during task execution
-  source_element_id: null
+process_positions:
+  - id: PP-SR-WORK
+    model: null
+    label: self_regulated_ai_supported_work
+    source_term: learner planning monitoring and adjustment during task execution
+    source_element_id: null
+    primary: true
+primary_process_position: PP-SR-WORK
 actors:
   - actor: learner
     core_actions:
       - id: learner_regulates_own_learning_process
         label: regulate goal strategy monitoring and adjustment during the task
         status: confirmed
+        process_position_refs: [PP-SR-WORK]
+        skill_refs: [LSK-040, LSK-042, LSK-043, LSK-045]
         microstructures:
           - id: MS-LSR-02
             label: set_or_restate_learning_goal
             human_execution: full
-            ai_action: AIA-02
-            evidence: [EV-02, EV-14]
+            ai_actions: [AIA-02]
+            evidence_refs: [E-SR-01]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-LSR-04
             label: select_strategy_for_goal
             human_execution: full
-            ai_action: AIA-05
-            evidence: [EV-05, EV-14]
+            ai_actions: [AIA-05]
+            evidence_refs: [E-SR-02]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-LSR-06
             label: monitor_progress_against_goal
             human_execution: full
-            ai_action: AIA-02
-            evidence: [EV-02, EV-14]
+            ai_actions: [AIA-02]
+            evidence_refs: [E-SR-03]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-LSR-09
             label: formulate_targeted_help_request
             human_execution: full
-            ai_action: AIA-03
-            evidence: [EV-02, EV-14]
+            ai_actions: [AIA-03]
+            evidence_refs: [E-SR-04]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-LSR-12
             label: change_strategy_from_evidence
             human_execution: full
-            ai_action: AIA-05
-            evidence: [EV-05, EV-14]
+            ai_actions: [AIA-05]
+            evidence_refs: [E-SR-05]
             handback_required: false
-            remediation: null
+            remediation_ref: null
 claim_type: current_performance
-responsibility: The learner makes the regulatory decisions that are part of the stated learning goal; AI support remains bounded to prompts, hints and alternatives.
+evidence_items:
+  - id: E-SR-01
+    evidence_type: EV-02
+    source_actor: learner
+    observation: The learner states and justifies the current learning goal.
+    claim_types: [current_performance]
+    independence: supported
+  - id: E-SR-02
+    evidence_type: EV-05
+    source_actor: learner
+    observation: The learner compares available strategies and selects one with a reason.
+    claim_types: [current_performance]
+    independence: supported
+  - id: E-SR-03
+    evidence_type: EV-14
+    source_actor: system_trace
+    observation: The trace records learner monitoring judgements before AI feedback is shown.
+    claim_types: [current_performance]
+    independence: supported
+  - id: E-SR-04
+    evidence_type: EV-02
+    source_actor: learner
+    observation: The learner identifies the impasse and requests bounded help.
+    claim_types: [current_performance]
+    independence: supported
+  - id: E-SR-05
+    evidence_type: EV-08
+    source_actor: learner
+    observation: The learner records why the strategy was changed and what evidence triggered the change.
+    claim_types: [current_performance]
+    independence: supported
+human_control:
+  responsible_actor: learner
+  decision_authority: final
+  information_available: sufficient
+  timing: during
+  can_modify: true
+  can_reject: true
+  can_override: null
+  can_stop: true
+  can_rollback: null
+  effectiveness: demonstrated
+  evidence_refs: [E-SR-02, E-SR-05]
 unknowns: []
 notes: >-
   AI participation does not by itself displace self-regulation. The relevant distinction is whether the learner still performs the goal-setting, strategy, monitoring and adjustment operations that the case intends to practise.
