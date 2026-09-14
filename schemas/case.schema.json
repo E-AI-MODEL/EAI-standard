@@ -3,23 +3,18 @@
   "$id": "https://e-ai-model.github.io/EAI-standard/schemas/case.schema.json",
   "title": "EAI Standard Case",
   "type": "object",
-  "required": ["id", "context", "goal", "actors", "process_position", "claim_type"],
+  "required": ["id", "standard_version", "context", "goal", "actors", "process_positions", "claim_type"],
   "properties": {
     "id": {"type": "string", "minLength": 1},
-    "standard_version": {"type": ["string", "null"]},
+    "standard_version": {"type": "string", "minLength": 1},
     "context": {"type": "string", "minLength": 1},
     "goal": {"type": "string", "minLength": 1},
-    "process_position": {
-      "type": "object",
-      "required": ["label"],
-      "properties": {
-        "model": {"type": ["string", "null"]},
-        "label": {"type": "string", "minLength": 1},
-        "source_term": {"type": ["string", "null"]},
-        "source_element_id": {"type": ["string", "null"]}
-      },
-      "additionalProperties": false
+    "process_positions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/processPosition"}
     },
+    "primary_process_position": {"type": ["string", "null"], "minLength": 1},
     "actors": {
       "type": "array",
       "minItems": 1,
@@ -30,26 +25,47 @@
           "actor": {"enum": ["teacher_professional", "learner", "multiple_humans"]},
           "core_actions": {
             "type": "array",
+            "minItems": 1,
             "items": {
               "type": "object",
-              "required": ["label", "status"],
+              "required": ["id", "label", "status", "process_position_refs"],
               "properties": {
-                "id": {"type": ["string", "null"]},
+                "id": {"type": "string", "minLength": 1},
                 "label": {"type": "string", "minLength": 1},
                 "status": {"enum": ["candidate", "confirmed", "unknown"]},
+                "skill_refs": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {"type": "string", "pattern": "^(TSK|LSK|AIS)-[0-9]{3}$"}
+                },
+                "process_position_refs": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {"type": "string", "minLength": 1}
+                },
                 "microstructures": {
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "required": ["label", "human_execution", "ai_action"],
+                    "required": ["id", "label", "human_execution", "ai_actions", "evidence_refs"],
                     "properties": {
-                      "id": {"type": ["string", "null"]},
+                      "id": {"type": "string", "pattern": "^MS-[A-Z0-9-]+$"},
                       "label": {"type": "string", "minLength": 1},
                       "human_execution": {"enum": ["none", "partial", "full", "unknown"]},
-                      "ai_action": {"type": "string", "minLength": 1},
-                      "evidence": {"type": "array", "items": {"type": "string"}},
+                      "ai_actions": {
+                        "type": "array",
+                        "minItems": 1,
+                        "uniqueItems": true,
+                        "items": {"type": "string", "pattern": "^AIA-[0-9]{2}$"}
+                      },
+                      "evidence_refs": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {"type": "string", "minLength": 1}
+                      },
                       "handback_required": {"type": ["boolean", "null"]},
-                      "remediation": {"type": ["string", "null"]}
+                      "remediation_ref": {"type": ["string", "null"], "pattern": "^REM-[0-9]{2}$"}
                     },
                     "additionalProperties": false
                   }
@@ -71,13 +87,37 @@
     "claim_type": {
       "enum": ["current_performance", "professional_judgement", "independent_mastery", "retention", "transfer", "none"]
     },
-    "responsibility": {"type": ["string", "null"]},
-    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "evidence_items": {
+      "type": "array",
+      "items": {"$ref": "evidence-item.schema.json"}
+    },
+    "human_control": {
+      "oneOf": [
+        {"$ref": "human-control.schema.json"},
+        {"type": "null"}
+      ]
+    },
+    "unknowns": {"type": "array", "items": {"type": "string", "minLength": 1}},
     "extensions": {
       "type": "array",
       "items": {"$ref": "extension.schema.json"}
     },
     "notes": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "processPosition": {
+      "type": "object",
+      "required": ["id", "label"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "model": {"type": ["string", "null"]},
+        "label": {"type": "string", "minLength": 1},
+        "source_term": {"type": ["string", "null"]},
+        "source_element_id": {"type": ["string", "null"]},
+        "primary": {"type": ["boolean", "null"]}
+      },
+      "additionalProperties": false
+    }
   },
   "additionalProperties": false
 }
