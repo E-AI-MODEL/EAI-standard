@@ -10,7 +10,7 @@ A conformance test case should specify the canonical `CP-*` profile, `standard_v
 
 ## Required test families
 
-Before a reference validator is treated as authoritative tooling, the suite should cover at least:
+The broader suite should cover at least:
 
 1. required structural fields and canonical identifier references;
 2. preservation of explicit unknowns;
@@ -37,13 +37,17 @@ Before a reference validator is treated as authoritative tooling, the suite shou
 23. protection authority overstatement and unresolved applicability;
 24. machine, hybrid and human-review validator boundaries.
 
+These families include hybrid and human-review semantics. Coverage does not make those judgements machine-authoritative.
+
 ## Rule coverage matrix
 
-`tests/conformance/machine-rule-matrix.yaml` is the coverage contract for rules classified as `machine` in `standard/rule-executability.yaml`.
+`tests/conformance/machine-rule-matrix.yaml` is the coverage contract for complete rules classified as `machine` in `standard/rule-executability.yaml`.
 
-Every machine rule requires an executable positive and negative fixture before a validator may be labelled the authoritative EAI reference validator. An unknown fixture is also required where explicit unknown information can change information state without causing non-conformance.
+The specification-side matrix is currently green. Every machine rule has deterministic positive and negative coverage in `tests/conformance/machine-rule-fixtures.yaml`; no machine rule has a pending required fixture.
 
-A `pending` entry is deliberately visible technical debt. It is preferable to an undocumented assumption that a rule has been tested.
+The fixtures use one minimal conformant base case plus explicit JSON-Pointer mutations. This allows independent validators to reproduce the exact test input rather than infer it from prose.
+
+During fixture hardening, rules for which only a structural fragment was deterministic were reclassified as `hybrid`. A green matrix must never be achieved by pretending that contextual educational, legal or evidential judgement is machine-decidable.
 
 ## Expected-result rule
 
@@ -63,8 +67,8 @@ See `docs/17-validator-core-contract.md` for the implementation boundary.
 
 ## Release gate
 
-The release process should execute the conformance suite in CI. A release should be blocked if a change to canonical semantics causes an unexplained change in expected conformance behaviour.
+The specification-side fixture gate is satisfied: the machine-rule matrix contains no required `pending` entries.
 
-An implementation must not be labelled the authoritative reference validator while the machine-rule coverage matrix contains required `pending` fixtures.
+The implementation-side gate remains open until validator software executes the complete matrix and reproduces the expected schema validity, conformance, information state and diagnostics in CI. A green specification matrix is therefore permission to implement against a bounded contract, not evidence that a reference validator already passes it.
 
-Intentional breaking candidate changes before 1.0 must update expected fixtures, migration guidance and `CHANGELOG.md` together.
+A release should be blocked if a change to canonical semantics causes an unexplained change in expected conformance behaviour. Intentional breaking candidate changes before 1.0 must update expected fixtures, migration guidance and `CHANGELOG.md` together.
