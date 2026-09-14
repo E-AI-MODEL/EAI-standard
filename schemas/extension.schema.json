@@ -8,7 +8,8 @@
     "namespace": {
       "type": "string",
       "format": "uri",
-      "description": "Globally unique namespace controlled by the extension publisher."
+      "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:",
+      "description": "Globally unique URI namespace controlled by the extension publisher. The pattern makes URI-scheme presence an asserted structural constraint even in validators that treat JSON Schema format as annotation."
     },
     "version": {"type": ["string", "null"]},
     "schema": {"type": ["string", "null"], "format": "uri"},
