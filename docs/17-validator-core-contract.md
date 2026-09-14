@@ -46,9 +46,9 @@ The model does not require every core human action to be decomposed. Microstruct
 
 ## Protection
 
-`CP-07` validates the representation of a protection assessment. It can deterministically check dimensions, statuses, basis typing and explicit authority claims. It cannot by itself determine disputed legal applicability, scientific sufficiency for a new context or a professional judgement that has not been supplied as evidence or review input.
+`CP-07` validates the representation of a protection assessment. It can deterministically check dimensions, statuses and basis presence. It cannot by itself determine disputed legal applicability, scientific sufficiency for a new context or a professional judgement that has not been supplied as evidence or review input.
 
-A legal source, scientific claim, recognised framework and institutional rule therefore remain distinguishable throughout validation.
+A legal source, scientific claim, recognised framework and institutional rule therefore remain distinguishable throughout validation. Authority overstatement remains hybrid because correctness of the external authority may require source or legal interpretation.
 
 ## Conformance versus review
 
@@ -60,20 +60,20 @@ The validator core fails its architectural purpose if adding a new instructional
 
 ## Machine-rule fixture gate
 
-The machine-rule coverage matrix is green at the specification level. `tests/conformance/machine-rule-matrix.yaml` contains no pending machine-rule fixtures. Every rule currently classified as `machine` has a deterministic positive and negative fixture in `tests/conformance/machine-rule-fixtures.yaml`.
+The machine-rule coverage matrix is green at the specification level. `tests/conformance/machine-rule-matrix.yaml` contains no pending machine-rule fixtures. Every rule whose **complete normative meaning** is currently classified as `machine` has a deterministic positive and negative fixture in `tests/conformance/machine-rule-fixtures.yaml`.
 
-The fixture work also tightened the executability boundary. Rules were moved from `machine` to `hybrid` where only a structural fragment was deterministic but the complete normative rule still depended on contextual interpretation. This prevents fixture coverage from creating false machine authority.
+The fixture work deliberately tightened the executability boundary. A rule is `machine` only when the complete rule can be decided from canonical structured data. A rule remains `hybrid` when a validator can check one structural fragment but cannot decide the complete normative meaning without contextual interpretation.
 
 The current machine set is:
 
-- `EAI-R002` explicit process position;
 - `EAI-R020` stable canonical identifiers;
-- `EAI-R021` namespaced extensions;
 - `EAI-R027` four core-action anchors;
 - `EAI-R028` constituent microstructure representation;
 - `EAI-R029` source-qualified dimensional protection representation.
 
-No separate unknown fixture is required for these six rules. Their machine-evaluable question is structural, referential or representational. Substantive uncertainty belongs to hybrid rules and to the separate `information_state` result rather than being forced into a false third outcome for these checks.
+For example, `EAI-R002` is hybrid: presence of a process position is structurally checkable, but whether its terminology truly preserves the process or model actually being used is not. `EAI-R021` is also hybrid: namespace syntax is checkable, but whether local semantics are being passed off as canonical EAI semantics cannot be inferred from namespace syntax alone.
+
+No separate unknown fixture is required for the four machine rules. Their machine-evaluable question is structural, referential or representational. Substantive uncertainty belongs to hybrid rules and to the separate `information_state` result rather than being forced into a false third outcome for these checks.
 
 ## Reference implementation gate
 
