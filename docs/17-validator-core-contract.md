@@ -58,6 +58,34 @@ The validator returns only what the supplied representation and canonical rules 
 
 The validator core fails its architectural purpose if adding a new instructional model, jurisdiction or scientific evidence source requires changing core validation code solely because of that model's vocabulary. Such additions should normally be representable through adapters, overlays, evidence mappings or data-driven canonical registries.
 
+## Machine-rule fixture gate
+
+The machine-rule coverage matrix is green at the specification level. `tests/conformance/machine-rule-matrix.yaml` contains no pending machine-rule fixtures. Every rule currently classified as `machine` has a deterministic positive and negative fixture in `tests/conformance/machine-rule-fixtures.yaml`.
+
+The fixture work also tightened the executability boundary. Rules were moved from `machine` to `hybrid` where only a structural fragment was deterministic but the complete normative rule still depended on contextual interpretation. This prevents fixture coverage from creating false machine authority.
+
+The current machine set is:
+
+- `EAI-R002` explicit process position;
+- `EAI-R020` stable canonical identifiers;
+- `EAI-R021` namespaced extensions;
+- `EAI-R027` four core-action anchors;
+- `EAI-R028` constituent microstructure representation;
+- `EAI-R029` source-qualified dimensional protection representation.
+
+No separate unknown fixture is required for these six rules. Their machine-evaluable question is structural, referential or representational. Substantive uncertainty belongs to hybrid rules and to the separate `information_state` result rather than being forced into a false third outcome for these checks.
+
 ## Reference implementation gate
 
-A software implementation may now be built against this contract, but it should not be labelled an authoritative reference validator until the executable conformance suite covers every machine-classified rule with positive and negative fixtures and covers unknown states where the rule permits them.
+The specification-side fixture gate is now satisfied. This does **not** yet mean an authoritative reference validator exists.
+
+The next gate is executable implementation verification. A validator may be labelled an authoritative reference validator only after software:
+
+1. loads the canonical manifest and declared standard version;
+2. executes every fixture in the green machine-rule matrix;
+3. produces the expected schema result, conformance result, information state and canonical diagnostics;
+4. proves that all referenced canonical identifiers and diagnostics resolve;
+5. runs the same suite automatically in CI;
+6. introduces no hidden framework, jurisdiction, model-provider or LLM judgement into machine validation.
+
+A green matrix therefore means the validator core can now be implemented against a bounded test contract. It is not a substitute for passing that contract.
