@@ -18,172 +18,154 @@ diagnostics:
     label: missing_goal
     message: A relevant goal is required before human-AI allocation can be interpreted.
     related_rule: EAI-R001
-
   - code: EAI-D002
     severity: error
     effect: non_conformance
     label: missing_process_position
     message: A process position using the source model or process terminology is required.
     related_rule: EAI-R002
-
   - code: EAI-D003
     severity: error
     effect: non_conformance
     label: global_core_action_label
     message: A skill or microstructure has been labelled as universally core without actor, goal and context.
     related_rule: EAI-R003
-
   - code: EAI-D004
     severity: warning
     effect: none
     label: undecomposed_mixed_allocation
     message: Human and AI execution appear to differ inside a larger action; microstructure decomposition is recommended.
     related_rule: EAI-R004
-
   - code: EAI-D005
     severity: error
     effect: non_conformance
     label: human_ai_execution_conflated
     message: AI-produced output is represented as human execution without separate evidence.
     related_rule: EAI-R005
-
   - code: EAI-D006
     severity: error
     effect: non_conformance
     label: output_volume_used_as_takeover_measure
     message: AI takeover is inferred from output quantity rather than the relevant operations performed.
     related_rule: EAI-R006
-
   - code: EAI-D007
     severity: error
     effect: non_conformance
     label: evidence_claim_mismatch
     message: A substantive human claim is presented as supported by evidence that does not match that claim type.
     related_rule: EAI-R007
-
   - code: EAI-D008
     severity: error
     effect: non_conformance
     label: generated_product_used_as_mastery_evidence
     message: An AI-supported product is used as sole evidence of independent mastery.
     related_rule: EAI-R008
-
   - code: EAI-D009
     severity: warning
     effect: uncertainty
     label: nominal_human_approval_only
     message: Human accountability is asserted, but evidence of the relevant human judgement is not available.
     related_rule: EAI-R009
-
   - code: EAI-D010
     severity: error
     effect: non_conformance
     label: missing_handback_before_stronger_claim
     message: AI performed a relevant core action and a stronger human claim is presented without required human re-demonstration or equivalent direct human evidence.
     related_rule: EAI-R010
-
   - code: EAI-D011
     severity: error
     effect: non_conformance
     label: remediation_without_new_evidence
     message: Remediation is reported as complete without renewed human execution or evidence.
     related_rule: EAI-R011
-
   - code: EAI-D012
     severity: error
     effect: non_conformance
     label: unknown_coerced_to_judgement
     message: Missing or ambiguous information has been silently converted into a substantive judgement.
     related_rule: EAI-R012
-
   - code: EAI-D013
     severity: error
     effect: non_conformance
     label: multiple_actor_actions_not_separated
     message: Teacher/professional and learner actions are both relevant but are not analysed separately.
     related_rule: EAI-R013
-
   - code: EAI-D014
     severity: error
     effect: non_conformance
     label: adapter_rewrites_source_model
     message: A model adapter changes source terminology or structure without preserving the original source representation.
     related_rule: EAI-R014
-
   - code: EAI-D015
     severity: info
     effect: none
     label: source_element_unmapped
     message: A source-model element has no current EAI mapping. Retaining it explicitly as unmapped is permitted and preserves the source model without inventing an interpretation.
-
   - code: EAI-D016
     severity: error
     effect: non_conformance
     label: context_overlay_redefines_canonical_term
     message: A context overlay changes the meaning of a canonical EAI concept rather than refining expectation.
     related_rule: EAI-R015
-
   - code: EAI-D017
     severity: error
     effect: non_conformance
     label: aggregate_score_required_for_conformance
     message: Conformance depends on a single aggregate score that collapses distinct constructs.
     related_rule: EAI-R016
-
   - code: EAI-D018
     severity: error
     effect: non_conformance
     label: unnamespaced_extension
     message: Non-canonical extension data is present without a distinct namespace or provenance.
     related_rule: EAI-R021
-
   - code: EAI-D019
     severity: info
     effect: uncertainty
     label: unsupported_optional_semantics
     message: The implementation does not support an optional canonical semantic element and has retained it without inventing an interpretation.
-
   - code: EAI-D020
     severity: info
     effect: uncertainty
     label: claim_relevant_information_unknown
     message: Information that could materially change the interpretation or claim is explicitly unknown; the uncertainty must remain visible until new evidence is available.
     related_rule: EAI-R012
-
   - code: EAI-D021
     severity: error
     effect: non_conformance
     label: core_action_anchor_missing
     message: A core human action cannot be interpreted through all four required anchors: context, goal, actor and process position.
     related_rule: EAI-R027
-
   - code: EAI-D022
     severity: error
     effect: non_conformance
     label: microstructure_not_constituent_of_case_core_action
     message: A microstructure is analysed as a parallel or free-standing case action rather than as a constituent operation of the selected core human action.
     related_rule: EAI-R028
-
   - code: EAI-D023
     severity: error
     effect: non_conformance
     label: unqualified_protection_flag
     message: A protection conclusion is recorded without identifying the protected dimension and its supporting basis.
     related_rule: EAI-R029
-
   - code: EAI-D024
     severity: error
     effect: non_conformance
     label: protection_basis_authority_overstated
     message: The authority, applicability or bindingness of a protection basis is represented more strongly than the recorded source supports.
     related_rule: EAI-R030
-
   - code: EAI-D025
     severity: error
     effect: non_conformance
     label: protection_status_propagated_across_dimensions
     message: A protection status assigned to one dimension has been automatically applied to another dimension without a separate assessment.
     related_rule: EAI-R031
+  - code: EAI-D026
+    severity: error
+    effect: non_conformance
+    label: canonical_identifier_invalid_or_unresolved
+    message: A value presented as a canonical exchange identifier is syntactically invalid or does not resolve in the declared EAI Standard version.
+    related_rule: EAI-R020
 
 constraints:
   - Diagnostics must never silently delete source data.
