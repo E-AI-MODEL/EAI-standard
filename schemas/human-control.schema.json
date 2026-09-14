@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/schemas/human-control.schema.json",
+  "title": "EAI Human Control",
+  "type": "object",
+  "properties": {
+    "responsible_actor": {
+      "enum": ["teacher_professional", "learner", "multiple_humans", "organisation", "unknown"]
+    },
+    "decision_authority": {"enum": ["none", "advisory", "shared", "final", "unknown"]},
+    "information_available": {"enum": ["insufficient", "partial", "sufficient", "unknown"]},
+    "timing": {"enum": ["before", "during", "after", "continuous", "multiple", "unknown"]},
+    "can_modify": {"type": ["boolean", "null"]},
+    "can_reject": {"type": ["boolean", "null"]},
+    "can_override": {"type": ["boolean", "null"]},
+    "can_stop": {"type": ["boolean", "null"]},
+    "can_rollback": {"type": ["boolean", "null"]},
+    "effectiveness": {"enum": ["demonstrated", "available_not_tested", "nominal_only", "absent", "unknown"]},
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}
