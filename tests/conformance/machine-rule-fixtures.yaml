@@ -1,0 +1,247 @@
+standard_version: 0.4.0-candidate
+artifact_version: 0.1.0-candidate
+status: candidate
+
+purpose: >-
+  Deterministic positive and negative fixtures for every rule classified as machine-evaluable. Fixtures use one minimal conformant base case plus explicit JSON-Pointer mutations so a validator can reproduce each input without relying on prose interpretation.
+
+mutation_contract:
+  operations:
+    remove: Remove the value at the JSON Pointer path.
+    replace: Replace the value at the JSON Pointer path with value.
+    add: Add value at the JSON Pointer path using RFC 6902 add semantics.
+  evaluation_order:
+    - materialize base_artifact
+    - apply fixture mutations in listed order
+    - validate schema and canonical references
+    - evaluate the selected machine rule
+    - compare conformance, information_state and diagnostics with expected
+  diagnostic_rule: >-
+    When a mutation causes a prerequisite structural failure, the fixture expects the smallest canonical diagnostic that identifies the rule under test. Validators are not rewarded for cascading diagnostics caused only by the same missing prerequisite.
+
+base_artifact:
+  id: CASE-MACHINE-BASE-001
+  standard_version: 0.4.0-candidate
+  context: A learner explains a chosen strategy while bounded AI questioning is available.
+  goal: Make the learner's strategy choice observable without AI performing that choice.
+  process_positions:
+    - id: PP-01
+      model: null
+      label: strategy_selection_during_task
+      source_term: null
+      source_element_id: null
+      primary: true
+  primary_process_position: PP-01
+  actors:
+    - actor: learner
+      core_actions:
+        - id: CHA-MACHINE-001
+          label: choose and explain a strategy
+          status: confirmed
+          process_position_refs: [PP-01]
+          microstructures:
+            - id: MS-LSR-04
+              label: select_strategy
+              human_execution: full
+              ai_actions: [AIA-02]
+              evidence_refs: []
+              handback_required: false
+              remediation_ref: null
+  claim_type: none
+  evidence_items: []
+  human_control: null
+  unknowns: []
+  extensions: []
+  notes: Minimal validator fixture, not an effectiveness claim.
+
+fixtures:
+  - id: MR-R002-POS
+    rule: EAI-R002
+    profile: CP-01
+    mutations: []
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: MR-R002-NEG
+    rule: EAI-R002
+    profile: CP-01
+    mutations:
+      - op: remove
+        path: /process_positions
+    expected:
+      schema_valid: false
+      conformance: non_conformant
+      information_state: incomplete
+      diagnostics: [EAI-D002]
+
+  - id: MR-R020-POS
+    rule: EAI-R020
+    profile: CP-02
+    mutations: []
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: MR-R020-NEG
+    rule: EAI-R020
+    profile: CP-02
+    mutations:
+      - op: replace
+        path: /actors/0/core_actions/0/microstructures/0/ai_actions/0
+        value: AIA-99
+    expected:
+      schema_valid: true
+      conformance: non_conformant
+      information_state: complete
+      diagnostics: [EAI-D026]
+    rationale: >-
+      AIA-99 is syntactically shaped like a canonical AI-action identifier but does not resolve in 0.4.0-candidate. This tests registry resolution rather than only regex validation.
+
+  - id: MR-R021-POS
+    rule: EAI-R021
+    profile: CP-01
+    mutations:
+      - op: add
+        path: /extensions/0
+        value:
+          namespace: https://example.org/eai-extension/example
+          version: '1.0'
+          schema: null
+          data:
+            local_note: example
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: MR-R021-NEG
+    rule: EAI-R021
+    profile: CP-01
+    mutations:
+      - op: add
+        path: /extensions/0
+        value:
+          namespace: local_extension
+          version: '1.0'
+          schema: null
+          data:
+            local_note: example
+    expected:
+      schema_valid: false
+      conformance: non_conformant
+      information_state: complete
+      diagnostics: [EAI-D018]
+
+  - id: MR-R027-POS
+    rule: EAI-R027
+    profile: CP-01
+    mutations: []
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: MR-R027-NEG
+    rule: EAI-R027
+    profile: CP-01
+    mutations:
+      - op: replace
+        path: /actors/0/core_actions/0/process_position_refs/0
+        value: PP-DOES-NOT-EXIST
+    expected:
+      schema_valid: true
+      conformance: non_conformant
+      information_state: incomplete
+      diagnostics: [EAI-D021]
+    rationale: >-
+      The case contains process positions, but the core action is not anchored to one of them. Referential validation is therefore required in addition to JSON Schema validation.
+
+  - id: MR-R028-POS
+    rule: EAI-R028
+    profile: CP-02
+    mutations: []
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: MR-R028-NEG
+    rule: EAI-R028
+    profile: CP-02
+    mutations:
+      - op: add
+        path: /microstructures
+        value:
+          - id: MS-LSR-04
+            label: select_strategy
+            human_execution: full
+            ai_actions: [AIA-02]
+            evidence_refs: []
+    expected:
+      schema_valid: false
+      conformance: non_conformant
+      information_state: complete
+      diagnostics: [EAI-D022]
+    rationale: >-
+      The same reusable registry operation is represented as a free-standing case analysis level rather than as a constituent of a selected core human action.
+
+  - id: MR-R029-POS
+    rule: EAI-R029
+    profile: CP-07
+    mutations:
+      - op: add
+        path: /actors/0/core_actions/0/protection
+        value:
+          dimensions:
+            - requirement_id: PRT-03
+              status: recommended
+              condition: null
+              rationale: Human evidence is recommended for the stated observation purpose.
+              bases:
+                - type: eai_normative_rule
+                  reference: EAI-R007
+                  authority: EAI Standard
+                  jurisdiction: null
+                  source_uri: null
+                  applicability: applicable
+                  bindingness: eai_normative
+                  support_relation: direct_support
+                  notes: null
+          unknowns: []
+          notes: null
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: MR-R029-NEG
+    rule: EAI-R029
+    profile: CP-07
+    mutations:
+      - op: add
+        path: /actors/0/core_actions/0/protection
+        value: true
+    expected:
+      schema_valid: false
+      conformance: non_conformant
+      information_state: complete
+      diagnostics: [EAI-D023]
+
+unknown_fixture_policy:
+  EAI-R002: not_applicable
+  EAI-R020: not_applicable
+  EAI-R021: not_applicable
+  EAI-R027: not_applicable
+  EAI-R028: not_applicable
+  EAI-R029: not_applicable
+  rationale: >-
+    These machine rules test explicit structural, referential or representation requirements. Unknown substantive information may occur elsewhere in the same case, but it does not create a distinct unknown outcome for the rule itself. Rules whose substantive uncertainty changes interpretation remain hybrid rather than being forced into this matrix.
