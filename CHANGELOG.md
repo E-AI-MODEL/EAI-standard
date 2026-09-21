@@ -2,6 +2,24 @@
 
 All notable changes to the EAI Standard are recorded here.
 
+## Unreleased — 0.5 semantic alignment preparation
+
+### Added
+
+- a non-canonical 0.5 semantic alignment proposal under `proposals/0.5-semantic-alignment/`;
+- proposed EAI Concept Positioning semantics: Education-native, Education-led, Shared, Technology-led and Technology-native;
+- proposed learner-specific `core_learning_action` semantics while retaining the broader `core_human_action` for teacher/professional and other human cases;
+- proposed canonicalisation path for Education in the Loop, Task Density, Support-Replacement Boundary, Evidence-Function Shift and Meaning-Making vs Addition.
+
+### Changed
+
+- the roadmap now places semantic alignment before executable conformance and the reference validator;
+- README documentation now makes the semantic step before human-AI allocation explicit.
+
+### No canonical change yet
+
+The 0.4 public interface remains authoritative until the semantic proposal is promoted in one coordinated change covering canonical vocabulary, identifiers, schemas, conformance, diagnostics and migration guidance.
+
 ## 0.4.0-candidate
 
 Standardisation hardening without redesigning the substantive EAI architecture.
