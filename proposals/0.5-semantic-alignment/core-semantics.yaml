@@ -94,7 +94,7 @@ sequence_notes:
     how much of the core learning action AI performs.
 
 integration_rules:
-  - `core_human_action` remains the broader standard construct for learner, teacher/professional and multi-human cases.
+  - "`core_human_action` remains the broader standard construct for learner, teacher/professional and multi-human cases."
   - Learner cases may identify a `core_learning_action` as a learner-specific specialization of `core_human_action`.
   - Teacher/professional cases must not be forced into learner-learning terminology.
   - Technical tool, prompt, tutor, agent or model selection follows semantic and educational analysis, not the reverse.
