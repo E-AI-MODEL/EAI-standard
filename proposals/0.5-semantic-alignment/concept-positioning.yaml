@@ -1,0 +1,91 @@
+status: proposal
+target_standard_version: 0.5.0-candidate
+language: en
+
+purpose: >-
+  Defines the proposed EAI Concept Positioning model: where a concept meaning comes
+  from and which domain determines its semantic boundary. The model is not a quality
+  scale and does not rank positions.
+
+positions:
+  - id: POS-01
+    label: education_native
+    definition: >-
+      Defined from learning, education or professional educational practice.
+      Technology is not required to establish the construct's meaning.
+
+  - id: POS-02
+    label: education_led
+    definition: >-
+      Connects education and technology, while the learning goal, learning process,
+      pedagogical purpose or professional educational intention determines the
+      construct's meaning and boundary.
+
+  - id: POS-03
+    label: shared
+    definition: >-
+      Exists specifically in the relation between human or educational action and
+      technical action. Both sides are required to define the construct.
+
+  - id: POS-04
+    label: technology_led
+    definition: >-
+      Starts from system behaviour or a technical property and gains educational
+      meaning through its effect on people, thinking, learning or professional action.
+
+  - id: POS-05
+    label: technology_native
+    definition: >-
+      Primarily describes a technical mechanism or system property. Education is not
+      required to define the construct.
+
+rules:
+  - id: POS-R01
+    title: Position meanings, not words
+    requirement: >-
+      A term that refers to materially different human and technical constructs must
+      position those meanings separately rather than average them into one position.
+
+  - id: POS-R02
+    title: Shared is relational
+    requirement: >-
+      Shared is used only for a single construct whose meaning exists in the relation
+      between human or educational action and technical action. Two different meanings
+      of one word are not shared merely because both meanings exist.
+
+  - id: POS-R03
+    title: Position is not quality
+    requirement: >-
+      A concept position must not be interpreted as a quality, desirability, maturity
+      or human-versus-technology score.
+
+  - id: POS-R04
+    title: Functional similarity is not construct identity
+    requirement: >-
+      Similar observable output or function must not be used to establish that the
+      underlying human and technical constructs are equivalent.
+
+examples:
+  agency:
+    human_or_learner: education_native
+    system: technology_native
+    note: >-
+      Human agency concerns capacity and opportunity to set direction, choose, act and
+      adjust. System agency concerns technical action space within tools, permissions
+      and constraints.
+
+  learning:
+    human: education_native
+    system_machine_learning: technology_native
+
+  human_ai_collaboration:
+    position: shared
+
+  ai_support:
+    position: education_led
+
+  explainability:
+    position: technology_led
+
+  context_window:
+    position: technology_native

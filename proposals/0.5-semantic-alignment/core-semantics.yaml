@@ -1,0 +1,100 @@
+status: proposal
+target_standard_version: 0.5.0-candidate
+language: en
+
+concepts:
+  core_learning_action:
+    proposed_relation_to_current_standard: specialization_of_core_human_action
+    position: education_native
+    definition: >-
+      The step to which the learner must personally give substantive meaning at a
+      given stage or process position for learning to occur.
+    constraints:
+      - It is learner-specific.
+      - It is context-, goal- and process-position-dependent.
+      - It is not necessarily the hardest, longest or most visible step.
+      - Visible learner activity does not by itself establish that the learner performed it.
+    question: >-
+      At this stage, which step must the learner personally give substantive meaning
+      to in order to learn?
+
+  meaning_making_vs_addition:
+    position: education_native
+    definition: >-
+      The distinction between visibly adding, editing, choosing or rewriting something
+      and personally making the substantive judgement or connection that carries the learning.
+    interoperability_effect: >-
+      Process traces must not treat visible editing as sufficient evidence that the
+      learner performed the underlying meaning-bearing action.
+
+  education_in_the_loop:
+    position: education_led
+    definition: >-
+      The principle that educational intent remains an active part of AI-system
+      decisions and boundaries. Learning goals, core learning actions, evidence
+      requirements and human authority are designed in before technical configuration,
+      rather than inspected only afterwards.
+
+  task_density:
+    position: education_led
+    definition: >-
+      The extent to which AI performs the contextual core learning action that the
+      learner must learn, practise or demonstrate in the case.
+    constraints:
+      - It is not the amount, length or fluency of AI output.
+      - High AI use can be educationally peripheral when the core learning action remains human.
+      - A small AI contribution can be decisive when it performs the core learning action.
+      - No universal acceptable percentage is implied.
+
+  support_replacement_boundary:
+    position: education_led
+    definition: >-
+      The boundary determined by whether AI contributes to a learning process while the
+      learner still performs the core learning action, or whether AI performs that action.
+    constraint: >-
+      Support and replacement cannot be classified from the amount of assistance alone.
+
+  evidence_function_shift:
+    position: shared
+    definition: >-
+      The shift by which a final product becomes a less reliable indicator of the
+      human thinking and learning process that preceded it when generative AI contributes
+      materially to that product.
+
+  question_emergence:
+    position: education_native
+    definition: >-
+      The educationally relevant emergence of a question, doubt, noticed contradiction,
+      first judgement or problem before AI names or frames it for the learner.
+
+  didactic_controllability:
+    position: education_led
+    definition: >-
+      The extent to which it remains visible and checkable who made the
+      learning-relevant decisions and performed the cognitive work that matters.
+
+design_sequence:
+  - process
+  - process_position_or_stage
+  - core_learning_action
+  - ai_contribution
+  - task_density
+
+sequence_notes:
+  process: >-
+    What must the learner ultimately know or be able to do, and how does the learner get there?
+  process_position_or_stage: >-
+    Where in that learning process is the learner now? Source-model terminology remains authoritative.
+  core_learning_action: >-
+    To which step must the learner personally give substantive meaning at this point?
+  ai_contribution: >-
+    What exactly does AI do at this point?
+  task_density: >-
+    Only after the preceding questions are answered should the analysis determine
+    how much of the core learning action AI performs.
+
+integration_rules:
+  - `core_human_action` remains the broader standard construct for learner, teacher/professional and multi-human cases.
+  - Learner cases may identify a `core_learning_action` as a learner-specific specialization of `core_human_action`.
+  - Teacher/professional cases must not be forced into learner-learning terminology.
+  - Technical tool, prompt, tutor, agent or model selection follows semantic and educational analysis, not the reverse.

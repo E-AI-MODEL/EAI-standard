@@ -16,6 +16,10 @@ This directory contains human-readable documentation for the candidate standard.
 10. [`15-self-regulation-and-metacognition.md`](15-self-regulation-and-metacognition.md) — why visible task execution is not the same as learner regulation when AI selects routes, strategies or adjustments.
 11. [`16-protection-assessment.md`](16-protection-assessment.md) — how EAI proposes what should remain human, evidenced or under human control using distinct scientific, legal, framework and institutional bases.
 
+## Semantic alignment work
+
+The next semantic release is being prepared under [`../proposals/0.5-semantic-alignment/`](../proposals/0.5-semantic-alignment/). It adds concept positioning and preserves the learner-specific meaning of the core learning action before executable conformance is expanded. The proposal is intentionally non-canonical until the public interface, schemas, conformance rules and migration material are updated together.
+
 ## Standardisation and implementation
 
 - [`06-architecture.md`](06-architecture.md) — repository and interoperability architecture.

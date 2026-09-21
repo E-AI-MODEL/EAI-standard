@@ -10,6 +10,20 @@ The same grammar applies to two primary actors:
 - **teacher/professional**: didactic action, pedagogical action and professional judgement;
 - **learner**: cognitive, metacognitive, social and self-regulatory action.
 
+## Semantic order before allocation
+
+The current 0.4 candidate is strongest once the relevant human action has been identified. Work toward 0.5 adds an earlier semantic step: determine what a concept means in this case, where that meaning comes from, and which domain sets its boundary before comparing human and AI action.
+
+The proposed sequence is:
+
+`concept meaning -> process -> process position -> core human action -> learner core learning action where applicable -> observed AI contribution -> allocation/task density -> protection -> human evidence -> handback/remediation`
+
+For learner cases, **core learning action** is proposed as a learner-specific specialization of the broader `core_human_action`: the step to which the learner must personally give substantive meaning at that point in the learning process. This does not replace teacher/professional core actions.
+
+The 0.5 proposal also formalises **EAI Concept Positioning**: Education-native, Education-led, Shared, Technology-led and Technology-native. Positions describe where meaning comes from; they are not a quality scale. The same word may refer to different constructs and those meanings must be positioned separately.
+
+See [`proposals/0.5-semantic-alignment/`](proposals/0.5-semantic-alignment/) and the updated [`ROADMAP.md`](ROADMAP.md). These proposal files do not yet alter the 0.4 canonical public interface.
+
 ## Basic unit
 
 Each description follows the same chain:

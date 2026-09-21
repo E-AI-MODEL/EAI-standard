@@ -43,26 +43,45 @@ Exit condition:
 
 An external implementer can determine from public repository material which artifacts are normative, which standard version they implement, how identifiers behave and how conformance results must be interpreted.
 
-## 0.5.x — Executable conformance and reference implementation
+## 0.5.x — Semantic alignment
 
-Goal: make interpretation differences detectable by machines.
+Goal: align the action-and-evidence standard with the EAI learning semantics before validator behaviour is further fixed.
+
+Deliverables:
+
+- canonical EAI Concept Positioning semantics: Education-native, Education-led, Shared, Technology-led and Technology-native;
+- explicit rule that positions apply to meanings or constructs, not merely to words;
+- learner-specific `core_learning_action` as a specialization of the broader `core_human_action`;
+- canonical semantics for Education in the Loop, Task Density, Support-Replacement Boundary and Evidence-Function Shift where they materially affect interoperability;
+- explicit distinction between meaning-making and visible addition or editing;
+- design sequence preserving the order process -> process position/stage -> core learning action -> AI contribution -> Task Density;
+- vocabulary provenance distinguishing EAI terms, EAI formalisations, EAI-specific meanings and common terms;
+- machine-contract and migration design for the accepted semantic additions.
+
+Exit condition:
+
+An external implementer can distinguish human, educational and technical constructs before allocation analysis, can preserve the learner-specific meaning of the core learning action, and can implement the same semantic sequence without treating tool capability or output volume as educational meaning.
+
+## 0.6.x — Executable conformance and reference implementation
+
+Goal: make interpretation differences detectable by machines after semantic alignment.
 
 Deliverables:
 
 - release-versioned conformance suite;
-- coverage of structural, allocation, evidence, handback, adapter, extension and uncertainty cases;
+- coverage of structural, allocation, evidence, handback, adapter, extension, uncertainty and semantic-positioning cases;
 - automated canonical-reference checks;
 - schema validation in CI;
 - identifier uniqueness and reference-resolution checks;
 - version consistency checks;
-- first reference validator after semantics are sufficiently fixed;
+- first reference validator after 0.5 semantics are sufficiently fixed;
 - implementation guide for developers.
 
 Exit condition:
 
 At least two independent implementations can represent the same cases and obtain compatible conformance outcomes against the published suite.
 
-## 0.6.x — Pilots and adoption evidence
+## 0.7.x — Pilots and adoption evidence
 
 Goal: move from design plausibility to practical experience.
 
@@ -79,7 +98,7 @@ Exit condition:
 
 There is evidence of useful application outside the originating project and no dependency on a single implementation.
 
-## 0.7.x — Architecture positioning
+## 0.8.x — Architecture positioning
 
 Goal: prepare for sector architecture assessment.
 
@@ -98,7 +117,7 @@ Exit condition:
 
 Architecture reviewers can determine where EAI Standard sits in the Dutch education information architecture, what existing standards it reuses or complements, and what lies outside its scope.
 
-## 0.8.x — Open maintenance model
+## 0.9.x — Open maintenance model
 
 Goal: demonstrate sustainable governance.
 
@@ -117,7 +136,7 @@ Exit condition:
 
 Maintenance can continue independently of one person and new participants have a clear route to influence the standard.
 
-## 0.9.x — Registration candidate
+## 0.10.x — Registration candidate
 
 Goal: prepare a complete intake package for Edustandaard.
 
