@@ -1,0 +1,77 @@
+standard_version: 0.5.0-candidate
+status: candidate
+language: en
+
+purpose: >-
+  Defines EAI Concept Positioning: where the meaning of a concept comes from and
+  which domain determines its semantic boundary. Concept positions are not a
+  quality, desirability, maturity, risk or human-versus-technology scale.
+
+positions:
+  - id: POS-01
+    label: education_native
+    display_label: Education-native
+    definition: >-
+      Defined from learning, education or professional educational practice.
+      Technology is not required to establish the construct's meaning.
+
+  - id: POS-02
+    label: education_led
+    display_label: Education-led
+    definition: >-
+      Connects education and technology, while the learning goal, learning process,
+      pedagogical purpose or professional educational intention determines the
+      construct's meaning and boundary.
+
+  - id: POS-03
+    label: shared
+    display_label: Shared
+    definition: >-
+      Exists specifically in the relation between human or educational action and
+      technical action. Both sides are required to define the construct.
+
+  - id: POS-04
+    label: technology_led
+    display_label: Technology-led
+    definition: >-
+      Starts from system behaviour or a technical property and gains educational
+      meaning through its effect on people, thinking, learning or professional action.
+
+  - id: POS-05
+    label: technology_native
+    display_label: Technology-native
+    definition: >-
+      Primarily describes a technical mechanism or system property. Education is not
+      required to define the construct.
+
+interpretation_constraints:
+  - A concept position applies to a specific meaning or construct, not to a bare word.
+  - A word that refers to materially different human, educational or technical constructs may have more than one position; those meanings are represented separately.
+  - Shared is reserved for a single relational construct whose meaning inherently depends on both human or educational action and technical action.
+  - Shared is not the midpoint between Education-led and Technology-led and is not an average of two different meanings.
+  - Position identifiers must not be converted into a quality, maturity, desirability, risk or human-versus-technology score.
+  - Functional similarity or similar output does not establish construct equivalence.
+
+examples:
+  agency:
+    - meaning: human or learner agency
+      position_id: POS-01
+    - meaning: system action space within tools, permissions and constraints
+      position_id: POS-05
+  learning:
+    - meaning: human learning
+      position_id: POS-01
+    - meaning: machine learning as a technical system process
+      position_id: POS-05
+  human_ai_collaboration:
+    - meaning: a relational construct defined by coordinated human and technical action
+      position_id: POS-03
+  ai_support:
+    - meaning: educational support whose boundary is set by the learning process and intended human action
+      position_id: POS-02
+  explainability:
+    - meaning: a technical property or system behaviour interpreted through its effect on human understanding or action
+      position_id: POS-04
+  context_window:
+    - meaning: technical context capacity of a model or system
+      position_id: POS-05
