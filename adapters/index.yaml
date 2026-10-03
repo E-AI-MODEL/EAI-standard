@@ -27,6 +27,14 @@ adapters:
     source_status: verified_current_NIFDI_public_model_sources
     mapping_status: partial_but_operational
 
+  - id: ADP-FTC-GB
+    path: formatieve-toetscyclus-gulikers-baartman/adapter.yaml
+    model_name: Formatieve toetscyclus
+    model_family: formative_assessment
+    conformance_profile: CP-04
+    source_status: verified_primary_review_and_current_author_landing_page
+    mapping_status: partial_but_operational
+
 family_indexes:
   - id: FAM-DIRECT-EXPLICIT
     path: direct-explicit-instruction-family/README.md
