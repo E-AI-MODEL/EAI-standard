@@ -1,0 +1,27 @@
+version: 0.4.0-candidate
+status: candidate
+adapter: ADP-FTC-GB
+
+purpose: >-
+  Links the EAI interpretation of the formatieve toetscyclus to the current EAI evidence map. These links support the EAI-side allocation and evidence questions; they do not alter the source model.
+
+links:
+  - source_elements: [FTC-P2, FTC-P3]
+    eai_interpretation: Learner responses only support a claim when the relevant learner action is actually visible and observation remains distinguishable from inference.
+    evidence_claims: [CLM-002, CLM-007, CLM-009, CLM-015]
+    strength_note: AI-assisted output can obscure who performed the target operation; diagnostic interpretation should remain claim-bounded.
+
+  - source_elements: [FTC-P4]
+    eai_interpretation: Feedback can support learning while still replacing the learner revision that would otherwise provide new evidence.
+    evidence_claims: [CLM-003, CLM-004, CLM-005]
+    strength_note: The effect of support depends on what the support performs and what the learner subsequently does.
+
+  - source_elements: [FTC-P5]
+    eai_interpretation: A next-step decision should remain traceable to learner evidence and professional judgement rather than to an AI recommendation alone.
+    evidence_claims: [CLM-007, CLM-008, CLM-015]
+    strength_note: Teacher-AI evidence supports separating observed data, recommendation and consequential professional decision.
+
+  - source_elements: [FTC-P1, FTC-P5]
+    eai_interpretation: The intended claim and subsequent action determine what evidence is needed and how support should be interpreted.
+    evidence_claims: [CLM-009, CLM-010]
+    strength_note: EAI preserves different claim types rather than treating every successful supported performance as mastery.
