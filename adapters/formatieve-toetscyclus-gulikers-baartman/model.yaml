@@ -1,0 +1,37 @@
+version: 0.4.0-candidate
+status: candidate
+id: ADP-FTC-GB
+model_name: Formatieve toetscyclus
+model_family: formative_assessment
+source_reference: Gulikers & Baartman (2017)
+source_url: https://www.hu.nl/onderzoek/publicaties/doelgericht-professionaliseren
+current_author_landing_page: https://formatievecyclus.nl/
+
+source_preservation:
+  terminology_preserved: true
+  ordering_preserved: true
+  cyclic_relation_preserved: true
+  unmapped_elements_retained: true
+  eai_interpretation_separate: true
+
+source_structure:
+  phases:
+    - {id: FTC-P1, source_label: Verhelderen van verwachtingen, order: 1}
+    - {id: FTC-P2, source_label: Ontlokken van studentreacties, order: 2}
+    - {id: FTC-P3, source_label: Analyseren en interpreteren van studentreacties, order: 3}
+    - {id: FTC-P4, source_label: Communiceren over resultaten met studenten, order: 4}
+    - {id: FTC-P5, source_label: Vervolgactiviteiten ondernemen, order: 5}
+
+source_relations:
+  - {from: FTC-P1, relation: informs, to: FTC-P2}
+  - {from: FTC-P2, relation: produces_evidence_for, to: FTC-P3}
+  - {from: FTC-P3, relation: informs, to: FTC-P4}
+  - {from: FTC-P3, relation: informs, to: FTC-P5}
+  - {from: FTC-P4, relation: supports, to: FTC-P5}
+  - {from: FTC-P5, relation: may_restart_or_update, to: FTC-P1}
+
+boundaries:
+  - The source cycle is not rewritten into an EAI cycle.
+  - The phase labels are source-model labels; EAI terminology remains a separate mapping layer.
+  - A workform used inside a phase does not become part of the source model.
+  - Formatief handelen is broader than any single feedback technique or test event.
