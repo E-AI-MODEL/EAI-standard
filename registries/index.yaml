@@ -40,6 +40,15 @@ microstructure_registries:
     skill: retrieval_and_independent_reperformance
     path: microstructures/learner-retrieval-and-independent-performance.yaml
 
+human_action_maps:
+  - id: REG-HUMAN-ACTION-MAP-NL
+    actor: learner
+    language: nl
+    status: candidate
+    path: human-actions/
+    purpose: >-
+      Non-hierarchical semantic map for identifying and precisely formulating a possible learner core learning action in context.
+
 remediation_registries:
   - id: REG-REM-INTERVENTIONS
     path: remediation/interventions.yaml
