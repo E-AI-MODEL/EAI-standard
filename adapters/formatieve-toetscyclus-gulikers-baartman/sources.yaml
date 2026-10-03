@@ -1,0 +1,31 @@
+version: 0.4.0-candidate
+status: candidate
+adapter: ADP-FTC-GB
+
+model_definition_sources:
+  - id: FTC-SRC-01
+    type: primary_review_report
+    authors: [Judith Gulikers, Liesbeth Baartman]
+    year: 2017
+    title: "Doelgericht professionaliseren: formatieve toetspraktijken met effect! Wat DOET de docent in de klas?"
+    organisation: NRO / Hogeschool Utrecht / Wageningen University
+    url: https://www.hu.nl/onderzoek/publicaties/doelgericht-professionaliseren
+    report_url: https://www.nro.nl/sites/nro/files/migrate/Inhoudelijke-eindrapport_NRO-PPO-405-15-722_DEF.pdf
+    use_in_adapter:
+      - five-phase cycle identity
+      - source phase terminology and ordering
+      - connected formative-process interpretation
+
+  - id: FTC-SRC-02
+    type: current_author_landing_page
+    authors: [Judith Gulikers, Liesbeth Baartman]
+    title: Cyclus Formatief Evalueren
+    url: https://formatievecyclus.nl/
+    use_in_adapter:
+      - current author-maintained public context
+      - continuity of the five-phase cycle across educational sectors
+
+boundaries:
+  - Later practitioner paraphrases are not used to overwrite the 2017 source terminology.
+  - The adapter maps source-model activity to EAI semantics; it does not present EAI workforms as part of the original model.
+  - Evidence supporting formative assessment generally is not treated as direct validation of every EAI mapping.
