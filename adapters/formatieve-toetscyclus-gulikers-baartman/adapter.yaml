@@ -1,0 +1,115 @@
+id: ADP-FTC-GB
+standard_version: 0.4.0-candidate
+artifact_version: 0.4.0-candidate
+model_name: Formatieve toetscyclus
+model_family: formative_assessment
+source_reference: Gulikers & Baartman (2017), Doelgericht professionaliseren: formatieve toetspraktijken met effect! Wat DOET de docent in de klas?
+source_version: 2017 review-study cycle
+source_license: source_referenced_not_reproduced
+
+source_elements:
+  - id: FTC-P1
+    source_type: process_position
+    source_label: Verhelderen van verwachtingen
+    source_definition: Clarify intended learning and the expectations or criteria against which learner performance will be interpreted.
+    source_order: 1
+    source_metadata: {pointer: review_cycle_phase_1}
+
+  - id: FTC-P2
+    source_type: process_position
+    source_label: Ontlokken van studentreacties
+    source_definition: Elicit learner responses that make relevant aspects of current learning visible.
+    source_order: 2
+    source_metadata: {pointer: review_cycle_phase_2}
+
+  - id: FTC-P3
+    source_type: process_position
+    source_label: Analyseren en interpreteren van studentreacties
+    source_definition: Analyse and interpret elicited responses in relation to the intended learning.
+    source_order: 3
+    source_metadata: {pointer: review_cycle_phase_3}
+
+  - id: FTC-P4
+    source_type: process_position
+    source_label: Communiceren over resultaten met studenten
+    source_definition: Communicate about the interpreted results in ways that can support subsequent learning.
+    source_order: 4
+    source_metadata: {pointer: review_cycle_phase_4}
+
+  - id: FTC-P5
+    source_type: process_position
+    source_label: Vervolgactiviteiten ondernemen
+    source_definition: Use the interpreted evidence to adapt subsequent teaching and learning activity.
+    source_order: 5
+    source_metadata: {pointer: review_cycle_phase_5}
+
+  - id: FTC-R1
+    source_type: relation
+    source_label: samenhangende_cyclus
+    source_definition: The five phases function as a connected formative process rather than as isolated techniques.
+    source_relations:
+      - {type: includes, target: FTC-P1}
+      - {type: includes, target: FTC-P2}
+      - {type: includes, target: FTC-P3}
+      - {type: includes, target: FTC-P4}
+      - {type: includes, target: FTC-P5}
+
+mappings:
+  - source_element_id: FTC-P1
+    mapping_type: related
+    eai_targets:
+      - {type: skill, id_or_label: TSK-001, actor: teacher_professional}
+      - {type: skill, id_or_label: LSK-001, actor: learner}
+      - {type: microstructure, id_or_label: MS-LSR-01, actor: learner}
+      - {type: microstructure, id_or_label: MS-LSR-02, actor: learner}
+    rationale: Clarifying expectations can involve both professional definition of the intended learning and learner understanding of the goal; AI should not silently substitute either operation.
+    confidence: high
+
+  - source_element_id: FTC-P2
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TDJ-01, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TDJ-02, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-04, actor: learner}
+    rationale: Elicitation is an evidence-design problem: the response must make the relevant learner action visible rather than primarily display AI performance.
+    confidence: high
+
+  - source_element_id: FTC-P3
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TDJ-03, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TDJ-04, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TDJ-09, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TDJ-10, actor: teacher_professional}
+    rationale: Analysis requires keeping observation, inference, claim scope and uncertainty distinct, especially when AI also detects or classifies patterns.
+    confidence: high
+
+  - source_element_id: FTC-P4
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TSF-05, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-LRI-08, actor: learner}
+    rationale: Communicating results is separable from learner revision. AI may help formulate feedback while the learner action required for improvement can remain human.
+    confidence: high
+
+  - source_element_id: FTC-P5
+    mapping_type: related
+    eai_targets:
+      - {type: microstructure, id_or_label: MS-TDJ-11, actor: teacher_professional}
+      - {type: microstructure, id_or_label: MS-TSF-12, actor: teacher_professional}
+      - {type: core_human_action, id_or_label: professional_routing_decision, actor: teacher_professional}
+    rationale: Follow-up is a consequential routing decision based on evidence; AI may propose options without collapsing evidence, interpretation and professional decision into one step.
+    confidence: high
+
+  - source_element_id: FTC-R1
+    mapping_type: related
+    eai_targets:
+      - {type: relation, id_or_label: REL-007, actor: teacher_professional}
+      - {type: relation, id_or_label: REL-009, actor: learner}
+    rationale: The cycle is useful for testing whether evidence, support, handback and next-step decisions remain connected instead of becoming isolated AI functions.
+    confidence: medium
+
+unmapped_source_elements: []
+
+notes: >-
+  This adapter preserves the five-phase 2017 source cycle. EAI mappings are interpretive overlays and are not part of the source model. The adapter does not imply that one universal core human action belongs to each phase. The relevant core action remains dependent on context, goal, actor and process position.
