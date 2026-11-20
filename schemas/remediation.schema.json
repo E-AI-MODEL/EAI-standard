@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/E-AI-MODEL/EAI-standard/schemas/remediation.schema.json",
+  "$id": "https://e-ai-model.github.io/EAI-standard/schemas/remediation.schema.json",
   "title": "EAI Remediation Registry Entry",
   "type": "object",
   "required": ["id", "label", "purpose", "pattern"],

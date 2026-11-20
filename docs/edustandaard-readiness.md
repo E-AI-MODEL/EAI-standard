@@ -21,8 +21,8 @@ Evidence required:
 
 Current relevant artifacts:
 
-- `docs/04-use-cases.md`;
-- `docs/10-standard-publication-model.md`;
+- `docs/use-cases.md`;
+- `docs/standard-publication-model.md`;
 - `standard/public-interface.yaml`;
 - source-preserving adapters and conformance cases.
 
