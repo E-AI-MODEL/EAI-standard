@@ -12,6 +12,8 @@ Registries, adapters, context overlays, evidence, system profiles, examples, doc
 
 English is the default language for canonical semantics, public documentation, registries and implementation guidance.
 
+Audience-specific material in Dutch, such as guidance for school boards, procurement or teachers, is welcome as an informative layer. Which language version prevails, and how sector terms relate to canonical constructs, is set out under *Language versions* in `GOVERNANCE.md`.
+
 Original-language terminology must be preserved where it belongs to an external source model, publication, proper name or official framework. A source-preserving adapter therefore keeps the exact source label even when the surrounding EAI documentation and interpretation are in English.
 
 Translations and localised presentation layers are welcome, but they must not silently redefine canonical meaning. A translation is a view of the same semantics, not a separate standard.
