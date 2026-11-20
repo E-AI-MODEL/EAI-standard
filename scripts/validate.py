@@ -11,7 +11,9 @@ repository is internally consistent:
 3. conformance result fixtures validate against conformance-result.schema.json;
 4. machine-rule fixtures produce the expected schema validity after their
    JSON-Pointer mutations are applied to the base artifact;
-5. example cases validate against case.schema.json.
+5. example cases validate against case.schema.json;
+6. the non-normative dictionary validates against its schema, and its
+   related terms and EAI references point to things that exist.
 
 Example cases that are known not to validate yet are listed in
 tests/schema-migration-pending.txt. The check fails when an unlisted case is
@@ -45,7 +47,9 @@ DOCUMENT_TARGETS = [
     ("system-profiles/examples/eai-extension-example.yaml", CASE_SCHEMA),
     ("system-profiles/examples/generic-agentic-llm.yaml", "system-profiles/system-profile.schema.json"),
     ("tests/conformance/*-result.json", "schemas/conformance-result.schema.json"),
+    ("dictionary/terms.yaml", "dictionary/dictionary.schema.json"),
 ]
+DICTIONARY_FILE = "dictionary/terms.yaml"
 FIXTURES_FILE = "tests/conformance/machine-rule-fixtures.yaml"
 
 errors: list[str] = []
@@ -244,12 +248,67 @@ def check_fixtures(docs, registry, schemas) -> None:
     print(f"[fixtures] {checked} machine-rule fixtures checked for schema validity")
 
 
+# ---------------------------------------------------------------- 6. dictionary
+
+def collect_ids(node, found: set[str]) -> None:
+    if isinstance(node, dict):
+        value = node.get("id")
+        if isinstance(value, str):
+            found.add(value)
+        for child in node.values():
+            collect_ids(child, found)
+    elif isinstance(node, list):
+        for child in node:
+            collect_ids(child, found)
+
+
+def check_dictionary(docs) -> None:
+    data = docs.get(ROOT / DICTIONARY_FILE)
+    if not isinstance(data, dict):
+        return
+    entries = data.get("entries") or []
+    term_ids = [e.get("id") for e in entries]
+    for dup in sorted({i for i in term_ids if term_ids.count(i) > 1}):
+        errors.append(f"dictionary: duplicate id {dup}")
+    known_terms = set(term_ids)
+
+    known_ids: set[str] = set()
+    for path, doc in docs.items():
+        if rel(path).startswith(("standard/", "registries/")):
+            collect_ids(doc, known_ids)
+    definitions = set((docs.get(ROOT / "standard/definitions.yaml") or {}).get("terms", {}))
+    proposal = docs.get(ROOT / "proposals/0.5-semantic-alignment/core-semantics.yaml") or {}
+    proposal_concepts = set(proposal.get("concepts", {}))
+    positioning = docs.get(ROOT / str(data.get("positioning_model", ""))) or {}
+    positions = {p.get("label") for p in positioning.get("positions", [])}
+
+    checked = 0
+    for entry in entries:
+        eid = entry.get("id")
+        pos = entry.get("position")
+        for value in (pos.values() if isinstance(pos, dict) else [pos]):
+            if value not in positions:
+                errors.append(f"dictionary: {eid}: position {value!r} is not defined in {data.get('positioning_model')}")
+        for ref in entry.get("related", []):
+            checked += 1
+            if ref not in known_terms:
+                errors.append(f"dictionary: {eid}: related term {ref!r} does not exist")
+        refs = entry.get("eai_refs") or {}
+        for kind, known in (("proposal_concepts", proposal_concepts), ("definitions", definitions), ("identifiers", known_ids)):
+            for ref in refs.get(kind, []):
+                checked += 1
+                if ref not in known:
+                    errors.append(f"dictionary: {eid}: {kind} reference {ref!r} does not exist")
+    print(f"[dictionary] {len(entries)} entries, {checked} references checked")
+
+
 def main() -> int:
     docs = check_parsing()
     registry, schemas = build_registry(docs)
     check_refs(registry, schemas)
     check_documents(docs, registry, schemas)
     check_fixtures(docs, registry, schemas)
+    check_dictionary(docs)
     if errors:
         print(f"\n{len(errors)} problem(s) found:")
         for err in errors:

@@ -47,6 +47,8 @@ This proposal aligns the repository with the current EAI publications and dictio
 - *EAI Dictionary* (English edition, concept)
 - *EAI Dictionary* (Dutch edition, concept)
 
+Both dictionary editions are now in the repository as one bilingual, machine-readable vocabulary: [`dictionary/`](../../dictionary/).
+
 The proposal does not import every dictionary entry into the canonical standard. It first formalises the semantic distinctions that change how the standard itself should be read.
 
 ## What should become canonical after review

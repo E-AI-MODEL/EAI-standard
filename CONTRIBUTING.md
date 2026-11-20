@@ -125,6 +125,8 @@ The script checks that all YAML and JSON files parse, that all JSON Schemas are 
 
 Values that contain `: ` or start with a backtick must be quoted in YAML.
 
+If you change `dictionary/terms.yaml`, regenerate the readable views with `python scripts/render_dictionary.py`. CI fails when they are out of date.
+
 New examples must validate. `tests/schema-migration-pending.txt` may list examples that temporarily fail during a coordinated breaking schema change; the check fails as soon as a listed example validates, so the list can only shrink.
 
 ## Pull requests
