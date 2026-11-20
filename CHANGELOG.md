@@ -32,7 +32,7 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - canonical `schemas/protection-assessment.schema.json` and optional protection assessment on case-level core human actions;
 - canonical `PRT-*` protection requirement identifiers for human execution, human judgement, human evidence, effective human oversight, intervention authority, handback, re-demonstration and direct human interaction;
 - normative rules and diagnostics requiring four core-action anchors, constituent microstructure semantics and non-conflation of legal, scientific, framework and institutional protection bases;
-- `docs/16-protection-assessment.md` explaining how EAI proposes what should remain human, evidenced or under human control;
+- `docs/protection-assessment.md` explaining how EAI proposes what should remain human, evidenced or under human control;
 - `context/eu-regulatory-protection.yaml` as a non-canonical jurisdiction overlay for selected EU AI Act and GDPR mappings, with applicability and bindingness preserved;
 - `evidence/protection-guidance.yaml` with evidence-informed candidate protection patterns that remain distinct from legal or EAI-normative requirements;
 - explicit publication model separating specification, machine contract, conformance and implementation guidance;

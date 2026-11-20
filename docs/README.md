@@ -4,17 +4,19 @@ This directory contains human-readable documentation for the candidate standard.
 
 ## Read in this order
 
-1. [`00-overview.md`](00-overview.md) — what the standard is for.
-2. [`01-scope.md`](01-scope.md) — what is inside and outside scope.
-3. [`02-core-concepts.md`](02-core-concepts.md) — core human action, microstructures, AI action, evidence and protection.
-4. [`03-conformance.md`](03-conformance.md) — conformance profiles, information state and diagnostics.
-5. [`04-use-cases.md`](04-use-cases.md) — interoperability use cases.
-6. [`06-actor-profiles-and-skills.md`](06-actor-profiles-and-skills.md) — registry-derived teacher/professional and learner actor views and skills.
-7. [`07-core-action-analysis.md`](07-core-action-analysis.md) — analysing human-AI allocation at action level.
-8. [`08-evidence-handback-remediation.md`](08-evidence-handback-remediation.md) — evidence, handback and renewed human performance.
-9. [`09-human-system-boundary.md`](09-human-system-boundary.md) — distinction between technical system functionality and human constructs.
-10. [`15-self-regulation-and-metacognition.md`](15-self-regulation-and-metacognition.md) — why visible task execution is not the same as learner regulation when AI selects routes, strategies or adjustments.
-11. [`16-protection-assessment.md`](16-protection-assessment.md) — how EAI proposes what should remain human, evidenced or under human control using distinct scientific, legal, framework and institutional bases.
+File names carry no numbers; the reading order is defined here.
+
+1. [`overview.md`](overview.md) — what the standard is for.
+2. [`scope.md`](scope.md) — what is inside and outside scope.
+3. [`core-concepts.md`](core-concepts.md) — core human action, microstructures, AI action, evidence and protection.
+4. [`conformance.md`](conformance.md) — conformance profiles, information state and diagnostics.
+5. [`use-cases.md`](use-cases.md) — interoperability use cases.
+6. [`actor-profiles-and-skills.md`](actor-profiles-and-skills.md) — registry-derived teacher/professional and learner actor views and skills.
+7. [`core-action-analysis.md`](core-action-analysis.md) — analysing human-AI allocation at action level.
+8. [`evidence-handback-remediation.md`](evidence-handback-remediation.md) — evidence, handback and renewed human performance.
+9. [`human-system-boundary.md`](human-system-boundary.md) — distinction between technical system functionality and human constructs.
+10. [`self-regulation-and-metacognition.md`](self-regulation-and-metacognition.md) — why visible task execution is not the same as learner regulation when AI selects routes, strategies or adjustments.
+11. [`protection-assessment.md`](protection-assessment.md) — how EAI proposes what should remain human, evidenced or under human control using distinct scientific, legal, framework and institutional bases.
 
 ## Semantic alignment work
 
@@ -22,14 +24,15 @@ The next semantic release is being prepared under [`../proposals/0.5-semantic-al
 
 ## Standardisation and implementation
 
-- [`06-architecture.md`](06-architecture.md) — repository and interoperability architecture.
-- [`07-extensions-and-diagnostics.md`](07-extensions-and-diagnostics.md) — extensions and diagnostic behaviour.
-- [`10-standard-publication-model.md`](10-standard-publication-model.md) — specification, machine contracts, conformance and implementation guidance.
-- [`11-versioning-and-identifiers.md`](11-versioning-and-identifiers.md) — version and identifier strategy.
-- [`12-conformance-suite.md`](12-conformance-suite.md) — requirements for executable conformance testing and the future reference validator.
-- [`13-migration-0.3-to-0.4.md`](13-migration-0.3-to-0.4.md) — migration of conformance serialization, diagnostics and version metadata.
-- [`14-registry-coverage-audit.md`](14-registry-coverage-audit.md) — current depth of skill and microstructure coverage and the priority build order.
-- [`05-edustandaard-readiness.md`](05-edustandaard-readiness.md) — development path toward possible Edustandaard registration.
+- [`architecture.md`](architecture.md) — repository and interoperability architecture.
+- [`extensions-and-diagnostics.md`](extensions-and-diagnostics.md) — extensions and diagnostic behaviour.
+- [`standard-publication-model.md`](standard-publication-model.md) — specification, machine contracts, conformance and implementation guidance.
+- [`versioning-and-identifiers.md`](versioning-and-identifiers.md) — version and identifier strategy.
+- [`conformance-suite.md`](conformance-suite.md) — requirements for executable conformance testing and the future reference validator.
+- [`validator-core-contract.md`](validator-core-contract.md) — framework-agnostic contract for a future validator core.
+- [`migration-0.3-to-0.4.md`](migration-0.3-to-0.4.md) — migration of conformance serialization, diagnostics and version metadata.
+- [`registry-coverage-audit.md`](registry-coverage-audit.md) — current depth of skill and microstructure coverage and the priority build order.
+- [`edustandaard-readiness.md`](edustandaard-readiness.md) — development path toward possible Edustandaard registration.
 
 ## Canonical sources
 

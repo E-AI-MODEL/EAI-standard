@@ -22,7 +22,7 @@ A schema is not the whole standard. Schema-valid data can still violate a semant
 
 Conformance defines whether an artefact or implementation satisfies a selected EAI profile.
 
-Conformance is separate from information completeness. A representation may conform while preserving unknown information. See `docs/03-conformance.md`.
+Conformance is separate from information completeness. A representation may conform while preserving unknown information. See `docs/conformance.md`.
 
 The target publication set includes:
 

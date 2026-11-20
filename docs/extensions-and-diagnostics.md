@@ -102,4 +102,4 @@ Current profiles include:
 
 Passing one profile does not imply support for all EAI Standard semantics.
 
-See `docs/03-conformance.md` for the full result model.
+See `docs/conformance.md` for the full result model.

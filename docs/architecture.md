@@ -112,7 +112,7 @@ implementation guidance
 
 The specification defines meaning. Machine contracts define representation. Conformance defines correct interpretation. Implementation guidance explains practical use without adding canonical semantics.
 
-See `docs/10-standard-publication-model.md`.
+See `docs/standard-publication-model.md`.
 
 ## Conformance and uncertainty
 

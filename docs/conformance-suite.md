@@ -63,7 +63,7 @@ A reference validator should validate canonical schemas, resolve references, eva
 
 It must not calculate a total EAI quality score, decide educational effectiveness, infer missing evidence, treat an unknown as failed or safe, or turn an example, adapter, scientific claim, legal overlay, LLM judgement or implementation heuristic into a new normative rule.
 
-See `docs/17-validator-core-contract.md` for the implementation boundary.
+See `docs/validator-core-contract.md` for the implementation boundary.
 
 ## Release gate
 
