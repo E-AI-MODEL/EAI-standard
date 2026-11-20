@@ -53,7 +53,7 @@ evidence_items:
   - id: E-01
     evidence_type: EV-08
     observation: Trace of decision for bound_the_interpretation.
-    claim_types: [independent_mastery]
+    claim_types: [professional_judgement]
     notes: >-
       Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
 human_control:

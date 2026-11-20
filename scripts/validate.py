@@ -158,7 +158,10 @@ def check_documents(docs, registry, schemas) -> None:
     valid = invalid_pending = 0
     for pattern, schema_file in DOCUMENT_TARGETS:
         validator = validator_for(schema_file, registry, schemas)
-        for path in sorted(ROOT.glob(pattern)):
+        matches = sorted(ROOT.glob(pattern))
+        if not matches:
+            errors.append(f"documents: target {pattern!r} matches no files; update DOCUMENT_TARGETS")
+        for path in matches:
             if path not in docs:
                 continue  # parse error already reported
             name = rel(path)
@@ -263,9 +266,13 @@ def collect_ids(node, found: set[str]) -> None:
 
 
 def check_dictionary(docs) -> None:
-    data = docs.get(ROOT / DICTIONARY_FILE)
-    if not isinstance(data, dict):
+    path = ROOT / DICTIONARY_FILE
+    if not path.exists():
+        errors.append(f"dictionary: {DICTIONARY_FILE} does not exist")
         return
+    data = docs.get(path)
+    if not isinstance(data, dict):
+        return  # parse error already reported, or not a mapping (schema check reports it)
     entries = data.get("entries") or []
     term_ids = [e.get("id") for e in entries]
     for dup in sorted({i for i in term_ids if term_ids.count(i) > 1}):

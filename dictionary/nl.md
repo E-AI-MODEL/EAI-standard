@@ -21,6 +21,7 @@ Dit is een gegenereerde weergave van [`terms.yaml`](terms.yaml). De dictionary i
 | [AI-drift](#ai_drift) | EAI-betekenis | Gedeeld |
 | [AI-ondersteuning](#ai_support) | algemeen begrip | Onderwijsgestuurd |
 | [Alignment / afstemming](#alignment) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
+| [Answer Machine Era](#answer_machine_era) | EAI-formalisering | Technologiegestuurd |
 | [Autonomie](#autonomy) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Begrip](#understanding) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Beheersing](#mastery) | algemeen begrip | Onderwijs-eigen |
@@ -35,15 +36,17 @@ Dit is een gegenereerde weergave van [`terms.yaml`](terms.yaml). De dictionary i
 | [Cognitieve verplaatsing](#cognitive_displacement) | EAI-betekenis | Gedeeld |
 | [Context](#context) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Contextvenster](#context_window) | algemeen begrip | Technologie-eigen |
+| [Controlled Detachment](#controlled_detachment) | EAI-formalisering | Onderwijsgestuurd |
 | [Creativiteit](#creativity) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [De handeling van het leren](#act_of_learning) | EAI-term | Onderwijs-eigen |
 | [Didactische controleerbaarheid](#didactic_controllability) | EAI-term | Onderwijsgestuurd |
 | [Didactische vervorming](#didactic_distortion) | EAI-term | Onderwijsgestuurd |
 | [Doel](#goal) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
+| [Education in the Loop (EITL)](#education_in_the_loop) | EAI-term | Onderwijsgestuurd |
 | [Eigenaarschap](#ownership) | algemeen begrip | Onderwijs-eigen |
 | [Evaluatie](#evaluation) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
+| [Evidence-Function Shift](#evidence_function_shift) | EAI-formalisering | Gedeeld |
 | [Feedback](#feedback) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
-| [Gecontroleerde ontkoppeling](#controlled_detachment) | EAI-formalisering | Onderwijsgestuurd |
 | [Geheugen](#memory) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Generalisatie](#generalisation) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Gevolgtrekking](#inference) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
@@ -51,16 +54,15 @@ Dit is een gegenereerde weergave van [`terms.yaml`](terms.yaml). De dictionary i
 | [Hallucinatie](#hallucination) | algemeen begrip | Technologie-eigen |
 | [Handeling](#action) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Het ontstaan van de vraag](#question_emergence) | EAI-formalisering | Onderwijs-eigen |
+| [Human in the Loop (HITL)](#human_in_the_loop) | algemeen begrip | Technologiegestuurd |
 | [Illusie van volledigheid](#illusion_of_completeness) | EAI-betekenis | Technologiegestuurd |
 | [Intelligentie](#intelligence) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
+| [Justification Mapping](#justification_mapping) | EAI-term | Onderwijsgestuurd |
 | [Kennis](#knowledge) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Kernhandeling](#core_learning_action) | EAI-term | Onderwijs-eigen |
 | [Leren](#learning) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
-| [Meegaande voltooiing](#sycophantic_completion) | EAI-betekenis | Technologiegestuurd |
-| [Mens in de beslislus (HITL)](#human_in_the_loop) | algemeen begrip | Technologiegestuurd |
 | [Mens-AI-samenwerking](#human_ai_collaboration) | algemeen begrip | Gedeeld |
 | [Metacognitie](#metacognition) | algemeen begrip | Onderwijs-eigen |
-| [Onderwijs in de beslislus (EITL)](#education_in_the_loop) | EAI-term | Onderwijsgestuurd |
 | [Onzekerheid](#uncertainty) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Oordeel](#judgement) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Outputbewijs](#output_evidence) | EAI-formalisering | Onderwijsgestuurd |
@@ -71,26 +73,24 @@ Dit is een gegenereerde weergave van [`terms.yaml`](terms.yaml). De dictionary i
 | [Probleemoplossen](#problem_solving) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Procesbewijs](#process_evidence) | EAI-term | Onderwijs-eigen |
 | [Prompt](#prompt) | algemeen begrip | Technologie-eigen |
+| [Pseudo-Complexity](#pseudo_complexity) | EAI-term | Technologiegestuurd |
 | [Redeneren](#reasoning) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Reflectie](#reflection) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
-| [Reflectieve herintreding](#reflective_re_entry) | EAI-formalisering | Onderwijsgestuurd |
+| [Reflective Re-Entry](#reflective_re_entry) | EAI-formalisering | Onderwijsgestuurd |
 | [Retentie](#retention) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Retrieval-Augmented Generation (RAG)](#retrieval_augmented_generation) | algemeen begrip | Technologie-eigen |
 | [Reverse Scaffolding](#reverse_scaffolding) | EAI-betekenis | Onderwijsgestuurd |
 | [Scaffolding](#scaffolding) | algemeen begrip | Onderwijs-eigen |
-| [Schijncomplexiteit](#pseudo_complexity) | EAI-term | Technologiegestuurd |
+| [Sycophantic Completion](#sycophantic_completion) | EAI-betekenis | Technologiegestuurd |
 | [Taakdichtheid](#task_density) | EAI-term | Onderwijsgestuurd |
-| [Terugtraceerprompting](#trace_back_prompting) | EAI-term | Onderwijsgestuurd |
-| [Tijdperk van de antwoordmachine](#answer_machine_era) | EAI-formalisering | Technologiegestuurd |
+| [Trace-back Prompting](#trace_back_prompting) | EAI-term | Onderwijsgestuurd |
 | [Transfer](#transfer) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Transparantie](#transparency) | algemeen begrip | Technologiegestuurd |
+| [Truth Apathy](#truth_apathy) | EAI-term | Technologiegestuurd |
 | [Uitlegbaarheid](#explainability) | algemeen begrip | Technologiegestuurd |
 | [Verantwoordelijkheid](#responsibility) | algemeen begrip | Onderwijs-eigen |
-| [Verantwoordingsmapping](#justification_mapping) | EAI-term | Onderwijsgestuurd |
 | [Verificatie](#verification) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Vermogen](#capability) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
-| [Verschuiving van de bewijsfunctie](#evidence_function_shift) | EAI-formalisering | Gedeeld |
-| [Waarheidsapathie](#truth_apathy) | EAI-term | Technologiegestuurd |
 | [Waarneming](#observation) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Zekerheid](#confidence) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
 | [Zelfregulatie](#self_regulation) | algemeen begrip | Mens: Onderwijs-eigen · Systeem: Technologie-eigen |
@@ -144,7 +144,7 @@ Een AI-systeem dat is ingericht om doelen via meerdere stappen na te streven, va
 
 **Praktisch gebruik.** Beoordeel iedere gedelegeerde actie ten opzichte van de kernhandeling en de vereiste menselijke beslissingsruimte.
 
-Verwant: [Agency](#agency) · [Onderwijs in de beslislus (EITL)](#education_in_the_loop)
+Verwant: [Agency](#agency) · [Education in the Loop (EITL)](#education_in_the_loop)
 
 <a id="ai_drift"></a>
 ### AI-drift · *AI Drift*
@@ -181,6 +181,19 @@ AI-hulp die bijdraagt aan een taak of leerproces zonder de kernhandeling over te
 **Waarom.** Beide gaan over “alignment”, maar wat wordt afgestemd en welk bewijs nodig is verschilt fundamenteel.
 
 **Praktisch gebruik.** Specificeer constructive alignment of AI alignment in plaats van alleen “alignment”.
+
+<a id="answer_machine_era"></a>
+### Answer Machine Era · *Tijdperk van de antwoordmachine*
+
+**Technologiegestuurd** · EAI-formalisering
+
+Een onderwijscontext waarin antwoorden vrijwel onmiddellijk, vloeiend en overtuigend beschikbaar zijn, waardoor het voorafgaande proces van zoeken, frictie, afweging en twijfel minder zichtbaar of minder waarschijnlijk wordt.
+
+**Waarom.** Wanneer antwoorden verschijnen voordat een leerling het probleem zelf heeft opgemerkt, kan iets belangrijks verdwijnen voordat het onderdeel van leren wordt.
+
+**Praktisch gebruik.** Bescherm momenten waarop nog geen antwoord, route of vraag is aangeboden.
+
+Verwant: [Het ontstaan van de vraag](#question_emergence) · [Closure Bias](#closure_bias) · [Truth Apathy](#truth_apathy)
 
 <a id="autonomy"></a>
 ### Autonomie · *Autonomy*
@@ -267,7 +280,7 @@ Waarneembare informatie die een verdedigbare uitspraak mogelijk maakt over wat d
 
 **Praktisch gebruik.** Bepaal vooraf welk waarneembaar gedrag of welke prestatie de leerclaim mag ondersteunen.
 
-Verwant: [Verschuiving van de bewijsfunctie](#evidence_function_shift) · [Outputbewijs](#output_evidence) · [Procesbewijs](#process_evidence) · [Bewijs van zelfstandige beheersing](#independent_evidence)
+Verwant: [Evidence-Function Shift](#evidence_function_shift) · [Outputbewijs](#output_evidence) · [Procesbewijs](#process_evidence) · [Bewijs van zelfstandige beheersing](#independent_evidence)
 
 EAI-verwijzingen: `human_evidence`, `evidence_claim`
 
@@ -282,7 +295,7 @@ Bewijs dat laat zien wat een leerling zonder de relevante AI-ondersteuning zelf 
 
 **Praktisch gebruik.** Gebruik een nieuwe of vergelijkbare taak zonder de eerdere inhoudelijk dragende AI-steun.
 
-Verwant: [Gecontroleerde ontkoppeling](#controlled_detachment) · [Bewijs van leren](#learning_evidence) · [Procesbewijs](#process_evidence)
+Verwant: [Controlled Detachment](#controlled_detachment) · [Bewijs van leren](#learning_evidence) · [Procesbewijs](#process_evidence)
 
 EAI-verwijzingen: `independent_mastery`, `EV-03`, `EV-10`
 
@@ -299,7 +312,7 @@ De neiging om een vloeiend en afgerond antwoord als volledig te ervaren. De vorm
 
 **Praktisch gebruik.** Open een afgerond antwoord opnieuw: wat ontbreekt, wordt aangenomen, is onzeker of onvoldoende gecontroleerd?
 
-Verwant: [Illusie van volledigheid](#illusion_of_completeness) · [Meegaande voltooiing](#sycophantic_completion) · [Waarheidsapathie](#truth_apathy)
+Verwant: [Illusie van volledigheid](#illusion_of_completeness) · [Sycophantic Completion](#sycophantic_completion) · [Truth Apathy](#truth_apathy)
 
 <a id="presence_vs_performance"></a>
 ### Cognitieve aanwezigheid versus prestatie · *Presence vs Performance*
@@ -365,6 +378,21 @@ De hoeveelheid informatie die een model tijdens een interactie of verwerkingssta
 
 **Praktisch gebruik.** Breng essentiële doelen, grenzen en bewijs opnieuw in wanneer lange interacties relevante context kunnen verliezen.
 
+<a id="controlled_detachment"></a>
+### Controlled Detachment · *Gecontroleerde ontkoppeling*
+
+**Onderwijsgestuurd** · EAI-formalisering
+
+Het doelgericht en tijdelijk wegnemen van relevante AI-ondersteuning om zichtbaar te maken of de leerling de kernhandeling inmiddels zelfstandig kan uitvoeren.
+
+**Waarom.** Presteren met ondersteuning laat niet zien wat zonder die ondersteuning zelfstandig beschikbaar blijft.
+
+**Praktisch gebruik.** Neem bij een vergelijkbare taak de relevante ondersteuning weg en observeer wat de leerling nog zelf kan.
+
+Verwant: [Bewijs van zelfstandige beheersing](#independent_evidence) · [Reverse Scaffolding](#reverse_scaffolding) · [Reflective Re-Entry](#reflective_re_entry)
+
+EAI-verwijzingen: `EV-03`, `REM-01`, `REM-02`
+
 <a id="creativity"></a>
 ### Creativiteit · *Creativity*
 
@@ -401,7 +429,7 @@ De mate waarin zichtbaar en controleerbaar blijft wie de leerrelevante keuzes en
 
 **Praktisch gebruik.** Ontwerp bewijs waardoor keuzes, afwegingen en correcties inspecteerbaar blijven.
 
-Verwant: [Taakdichtheid](#task_density) · [Verantwoordingsmapping](#justification_mapping) · [Procesbewijs](#process_evidence) · [Terugtraceerprompting](#trace_back_prompting)
+Verwant: [Taakdichtheid](#task_density) · [Justification Mapping](#justification_mapping) · [Procesbewijs](#process_evidence) · [Trace-back Prompting](#trace_back_prompting)
 
 EAI-verwijzingen: `didactic_controllability`
 
@@ -432,6 +460,21 @@ Verwant: [AI-drift](#ai_drift) · [Cognitieve verplaatsing](#cognitive_displacem
 
 EAI-verwijzingen: `goal`
 
+<a id="education_in_the_loop"></a>
+### Education in the Loop (EITL) · *Onderwijs in de beslislus (EITL)*
+
+**Onderwijsgestuurd** · EAI-term
+
+Het principe dat de pedagogisch-didactische bedoeling actief onderdeel blijft van de beslissingen en grenzen van een AI-systeem. Leerdoel, kernhandeling, bewijs en menselijke beslissingsruimte worden vooraf in het ontwerp verwerkt en niet alleen achteraf gecontroleerd.
+
+**Waarom.** Een mens in de beslislus is niet genoeg wanneer de onderwijslogica zelf nooit onderdeel van het systeemontwerp was.
+
+**Praktisch gebruik.** Leg leerdoelen, beschermde handelingen, bewijs en interventiegrenzen vast vóór de technische inrichting.
+
+Verwant: [Kernhandeling](#core_learning_action) · [Taakdichtheid](#task_density) · [Didactische controleerbaarheid](#didactic_controllability) · [Human in the Loop (HITL)](#human_in_the_loop)
+
+EAI-verwijzingen: `education_in_the_loop`
+
 <a id="ownership"></a>
 ### Eigenaarschap · *Ownership*
 
@@ -455,6 +498,21 @@ De ervaren verbondenheid van de leerling met, verantwoordelijkheid voor en ident
 
 **Praktisch gebruik.** Scheid wie de criteria bepaalt, wie ze toepast en wie de consequentie interpreteert.
 
+<a id="evidence_function_shift"></a>
+### Evidence-Function Shift · *Verschuiving van de bewijsfunctie*
+
+**Gedeeld** · EAI-formalisering
+
+De verandering waardoor een eindproduct onder generatieve AI minder betrouwbaar wordt als aanwijzing voor het denk- en leerproces dat eraan voorafging.
+
+**Waarom.** Een product kan uitstekend blijven terwijl de gevolgtrekking “dus de leerling heeft het denkwerk gedaan” minder houdbaar wordt.
+
+**Praktisch gebruik.** Herzie wat een product nog kan bewijzen en voeg waar nodig proces- of zelfstandig bewijs toe.
+
+Verwant: [Bewijs van leren](#learning_evidence) · [Outputbewijs](#output_evidence) · [Procesbewijs](#process_evidence) · [Bewijs van zelfstandige beheersing](#independent_evidence)
+
+EAI-verwijzingen: `evidence_function_shift`
+
 <a id="feedback"></a>
 ### Feedback
 
@@ -466,21 +524,6 @@ De ervaren verbondenheid van de leerling met, verantwoordelijkheid voor en ident
 **Waarom.** De twee betekenissen delen een woord maar verschillen in doel, actor en bewijs van effect.
 
 **Praktisch gebruik.** Benoem of feedback bedoeld is voor leerlingregulatie of systeemsturing.
-
-<a id="controlled_detachment"></a>
-### Gecontroleerde ontkoppeling · *Controlled Detachment*
-
-**Onderwijsgestuurd** · EAI-formalisering
-
-Het doelgericht en tijdelijk wegnemen van relevante AI-ondersteuning om zichtbaar te maken of de leerling de kernhandeling inmiddels zelfstandig kan uitvoeren.
-
-**Waarom.** Presteren met ondersteuning laat niet zien wat zonder die ondersteuning zelfstandig beschikbaar blijft.
-
-**Praktisch gebruik.** Neem bij een vergelijkbare taak de relevante ondersteuning weg en observeer wat de leerling nog zelf kan.
-
-Verwant: [Bewijs van zelfstandige beheersing](#independent_evidence) · [Reverse Scaffolding](#reverse_scaffolding) · [Reflectieve herintreding](#reflective_re_entry)
-
-EAI-verwijzingen: `EV-03`, `REM-01`, `REM-02`
 
 <a id="memory"></a>
 ### Geheugen · *Memory*
@@ -567,9 +610,22 @@ Het proces waarin een leerling zelf een probleem, spanning, ontbrekend verband o
 
 **Praktisch gebruik.** Bescherm open ruimte voordat AI het probleem benoemt of de vraag formuleert.
 
-Verwant: [De handeling van het leren](#act_of_learning) · [Tijdperk van de antwoordmachine](#answer_machine_era) · [Closure Bias](#closure_bias)
+Verwant: [De handeling van het leren](#act_of_learning) · [Answer Machine Era](#answer_machine_era) · [Closure Bias](#closure_bias)
 
 EAI-verwijzingen: `question_emergence`
+
+<a id="human_in_the_loop"></a>
+### Human in the Loop (HITL) · *Mens in de beslislus (HITL)*
+
+**Technologiegestuurd** · algemeen begrip
+
+Een systeemontwerp waarin een mens een deel van een geautomatiseerd proces beoordeelt, goedkeurt, corrigeert of kan onderbreken.
+
+**Waarom.** Menselijke aanwezigheid in een workflow betekent niet automatisch dat de onderwijsbedoeling de workflow stuurt.
+
+**Praktisch gebruik.** Maak onderscheid tussen menselijk toezicht en Education in the Loop: wie bepaalt doelen, grenzen en bewijsvereisten?
+
+Verwant: [Education in the Loop (EITL)](#education_in_the_loop)
 
 <a id="illusion_of_completeness"></a>
 ### Illusie van volledigheid · *Illusion of Completeness*
@@ -582,7 +638,7 @@ De indruk dat een antwoord inhoudelijk volledig is doordat het samenhangend en a
 
 **Praktisch gebruik.** Vraag welke perspectieven, uitzonderingen, onzekerheden of voorwaarden ontbreken.
 
-Verwant: [Closure Bias](#closure_bias) · [Schijncomplexiteit](#pseudo_complexity)
+Verwant: [Closure Bias](#closure_bias) · [Pseudo-Complexity](#pseudo_complexity)
 
 <a id="intelligence"></a>
 ### Intelligentie · *Intelligence*
@@ -595,6 +651,21 @@ Verwant: [Closure Bias](#closure_bias) · [Schijncomplexiteit](#pseudo_complexit
 **Waarom.** Het gedeelde woord kan taakprestatie laten lijken op bewijs van hetzelfde soort onderliggende intelligentie.
 
 **Praktisch gebruik.** Gebruik waar mogelijk het specifieke vermogen of construct waar je werkelijk over spreekt.
+
+<a id="justification_mapping"></a>
+### Justification Mapping · *Verantwoordingsmapping*
+
+**Onderwijsgestuurd** · EAI-term
+
+Een gestructureerde manier om zichtbaar te maken wat de leerling aan AI vroeg, wat AI voorstelde, wat de leerling overnam, aanpaste of verwierp, en waarom.
+
+**Waarom.** Een promptlog toont interactie, maar nog niet de afweging of het eigenaarschap achter de uiteindelijke keuzes.
+
+**Praktisch gebruik.** Leg per relevante AI-bijdrage vast: voorstel, handeling van de leerling en reden.
+
+Verwant: [Trace-back Prompting](#trace_back_prompting) · [Didactische controleerbaarheid](#didactic_controllability) · [Procesbewijs](#process_evidence)
+
+EAI-verwijzingen: `EV-08`
 
 <a id="knowledge"></a>
 ### Kennis · *Knowledge*
@@ -637,32 +708,6 @@ EAI-verwijzingen: `core_learning_action`, `core_human_action`
 
 **Praktisch gebruik.** Specificeer menselijk leren of machine learning wanneer ambiguïteit ertoe doet.
 
-<a id="sycophantic_completion"></a>
-### Meegaande voltooiing · *Sycophantic Completion*
-
-**Technologiegestuurd** · EAI-betekenis
-
-Het verschijnsel waarbij een generatief systeem de aannames, voorkeuren of gedachtegang van de gebruiker soepel bevestigt en vervolledigt, waardoor noodzakelijke tegenspraak, twijfel of kritische weerstand uitblijft.
-
-**Waarom.** Een systeem kan een zwakke gedachtegang sterker laten voelen door haar vloeiend af te maken in plaats van te bevragen.
-
-**Praktisch gebruik.** Laat waar passend eerst tegenbewijs, alternatieven of tegenspraak zoeken voordat de redenering wordt voltooid.
-
-Verwant: [Closure Bias](#closure_bias) · [Waarheidsapathie](#truth_apathy)
-
-<a id="human_in_the_loop"></a>
-### Mens in de beslislus (HITL) · *Human in the Loop (HITL)*
-
-**Technologiegestuurd** · algemeen begrip
-
-Een systeemontwerp waarin een mens een deel van een geautomatiseerd proces beoordeelt, goedkeurt, corrigeert of kan onderbreken.
-
-**Waarom.** Menselijke aanwezigheid in een workflow betekent niet automatisch dat de onderwijsbedoeling de workflow stuurt.
-
-**Praktisch gebruik.** Maak onderscheid tussen menselijk toezicht en Education in the Loop: wie bepaalt doelen, grenzen en bewijsvereisten?
-
-Verwant: [Onderwijs in de beslislus (EITL)](#education_in_the_loop)
-
 <a id="human_ai_collaboration"></a>
 ### Mens-AI-samenwerking · *Human-AI Collaboration*
 
@@ -684,21 +729,6 @@ De kennis en regulatie van het eigen denken en leren, waaronder plannen, monitor
 **Waarom.** Systeemzelfcontrole kan metacognitie ondersteunen, maar is niet zelf de metacognitie van de leerling.
 
 **Praktisch gebruik.** Houd de eigen monitoring en evaluatie van de leerling zichtbaar wanneer AI reflectieve prompts of controles geeft.
-
-<a id="education_in_the_loop"></a>
-### Onderwijs in de beslislus (EITL) · *Education in the Loop (EITL)*
-
-**Onderwijsgestuurd** · EAI-term
-
-Het principe dat de pedagogisch-didactische bedoeling actief onderdeel blijft van de beslissingen en grenzen van een AI-systeem. Leerdoel, kernhandeling, bewijs en menselijke beslissingsruimte worden vooraf in het ontwerp verwerkt en niet alleen achteraf gecontroleerd.
-
-**Waarom.** Een mens in de beslislus is niet genoeg wanneer de onderwijslogica zelf nooit onderdeel van het systeemontwerp was.
-
-**Praktisch gebruik.** Leg leerdoelen, beschermde handelingen, bewijs en interventiegrenzen vast vóór de technische inrichting.
-
-Verwant: [Kernhandeling](#core_learning_action) · [Taakdichtheid](#task_density) · [Didactische controleerbaarheid](#didactic_controllability) · [Mens in de beslislus (HITL)](#human_in_the_loop)
-
-EAI-verwijzingen: `education_in_the_loop`
 
 <a id="uncertainty"></a>
 ### Onzekerheid · *Uncertainty*
@@ -735,7 +765,7 @@ Informatie die uit het eindproduct of de uiteindelijke prestatie wordt afgeleid.
 
 **Praktisch gebruik.** Beperk de conclusie tot wat het product werkelijk laat zien; voeg ander bewijs toe voor sterkere claims.
 
-Verwant: [Bewijs van leren](#learning_evidence) · [Verschuiving van de bewijsfunctie](#evidence_function_shift)
+Verwant: [Bewijs van leren](#learning_evidence) · [Evidence-Function Shift](#evidence_function_shift)
 
 <a id="oversupport"></a>
 ### Overondersteuning · *Oversupport*
@@ -812,7 +842,7 @@ Waarneembare informatie uit het leerproces die laat zien hoe de leerling koos, r
 
 **Praktisch gebruik.** Bouw momenten in waarop keuzes, fouten, controles of herzieningen zichtbaar worden.
 
-Verwant: [Bewijs van leren](#learning_evidence) · [Verantwoordingsmapping](#justification_mapping) · [Terugtraceerprompting](#trace_back_prompting)
+Verwant: [Bewijs van leren](#learning_evidence) · [Justification Mapping](#justification_mapping) · [Trace-back Prompting](#trace_back_prompting)
 
 EAI-verwijzingen: `EV-14`
 
@@ -826,6 +856,21 @@ Input die een generatief AI-systeem instructies, grenzen of context geeft.
 **Waarom.** Promptkwaliteit kan systeemoutput verbeteren zonder het inhoudelijke begrip van de leerling te verbeteren.
 
 **Praktisch gebruik.** Gebruik promptkwaliteit niet als maat voor leren; verbind prompts steeds terug aan de kernhandeling.
+
+<a id="pseudo_complexity"></a>
+### Pseudo-Complexity · *Schijncomplexiteit*
+
+**Technologiegestuurd** · EAI-term
+
+De indruk van diepgang of complexiteit die ontstaat door rijke, volwassen of technisch overtuigende output zonder aantoonbaar overeenkomstig begrip of denkwerk bij de leerling.
+
+**Waarom.** Generatieve AI kan werk intellectueel rijp laten ogen voordat die rijpheid in het begrip van de leerling aanwezig is.
+
+**Onderscheid.** Pseudo-Complexity gaat over de schijn van diepgang; Illusie van volledigheid over de schijn van volledigheid.
+
+**Praktisch gebruik.** Laat de leerling het complexe deel zelfstandig reconstrueren, uitleggen en toepassen.
+
+Verwant: [Illusie van volledigheid](#illusion_of_completeness) · [Outputbewijs](#output_evidence)
 
 <a id="reasoning"></a>
 ### Redeneren · *Reasoning*
@@ -852,7 +897,7 @@ Input die een generatief AI-systeem instructies, grenzen of context geeft.
 **Praktisch gebruik.** Gebruik aparte labels voor leerlingreflectie en systeemzelfcontrole.
 
 <a id="reflective_re_entry"></a>
-### Reflectieve herintreding · *Reflective Re-Entry*
+### Reflective Re-Entry · *Reflectieve herintreding*
 
 **Onderwijsgestuurd** · EAI-formalisering
 
@@ -862,7 +907,7 @@ Het doelgericht opnieuw betreden van het denkproces na AI-gebruik door te recons
 
 **Praktisch gebruik.** Ga terug naar één concrete beslissing en reconstrueer de AI-bijdrage, de eigen afweging en een alternatieve route.
 
-Verwant: [Terugtraceerprompting](#trace_back_prompting) · [Verantwoordingsmapping](#justification_mapping) · [Gecontroleerde ontkoppeling](#controlled_detachment)
+Verwant: [Trace-back Prompting](#trace_back_prompting) · [Justification Mapping](#justification_mapping) · [Controlled Detachment](#controlled_detachment)
 
 <a id="retention"></a>
 ### Retentie · *Retention*
@@ -900,7 +945,7 @@ Een patroon waarin AI-ondersteuning niet afneemt naarmate de leerling verder kom
 
 **Praktisch gebruik.** Breng de ondersteuning door de tijd in kaart en markeer welk deel vervolgens moet worden teruggegeven aan de leerling.
 
-Verwant: [Overondersteuning](#oversupport) · [Gecontroleerde ontkoppeling](#controlled_detachment) · [Taakdichtheid](#task_density)
+Verwant: [Overondersteuning](#oversupport) · [Controlled Detachment](#controlled_detachment) · [Taakdichtheid](#task_density)
 
 <a id="scaffolding"></a>
 ### Scaffolding
@@ -913,20 +958,18 @@ Tijdelijke ondersteuning waardoor een leerling verder kan dan de huidige zelfsta
 
 **Praktisch gebruik.** Controleer of ondersteuning contingent is en daadwerkelijk afneemt wanneer de leerling competenter wordt.
 
-<a id="pseudo_complexity"></a>
-### Schijncomplexiteit · *Pseudo-Complexity*
+<a id="sycophantic_completion"></a>
+### Sycophantic Completion · *Meegaande voltooiing*
 
-**Technologiegestuurd** · EAI-term
+**Technologiegestuurd** · EAI-betekenis
 
-De indruk van diepgang of complexiteit die ontstaat door rijke, volwassen of technisch overtuigende output zonder aantoonbaar overeenkomstig begrip of denkwerk bij de leerling.
+Het verschijnsel waarbij een generatief systeem de aannames, voorkeuren of gedachtegang van de gebruiker soepel bevestigt en vervolledigt, waardoor noodzakelijke tegenspraak, twijfel of kritische weerstand uitblijft.
 
-**Waarom.** Generatieve AI kan werk intellectueel rijp laten ogen voordat die rijpheid in het begrip van de leerling aanwezig is.
+**Waarom.** Een systeem kan een zwakke gedachtegang sterker laten voelen door haar vloeiend af te maken in plaats van te bevragen.
 
-**Onderscheid.** Pseudo-Complexity gaat over de schijn van diepgang; Illusie van volledigheid over de schijn van volledigheid.
+**Praktisch gebruik.** Laat waar passend eerst tegenbewijs, alternatieven of tegenspraak zoeken voordat de redenering wordt voltooid.
 
-**Praktisch gebruik.** Laat de leerling het complexe deel zelfstandig reconstrueren, uitleggen en toepassen.
-
-Verwant: [Illusie van volledigheid](#illusion_of_completeness) · [Outputbewijs](#output_evidence)
+Verwant: [Closure Bias](#closure_bias) · [Truth Apathy](#truth_apathy)
 
 <a id="task_density"></a>
 ### Taakdichtheid · *Task Density*
@@ -946,7 +989,7 @@ Verwant: [Kernhandeling](#core_learning_action) · [Cognitieve verplaatsing](#co
 EAI-verwijzingen: `task_density`, `AIA-10`, `AIA-11`
 
 <a id="trace_back_prompting"></a>
-### Terugtraceerprompting · *Trace-back Prompting*
+### Trace-back Prompting · *Terugtraceerprompting*
 
 **Onderwijsgestuurd** · EAI-term
 
@@ -956,20 +999,7 @@ Een interventie waarbij de leerling vanaf een eindproduct, keuze of wijziging te
 
 **Praktisch gebruik.** Start bij één concrete passage of beslissing en traceer terug naar AI-voorstel, eigen keuze en reden.
 
-Verwant: [Verantwoordingsmapping](#justification_mapping) · [Reflectieve herintreding](#reflective_re_entry) · [Didactische controleerbaarheid](#didactic_controllability)
-
-<a id="answer_machine_era"></a>
-### Tijdperk van de antwoordmachine · *Answer Machine Era*
-
-**Technologiegestuurd** · EAI-formalisering
-
-Een onderwijscontext waarin antwoorden vrijwel onmiddellijk, vloeiend en overtuigend beschikbaar zijn, waardoor het voorafgaande proces van zoeken, frictie, afweging en twijfel minder zichtbaar of minder waarschijnlijk wordt.
-
-**Waarom.** Wanneer antwoorden verschijnen voordat een leerling het probleem zelf heeft opgemerkt, kan iets belangrijks verdwijnen voordat het onderdeel van leren wordt.
-
-**Praktisch gebruik.** Bescherm momenten waarop nog geen antwoord, route of vraag is aangeboden.
-
-Verwant: [Het ontstaan van de vraag](#question_emergence) · [Closure Bias](#closure_bias) · [Waarheidsapathie](#truth_apathy)
+Verwant: [Justification Mapping](#justification_mapping) · [Reflective Re-Entry](#reflective_re_entry) · [Didactische controleerbaarheid](#didactic_controllability)
 
 <a id="transfer"></a>
 ### Transfer
@@ -995,6 +1025,21 @@ De mate waarin relevante systeemrollen, bronnen, datastromen, acties of grenzen 
 **Waarom.** Transparantie maakt inspectie mogelijk, maar bewijst op zichzelf geen juistheid, leren of effectief menselijk toezicht.
 
 **Praktisch gebruik.** Gebruik transparantie als voorwaarde en vraag vervolgens welke onderwijsclaim de zichtbare informatie werkelijk ondersteunt.
+
+<a id="truth_apathy"></a>
+### Truth Apathy · *Waarheidsapathie*
+
+**Technologiegestuurd** · EAI-term
+
+De afname van de wil of neiging om actief te blijven onderzoeken wat waar, onzeker of onvoldoende bewezen is doordat antwoorden snel, overvloedig en overtuigend beschikbaar zijn.
+
+**Waarom.** Het risico is niet alleen een fout antwoord geloven, maar de gewoonte verliezen om door te blijven zoeken naar wat werkelijk waar is.
+
+**Onderscheid.** Bij Closure Bias sluit één antwoord te vroeg af; bij Truth Apathy wordt het zoeken zelf minder vanzelfsprekend.
+
+**Praktisch gebruik.** Maak onderscheid tussen wat bekend, aangenomen, onzeker, onbewezen en nog te controleren is.
+
+Verwant: [Closure Bias](#closure_bias) · [Illusie van volledigheid](#illusion_of_completeness) · [Het ontstaan van de vraag](#question_emergence)
 
 <a id="explainability"></a>
 ### Uitlegbaarheid · *Explainability*
@@ -1022,21 +1067,6 @@ Menselijke verantwoordelijkheid voor beslissingen, handelingen en hun gevolgen b
 
 EAI-verwijzingen: `responsibility`
 
-<a id="justification_mapping"></a>
-### Verantwoordingsmapping · *Justification Mapping*
-
-**Onderwijsgestuurd** · EAI-term
-
-Een gestructureerde manier om zichtbaar te maken wat de leerling aan AI vroeg, wat AI voorstelde, wat de leerling overnam, aanpaste of verwierp, en waarom.
-
-**Waarom.** Een promptlog toont interactie, maar nog niet de afweging of het eigenaarschap achter de uiteindelijke keuzes.
-
-**Praktisch gebruik.** Leg per relevante AI-bijdrage vast: voorstel, handeling van de leerling en reden.
-
-Verwant: [Terugtraceerprompting](#trace_back_prompting) · [Didactische controleerbaarheid](#didactic_controllability) · [Procesbewijs](#process_evidence)
-
-EAI-verwijzingen: `EV-08`
-
 <a id="verification"></a>
 ### Verificatie · *Verification*
 
@@ -1060,36 +1090,6 @@ EAI-verwijzingen: `EV-08`
 **Waarom.** Vermogen is geen taakverdeling. Dat AI iets kan, bepaalt niet wie het moet doen.
 
 **Praktisch gebruik.** Stel twee vragen apart: kan AI dit, en moet AI dit hier doen?
-
-<a id="evidence_function_shift"></a>
-### Verschuiving van de bewijsfunctie · *Evidence-Function Shift*
-
-**Gedeeld** · EAI-formalisering
-
-De verandering waardoor een eindproduct onder generatieve AI minder betrouwbaar wordt als aanwijzing voor het denk- en leerproces dat eraan voorafging.
-
-**Waarom.** Een product kan uitstekend blijven terwijl de gevolgtrekking “dus de leerling heeft het denkwerk gedaan” minder houdbaar wordt.
-
-**Praktisch gebruik.** Herzie wat een product nog kan bewijzen en voeg waar nodig proces- of zelfstandig bewijs toe.
-
-Verwant: [Bewijs van leren](#learning_evidence) · [Outputbewijs](#output_evidence) · [Procesbewijs](#process_evidence) · [Bewijs van zelfstandige beheersing](#independent_evidence)
-
-EAI-verwijzingen: `evidence_function_shift`
-
-<a id="truth_apathy"></a>
-### Waarheidsapathie · *Truth Apathy*
-
-**Technologiegestuurd** · EAI-term
-
-De afname van de wil of neiging om actief te blijven onderzoeken wat waar, onzeker of onvoldoende bewezen is doordat antwoorden snel, overvloedig en overtuigend beschikbaar zijn.
-
-**Waarom.** Het risico is niet alleen een fout antwoord geloven, maar de gewoonte verliezen om door te blijven zoeken naar wat werkelijk waar is.
-
-**Onderscheid.** Bij Closure Bias sluit één antwoord te vroeg af; bij Truth Apathy wordt het zoeken zelf minder vanzelfsprekend.
-
-**Praktisch gebruik.** Maak onderscheid tussen wat bekend, aangenomen, onzeker, onbewezen en nog te controleren is.
-
-Verwant: [Closure Bias](#closure_bias) · [Illusie van volledigheid](#illusion_of_completeness) · [Het ontstaan van de vraag](#question_emergence)
 
 <a id="observation"></a>
 ### Waarneming · *Observation*

@@ -51,7 +51,7 @@ evidence_items:
   - id: E-01
     evidence_type: EV-01
     observation: Final AI-supported product.
-    claim_types: [independent_mastery]
+    claim_types: [current_performance]
     notes: >-
       Evidence type assigned during migration from the pre-0.4 free-text evidence list.
 human_control: null

@@ -76,13 +76,13 @@ evidence_items:
   - id: E-03
     evidence_type: EV-02
     observation: Explanation or justification for generate_main_argument.
-    claim_types: [independent_mastery]
+    claim_types: [current_performance]
     notes: >-
       Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
   - id: E-04
     evidence_type: EV-05
     observation: Comparison and selection for recognise_counterargument.
-    claim_types: [independent_mastery]
+    claim_types: [current_performance]
     notes: >-
       Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
   - id: E-05
@@ -94,13 +94,13 @@ evidence_items:
   - id: E-06
     evidence_type: EV-02
     observation: Explanation or justification for formulate_rebuttal.
-    claim_types: [independent_mastery]
+    claim_types: [current_performance]
     notes: >-
       Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
   - id: E-07
     evidence_type: EV-02
     observation: Explanation or justification for order_arguments_logically.
-    claim_types: [independent_mastery]
+    claim_types: [current_performance]
     notes: >-
       Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
   - id: E-08

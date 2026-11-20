@@ -59,64 +59,74 @@ claim_type: professional_judgement
 evidence_items:
   - id: E-01
     evidence_type: EV-01
-    observation: Observed attempt for establish_direct_human_contact.
-    claim_types: [professional_judgement]
+    observation: >-
+      The mentor meets the learner in person and invites them to tell their own account before any notes are made.
+    claim_types: [current_performance]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-02
     evidence_type: EV-09
-    observation: Multi source observation for establish_direct_human_contact.
+    observation: >-
+      The learner's account in the conversation and the mentor's own observation of the learner's participation are both available to the mentor.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-03
     evidence_type: EV-02
-    observation: Explanation or justification for clarify_meaning_with_learner.
+    observation: >-
+      The mentor restates the learner's account in their own words and asks the learner to confirm or correct it.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-04
     evidence_type: EV-09
-    observation: Multi source observation for clarify_meaning_with_learner.
+    observation: >-
+      The mentor checks the learner's account against the learner's own correction and against what is known about recent participation.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-05
     evidence_type: EV-05
-    observation: Comparison and selection for weigh_educational_and_relational_considerations.
+    observation: >-
+      The mentor compares possible follow-ups on their educational and relational consequences for this learner.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-06
     evidence_type: EV-08
-    observation: Trace of decision for weigh_educational_and_relational_considerations.
+    observation: >-
+      A record shows which considerations the mentor weighed and how the learner's own account was taken into account.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-07
     evidence_type: EV-05
-    observation: Comparison and selection for select_proportionate_follow_up.
+    observation: >-
+      The mentor compares the options the AI tool listed with own alternatives and selects one that fits the learner's situation.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-08
     evidence_type: EV-08
-    observation: Trace of decision for select_proportionate_follow_up.
+    observation: >-
+      A record shows which follow-up was selected, which options were rejected and why.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-09
     evidence_type: EV-02
-    observation: Explanation or justification for justify_pedagogical_decision.
+    observation: >-
+      The mentor explains the chosen follow-up to the learner and justifies it in their own words.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
   - id: E-10
     evidence_type: EV-08
-    observation: Trace of decision for justify_pedagogical_decision.
+    observation: >-
+      A record links the final decision to the learner's account, the relevant context and the mentor's reasoning.
     claim_types: [professional_judgement]
     notes: >-
-      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
 human_control:
   responsible_actor: teacher_professional
   notes: >-

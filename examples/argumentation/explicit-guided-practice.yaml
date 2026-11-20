@@ -83,7 +83,7 @@ actors:
             evidence_refs: [E-10]
             handback_required: false
             remediation_ref: null
-          - id: MS-TSF-08
+          - id: MS-EXAMPLE-ADJUST-SUPPORT
             label: adjust_support
             human_execution: full
             ai_actions: [AIA-00]
@@ -152,21 +152,21 @@ evidence_items:
     evidence_type: EV-16
     source_actor: teacher_professional
     observation: Teacher inspects learner original response.
-    claim_types: [current_performance]
+    claim_types: [professional_judgement]
     notes: >-
       Evidence type assigned during migration from the pre-0.4 free-text evidence list.
   - id: E-10
     evidence_type: EV-08
     source_actor: teacher_professional
     observation: Teacher selects or rejects hint based on observed need.
-    claim_types: [current_performance]
+    claim_types: [professional_judgement]
     notes: >-
       Evidence type assigned during migration from the pre-0.4 free-text evidence list.
   - id: E-11
     evidence_type: EV-08
     source_actor: teacher_professional
     observation: Teacher changes support level with reason.
-    claim_types: [current_performance]
+    claim_types: [professional_judgement]
     notes: >-
       Evidence type assigned during migration from the pre-0.4 free-text evidence list.
 human_control:

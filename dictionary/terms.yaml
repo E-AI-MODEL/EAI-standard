@@ -192,7 +192,8 @@ entries:
       nl: >-
         Specificeer constructive alignment of AI alignment in plaats van alleen “alignment”.
   - id: answer_machine_era
-    term: {en: Answer Machine Era, nl: Tijdperk van de antwoordmachine}
+    term: {en: Answer Machine Era, nl: Answer Machine Era}
+    nl_translation: Tijdperk van de antwoordmachine
     label: eai_formalisation
     position: technology_led
     definition:
@@ -450,7 +451,8 @@ entries:
       nl: >-
         Breng essentiële doelen, grenzen en bewijs opnieuw in wanneer lange interacties relevante context kunnen verliezen.
   - id: controlled_detachment
-    term: {en: Controlled Detachment, nl: Gecontroleerde ontkoppeling}
+    term: {en: Controlled Detachment, nl: Controlled Detachment}
+    nl_translation: Gecontroleerde ontkoppeling
     label: eai_formalisation
     position: education_led
     definition:
@@ -586,7 +588,8 @@ entries:
         Vergelijk de oorspronkelijke leerlinghandeling met wat na toevoeging van AI nog bij de leerling ligt.
     related: [ai_drift, cognitive_displacement, task_density]
   - id: education_in_the_loop
-    term: {en: Education in the Loop (EITL), nl: Onderwijs in de beslislus (EITL)}
+    term: {en: Education in the Loop (EITL), nl: Education in the Loop (EITL)}
+    nl_translation: Onderwijs in de beslislus (EITL)
     label: eai_term
     position: education_led
     definition:
@@ -635,7 +638,8 @@ entries:
       nl: >-
         Scheid wie de criteria bepaalt, wie ze toepast en wie de consequentie interpreteert.
   - id: evidence_function_shift
-    term: {en: Evidence-Function Shift, nl: Verschuiving van de bewijsfunctie}
+    term: {en: Evidence-Function Shift, nl: Evidence-Function Shift}
+    nl_translation: Verschuiving van de bewijsfunctie
     label: eai_formalisation
     position: shared
     definition:
@@ -770,7 +774,8 @@ entries:
       nl: >-
         Behandel broncontrole en epistemische verificatie als afzonderlijke onderwijsactiviteiten in plaats van te veronderstellen dat het model zichzelf corrigeert.
   - id: human_in_the_loop
-    term: {en: Human in the Loop (HITL), nl: Mens in de beslislus (HITL)}
+    term: {en: Human in the Loop (HITL), nl: Human in the Loop (HITL)}
+    nl_translation: Mens in de beslislus (HITL)
     label: common_term
     position: technology_led
     definition:
@@ -925,7 +930,8 @@ entries:
         Identify who owns the criteria, interpretation and consequences of the judgement.
       nl: Benoem wie eigenaar is van criteria, interpretatie en gevolgen van het oordeel.
   - id: justification_mapping
-    term: {en: Justification Mapping, nl: Verantwoordingsmapping}
+    term: {en: Justification Mapping, nl: Justification Mapping}
+    nl_translation: Verantwoordingsmapping
     label: eai_term
     position: education_led
     definition:
@@ -1340,7 +1346,8 @@ entries:
       nl: >-
         Gebruik promptkwaliteit niet als maat voor leren; verbind prompts steeds terug aan de kernhandeling.
   - id: pseudo_complexity
-    term: {en: Pseudo-Complexity, nl: Schijncomplexiteit}
+    term: {en: Pseudo-Complexity, nl: Pseudo-Complexity}
+    nl_translation: Schijncomplexiteit
     label: eai_term
     position: technology_led
     definition:
@@ -1436,7 +1443,8 @@ entries:
       en: Use separate labels for learner reflection and system self-checking.
       nl: Gebruik aparte labels voor leerlingreflectie en systeemzelfcontrole.
   - id: reflective_re_entry
-    term: {en: Reflective Re-Entry, nl: Reflectieve herintreding}
+    term: {en: Reflective Re-Entry, nl: Reflective Re-Entry}
+    nl_translation: Reflectieve herintreding
     label: eai_formalisation
     position: education_led
     definition:
@@ -1612,7 +1620,8 @@ entries:
       proposal_concepts: [support_replacement_boundary]
       identifiers: [AIA-10, AIA-11]
   - id: sycophantic_completion
-    term: {en: Sycophantic Completion, nl: Meegaande voltooiing}
+    term: {en: Sycophantic Completion, nl: Sycophantic Completion}
+    nl_translation: Meegaande voltooiing
     label: eai_meaning
     position: technology_led
     definition:
@@ -1660,7 +1669,8 @@ entries:
       proposal_concepts: [task_density]
       identifiers: [AIA-10, AIA-11]
   - id: trace_back_prompting
-    term: {en: Trace-back Prompting, nl: Terugtraceerprompting}
+    term: {en: Trace-back Prompting, nl: Trace-back Prompting}
+    nl_translation: Terugtraceerprompting
     label: eai_term
     position: education_led
     definition:
@@ -1725,7 +1735,8 @@ entries:
       nl: >-
         Gebruik transparantie als voorwaarde en vraag vervolgens welke onderwijsclaim de zichtbare informatie werkelijk ondersteunt.
   - id: truth_apathy
-    term: {en: Truth Apathy, nl: Waarheidsapathie}
+    term: {en: Truth Apathy, nl: Truth Apathy}
+    nl_translation: Waarheidsapathie
     label: eai_term
     position: technology_led
     definition:

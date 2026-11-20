@@ -49,7 +49,8 @@ The positions are defined in [`proposals/0.5-semantic-alignment/concept-position
 Each entry in `terms.yaml` has:
 
 - `id`: a stable snake_case identifier, used for links and references;
-- `term`: the English and Dutch term;
+- `term`: the English and Dutch term. The Dutch term is the headword of the Dutch edition, which keeps some EAI terms in English (for example *Justification Mapping*);
+- `nl_translation` (optional): the Dutch translation the Dutch edition gives next to such an English headword (for example *Verantwoordingsmapping*);
 - `label` and `position`;
 - `definition`, or `meanings.human` and `meanings.system` for split constructs;
 - `why`: what becomes unclear if the distinction is not made;

@@ -97,10 +97,13 @@ def render(data, lang):
         out.append(f"| [{e['term'][lang]}](#{e['id']}) | {LABEL[lang][e['label']]} | {position_text(e['position'], lang)} |")
     out += ["", f"## {t['entries']}", ""]
     for e in entries:
-        other = "nl" if lang == "en" else "en"
         heading = e["term"][lang]
-        if e["term"][other] != heading:
-            heading += f" · *{e['term'][other]}*"
+        secondary = [e["term"]["en"] if lang == "nl" else e["term"]["nl"]]
+        if e.get("nl_translation"):
+            secondary.append(e["nl_translation"])
+        secondary = [s for s in dict.fromkeys(secondary) if s != heading]
+        if secondary:
+            heading += " · " + " · ".join(f"*{s}*" for s in secondary)
         out += [f'<a id="{e["id"]}"></a>', f"### {heading}", "",
                 f"**{position_text(e['position'], lang)}** · {LABEL[lang][e['label']]}", ""]
         if "definition" in e:
