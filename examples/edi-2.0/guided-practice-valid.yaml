@@ -2,55 +2,100 @@ id: EX-EDI-GP-001
 standard_version: 0.4.0-candidate
 context: >-
   During guided practice, learners solve a fresh item. The AI tutor may ask a question or provide a limited cue, but does not supply the substantive solution step that is the lesson target.
-goal: Learners increasingly execute the target procedure themselves while temporary support is reduced.
-process_position:
-  model: Expliciete Directe Instructie 2.0
-  label: Begeleide inoefening
-  source_term: Begeleide inoefening
-  source_element_id: EDI-P4
+goal: >-
+  Learners increasingly execute the target procedure themselves while temporary support is reduced.
+process_positions:
+  - id: PP-01
+    model: Expliciete Directe Instructie 2.0
+    label: Begeleide inoefening
+    source_term: Begeleide inoefening
+    source_element_id: EDI-P4
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: learner
     core_actions:
       - id: learner_target_execution
         label: execute the target procedure while support is reduced
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-LRI-04
             label: execute_target_operation
             human_execution: full
-            ai_action: AIA-02
-            evidence: [EV-01]
+            ai_actions: [AIA-02]
+            evidence_refs: [E-01]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-LRI-05
             label: monitor_own_progress
             human_execution: full
-            ai_action: AIA-03
-            evidence: [EV-02]
+            ai_actions: [AIA-03]
+            evidence_refs: [E-02]
             handback_required: false
-            remediation: null
+            remediation_ref: null
   - actor: teacher_professional
     core_actions:
       - id: regulate_support
         label: interpret learner performance and regulate support
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-TSF-07
             label: inspect_response_to_support
             human_execution: full
-            ai_action: AIA-07
-            evidence: [EV-02, EV-08]
+            ai_actions: [AIA-07]
+            evidence_refs: [E-03, E-04]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-TSF-08
             label: reduce_support_contingently
             human_execution: full
-            ai_action: AIA-09
-            evidence: [EV-08]
+            ai_actions: [AIA-09]
+            evidence_refs: [E-05]
             handback_required: false
-            remediation: null
+            remediation_ref: null
 claim_type: current_performance
-responsibility: The teacher remains responsible for deciding whether support should be reduced or changed.
+evidence_items:
+  - id: E-01
+    evidence_type: EV-01
+    observation: >-
+      The learner carries out the target procedure on the fresh item; the AI tutor only asks a question and does not supply the solution step.
+    claim_types: [current_performance]
+    notes: >-
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+  - id: E-02
+    evidence_type: EV-02
+    observation: >-
+      The learner explains where they are in the procedure and what they will check next.
+    claim_types: [current_performance]
+    notes: >-
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+  - id: E-03
+    evidence_type: EV-02
+    observation: >-
+      The teacher explains how the learner's response to the AI cue shows how much of the procedure the learner already performs independently.
+    claim_types: [professional_judgement]
+    notes: >-
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+  - id: E-04
+    evidence_type: EV-08
+    observation: >-
+      A note records which learner responses the teacher inspected after the AI check and what the teacher concluded from them.
+    claim_types: [professional_judgement]
+    notes: >-
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+  - id: E-05
+    evidence_type: EV-08
+    observation: >-
+      A note records that the teacher reduced support for the next item and on which learner evidence that decision was based.
+    claim_types: [professional_judgement]
+    notes: >-
+      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+human_control:
+  responsible_actor: teacher_professional
+  notes: >-
+    The teacher remains responsible for deciding whether support should be reduced or changed.
 unknowns: []
 notes: >-
   The AI may contribute prompts and checks, but learner execution and teacher interpretation remain directly evidenced.

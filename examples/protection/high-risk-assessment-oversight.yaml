@@ -4,34 +4,36 @@ context: >-
   Hypothetical educational assessment workflow in the European Union. The deployed AI system has already been classified through a separate legal assessment as a high-risk AI system used to evaluate learning outcomes. AI clusters learner responses and proposes an interpretation; an authorised teacher makes the substantive assessment judgement.
 goal: >-
   Reach an accountable judgement about the learner's demonstrated understanding while preserving valid human evidence and legally required human oversight.
-process_position:
-  model: assessment_process
-  label: evidence_interpretation_and_judgement
-  source_term: null
-  source_element_id: null
+process_positions:
+  - id: PP-01
+    model: assessment_process
+    label: evidence_interpretation_and_judgement
+    source_term: null
+    source_element_id: null
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: teacher_professional
     core_actions:
       - id: CHA-ASSESS-001
         label: interpret_evidence_and_make_assessment_judgement
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-TDJ-04
             label: separate_observation_from_inference
             human_execution: full
-            ai_action: AIA-15
-            evidence:
-              - teacher records which AI cluster was accepted, rejected or reinterpreted and why
+            ai_actions: [AIA-15]
+            evidence_refs: [E-01]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-TDJ-10
             label: preserve_uncertainty
             human_execution: full
-            ai_action: AIA-09
-            evidence:
-              - teacher records uncertainty that remains after reviewing the AI proposal
+            ai_actions: [AIA-09]
+            evidence_refs: [E-02]
             handback_required: false
-            remediation: null
+            remediation_ref: null
         protection:
           dimensions:
             - requirement_id: PRT-01
@@ -90,7 +92,8 @@ actors:
                   notes: null
             - requirement_id: PRT-04
               status: required
-              condition: The external legal classification of the deployment as high-risk remains applicable.
+              condition: >-
+                The external legal classification of the deployment as high-risk remains applicable.
               rationale: >-
                 Effective human oversight is required for the legally classified high-risk deployment.
               bases:
@@ -102,10 +105,12 @@ actors:
                   applicability: applicable
                   bindingness: legally_binding
                   support_relation: direct_support
-                  notes: The high-risk classification is an assumed fact of this hypothetical example, not inferred by EAI.
+                  notes: >-
+                    The high-risk classification is an assumed fact of this hypothetical example, not inferred by EAI.
             - requirement_id: PRT-05
               status: required
-              condition: The external legal classification of the deployment as high-risk remains applicable.
+              condition: >-
+                The external legal classification of the deployment as high-risk remains applicable.
               rationale: >-
                 The human overseer must have meaningful authority to disregard, override, reverse or interrupt AI-supported operation as appropriate.
               bases:
@@ -126,12 +131,32 @@ actors:
                   applicability: applicable
                   bindingness: legally_binding
                   support_relation: context_support
-                  notes: Human oversight is assigned to persons with necessary competence, training, authority and support.
+                  notes: >-
+                    Human oversight is assigned to persons with necessary competence, training, authority and support.
           unknowns: []
           notes: >-
             This example shows that AI execution can be delegable for one operation while human judgement, evidence, oversight and intervention authority are required for other dimensions.
 claim_type: professional_judgement
-responsibility: Authorised teacher remains accountable for the assessment judgement and must be able to disregard or override the AI proposal.
+evidence_items:
+  - id: E-01
+    evidence_type: EV-08
+    source_actor: teacher_professional
+    observation: >-
+      Teacher records which AI cluster was accepted, rejected or reinterpreted and why.
+    claim_types: [professional_judgement]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-02
+    evidence_type: EV-08
+    source_actor: teacher_professional
+    observation: Teacher records uncertainty that remains after reviewing the AI proposal.
+    claim_types: [professional_judgement]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+human_control:
+  responsible_actor: teacher_professional
+  notes: >-
+    Authorised teacher remains accountable for the assessment judgement and must be able to disregard or override the AI proposal.
 unknowns: []
 extensions: []
 notes: >-

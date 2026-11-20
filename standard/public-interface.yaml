@@ -75,7 +75,7 @@ stability_rules:
   - A patch release MUST NOT change the meaning of a canonical identifier.
   - A minor release MAY add backward-compatible identifiers or optional fields.
   - Before 1.0 a breaking candidate change MAY occur only when explicitly documented in CHANGELOG.md with migration impact.
-  - Registries, adapters, context profiles, system profiles and implementations MUST NOT silently redefine canonical terms.
+  - Registries, adapters, context profiles, system profiles, implementations and the dictionary MUST NOT silently redefine canonical terms.
 
 non_canonical_layers:
   registries: reusable content that instantiates standard concepts
@@ -85,6 +85,7 @@ non_canonical_layers:
   system_profiles: optional technical descriptions of AI-system configuration and capability; never substitutes for observed AI-action analysis
   examples: non-normative worked cases
   implementations: software, UI, APIs and exports
+  dictionary: bilingual explanatory vocabulary with concept positions; source vocabulary for semantic proposals
   docs: human-readable explanation unless explicitly listed as canonical in this manifest
 
 implementation_principle: >-

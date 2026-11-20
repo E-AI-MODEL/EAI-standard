@@ -12,8 +12,8 @@ principles:
   - A legal requirement, scientific recommendation, recognised framework and local institutional rule are different kinds of basis and MUST remain distinguishable.
   - Scientific evidence does not become a legal requirement merely because its evidence strength is high.
   - A non-binding framework does not become legally binding because it is widely recognised.
-  - `delegable` means that no protection requirement has been identified for that dimension within the recorded scope and bases; it is not a universal permission, safety claim or compliance decision.
-  - `unknown` is a valid result when the basis or its applicability cannot yet be established.
+  - '`delegable` means that no protection requirement has been identified for that dimension within the recorded scope and bases; it is not a universal permission, safety claim or compliance decision.'
+  - '`unknown` is a valid result when the basis or its applicability cannot yet be established.'
   - Protection assessment MUST NOT be collapsed into a single aggregate score.
 
 statuses:

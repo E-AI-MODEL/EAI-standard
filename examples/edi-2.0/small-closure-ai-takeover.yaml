@@ -2,49 +2,66 @@ id: EX-EDI-CLOSE-001
 standard_version: 0.4.0-candidate
 context: >-
   At the small lesson closure, the learner receives an AI-generated worked solution before submitting the answer. The teacher then considers moving the learner to independent work.
-goal: Determine whether the learner can perform the target operation sufficiently independently to proceed.
-process_position:
-  model: Expliciete Directe Instructie 2.0
-  label: Kleine lesafsluiting
-  source_term: Kleine lesafsluiting
-  source_element_id: EDI-P5
+goal: >-
+  Determine whether the learner can perform the target operation sufficiently independently to proceed.
+process_positions:
+  - id: PP-01
+    model: Expliciete Directe Instructie 2.0
+    label: Kleine lesafsluiting
+    source_term: Kleine lesafsluiting
+    source_element_id: EDI-P5
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: learner
     core_actions:
       - id: demonstrate_independent_target_execution
         label: demonstrate the target operation sufficiently independently
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-LRI-04
             label: execute_target_operation
             human_execution: partial
-            ai_action: AIA-11
-            evidence: []
+            ai_actions: [AIA-11]
+            evidence_refs: []
             handback_required: true
-            remediation: REM-01
+            remediation_ref: REM-01
           - id: MS-LRI-03
             label: reconstruct_procedure_or_relation
             human_execution: unknown
-            ai_action: AIA-04
-            evidence: []
+            ai_actions: [AIA-04]
+            evidence_refs: []
             handback_required: true
-            remediation: REM-06
+            remediation_ref: REM-06
   - actor: teacher_professional
     core_actions:
       - id: routing_decision
         label: judge whether the learner can proceed independently
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-TDJ-09
             label: bound_the_interpretation
             human_execution: full
-            ai_action: AIA-09
-            evidence: [EV-08]
+            ai_actions: [AIA-09]
+            evidence_refs: [E-01]
             handback_required: false
-            remediation: null
+            remediation_ref: null
 claim_type: independent_mastery
-responsibility: The teacher is responsible for the routing decision, but current learner evidence does not support an independence claim.
+evidence_items:
+  - id: E-01
+    evidence_type: EV-08
+    observation: Trace of decision for bound_the_interpretation.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+human_control:
+  responsible_actor: teacher_professional
+  notes: >-
+    The teacher is responsible for the routing decision, but current learner evidence does not support an independence claim.
 unknowns:
-  - Whether the learner can execute the target operation without the worked AI solution.
+  - >-
+    Whether the learner can execute the target operation without the worked AI solution.
 notes: >-
   This case should trigger a mastery-without-independent-evidence diagnostic and require handback plus a fresh learner attempt before independent mastery is claimed.

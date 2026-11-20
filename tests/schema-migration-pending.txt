@@ -1,0 +1,8 @@
+# Example cases that do not yet validate against their schema.
+#
+# scripts/validate.py fails when a case NOT on this list is invalid, and also
+# when a case on this list has become valid. Use this list only during a
+# coordinated breaking schema change, and remove a line as soon as the case is
+# migrated. New examples must validate.
+#
+# The list is empty: all examples validate against the 0.4 schemas.
