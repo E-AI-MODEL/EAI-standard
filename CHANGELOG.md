@@ -11,6 +11,13 @@ All notable changes to the EAI Standard are recorded here.
 - proposed learner-specific `core_learning_action` semantics while retaining the broader `core_human_action` for teacher/professional and other human cases;
 - proposed canonicalisation path for Education in the Loop, Task Density, Support-Replacement Boundary, Evidence-Function Shift and Meaning-Making vs Addition.
 
+- `scripts/validate.py` and a GitHub Actions workflow that check on every push that all YAML and JSON parse, all schemas are valid with locally resolvable `$ref`s, conformance result fixtures and machine-rule fixtures match the schemas, and example cases validate against the case schema;
+- `tests/schema-migration-pending.txt`, listing the examples that still use the pre-0.4 serialisation and do not yet validate.
+
+### Fixed
+
+- ten YAML files that did not parse because of unquoted `: ` or leading backticks, including `standard/ai-actions.yaml`, `standard/diagnostics.yaml` and `standard/protection.yaml`. Only quoting changed; values are identical.
+
 ### Changed
 
 - the roadmap now places semantic alignment before executable conformance and the reference validator;

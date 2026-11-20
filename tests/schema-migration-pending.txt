@@ -1,0 +1,22 @@
+# Example cases that do not yet validate against their schema.
+#
+# These cases still use the pre-0.4 serialisation (singular process_position,
+# ai_action, evidence, remediation) while schemas/case.schema.json requires the
+# 0.4 forms (process_positions, ai_actions, evidence_refs, remediation_ref).
+# See docs/13-migration-0.3-to-0.4.md.
+#
+# scripts/validate.py fails when a case NOT on this list is invalid, and also
+# when a case on this list has become valid. Remove a line once the case is
+# migrated. Do not add new cases here: new examples must validate.
+
+examples/argumentation/basic.yaml
+examples/argumentation/explicit-guided-practice.yaml
+examples/edi-2.0/guided-practice-valid.yaml
+examples/edi-2.0/small-closure-ai-takeover.yaml
+examples/edi-2.0/teacher-routing-unknown.yaml
+examples/pedagogical/ai-mediated-judgement-invalid.yaml
+examples/pedagogical/incomplete-context-unknown.yaml
+examples/pedagogical/mentor-conversation-valid.yaml
+examples/protection/high-risk-assessment-oversight.yaml
+examples/protection/science-as-law-invalid.yaml
+system-profiles/examples/eai-extension-example.yaml
