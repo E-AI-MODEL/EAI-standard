@@ -4,99 +4,175 @@ context: >-
   A learner is practising argumentation during Guided practice in the Archer & Hughes Explicit Instruction adapter. The learner must build and defend a position. AI may challenge the reasoning with a counterargument after the learner has produced an initial argument.
 goal: >-
   The learner can formulate a defensible position, generate a relevant argument, respond to a counterargument and draw a warranted conclusion.
-process_position:
-  model: ADP-EI-ARCHER-HUGHES
-  label: Guided practice
-  source_term: Guided practice
-  source_element_id: EI-F3
-claim_type: current_performance
-
+process_positions:
+  - id: PP-01
+    model: ADP-EI-ARCHER-HUGHES
+    label: Guided practice
+    source_term: Guided practice
+    source_element_id: EI-F3
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: learner
     core_actions:
-      - label: build_and_test_argumentation
+      - id: build_and_test_argumentation
+        label: build_and_test_argumentation
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-ARG-04
             label: formulate_explicit_thesis
             human_execution: full
-            ai_action: AIA-00
-            evidence:
-              - learner_formulates_thesis_before_ai_challenge
+            ai_actions: [AIA-00]
+            evidence_refs: [E-01]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-ARG-07
             label: generate_main_argument
             human_execution: full
-            ai_action: AIA-00
-            evidence:
-              - learner_generates_initial_argument
-              - learner_explains_why_argument_supports_thesis
+            ai_actions: [AIA-00]
+            evidence_refs: [E-02, E-03]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-ARG-08
             label: determine_argument_relevance
             human_execution: full
-            ai_action: AIA-02
-            evidence:
-              - learner_explains_relevance
+            ai_actions: [AIA-02]
+            evidence_refs: [E-04]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-ARG-15
             label: recognise_counterargument
             human_execution: partial
-            ai_action: AIA-05
-            evidence:
-              - learner_identifies_what_the_ai_counterargument_challenges
+            ai_actions: [AIA-05]
+            evidence_refs: [E-05]
             handback_required: true
-            remediation: REM-06
+            remediation_ref: REM-06
           - id: MS-ARG-17
             label: formulate_rebuttal
             human_execution: full
-            ai_action: AIA-02
-            evidence:
-              - learner_formulates_own_rebuttal
-              - learner_explains_weakness_or_limit_in_counterargument
+            ai_actions: [AIA-02]
+            evidence_refs: [E-06, E-07]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-ARG-22
             label: draw_conclusion
             human_execution: full
-            ai_action: AIA-00
-            evidence:
-              - learner_draws_conclusion_from_own_reasoning
+            ai_actions: [AIA-00]
+            evidence_refs: [E-08]
             handback_required: false
-            remediation: null
-
+            remediation_ref: null
   - actor: teacher_professional
     core_actions:
-      - label: regulate_support_from_learner_evidence
+      - id: regulate_support_from_learner_evidence
+        label: regulate_support_from_learner_evidence
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
-          - label: observe_relevant_signal
+          - id: MS-TDJ-03
+            label: observe_relevant_signal
             human_execution: full
-            ai_action: AIA-06
-            evidence:
-              - teacher_inspects_learner_original_response
+            ai_actions: [AIA-06]
+            evidence_refs: [E-09]
             handback_required: false
-            remediation: null
-          - label: select_hint
+            remediation_ref: null
+          - id: MS-TSF-03
+            label: select_hint
             human_execution: full
-            ai_action: AIA-05
-            evidence:
-              - teacher_selects_or_rejects_hint_based_on_observed_need
+            ai_actions: [AIA-05]
+            evidence_refs: [E-10]
             handback_required: false
-            remediation: null
-          - label: adjust_support
+            remediation_ref: null
+          - id: MS-TSF-08
+            label: adjust_support
             human_execution: full
-            ai_action: AIA-00
-            evidence:
-              - teacher_changes_support_level_with_reason
+            ai_actions: [AIA-00]
+            evidence_refs: [E-11]
             handback_required: false
-            remediation: null
-
-responsibility: >-
-  The teacher remains responsible for interpreting learner evidence and deciding support level. The learner remains responsible for the substantive argumentation steps required by the goal.
+            remediation_ref: null
+claim_type: current_performance
+evidence_items:
+  - id: E-01
+    evidence_type: EV-01
+    source_actor: learner
+    observation: Learner formulates thesis before ai challenge.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-02
+    evidence_type: EV-01
+    source_actor: learner
+    observation: Learner generates initial argument.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-03
+    evidence_type: EV-02
+    source_actor: learner
+    observation: Learner explains why argument supports thesis.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-04
+    evidence_type: EV-02
+    source_actor: learner
+    observation: Learner explains relevance.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-05
+    evidence_type: EV-02
+    source_actor: learner
+    observation: Learner identifies what the ai counterargument challenges.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-06
+    evidence_type: EV-01
+    source_actor: learner
+    observation: Learner formulates own rebuttal.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-07
+    evidence_type: EV-02
+    source_actor: learner
+    observation: Learner explains weakness or limit in counterargument.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-08
+    evidence_type: EV-01
+    source_actor: learner
+    observation: Learner draws conclusion from own reasoning.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-09
+    evidence_type: EV-16
+    source_actor: teacher_professional
+    observation: Teacher inspects learner original response.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-10
+    evidence_type: EV-08
+    source_actor: teacher_professional
+    observation: Teacher selects or rejects hint based on observed need.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-11
+    evidence_type: EV-08
+    source_actor: teacher_professional
+    observation: Teacher changes support level with reason.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+human_control:
+  responsible_actor: multiple_humans
+  notes: >-
+    The teacher remains responsible for interpreting learner evidence and deciding support level. The learner remains responsible for the substantive argumentation steps required by the goal.
 unknowns:
   - Whether performance persists after a delay is not established in this case.
   - Transfer to a different argumentative context is not established in this case.

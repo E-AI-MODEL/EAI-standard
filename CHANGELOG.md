@@ -12,10 +12,11 @@ All notable changes to the EAI Standard are recorded here.
 - proposed canonicalisation path for Education in the Loop, Task Density, Support-Replacement Boundary, Evidence-Function Shift and Meaning-Making vs Addition.
 
 - `scripts/validate.py` and a GitHub Actions workflow that check on every push that all YAML and JSON parse, all schemas are valid with locally resolvable `$ref`s, conformance result fixtures and machine-rule fixtures match the schemas, and example cases validate against the case schema;
-- `tests/schema-migration-pending.txt`, listing the examples that still use the pre-0.4 serialisation and do not yet validate.
+- `tests/schema-migration-pending.txt`, a list for examples that may temporarily fail validation during a breaking schema change. It is currently empty.
 
 ### Fixed
 
+- the ten examples in `examples/` and `system-profiles/examples/eai-extension-example.yaml` now use the 0.4 case serialisation (`process_positions[]`, `process_position_refs[]`, `ai_actions[]`, `evidence_refs[]` with structured `evidence_items[]`, `remediation_ref`, structured `human_control`) and validate against `schemas/case.schema.json`. Evidence items record their origin in `notes`: where the pre-0.4 example only named an `EV-*` type, the observation is marked as unspecified; where it gave free-text evidence, the assigned `EV-*` type is marked as assigned during migration. The former free-text `responsibility` is kept verbatim in `human_control.notes`. Conformance expectations in `tests/conformance/` are unchanged;
 - ten YAML files that did not parse because of unquoted `: ` or leading backticks, including `standard/ai-actions.yaml`, `standard/diagnostics.yaml` and `standard/protection.yaml`. Only quoting changed; values are identical.
 
 ### Changed

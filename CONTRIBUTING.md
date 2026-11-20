@@ -125,7 +125,7 @@ The script checks that all YAML and JSON files parse, that all JSON Schemas are 
 
 Values that contain `: ` or start with a backtick must be quoted in YAML.
 
-Examples that still use the pre-0.4 serialisation are listed in `tests/schema-migration-pending.txt`. New examples must validate; remove a line from that file when you migrate an example.
+New examples must validate. `tests/schema-migration-pending.txt` may list examples that temporarily fail during a coordinated breaking schema change; the check fails as soon as a listed example validates, so the list can only shrink.
 
 ## Pull requests
 

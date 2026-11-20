@@ -2,49 +2,100 @@ id: EX-PED-UNKNOWN-001
 standard_version: 0.4.0-candidate
 context: >-
   A teacher notices a marked change in a learner's participation. An AI system summarises recent attendance and assignment patterns, but the learner has not yet been available for a conversation and the reason for the change is unknown.
-goal: Decide what immediate educational follow-up is proportionate without inferring unsupported causes.
-process_position:
-  model: null
-  label: initial_pedagogical_interpretation
-  source_term: initial interpretation before follow-up
-  source_element_id: null
+goal: >-
+  Decide what immediate educational follow-up is proportionate without inferring unsupported causes.
+process_positions:
+  - id: PP-01
+    model: null
+    label: initial_pedagogical_interpretation
+    source_term: initial interpretation before follow-up
+    source_element_id: null
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: teacher_professional
     core_actions:
       - id: bounded_initial_pedagogical_interpretation
         label: form a bounded interpretation while preserving uncertainty
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-TPJ-03
             label: distinguish_statement_from_interpretation
             human_execution: full
-            ai_action: AIA-06
-            evidence: [EV-08]
+            ai_actions: [AIA-06]
+            evidence_refs: [E-01]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-TPJ-05
             label: consider_context_without_overgeneralising
             human_execution: partial
-            ai_action: AIA-06
-            evidence: [EV-08, EV-09]
+            ai_actions: [AIA-06]
+            evidence_refs: [E-02, E-03]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-TPJ-07
             label: identify_relevant_uncertainty
             human_execution: full
-            ai_action: AIA-00
-            evidence: [EV-02, EV-08]
+            ai_actions: [AIA-00]
+            evidence_refs: [E-04, E-05]
             handback_required: false
-            remediation: null
+            remediation_ref: null
           - id: MS-TPJ-10
             label: select_proportionate_follow_up
             human_execution: full
-            ai_action: AIA-05
-            evidence: [EV-05, EV-08]
+            ai_actions: [AIA-05]
+            evidence_refs: [E-06, E-07]
             handback_required: false
-            remediation: null
+            remediation_ref: null
 claim_type: professional_judgement
-responsibility: The teacher may decide on a low-consequence next step such as arranging direct contact, while the cause of the participation change remains explicitly unknown.
+evidence_items:
+  - id: E-01
+    evidence_type: EV-08
+    observation: Trace of decision for distinguish_statement_from_interpretation.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-02
+    evidence_type: EV-08
+    observation: Trace of decision for consider_context_without_overgeneralising.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-03
+    evidence_type: EV-09
+    observation: Multi source observation for consider_context_without_overgeneralising.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-04
+    evidence_type: EV-02
+    observation: Explanation or justification for identify_relevant_uncertainty.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-05
+    evidence_type: EV-08
+    observation: Trace of decision for identify_relevant_uncertainty.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-06
+    evidence_type: EV-05
+    observation: Comparison and selection for select_proportionate_follow_up.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-07
+    evidence_type: EV-08
+    observation: Trace of decision for select_proportionate_follow_up.
+    claim_types: [professional_judgement]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+human_control:
+  responsible_actor: teacher_professional
+  notes: >-
+    The teacher may decide on a low-consequence next step such as arranging direct contact, while the cause of the participation change remains explicitly unknown.
 unknowns:
   - The learner's own account of the change is not yet available.
   - The reason for the change in participation is unknown.
