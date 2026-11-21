@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://e-ai-model.github.io/EAI-standard/dictionary/sector-terms.schema.json",
+  "title": "EAI Dutch sector terms (non-normative)",
+  "type": "object",
+  "required": ["standard_version", "status", "scope_values", "terms"],
+  "properties": {
+    "standard_version": {"type": "string", "minLength": 1},
+    "status": {"const": "non_normative"},
+    "scope_values": {
+      "type": "object",
+      "required": ["equivalent", "broader", "narrower", "related", "context_only"],
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "terms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "term_nl", "gloss_en", "scope", "refs", "note"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9]+(_[a-z0-9]+)*$"},
+          "term_nl": {"type": "string", "minLength": 1},
+          "gloss_en": {"type": "string", "minLength": 1},
+          "scope": {"enum": ["equivalent", "broader", "narrower", "related", "context_only"]},
+          "refs": {
+            "type": "object",
+            "minProperties": 1,
+            "properties": {
+              "definitions": {"$ref": "#/$defs/names"},
+              "claim_types": {"$ref": "#/$defs/names"},
+              "proposal_concepts": {"$ref": "#/$defs/names"},
+              "dictionary": {"$ref": "#/$defs/names"},
+              "identifiers": {"$ref": "#/$defs/names"},
+              "files": {"$ref": "#/$defs/names"}
+            },
+            "additionalProperties": false
+          },
+          "note": {
+            "type": "object",
+            "required": ["nl", "en"],
+            "properties": {
+              "nl": {"type": "string", "minLength": 1},
+              "en": {"type": "string", "minLength": 1}
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "names": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  }
+}
