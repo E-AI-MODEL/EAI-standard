@@ -1,0 +1,43 @@
+# Hypothetical illustration, not measured learning evidence.
+id: EX-SEM-MEMORY-001
+standard_version: 0.5.0-candidate
+context: During guided practice a learner recalls a rule while an AI system retrieves earlier conversation messages. AI asks a cue question without providing the rule.
+goal: Observe the learner's retrieval of the rule under the stated support conditions.
+concept_meanings:
+  - id: CM-01
+    term: memory
+    meaning: Learner retrieval of previously acquired knowledge.
+    position_ref: POS-01
+    rationale: Human learning construct.
+  - id: CM-02
+    term: memory
+    meaning: Technical retrieval of stored messages.
+    position_ref: POS-05
+    rationale: System mechanism.
+process_positions:
+  - id: PP-01
+    label: guided_practice
+    primary: true
+primary_process_position: PP-01
+actors:
+  - actor: learner
+    core_actions:
+      - id: CHA-SEM-001
+        label: recall the relevant rule
+        status: confirmed
+        action_kind: core_learning_action
+        process_position_refs: [PP-01]
+        microstructures:
+          - id: MS-LRI-02
+            label: retrieve_relevant_knowledge
+            human_execution: full
+            ai_actions: [AIA-02]
+            evidence_refs: []
+            handback_required: false
+            remediation_ref: null
+claim_type: none
+evidence_items: []
+human_control: null
+unknowns: []
+extensions: []
+notes: Hypothetical allocation illustration. No independent mastery, retention or effectiveness claim is made.

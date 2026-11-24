@@ -37,7 +37,7 @@ from referencing import Registry, Resource
 from referencing.exceptions import Unresolvable
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {".git", "node_modules", ".venv", "venv"}
+SKIP_DIRS = {".git", "node_modules", ".venv", "venv", "_site", "__pycache__"}
 PENDING_FILE = ROOT / "tests" / "schema-migration-pending.txt"
 
 # (glob, schema file) pairs for documents that must validate.
@@ -229,6 +229,7 @@ def check_fixtures(docs, registry, schemas) -> None:
     path = ROOT / FIXTURES_FILE
     data = docs.get(path)
     if data is None:
+        errors.append("fixtures: missing fixture file")
         return
     validator = validator_for(CASE_SCHEMA, registry, schemas)
     checked = 0
@@ -350,6 +351,90 @@ def check_sector_terms(docs, known: dict[str, set[str]]) -> None:
     print(f"[sector terms] {len(terms)} terms, {checked} references checked")
 
 
+def check_semantic_contract(docs, schemas) -> None:
+    """Check canonical metadata and fixture references, not educational judgements."""
+    def data(name):
+        return docs.get(ROOT / name) or {}
+
+    def unique(items, key, label):
+        ids = [item[key] for item in items]
+        if len(ids) != len(set(ids)):
+            errors.append(f"contract: duplicate {label} identifiers")
+        return set(ids)
+
+    manifest = data("standard/public-interface.yaml")
+    version = manifest["standard_version"]
+    for paths in manifest["canonical_artifacts"].values():
+        for name in paths:
+            path = (ROOT / "standard" / name).resolve()
+            if not path.is_file():
+                errors.append(f"contract: missing canonical file {name}")
+            elif path.suffix in {".yaml", ".yml"} and (docs.get(path) or {}).get("standard_version") != version:
+                errors.append(f"contract: version mismatch in {name}")
+
+    pos = unique(data("standard/concept-positioning.yaml")["positions"], "id", "position")
+    rules = unique(data("standard/rules.yaml")["rules"], "id", "rule")
+    diags = data("standard/diagnostics.yaml")["diagnostics"]
+    codes = unique(diags, "code", "diagnostic")
+    profiles = unique(data("standard/conformance-profiles.yaml")["profiles"], "id", "profile")
+    execution = data("standard/rule-executability.yaml")
+    classes = execution["rules"]
+    if set(classes) != rules or set(classes.values()) - set(execution["classes"]):
+        errors.append("contract: rule executability coverage mismatch")
+    for diag in diags:
+        if diag.get("related_rule") is not None and diag["related_rule"] not in rules:
+            errors.append(f"contract: unresolved diagnostic rule {diag['code']}")
+    case = schemas[CASE_SCHEMA]
+    result = schemas["schemas/conformance-result.schema.json"]
+    if set(case["$defs"]["conceptMeaning"]["properties"]["position_ref"]["enum"]) != pos | {None}:
+        errors.append("contract: case schema position enum mismatch")
+    if set(result["properties"]["profile"]["enum"]) != profiles:
+        errors.append("contract: result schema profile enum mismatch")
+    for schema in (case, result):
+        if schema["properties"]["standard_version"].get("const") != version:
+            errors.append("contract: schema version mismatch")
+
+    definitions = data("standard/definitions.yaml")["terms"]
+    dictionary = {e["id"]: e for e in data(DICTIONARY_FILE)["entries"]}
+    for name, term in definitions.items():
+        if "position_ref" in term and term["position_ref"] not in pos:
+            errors.append(f"contract: unresolved position on {name}")
+        if "specialization_of" in term and term["specialization_of"] not in definitions:
+            errors.append(f"contract: unresolved specialization on {name}")
+        origin = term.get("vocabulary_origin")
+        if origin:
+            entry = dictionary.get(origin["dictionary_entry"])
+            if not entry or entry["label"] != origin["kind"]:
+                errors.append(f"contract: vocabulary provenance mismatch on {name}")
+
+    fixtures = data(FIXTURES_FILE)["fixtures"]
+    unique(fixtures, "id", "fixture")
+    by_id = {item["id"]: item for item in fixtures}
+    for fixture in fixtures:
+        if fixture["rule"] not in rules or fixture["profile"] not in profiles:
+            errors.append(f"contract: unresolved fixture rule/profile {fixture['id']}")
+        for code in fixture["expected"]["diagnostics"]:
+            if code not in codes:
+                errors.append(f"contract: unresolved fixture diagnostic {code}")
+    matrix = data("tests/conformance/machine-rule-matrix.yaml")["machine_rules"]
+    if unique(matrix, "rule", "matrix rule") != {r for r, c in classes.items() if c == "machine"}:
+        errors.append("contract: machine-rule matrix coverage mismatch")
+    for row in matrix:
+        for key in ("positive_fixture", "negative_fixture", "unknown_fixture"):
+            fid = row[key]
+            if key == "unknown_fixture" and fid == "not_applicable":
+                continue
+            fixture = by_id.get(fid)
+            if not fixture or fixture["rule"] != row["rule"]:
+                errors.append(f"contract: unresolved matrix fixture {fid}")
+
+    for path, doc in docs.items():
+        if rel(path).startswith("examples/") and path.suffix == ".yaml":
+            if isinstance(doc, dict):
+                unique(doc.get("concept_meanings", []), "id", f"case-local concept in {rel(path)}")
+    print(f"[contract] {len(rules)} rules, {len(codes)} diagnostics, {len(profiles)} profiles, {len(pos)} positions; {len(matrix)} machine rules with fixture coverage")
+
+
 def main() -> int:
     docs = check_parsing()
     registry, schemas = build_registry(docs)
@@ -357,6 +442,7 @@ def main() -> int:
     check_documents(docs, registry, schemas)
     check_fixtures(docs, registry, schemas)
     check_dictionary(docs)
+    check_semantic_contract(docs, schemas)
     if errors:
         print(f"\n{len(errors)} problem(s) found:")
         for err in errors:
