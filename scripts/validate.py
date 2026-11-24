@@ -373,7 +373,7 @@ def check_semantic_contract(docs, schemas) -> None:
                 errors.append(f"contract: version mismatch in {name}")
 
     pos = unique(data("standard/concept-positioning.yaml")["positions"], "id", "position")
-    rules = unique(data("standard/rules.yaml")["rules"], "id", "rule")
+    rules = unique(data("standard/rules.yaml")["normative_rules"], "id", "rule")
     diags = data("standard/diagnostics.yaml")["diagnostics"]
     codes = unique(diags, "code", "diagnostic")
     profiles = unique(data("standard/conformance-profiles.yaml")["profiles"], "id", "profile")
