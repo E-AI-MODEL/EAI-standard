@@ -275,6 +275,9 @@ def check_dictionary(docs) -> None:
     data = docs.get(path)
     if not isinstance(data, dict):
         return  # parse error already reported, or not a mapping (schema check reports it)
+    version = (docs.get(ROOT / "standard/public-interface.yaml") or {}).get("standard_version")
+    if data.get("standard_version") != version:
+        errors.append("dictionary: standard_version does not match canonical manifest")
     entries = data.get("entries") or []
     term_ids = [e.get("id") for e in entries]
     for dup in sorted({i for i in term_ids if term_ids.count(i) > 1}):
@@ -328,6 +331,9 @@ def check_sector_terms(docs, known: dict[str, set[str]]) -> None:
     data = docs.get(path)
     if not isinstance(data, dict):
         return
+    version = (docs.get(ROOT / "standard/public-interface.yaml") or {}).get("standard_version")
+    if data.get("standard_version") != version:
+        errors.append("sector terms: standard_version does not match canonical manifest")
     terms = data.get("terms") or []
     ids = [t.get("id") for t in terms]
     for dup in sorted({i for i in ids if ids.count(i) > 1}):

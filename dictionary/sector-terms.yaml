@@ -72,7 +72,6 @@ terms:
     refs:
       proposal_concepts: [core_learning_action]
       dictionary: [core_learning_action]
-      definitions: [core_human_action]
     note:
       nl: >-
         Gelijk aan het EAI-begrip core learning action uit het 0.5-voorstel: de stap waaraan de leerling in deze fase zelf inhoudelijke betekenis moet geven. Dat is een leerlingspecifieke invulling van het bredere `core_human_action`. Voor handelingen van docenten en andere professionals geldt `core_human_action`.
@@ -109,16 +108,16 @@ terms:
   - id: ondersteunen_versus_overnemen
     term_nl: ondersteunen versus overnemen
     gloss_en: support versus replacement
-    scope: equivalent
+    scope: related
     refs:
       proposal_concepts: [support_replacement_boundary]
       dictionary: [support_replacement_boundary]
       identifiers: [AIA-10, AIA-11]
     note:
       nl: >-
-        De grens ligt niet bij de hoeveelheid AI-hulp, maar bij de vraag of AI de kernhandeling uitvoert. In EAI zichtbaar als `AIA-10` (gedeeltelijke uitvoering) en `AIA-11` (volledige uitvoering).
+        De algemene sectorterm is verwant aan de leerlingspecifieke EAI-grens: voert AI de kernhandeling uit? `AIA-10` en `AIA-11` beschrijven gedeeltelijke en volledige uitvoering van een relevante menselijke handeling, niet automatisch die grens.
       en: >-
-        The boundary is not the amount of AI help but whether AI performs the core action. Visible in EAI as `AIA-10` (partial performance) and `AIA-11` (full performance).
+        The general sector term relates to the learner-specific EAI boundary: does AI perform the core learning action? `AIA-10` and `AIA-11` describe partial and full performance of a relevant human action, not automatically that boundary.
 
   - id: verantwoordelijkheid
     term_nl: verantwoordelijkheid

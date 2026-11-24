@@ -4,6 +4,8 @@
 
 *Begrippen voor AI, leren en professioneel handelen* · Hans Visser / EAI
 
+Standard version: `0.4.0-candidate`
+
 English version: [en.md](en.md)
 
 Dit is een gegenereerde weergave van [`terms.yaml`](terms.yaml). De dictionary is **niet normatief**: de canonieke EAI Standard wordt bepaald door [`standard/public-interface.yaml`](../standard/public-interface.yaml). Zie [README.md](README.md) voor status, positioneringsmodel en de relatie met de standaard.
@@ -665,7 +667,7 @@ Een gestructureerde manier om zichtbaar te maken wat de leerling aan AI vroeg, w
 
 Verwant: [Trace-back Prompting](#trace_back_prompting) · [Didactische controleerbaarheid](#didactic_controllability) · [Procesbewijs](#process_evidence)
 
-EAI-verwijzingen: `EV-08`
+EAI-verwijzingen: `EV-02`, `EV-14`
 
 <a id="knowledge"></a>
 ### Kennis · *Knowledge*
@@ -1152,10 +1154,10 @@ Woorden die het Nederlandse onderwijsveld al gebruikt, en hoe ze zich verhouden 
 | bewijs van leren | smaller | `human_evidence`<br>`evidence_claim`<br>[Bewijs van leren](#learning_evidence) | Gelijk aan Learning Evidence in de dictionary. Smaller dan het canonieke `human_evidence`, dat ook bewijs voor professioneel oordeel omvat. |
 | eigenaarschap | verwant | [Eigenaarschap](#ownership) | Veelgebruikt in het veld, maar zonder canoniek EAI-equivalent. Gebruik het als toelichting, niet als conformiteitsclaim. |
 | formatief handelen | verwant | [`adapters/formatieve-toetscyclus-gulikers-baartman/adapter.yaml`](../adapters/formatieve-toetscyclus-gulikers-baartman/adapter.yaml) | Brede veldterm. De bronbehoudende adapter voor de formatieve toetscyclus van Gulikers en Baartman bewaart de fasenamen van die bron letterlijk. |
-| kernhandeling | gelijk | `core_learning_action`<br>[Kernhandeling](#core_learning_action)<br>`core_human_action` | Gelijk aan het EAI-begrip core learning action uit het 0.5-voorstel: de stap waaraan de leerling in deze fase zelf inhoudelijke betekenis moet geven. Dat is een leerlingspecifieke invulling van het bredere `core_human_action`. Voor handelingen van docenten en andere professionals geldt `core_human_action`. |
+| kernhandeling | gelijk | `core_learning_action`<br>[Kernhandeling](#core_learning_action) | Gelijk aan het EAI-begrip core learning action uit het 0.5-voorstel: de stap waaraan de leerling in deze fase zelf inhoudelijke betekenis moet geven. Dat is een leerlingspecifieke invulling van het bredere `core_human_action`. Voor handelingen van docenten en andere professionals geldt `core_human_action`. |
 | menselijk toezicht | alleen context (juridische of institutionele grondslag) | [`context/eu-regulatory-protection.yaml`](../context/eu-regulatory-protection.yaml)<br>[`schemas/human-control.schema.json`](../schemas/human-control.schema.json) | Juridisch begrip uit de AI-verordening (artikel 14) voor AI-systemen met een hoog risico. Of het van toepassing is, volgt uit de contextlaag, niet uit EAI zelf. Menselijk toezicht is niet hetzelfde als menselijke uitvoering: AI kan handelingen uitvoeren terwijl effectief toezicht wettelijk vereist blijft. |
 | menselijke regie | breder | [`schemas/human-control.schema.json`](../schemas/human-control.schema.json)<br>`responsibility`<br>[Bevoegdheid](#authority)<br>[Besluitvorming](#decision_making)<br>[Verantwoordelijkheid](#responsibility) | In het veld omvat menselijke regie wie richting geeft, beslist en kan ingrijpen, ook bij ontwerpkeuzes voordat AI wordt ingezet. In EAI legt `human_control` dat per casus vast: verantwoordelijke actor, beslisbevoegdheid, beschikbare informatie, moment en mogelijkheden om in te grijpen. Gebruik menselijke regie als Nederlandse ingang, niet als synoniem. |
-| ondersteunen versus overnemen | gelijk | `support_replacement_boundary`<br>[Grens tussen ondersteunen en overnemen](#support_replacement_boundary)<br>`AIA-10`<br>`AIA-11` | De grens ligt niet bij de hoeveelheid AI-hulp, maar bij de vraag of AI de kernhandeling uitvoert. In EAI zichtbaar als `AIA-10` (gedeeltelijke uitvoering) en `AIA-11` (volledige uitvoering). |
+| ondersteunen versus overnemen | verwant | `support_replacement_boundary`<br>[Grens tussen ondersteunen en overnemen](#support_replacement_boundary)<br>`AIA-10`<br>`AIA-11` | De algemene sectorterm is verwant aan de leerlingspecifieke EAI-grens: voert AI de kernhandeling uit? `AIA-10` en `AIA-11` beschrijven gedeeltelijke en volledige uitvoering van een relevante menselijke handeling, niet automatisch die grens. |
 | pedagogisch oordeel | smaller | `professional_judgement`<br>[`registries/microstructures/teacher-pedagogical-judgement.yaml`](../registries/microstructures/teacher-pedagogical-judgement.yaml) | Eén vorm van professioneel oordeel: afwegen wat pedagogisch en relationeel passend is voor deze leerling. Diagnostisch oordeel (registries/microstructures/teacher-diagnostic-judgement.yaml) is een andere vorm. Vertaal `professional_judgement` daarom niet als pedagogisch oordeel. |
 | professioneel oordeel | gelijk | `professional_judgement`<br>[Oordeel](#judgement) | Een verantwoord oordeel van een professional op basis van relevante informatie. Omvat pedagogisch, diagnostisch en beoordelend oordeel. |
 | verantwoordelijkheid | gelijk | `responsibility`<br>[`schemas/human-control.schema.json`](../schemas/human-control.schema.json)<br>[Verantwoordelijkheid](#responsibility) | De menselijke verplichting om te interpreteren, te beslissen, goed te keuren, te beoordelen of te handelen waar de situatie een verantwoordelijk menselijk oordeel vraagt. Per casus vastgelegd als `human_control.responsible_actor`. |

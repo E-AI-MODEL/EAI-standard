@@ -121,6 +121,8 @@ def render(data, lang, sector=None):
         "",
         f"*{t['subtitle']}* · {data['author']}",
         "",
+        f"Standard version: `{data['standard_version']}`",
+        "",
         t["other"],
         "",
         t["intro"],

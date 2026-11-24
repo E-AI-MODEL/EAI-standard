@@ -13,6 +13,8 @@ A bilingual (English/Dutch) vocabulary of 81 concepts that sit between education
 
 ## Status
 
+Standard version: `0.4.0-candidate` (the source editions retain their own dates). Navigation references are not identity claims; learner Justification Mapping points to EV-02 and EV-14, not the professional-judgement-specific EV-08.
+
 The dictionary is **non-normative**. It does not define the EAI Standard; [`standard/public-interface.yaml`](../standard/public-interface.yaml) does. Where a dictionary entry and a canonical definition differ, the canonical definition applies.
 
 The dictionary is the source vocabulary for the [0.5 semantic alignment proposal](../proposals/0.5-semantic-alignment/). That proposal selects a small number of these concepts for possible canonical status (Core Learning Action, Task Density, Support–Replacement Boundary, Evidence-Function Shift and others). The rest remain reusable explanatory vocabulary unless conformance or interoperability requires canonical semantics.
