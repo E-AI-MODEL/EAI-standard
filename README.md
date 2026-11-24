@@ -249,7 +249,7 @@ These checks validate schema structure, local references, repository metadata, e
 
 ## Schema publication
 
-The [publication workflow](.github/workflows/publish-schemas.yml) generates the schema site from repository sources and validates references locally. When GitHub Pages is enabled with GitHub Actions as its publishing source, the intended site is `https://e-ai-model.github.io/EAI-standard/`.
+The [EAI Standard Portal](https://e-ai-model.github.io/EAI-standard/) is a browsable view of the pinned repository sources: concepts, relations, schemas, rules, evidence, cases, adapters and versions. The [publication workflow](.github/workflows/publish-schemas.yml) generates it, validates schema references and publishes Git tags and pre-releases from the source pins. It does not add normative content. When GitHub Pages is enabled with GitHub Actions as its publishing source, the intended site is `https://e-ai-model.github.io/EAI-standard/`.
 
 - `schemas/`, `system-profiles/` and `dictionary/` serve the current candidate schema views.
 - `releases/0.5.0-candidate/` serves the 0.5 candidate views.
