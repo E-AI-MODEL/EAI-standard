@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: candidate
 
 relations:
@@ -109,6 +109,24 @@ relations:
     domain: protection_assessment
     range: protection_basis
     description: Records the legal, scientific, normative, professional, framework-based or institutional basis for a protection conclusion without conflating their authority or bindingness.
+
+  - id: REL-019
+    label: specializes
+    domain: core_learning_action
+    range: core_human_action
+    description: The learner-specific action retains all four anchors of the broader human action. It is not a parallel action level.
+
+  - id: REL-020
+    label: has_concept_position
+    domain: concept_meaning
+    range: concept_position
+    description: Associates a distinct meaning with one position, not a word with a quality score.
+
+  - id: REL-021
+    label: assesses_ai_contribution_to
+    domain: task_density
+    range: core_learning_action
+    description: The extent of AI performance is interpreted relative to the identified contextual learner action and the observed allocation.
 
 constraints:
   - Relations are descriptive and do not themselves make a skill a core human action.

@@ -1,5 +1,5 @@
 id: CASE-PROTECTION-001
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 context: >-
   Hypothetical educational assessment workflow in the European Union. The deployed AI system has already been classified through a separate legal assessment as a high-risk AI system used to evaluate learning outcomes. AI clusters learner responses and proposes an interpretation; an authorised teacher makes the substantive assessment judgement.
 goal: >-

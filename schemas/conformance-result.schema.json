@@ -3,23 +3,60 @@
   "$id": "https://e-ai-model.github.io/EAI-standard/schemas/conformance-result.schema.json",
   "title": "EAI Conformance Result",
   "type": "object",
-  "required": ["profile", "standard_version", "conformance", "information_state", "diagnostics"],
+  "required": [
+    "profile",
+    "standard_version",
+    "conformance",
+    "information_state",
+    "diagnostics"
+  ],
   "properties": {
-    "profile": {"enum": ["CP-01", "CP-02", "CP-03", "CP-04", "CP-05", "CP-06"]},
-    "standard_version": {"type": "string", "minLength": 1},
-    "conformance": {"enum": ["conformant", "non_conformant"]},
-    "information_state": {"enum": ["complete", "contains_unknowns", "incomplete"]},
+    "profile": {
+      "enum": [
+        "CP-01",
+        "CP-02",
+        "CP-03",
+        "CP-04",
+        "CP-05",
+        "CP-06",
+        "CP-07",
+        "CP-08"
+      ]
+    },
+    "standard_version": {
+      "const": "0.5.0-candidate"
+    },
+    "conformance": {
+      "enum": [
+        "conformant",
+        "non_conformant"
+      ]
+    },
+    "information_state": {
+      "enum": [
+        "complete",
+        "contains_unknowns",
+        "incomplete"
+      ]
+    },
     "diagnostics": {
       "type": "array",
-      "items": {"$ref": "diagnostic.schema.json"}
+      "items": {
+        "$ref": "diagnostic.schema.json"
+      }
     },
     "retained_unknowns": {
       "type": "array",
-      "items": {"type": "object", "additionalProperties": true}
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
     },
     "extensions": {
       "type": "array",
-      "items": {"$ref": "extension.schema.json"}
+      "items": {
+        "$ref": "extension.schema.json"
+      }
     }
   },
   "additionalProperties": false

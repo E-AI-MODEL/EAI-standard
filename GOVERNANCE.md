@@ -148,17 +148,11 @@ The standard should be tested in more than one implementation context before 1.0
 
 ## Licensing and intellectual property
 
-Public availability of the repository is not, by itself, a complete licensing or intellectual-property policy.
+The project has adopted Apache-2.0 for original EAI Standard material that it is authorized to license. The authoritative licence text is in [LICENSE](LICENSE). The applicable material, third-party exclusions and attribution boundaries are documented in [LICENSE-SCOPE.md](LICENSE-SCOPE.md) and [NOTICE](NOTICE).
 
-Before EAI Standard is presented as a stable reusable open standard, the project must publish an explicit license and document any relevant intellectual-property contribution policy. No license is selected implicitly by this governance document.
+Contributors must have the right to submit their contributions under the project licence and identify material subject to separate rights. See [CONTRIBUTING.md](CONTRIBUTING.md). The maintainers must address reported rights conflicts before including affected material in a release.
 
-The eventual policy should distinguish, where needed, between:
-
-- normative specification text;
-- machine-readable schemas and vocabularies;
-- reference software or validators;
-- contributed examples and mappings;
-- third-party source material referenced by adapters.
+The licensing decision does not establish full historical rights clearance, open governance, adoption evidence or registration. These remain separate requirements for stable standardisation.
 
 ## Maintenance and lifecycle
 

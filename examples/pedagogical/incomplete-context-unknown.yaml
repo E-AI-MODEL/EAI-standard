@@ -1,5 +1,5 @@
 id: EX-PED-UNKNOWN-001
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 context: >-
   A teacher notices a marked change in a learner's participation. An AI system summarises recent attendance and assignment patterns, but the learner has not yet been available for a conversation and the reason for the change is unknown.
 goal: >-

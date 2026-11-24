@@ -1,0 +1,41 @@
+standard_version: 0.5.0-candidate
+status: candidate
+language: en
+
+purpose: >-
+  Defines the EAI Concept Positioning model: where a concept meaning comes
+  from and which domain determines its semantic boundary. The model is not a quality
+  scale and does not rank positions.
+
+positions:
+  - id: POS-01
+    label: education_native
+    definition: >-
+      Defined from learning, education or professional educational practice.
+      Technology is not required to establish the construct's meaning.
+
+  - id: POS-02
+    label: education_led
+    definition: >-
+      Connects education and technology, while the learning goal, learning process,
+      pedagogical purpose or professional educational intention determines the
+      construct's meaning and boundary.
+
+  - id: POS-03
+    label: shared
+    definition: >-
+      Exists specifically in the relation between human or educational action and
+      technical action. Both sides are required to define the construct.
+
+  - id: POS-04
+    label: technology_led
+    definition: >-
+      Starts from system behaviour or a technical property and gains educational
+      meaning through its effect on people, thinking, learning or professional action.
+
+  - id: POS-05
+    label: technology_native
+    definition: >-
+      Primarily describes a technical mechanism or system property. Education is not
+      required to define the construct.
+

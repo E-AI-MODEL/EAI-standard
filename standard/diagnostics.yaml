@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: candidate
 
 severities:
@@ -166,6 +166,56 @@ diagnostics:
     label: canonical_identifier_invalid_or_unresolved
     message: A value presented as a canonical exchange identifier is syntactically invalid or does not resolve in the declared EAI Standard version.
     related_rule: EAI-R020
+
+  - code: EAI-D027
+    severity: error
+    effect: non_conformance
+    label: concept_meanings_conflated
+    message: >-
+      Distinct human or technical meanings are conflated or treated as equivalent solely on the basis of terminology or functional correspondence.
+    related_rule: EAI-R032
+  - code: EAI-D028
+    severity: error
+    effect: non_conformance
+    label: concept_position_misused
+    message: >-
+      Concept position is treated as a quality ranking or separate meanings are averaged into Shared.
+    related_rule: EAI-R033
+  - code: EAI-D029
+    severity: error
+    effect: non_conformance
+    label: learning_action_actor_mismatch
+    message: >-
+      The learner-specific specialization is recorded outside a learner actor or as a parallel action level.
+    related_rule: EAI-R034
+  - code: EAI-D030
+    severity: error
+    effect: non_conformance
+    label: educational_design_order_reversed
+    message: >-
+      A technical configuration is used to determine the learning-relevant action or evidence requirement without establishing the educational intent.
+    related_rule: EAI-R035
+  - code: EAI-D031
+    severity: error
+    effect: non_conformance
+    label: task_density_or_boundary_misrepresented
+    message: >-
+      Task density or the support-replacement boundary is asserted without the relevant learner action and allocation, or inferred from the amount of AI output.
+    related_rule: EAI-R036
+  - code: EAI-D032
+    severity: error
+    effect: non_conformance
+    label: visible_addition_as_meaning_making
+    message: >-
+      Visible editing or addition is treated as sufficient evidence of substantive learner meaning-making.
+    related_rule: EAI-R037
+  - code: EAI-D033
+    severity: error
+    effect: non_conformance
+    label: evidence_function_shift_misinterpreted
+    message: >-
+      A materially AI-supported product is used as sufficient evidence of the human process, or the shift is treated as proof of learning or its absence.
+    related_rule: EAI-R038
 
 constraints:
   - Diagnostics must never silently delete source data.

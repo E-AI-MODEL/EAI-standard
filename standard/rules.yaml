@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: candidate
 
 normative_rules:
@@ -156,3 +156,38 @@ normative_rules:
     title: Protection does not propagate automatically
     requirement: >-
       A required or recommended status for one protection dimension MUST NOT automatically be applied to other dimensions. Human execution, human judgement, human evidence, oversight, authority, handback, re-demonstration and direct human interaction MUST remain separately assessable.
+
+  - id: EAI-R032
+    title: Position meanings rather than words
+    requirement: >-
+      A materially different human, educational or technical meaning of the same term MUST be represented separately when the distinction affects interpretation. Functional similarity or similar observable output MUST NOT establish construct equivalence.
+
+  - id: EAI-R033
+    title: Positions are relational categories, not scores
+    requirement: >-
+      The Shared position MUST be used only for one construct whose meaning exists in the relation between human or educational action and technical action. Positions MUST NOT be interpreted as quality, desirability, maturity or human-versus-technology scores.
+
+  - id: EAI-R034
+    title: Learner-only action specialization
+    requirement: >-
+      An explicit action_kind of core_learning_action MUST be recorded only under a learner actor. The specialization is represented on the existing core human action, not as a parallel action level.
+
+  - id: EAI-R035
+    title: Educational intent precedes AI configuration
+    requirement: >-
+      An educational AI design analysis MUST identify the relevant process, process position and contextual human action before judging the AI contribution. Where the actor is a learner and the target is learning, identify the core learning action before task density; learning goals, human evidence requirements and authority MUST guide technical configuration. This does not impose universal educational phases.
+
+  - id: EAI-R036
+    title: Task density follows the target action
+    requirement: >-
+      Task density and the support-replacement boundary MUST be interpreted from the actual AI contribution relative to the contextual core learning action. Output quantity, fluency, use frequency and visible activity MUST NOT substitute for the observed allocation. No universal acceptable percentage or inherent prohibition on an AI action is implied.
+
+  - id: EAI-R037
+    title: Visible addition is not meaning-making
+    requirement: >-
+      Visible learner editing, selecting or adding MUST NOT by itself be treated as evidence of the substantive judgement or connection the learner was intended to perform. Record the relevant observed human operation and the support conditions when drawing the claim.
+
+  - id: EAI-R038
+    title: Evidence-function shift preserves claim boundaries
+    requirement: >-
+      When AI contributes materially to a product, claims about the human thinking or learning process MUST be assessed using fitting human evidence rather than inferred from product quality alone. The evidence-function shift MUST NOT be treated as proof that learning did or did not occur.

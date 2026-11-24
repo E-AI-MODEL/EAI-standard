@@ -1,7 +1,9 @@
 # EAI Standard
 
-**Status:** Candidate 0.4.0  
-**Scope:** model-independent description of human action when AI participates in educational processes.
+**Version:** `0.5.0-candidate` (pre-1.0 candidate)  
+**Licence:** [Apache-2.0](LICENSE) for original EAI material ([scope](LICENSE-SCOPE.md))  
+**Scope:** Model-independent description of human action when AI participates in educational processes.  
+**Status:** Specification and exchange schemas available; reference validator, independent implementation comparison and sector registration are not yet established.
 
 The EAI Standard does not prescribe a didactic or pedagogical model. It makes visible which human actions are intended in a concrete educational or learning situation, what role AI takes, what human evidence still matters, which human dimensions should remain protected, and what happens when AI performs an intended human action.
 
@@ -10,25 +12,60 @@ The same grammar applies to two primary actors:
 - **teacher/professional**: didactic action, pedagogical action and professional judgement;
 - **learner**: cognitive, metacognitive, social and self-regulatory action.
 
+## Start here
+
+| I want to... | Start with |
+|---|---|
+| Understand the educational purpose | [Overview](docs/overview.md) and [core concepts](docs/core-concepts.md) |
+| Analyse a learning situation | [Semantic alignment](docs/semantic-alignment.md) and the [worked memory example](examples/semantic-alignment/meaning-split-valid.yaml) |
+| Build an implementation | [Canonical public interface](standard/public-interface.yaml), [case schema](schemas/case.schema.json) and [validator contract](docs/validator-core-contract.md) |
+| Work with an existing educational model | [Source-preserving adapters](adapters/README.md) |
+| Look up an EAI term | [English dictionary](dictionary/en.md) or [Dutch dictionary](dictionary/nl.md) |
+| Update a 0.4 implementation | [Migration from 0.4 to 0.5](docs/migration-0.4-to-0.5.md) |
+| Propose a change | [Contributing](CONTRIBUTING.md), [governance](GOVERNANCE.md) and [roadmap](ROADMAP.md) |
+
 ## Semantic order before allocation
 
-The current 0.4 candidate is strongest once the relevant human action has been identified. Work toward 0.5 adds an earlier semantic step: determine what a concept means in this case, where that meaning comes from, and which domain sets its boundary before comparing human and AI action.
+The 0.5 candidate starts by determining what a concept means in this case, where that meaning comes from, and which domain sets its boundary before comparing human and AI action.
 
-The proposed sequence is:
+The analysis follows one sequence, retaining the four anchors of a human action: context, goal, actor and process position. Concept meanings are distinguished where relevant before the observed AI contribution is interpreted.
 
-`concept meaning -> process -> process position -> core human action -> learner core learning action where applicable -> observed AI contribution -> allocation/task density -> protection -> human evidence -> handback/remediation`
+For learner cases, **core learning action** is a learner-specific specialization of the broader `core_human_action`: the step to which the learner must personally give substantive meaning at that point in the learning process. This does not replace teacher/professional core actions.
 
-For learner cases, **core learning action** is proposed as a learner-specific specialization of the broader `core_human_action`: the step to which the learner must personally give substantive meaning at that point in the learning process. This does not replace teacher/professional core actions.
+Version 0.5 formalises **EAI Concept Positioning**: Education-native, Education-led, Shared, Technology-led and Technology-native. Positions describe where meaning comes from; they are not a quality scale. The same word may refer to different constructs and those meanings must be positioned separately.
 
-The 0.5 proposal also formalises **EAI Concept Positioning**: Education-native, Education-led, Shared, Technology-led and Technology-native. Positions describe where meaning comes from; they are not a quality scale. The same word may refer to different constructs and those meanings must be positioned separately.
+The canonical definitions, positions, relations and rules are listed in [`standard/public-interface.yaml`](standard/public-interface.yaml). See [semantic alignment](docs/semantic-alignment.md) and [migration from 0.4](docs/migration-0.4-to-0.5.md). The [original proposal](proposals/0.5-semantic-alignment/) and [dictionary](dictionary/) retain their non-normative status.
 
-See [`proposals/0.5-semantic-alignment/`](proposals/0.5-semantic-alignment/), the source vocabulary in [`dictionary/`](dictionary/) and the updated [`ROADMAP.md`](ROADMAP.md). These proposal files do not yet alter the 0.4 canonical public interface.
+## What changed in 0.5
+
+- Concept positions now have canonical identifiers `POS-01` to `POS-05`. A case can distinguish multiple meanings of the same word using `concept_meanings[]`.
+- `action_kind: core_learning_action` identifies a learner-specific action without creating a second action level.
+- Education in the Loop, Task Density, the Support-Replacement Boundary, Evidence-Function Shift and Meaning-Making vs Addition now have canonical definitions and associated rules.
+- `CP-08` adds semantic alignment to the conformance profiles; `CP-06` includes it.
+- The 0.5 case and result schemas require an explicit version. The previous 0.4 schema source is pinned for migration and publication.
+
+See [the changelog](CHANGELOG.md) for the full change record. The new terms and fields do not establish educational effectiveness.
 
 ## Basic unit
 
-Each description follows the same chain:
-
-`context -> goal -> actor -> process position -> core human action -> microstructures -> AI action/allocation -> protection assessment -> human evidence -> handback -> remediation -> re-demonstration`
+```text
+context + goal + actor + process position
+                |
+         concept meanings (where relevant)
+                |
+         core human action
+         (learner specialization where applicable)
+                |
+         microstructures (where needed)
+                |
+         observed AI contribution and allocation
+         (task density for the core learning action)
+                |
+         protection and human evidence
+                |
+         handback, remediation and re-demonstration
+         (where required)
+```
 
 A **core human action** is context-dependent and is always interpreted through four anchors: context, goal, actor and process position. An action is not inherently protected or unprotected merely because of its name.
 
@@ -54,7 +91,7 @@ A **microstructure** is a smaller constituent human operation inside the selecte
 
 The repository is deliberately layered:
 
-- [`standard/`](standard/) contains the canonical public interface: definitions, relations, rules, AI actions, evidence semantics, protection semantics, identifiers, diagnostics, conformance profiles and normative language;
+- [`standard/`](standard/) contains the canonical public interface: definitions, concept positions, relations, rules, AI actions, evidence semantics, protection semantics, identifiers, diagnostics, conformance profiles and normative language;
 - [`schemas/`](schemas/) contains machine-readable contracts associated with that interface;
 - [`registries/`](registries/) contains extensible skills, microstructures and interventions;
 - [`adapters/`](adapters/) contains **source-preserving** mappings to existing didactic, pedagogical and professional models;
@@ -119,6 +156,8 @@ The first instruction adapters are candidates:
 - [`adapters/explicit-instruction-archer-hughes/`](adapters/explicit-instruction-archer-hughes/): Archer & Hughes Explicit Instruction;
 - [`adapters/edi-2.0/`](adapters/edi-2.0/): Expliciete Directe Instructie 2.0;
 - [`adapters/direct-instruction-engelmann/`](adapters/direct-instruction-engelmann/): capital-D Direct Instruction in the Engelmann tradition.
+
+The repository also includes the [formative assessment cycle adapter](adapters/formatieve-toetscyclus-gulikers-baartman/) for Gulikers and Baartman. The instruction-family comparison below concerns the three instruction adapters, not the formative assessment cycle.
 
 The models are deliberately not merged. The family index in [`adapters/direct-explicit-instruction-family/`](adapters/direct-explicit-instruction-family/) makes overlap and structural differences visible without claiming equivalence.
 
@@ -192,6 +231,32 @@ An artifact can therefore be correctly represented according to the standard whi
 
 Conformance results use canonical profile identifiers such as `CP-01` and `CP-03`. Validators return structured diagnostics with a `severity` and a separate `effect`. See [`docs/conformance.md`](docs/conformance.md), [`standard/diagnostics.yaml`](standard/diagnostics.yaml) and [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
 
+## Run the checks
+
+Use Python 3.12 (the CI version) and a Git checkout with full history:
+
+```bash
+python -m pip install -r scripts/requirements.txt
+python scripts/validate.py
+python scripts/check_migration_0_5.py
+python scripts/render_dictionary.py --check
+python scripts/build_schema_site.py
+```
+
+These checks validate schema structure, local references, repository metadata, example documents, expected schema validity of fixtures, dictionary views and the pinned 0.4-to-0.5 example migration. They do not execute every normative EAI rule, adjudicate educational meaning, certify an implementation or establish independent mastery. The reference validator and independent implementation comparison remain roadmap work.
+
+[CI results](https://github.com/E-AI-MODEL/EAI-standard/actions) | [Conformance suite](docs/conformance-suite.md)
+
+## Schema publication
+
+The [publication workflow](.github/workflows/publish-schemas.yml) generates the schema site from repository sources and validates references locally. When GitHub Pages is enabled with GitHub Actions as its publishing source, the intended site is `https://e-ai-model.github.io/EAI-standard/`.
+
+- `schemas/`, `system-profiles/` and `dictionary/` serve the current candidate schema views.
+- `releases/0.5.0-candidate/` serves the 0.5 candidate views.
+- `releases/0.4.0-candidate/` serves the pinned 0.4 schema views.
+
+The generated site includes the licence text, scope and attribution notices at its root and alongside the version-specific schema collections. Use the [pinned source map](schema-snapshots.json) when HTTP publication is unavailable. Version selection must follow the declared standard version, not successful validation against an arbitrary schema. A successful site build is not evidence of a live deployment; concept identifier URLs under `id/` are a separate publication concern.
+
 ## Identifiers and versions
 
 Canonical concepts use stable identifiers such as `EAI-R007`, `EV-03`, `AIA-09`, `PRT-04`, `TSK-035`, `LSK-071` and `AIS-001`. [`standard/identifiers.yaml`](standard/identifiers.yaml) also defines a candidate strategy for globally identifiable HTTP URIs without requiring JSON-LD or RDF.
@@ -236,12 +301,10 @@ Model adapters distinguish **model-definition sources** from **effectiveness evi
 
 ## Governance and open-standard status
 
-The repository is public and the change process is being developed for open standardisation. An explicit license and intellectual-property policy is still required before the standard can be positioned as a stable reusable open standard. No license is implied merely by public repository availability.
+The original EAI Standard material is licensed under [Apache-2.0](LICENSE), subject to the scope and third-party boundaries in [LICENSE-SCOPE.md](LICENSE-SCOPE.md). See [NOTICE](NOTICE) for attribution. External educational models, publications and other third-party material retain their own applicable rights. The candidate is not an approved or registered sector standard.
 
 See [`GOVERNANCE.md`](GOVERNANCE.md) and [`docs/edustandaard-readiness.md`](docs/edustandaard-readiness.md).
 
-## Version
+## Version and citation
 
-The repository uses semantic versioning. Before 1.0, breaking candidate changes may still occur when they are explicit and documented.
-
-Current version: **0.4.0-candidate**.
+Use the exact `standard_version` and the repository commit when referring to a candidate. Before 1.0, breaking candidate changes may still occur when they are explicit and documented. See [CHANGELOG.md](CHANGELOG.md), [versioning](docs/versioning-and-identifiers.md) and [ROADMAP.md](ROADMAP.md).

@@ -2,7 +2,17 @@
 
 All notable changes to the EAI Standard are recorded here.
 
-## Unreleased — 0.5 semantic alignment preparation
+## 0.5.0-candidate — Semantic alignment (release candidate)
+
+- Promote the five concept positions and selected learner-specific concepts into the canonical manifest, definitions, relations, identifiers, rules and diagnostics. Preserve the proposal and dictionary as non-canonical sources.
+- Add optional case-level concept meanings and an action kind on the existing core human action; learner specialization is structurally prohibited on teacher/professional and multiple-human actor records.
+- Add CP-08 and include it in CP-06; fix the existing omission of CP-07 from the result schema. Current case and result schemas require the declared 0.5 candidate version. Earlier versions remain available through the pinned 0.4 source and versioned schema publication.
+- Extend structural fixtures and distinguish machine-evaluable representation from hybrid and human-review requirements. A reference validator and independent implementation evidence remain 0.6 work.
+- Update dictionary references, generated views and migration guidance. No new task-density scale, aggregate score, educational phase model or effectiveness claim is introduced.
+- Preserve external source versions and supporting artifact versions. See [migration guidance](docs/migration-0.4-to-0.5.md) for compatibility boundaries.
+- Adopt Apache-2.0 for original EAI material, retain third-party rights and attribution, and include the licence and notices in generated schema distributions. See [licence scope](LICENSE-SCOPE.md).
+
+## 0.4.0-candidate — Final preparation and technical corrections
 
 ### Added
 

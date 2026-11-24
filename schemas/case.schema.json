@@ -3,119 +3,387 @@
   "$id": "https://e-ai-model.github.io/EAI-standard/schemas/case.schema.json",
   "title": "EAI Standard Case",
   "type": "object",
-  "required": ["id", "standard_version", "context", "goal", "actors", "process_positions", "claim_type"],
+  "required": [
+    "id",
+    "standard_version",
+    "context",
+    "goal",
+    "actors",
+    "process_positions",
+    "claim_type"
+  ],
   "properties": {
-    "id": {"type": "string", "minLength": 1},
-    "standard_version": {"type": "string", "minLength": 1},
-    "context": {"type": "string", "minLength": 1},
-    "goal": {"type": "string", "minLength": 1},
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "standard_version": {
+      "const": "0.5.0-candidate"
+    },
+    "context": {
+      "type": "string",
+      "minLength": 1
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
     "process_positions": {
       "type": "array",
       "minItems": 1,
-      "items": {"$ref": "#/$defs/processPosition"}
+      "items": {
+        "$ref": "#/$defs/processPosition"
+      }
     },
-    "primary_process_position": {"type": ["string", "null"], "minLength": 1},
+    "primary_process_position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
     "actors": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["actor", "core_actions"],
+        "required": [
+          "actor",
+          "core_actions"
+        ],
         "properties": {
-          "actor": {"enum": ["teacher_professional", "learner", "multiple_humans"]},
+          "actor": {
+            "enum": [
+              "teacher_professional",
+              "learner",
+              "multiple_humans"
+            ]
+          },
           "core_actions": {
             "type": "array",
             "minItems": 1,
             "items": {
               "type": "object",
-              "required": ["id", "label", "status", "process_position_refs"],
+              "required": [
+                "id",
+                "label",
+                "status",
+                "process_position_refs"
+              ],
               "properties": {
-                "id": {"type": "string", "minLength": 1},
-                "label": {"type": "string", "minLength": 1},
-                "status": {"enum": ["candidate", "confirmed", "unknown"]},
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "enum": [
+                    "candidate",
+                    "confirmed",
+                    "unknown"
+                  ]
+                },
                 "skill_refs": {
                   "type": "array",
                   "uniqueItems": true,
-                  "items": {"type": "string", "pattern": "^(TSK|LSK|AIS)-[0-9]{3}$"}
+                  "items": {
+                    "type": "string",
+                    "pattern": "^(TSK|LSK|AIS)-[0-9]{3}$"
+                  }
                 },
                 "process_position_refs": {
                   "type": "array",
                   "minItems": 1,
                   "uniqueItems": true,
-                  "items": {"type": "string", "minLength": 1}
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
                 },
                 "microstructures": {
                   "type": "array",
                   "items": {
                     "type": "object",
-                    "required": ["id", "label", "human_execution", "ai_actions", "evidence_refs"],
+                    "required": [
+                      "id",
+                      "label",
+                      "human_execution",
+                      "ai_actions",
+                      "evidence_refs"
+                    ],
                     "properties": {
-                      "id": {"type": "string", "pattern": "^MS-[A-Z0-9-]+$"},
-                      "label": {"type": "string", "minLength": 1},
-                      "human_execution": {"enum": ["none", "partial", "full", "unknown"]},
+                      "id": {
+                        "type": "string",
+                        "pattern": "^MS-[A-Z0-9-]+$"
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "human_execution": {
+                        "enum": [
+                          "none",
+                          "partial",
+                          "full",
+                          "unknown"
+                        ]
+                      },
                       "ai_actions": {
                         "type": "array",
                         "minItems": 1,
                         "uniqueItems": true,
-                        "items": {"type": "string", "pattern": "^AIA-[0-9]{2}$"}
+                        "items": {
+                          "type": "string",
+                          "pattern": "^AIA-[0-9]{2}$"
+                        }
                       },
                       "evidence_refs": {
                         "type": "array",
                         "uniqueItems": true,
-                        "items": {"type": "string", "minLength": 1}
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
                       },
-                      "handback_required": {"type": ["boolean", "null"]},
-                      "remediation_ref": {"type": ["string", "null"], "pattern": "^REM-[0-9]{2}$"}
+                      "handback_required": {
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      },
+                      "remediation_ref": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "pattern": "^REM-[0-9]{2}$"
+                      }
                     },
                     "additionalProperties": false
                   }
                 },
                 "protection": {
                   "oneOf": [
-                    {"$ref": "protection-assessment.schema.json"},
-                    {"type": "null"}
+                    {
+                      "$ref": "protection-assessment.schema.json"
+                    },
+                    {
+                      "type": "null"
+                    }
                   ]
+                },
+                "action_kind": {
+                  "enum": [
+                    "core_human_action",
+                    "core_learning_action",
+                    null
+                  ],
+                  "description": "Learner-only specialization of this same core action; null preserves an unresolved designation. Omission does not imply either kind."
                 }
               },
               "additionalProperties": false
             }
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "actor": {
+                  "enum": [
+                    "teacher_professional",
+                    "multiple_humans"
+                  ]
+                }
+              },
+              "required": [
+                "actor"
+              ]
+            },
+            "then": {
+              "properties": {
+                "core_actions": {
+                  "items": {
+                    "properties": {
+                      "action_kind": {
+                        "enum": [
+                          "core_human_action",
+                          null
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "claim_type": {
-      "enum": ["current_performance", "professional_judgement", "independent_mastery", "retention", "transfer", "none"]
+      "enum": [
+        "current_performance",
+        "professional_judgement",
+        "independent_mastery",
+        "retention",
+        "transfer",
+        "none"
+      ]
     },
     "evidence_items": {
       "type": "array",
-      "items": {"$ref": "evidence-item.schema.json"}
+      "items": {
+        "$ref": "evidence-item.schema.json"
+      }
     },
     "human_control": {
       "oneOf": [
-        {"$ref": "human-control.schema.json"},
-        {"type": "null"}
+        {
+          "$ref": "human-control.schema.json"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
-    "unknowns": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
     "extensions": {
       "type": "array",
-      "items": {"$ref": "extension.schema.json"}
+      "items": {
+        "$ref": "extension.schema.json"
+      }
     },
-    "notes": {"type": ["string", "null"]}
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "concept_meanings": {
+      "description": "Distinct concept meanings where interpretation depends on the human, educational or technical boundary. Not a quality scale.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/conceptMeaning"
+      }
+    }
   },
   "$defs": {
     "processPosition": {
       "type": "object",
-      "required": ["id", "label"],
+      "required": [
+        "id",
+        "label"
+      ],
       "properties": {
-        "id": {"type": "string", "minLength": 1},
-        "model": {"type": ["string", "null"]},
-        "label": {"type": "string", "minLength": 1},
-        "source_term": {"type": ["string", "null"]},
-        "source_element_id": {"type": ["string", "null"]},
-        "primary": {"type": ["boolean", "null"]}
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_term": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_element_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "primary": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
       },
+      "additionalProperties": false
+    },
+    "conceptMeaning": {
+      "type": "object",
+      "required": [
+        "id",
+        "term",
+        "meaning",
+        "position_ref",
+        "rationale"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "term": {
+          "type": "string",
+          "minLength": 1
+        },
+        "meaning": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "position_ref": {
+          "enum": [
+            "POS-01",
+            "POS-02",
+            "POS-03",
+            "POS-04",
+            "POS-05",
+            null
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "position_ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "position_ref"
+            ]
+          },
+          "then": {
+            "properties": {
+              "meaning": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ],
       "additionalProperties": false
     }
   },

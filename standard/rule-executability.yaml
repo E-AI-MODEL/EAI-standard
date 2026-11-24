@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: candidate
 
 purpose: >-
@@ -47,6 +47,13 @@ rules:
   EAI-R029: machine
   EAI-R030: hybrid
   EAI-R031: hybrid
+  EAI-R032: hybrid
+  EAI-R033: hybrid
+  EAI-R034: machine
+  EAI-R035: human_review
+  EAI-R036: hybrid
+  EAI-R037: hybrid
+  EAI-R038: hybrid
 
 classification_notes:
   EAI-R002: >-
@@ -71,6 +78,15 @@ classification_notes:
     Detecting a claim that conformance proves educational effectiveness requires claim semantics not currently represented in a canonical machine-readable field.
   EAI-R031: >-
     Protection dimensions are structurally separate, but identical statuses across dimensions do not prove that a status was automatically propagated.
+
+  EAI-R032: >-
+    Schema validation checks the representation, not whether meanings are substantively distinct.
+  EAI-R034: >-
+    Learner-only specialization and nesting are structurally checkable. Whether the action actually carries learning remains contextual.
+  EAI-R035: >-
+    Educational intent and design order require review of the actual design, not an AI assertion.
+  EAI-R036: >-
+    Allocation is inspectable but there is no universal numeric threshold or automatic inference from AI-action labels.
 
 constraints:
   - An executability class MUST NOT be interpreted as a strength or importance ranking.

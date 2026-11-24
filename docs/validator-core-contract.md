@@ -32,7 +32,7 @@ An implementation may use AI to assist a reviewer, but the resulting judgement m
 
 ## Hardened case representation
 
-The 0.4 candidate case contract uses:
+The 0.5 candidate case contract retains:
 
 - `process_positions[]` so a case can occupy more than one relevant process position;
 - `primary_process_position` only as an optional presentation/routing aid;
@@ -89,3 +89,7 @@ The next gate is executable implementation verification. A validator may be labe
 6. introduces no hidden framework, jurisdiction, model-provider or LLM judgement into machine validation.
 
 A green matrix therefore means the validator core can now be implemented against a bounded test contract. It is not a substitute for passing that contract.
+
+## Semantic alignment
+
+In 0.5, the optional `concept_meanings[]` and `action_kind` fields encode contextual distinctions without introducing a second action layer. CP-08 requires semantic analysis where materially relevant. The explicit learner-only specialization is structurally checkable. Meaning equivalence, educational design order, task density and evidence interpretation require the hybrid or human-review route specified in `standard/rule-executability.yaml`. No output-length heuristic or numeric score may replace that review.

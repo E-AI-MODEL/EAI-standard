@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: candidate
 
 result_model:
@@ -96,6 +96,7 @@ profiles:
       - CP-04
       - CP-05
       - CP-07
+      - CP-08
       - structured_diagnostics
       - declared_standard_version
       - declared_unsupported_optional_semantics
@@ -120,6 +121,25 @@ profiles:
       - no_automatic_status_propagation
     interpretation_rule: >-
       CP-07 validates the representation and bounded use of a protection assessment. A delegable conclusion may be justified by an explicit bounded rationale when no positive protection basis applies. CP-07 does not establish that a legal source applies to the case, that scientific evidence is sufficient for the context, or that the educational judgement itself is substantively correct when those questions require external or human review.
+
+  - id: CP-08
+    label: semantic_alignment
+    purpose: Exchange contextual concept meanings and learner-specific action analysis without treating a technical capability or output as educational meaning.
+    requires:
+      - all_CP-02_requirements
+      - distinct_concept_meanings_and_positions_where_material_to_interpretation
+      - learner_specific_action_kind_where_applicable_or_explicit_unknown
+      - target_action_before_task_density_and_support_replacement_analysis
+      - educational_intent_guides_technical_configuration_when_design_is_claimed
+      - meaningful_human_evidence_for_claims_about_meaning_making
+    constraints:
+      - concept_positions_not_quality_scores
+      - functional_similarity_not_construct_equivalence
+      - learner_action_specialization_not_a_parallel_action
+      - task_density_not_output_volume_or_universal_percentage
+      - unknowns_preserved
+    interpretation_rule: >-
+      Concept meanings and learner-specific designation are optional in the general case schema. CP-08 requires them where materially relevant, or explicit unknown information with rationale when they cannot yet be established. Hybrid and human-review requirements remain review-dependent.
 
 notes:
   - Conformance is profile-specific; a system may conform to one profile without implementing all others.

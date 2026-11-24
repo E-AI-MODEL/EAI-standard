@@ -3,7 +3,7 @@
 # a sector term used as an entry point for a canonical construct is recorded
 # explicitly, together with any difference in scope.
 
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: non_normative
 scope_values:
   equivalent: The sector term and the referenced construct mean the same thing.
@@ -70,13 +70,13 @@ terms:
     gloss_en: core learning action
     scope: equivalent
     refs:
-      proposal_concepts: [core_learning_action]
+      definitions: [core_learning_action]
       dictionary: [core_learning_action]
     note:
       nl: >-
-        Gelijk aan het EAI-begrip core learning action uit het 0.5-voorstel: de stap waaraan de leerling in deze fase zelf inhoudelijke betekenis moet geven. Dat is een leerlingspecifieke invulling van het bredere `core_human_action`. Voor handelingen van docenten en andere professionals geldt `core_human_action`.
+        Gelijk aan het EAI-begrip core learning action uit de 0.5-standaard: de stap waaraan de leerling in deze fase zelf inhoudelijke betekenis moet geven. Dat is een leerlingspecifieke invulling van het bredere `core_human_action`. Voor handelingen van docenten en andere professionals geldt `core_human_action`.
       en: >-
-        Equivalent to the EAI core learning action in the 0.5 proposal: the step to which the learner must personally give substantive meaning at this stage. It is a learner-specific specialisation of the broader `core_human_action`; actions of teachers and other professionals use `core_human_action`.
+        Equivalent to the EAI core learning action in the 0.5 standard: the step to which the learner must personally give substantive meaning at this stage. It is a learner-specific specialisation of the broader `core_human_action`; actions of teachers and other professionals use `core_human_action`.
 
   - id: zelfstandige_beheersing
     term_nl: zelfstandige beheersing
@@ -110,7 +110,7 @@ terms:
     gloss_en: support versus replacement
     scope: related
     refs:
-      proposal_concepts: [support_replacement_boundary]
+      definitions: [support_replacement_boundary]
       dictionary: [support_replacement_boundary]
       identifiers: [AIA-10, AIA-11]
     note:

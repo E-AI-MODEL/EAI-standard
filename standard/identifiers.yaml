@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: candidate
 
 purpose: >-
@@ -41,6 +41,9 @@ identifier_classes:
   protection_requirement:
     id_pattern: '^PRT-[0-9]{2}$'
     uri_template: 'https://e-ai-model.github.io/EAI-standard/id/protection-requirement/{id}'
+  concept_position:
+    id_pattern: '^POS-0[1-5]$'
+    uri_template: 'https://e-ai-model.github.io/EAI-standard/id/concept-position/{id}'
   adapter:
     id_pattern: '^ADP-[A-Z0-9.-]+$'
     uri_template: 'https://e-ai-model.github.io/EAI-standard/id/adapter/{id}'

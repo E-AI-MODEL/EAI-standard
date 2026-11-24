@@ -2,6 +2,12 @@
 
 EAI Standard is developed as an open candidate standard. Contributions are welcome from teachers, school leaders, researchers, developers, suppliers, architects and other parties working in education.
 
+## Contribution rights
+
+The project uses [Apache-2.0](LICENSE) for its original material. By intentionally submitting a contribution for inclusion, you must be authorized to contribute it under that licence. Identify copied, adapted or quoted third-party material, its source and its applicable terms or permission. Retain copyright, licence and attribution notices. Do not submit restricted material without an appropriate basis.
+
+See [LICENSE-SCOPE.md](LICENSE-SCOPE.md). A contribution is not permission to relicense an external educational model or research publication. The maintainers may ask for clarification, a replacement or removal of material whose rights are uncertain.
+
 ## Canonical boundary
 
 Before proposing a change, check `standard/public-interface.yaml`. It is the authoritative manifest of canonical EAI Standard artifacts.
@@ -116,14 +122,17 @@ Relevant stakeholder roles include:
 
 ## Automated checks
 
-Every push and pull request runs `scripts/validate.py` in GitHub Actions. Run it locally before proposing a change:
+Pushes to `main` and pull requests run the validation and schema-build workflows. Run the same checks locally with Python 3.12 and full Git history:
 
 ```bash
-pip install -r scripts/requirements.txt
+python -m pip install -r scripts/requirements.txt
 python scripts/validate.py
+python scripts/check_migration_0_5.py
+python scripts/render_dictionary.py --check
+python scripts/build_schema_site.py
 ```
 
-The script checks that all YAML and JSON files parse, that all JSON Schemas are valid and their `$ref`s resolve locally, that conformance result fixtures and machine-rule fixtures match the schemas, and that example cases validate against `schemas/case.schema.json`. It is repository tooling, not a reference validator: it does not evaluate EAI rules.
+The checks cover parsing, schemas, local references, metadata, fixture schema validity, example migration and generated dictionary views. This is repository tooling, not a reference validator: the checks do not evaluate all normative EAI rules.
 
 Values that contain `: ` or start with a backtick must be quoted in YAML.
 

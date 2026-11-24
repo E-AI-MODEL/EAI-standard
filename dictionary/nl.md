@@ -4,7 +4,7 @@
 
 *Begrippen voor AI, leren en professioneel handelen* · Hans Visser / EAI
 
-Standard version: `0.4.0-candidate`
+Standard version: `0.5.0-candidate`
 
 English version: [en.md](en.md)
 
@@ -1154,7 +1154,7 @@ Woorden die het Nederlandse onderwijsveld al gebruikt, en hoe ze zich verhouden 
 | bewijs van leren | smaller | `human_evidence`<br>`evidence_claim`<br>[Bewijs van leren](#learning_evidence) | Gelijk aan Learning Evidence in de dictionary. Smaller dan het canonieke `human_evidence`, dat ook bewijs voor professioneel oordeel omvat. |
 | eigenaarschap | verwant | [Eigenaarschap](#ownership) | Veelgebruikt in het veld, maar zonder canoniek EAI-equivalent. Gebruik het als toelichting, niet als conformiteitsclaim. |
 | formatief handelen | verwant | [`adapters/formatieve-toetscyclus-gulikers-baartman/adapter.yaml`](../adapters/formatieve-toetscyclus-gulikers-baartman/adapter.yaml) | Brede veldterm. De bronbehoudende adapter voor de formatieve toetscyclus van Gulikers en Baartman bewaart de fasenamen van die bron letterlijk. |
-| kernhandeling | gelijk | `core_learning_action`<br>[Kernhandeling](#core_learning_action) | Gelijk aan het EAI-begrip core learning action uit het 0.5-voorstel: de stap waaraan de leerling in deze fase zelf inhoudelijke betekenis moet geven. Dat is een leerlingspecifieke invulling van het bredere `core_human_action`. Voor handelingen van docenten en andere professionals geldt `core_human_action`. |
+| kernhandeling | gelijk | `core_learning_action`<br>[Kernhandeling](#core_learning_action) | Gelijk aan het EAI-begrip core learning action uit de 0.5-standaard: de stap waaraan de leerling in deze fase zelf inhoudelijke betekenis moet geven. Dat is een leerlingspecifieke invulling van het bredere `core_human_action`. Voor handelingen van docenten en andere professionals geldt `core_human_action`. |
 | menselijk toezicht | alleen context (juridische of institutionele grondslag) | [`context/eu-regulatory-protection.yaml`](../context/eu-regulatory-protection.yaml)<br>[`schemas/human-control.schema.json`](../schemas/human-control.schema.json) | Juridisch begrip uit de AI-verordening (artikel 14) voor AI-systemen met een hoog risico. Of het van toepassing is, volgt uit de contextlaag, niet uit EAI zelf. Menselijk toezicht is niet hetzelfde als menselijke uitvoering: AI kan handelingen uitvoeren terwijl effectief toezicht wettelijk vereist blijft. |
 | menselijke regie | breder | [`schemas/human-control.schema.json`](../schemas/human-control.schema.json)<br>`responsibility`<br>[Bevoegdheid](#authority)<br>[Besluitvorming](#decision_making)<br>[Verantwoordelijkheid](#responsibility) | In het veld omvat menselijke regie wie richting geeft, beslist en kan ingrijpen, ook bij ontwerpkeuzes voordat AI wordt ingezet. In EAI legt `human_control` dat per casus vast: verantwoordelijke actor, beslisbevoegdheid, beschikbare informatie, moment en mogelijkheden om in te grijpen. Gebruik menselijke regie als Nederlandse ingang, niet als synoniem. |
 | ondersteunen versus overnemen | verwant | `support_replacement_boundary`<br>[Grens tussen ondersteunen en overnemen](#support_replacement_boundary)<br>`AIA-10`<br>`AIA-11` | De algemene sectorterm is verwant aan de leerlingspecifieke EAI-grens: voert AI de kernhandeling uit? `AIA-10` en `AIA-11` beschrijven gedeeltelijke en volledige uitvoering van een relevante menselijke handeling, niet automatisch die grens. |

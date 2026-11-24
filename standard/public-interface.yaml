@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 status: candidate
 manifest_authority: canonical
 
@@ -11,6 +11,7 @@ manifest_rule: >-
 canonical_artifacts:
   vocabulary:
     - definitions.yaml
+    - concept-positioning.yaml
     - relations.yaml
     - ai-actions.yaml
     - evidence-types.yaml
@@ -87,6 +88,7 @@ non_canonical_layers:
   implementations: software, UI, APIs and exports
   dictionary: bilingual explanatory vocabulary with concept positions; source vocabulary for semantic proposals
   docs: human-readable explanation unless explicitly listed as canonical in this manifest
+  proposals: historical change proposals and unaccepted concepts; never override canonical artifacts
 
 implementation_principle: >-
   Conforming implementations may expose only part of the public interface, but MUST identify which conformance profile and standard version they support and MUST NOT present unsupported canonical semantics as implemented.

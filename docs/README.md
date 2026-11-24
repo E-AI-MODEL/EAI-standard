@@ -18,9 +18,12 @@ File names carry no numbers; the reading order is defined here.
 10. [`self-regulation-and-metacognition.md`](self-regulation-and-metacognition.md) — why visible task execution is not the same as learner regulation when AI selects routes, strategies or adjustments.
 11. [`protection-assessment.md`](protection-assessment.md) — how EAI proposes what should remain human, evidenced or under human control using distinct scientific, legal, framework and institutional bases.
 
-## Semantic alignment work
+## Semantic alignment
 
-The next semantic release is being prepared under [`../proposals/0.5-semantic-alignment/`](../proposals/0.5-semantic-alignment/). It adds concept positioning and preserves the learner-specific meaning of the core learning action before executable conformance is expanded. The proposal is intentionally non-canonical until the public interface, schemas, conformance rules and migration material are updated together.
+- [`semantic-alignment.md`](semantic-alignment.md) explains the canonical concept positions and learner-specific analysis in 0.5.
+- [`migration-0.4-to-0.5.md`](migration-0.4-to-0.5.md) describes the exchange contract and compatibility changes.
+
+The original proposal is preserved for change provenance; the public-interface manifest identifies the current normative artifacts.
 
 ## Standardisation and implementation
 
@@ -33,6 +36,7 @@ The next semantic release is being prepared under [`../proposals/0.5-semantic-al
 - [`migration-0.3-to-0.4.md`](migration-0.3-to-0.4.md) — migration of conformance serialization, diagnostics and version metadata.
 - [`registry-coverage-audit.md`](registry-coverage-audit.md) — current depth of skill and microstructure coverage and the priority build order.
 - [`edustandaard-readiness.md`](edustandaard-readiness.md) — development path toward possible Edustandaard registration.
+- [Licence scope](../LICENSE-SCOPE.md) and [Apache-2.0 decision history](licensing-proposal.md).
 
 ## Canonical sources
 
