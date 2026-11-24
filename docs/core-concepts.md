@@ -135,3 +135,7 @@ Handback can itself be a protection requirement when a stronger claim about huma
 ## Remediation
 
 Remediation is targeted repair after the relevant human action was not sufficiently performed or evidenced. It ends with new human evidence, not merely with the provision of extra support.
+
+## Learner-specific core learning action
+
+Version 0.5 distinguishes the learner-specific action that carries the intended learning from the broader core human action. This is a specialization on the same case action, not a new analysis level. See [semantic alignment](semantic-alignment.md) for concept positioning, task density and evidence-function shift.

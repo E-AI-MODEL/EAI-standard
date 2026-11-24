@@ -1,6 +1,6 @@
 # EAI 0.5 semantic alignment proposal
 
-Status: proposal for the next semantic release. This directory is intentionally non-canonical until the proposal is accepted and the public interface, schemas, conformance profiles, diagnostics and migration notes are updated together.
+Status: historical proposal. The selected semantics are promoted in the 0.5 candidate public interface. This directory is non-canonical and preserves the original proposal for provenance; see [current semantics](../../docs/semantic-alignment.md) and [migration](../../docs/migration-0.4-to-0.5.md). Question Emergence and Didactic Controllability remain non-canonical vocabulary.
 
 ## Why this proposal exists
 

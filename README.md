@@ -1,6 +1,6 @@
 # EAI Standard
 
-**Status:** Candidate 0.4.0  
+**Status:** Candidate 0.5.0  
 **Scope:** model-independent description of human action when AI participates in educational processes.
 
 The EAI Standard does not prescribe a didactic or pedagogical model. It makes visible which human actions are intended in a concrete educational or learning situation, what role AI takes, what human evidence still matters, which human dimensions should remain protected, and what happens when AI performs an intended human action.
@@ -12,17 +12,17 @@ The same grammar applies to two primary actors:
 
 ## Semantic order before allocation
 
-The current 0.4 candidate is strongest once the relevant human action has been identified. Work toward 0.5 adds an earlier semantic step: determine what a concept means in this case, where that meaning comes from, and which domain sets its boundary before comparing human and AI action.
+The 0.5 candidate starts by determining what a concept means in this case, where that meaning comes from, and which domain sets its boundary before comparing human and AI action.
 
-The proposed sequence is:
+The semantic sequence is:
 
 `concept meaning -> process -> process position -> core human action -> learner core learning action where applicable -> observed AI contribution -> allocation/task density -> protection -> human evidence -> handback/remediation`
 
-For learner cases, **core learning action** is proposed as a learner-specific specialization of the broader `core_human_action`: the step to which the learner must personally give substantive meaning at that point in the learning process. This does not replace teacher/professional core actions.
+For learner cases, **core learning action** is a learner-specific specialization of the broader `core_human_action`: the step to which the learner must personally give substantive meaning at that point in the learning process. This does not replace teacher/professional core actions.
 
-The 0.5 proposal also formalises **EAI Concept Positioning**: Education-native, Education-led, Shared, Technology-led and Technology-native. Positions describe where meaning comes from; they are not a quality scale. The same word may refer to different constructs and those meanings must be positioned separately.
+Version 0.5 formalises **EAI Concept Positioning**: Education-native, Education-led, Shared, Technology-led and Technology-native. Positions describe where meaning comes from; they are not a quality scale. The same word may refer to different constructs and those meanings must be positioned separately.
 
-See [`proposals/0.5-semantic-alignment/`](proposals/0.5-semantic-alignment/), the source vocabulary in [`dictionary/`](dictionary/) and the updated [`ROADMAP.md`](ROADMAP.md). These proposal files do not yet alter the 0.4 canonical public interface.
+The canonical definitions, positions, relations and rules are listed in [`standard/public-interface.yaml`](standard/public-interface.yaml). See [semantic alignment](docs/semantic-alignment.md) and [migration from 0.4](docs/migration-0.4-to-0.5.md). The [original proposal](proposals/0.5-semantic-alignment/) and [dictionary](dictionary/) retain their non-normative status.
 
 ## Basic unit
 
@@ -244,4 +244,4 @@ See [`GOVERNANCE.md`](GOVERNANCE.md) and [`docs/edustandaard-readiness.md`](docs
 
 The repository uses semantic versioning. Before 1.0, breaking candidate changes may still occur when they are explicit and documented.
 
-Current version: **0.4.0-candidate**.
+Current version: **0.5.0-candidate**.

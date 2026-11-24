@@ -115,3 +115,7 @@ Non-canonical information is allowed only through namespaced extensions. A confo
 `tests/conformance/` contains machine-readable expected outcomes for conformant, conformant-with-unknowns and non-conformant cases. Domain fixtures add expected diagnostics for instructional and pedagogical cases.
 
 The fixtures are candidate release artifacts for the future executable conformance suite. A reference validator should be built against these semantics, not used to define them retrospectively.
+
+## Semantic alignment profile (CP-08)
+
+CP-08 adds semantic interpretation to human-AI allocation. The case can represent separate concept meanings and a learner-only action specialization. A schema check cannot determine whether a meaning is correct or whether the selected learner action carries the learning. Report unresolved interpretation as unknown and distinguish structural, hybrid and human-review rules. CP-06 includes CP-08 in 0.5. A result must identify the actual standard version and profile; a valid result JSON object is not proof that the validator executed its rules.
