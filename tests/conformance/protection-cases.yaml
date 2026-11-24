@@ -17,6 +17,16 @@ cases:
     rationale: >-
       A scientific-evidence basis is incorrectly serialized as legally binding. The source may support a protection recommendation or an EAI normative rule, but its scientific status must not be converted into legal authority.
 
+  - case: ../../examples/protection/ai-product-mastery-invalid.yaml
+    expected_conformance: non_conformant
+    expected_information_state: contains_unknowns
+    expected_diagnostics:
+      - EAI-D007
+      - EAI-D008
+      - EAI-D010
+    rationale: >-
+      Independent mastery is asserted on the basis of an AI-supported product without fitting independent evidence or re-demonstration. This fixture is separate from the scientific-authority defect.
+
 notes:
   - Protection is assessed per dimension rather than as a single protected/unprotected flag.
   - Legal applicability, scientific support and EAI normative requirements remain distinct sources of authority.

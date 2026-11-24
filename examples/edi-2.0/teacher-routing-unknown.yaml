@@ -2,45 +2,54 @@ id: EX-EDI-ROUTE-001
 standard_version: 0.4.0-candidate
 context: >-
   After guided practice, an AI dashboard labels a learner as needing extended instruction. The dashboard exposes the score but not the underlying learner responses or the basis for the classification.
-goal: Decide whether the learner should continue to independent work or receive additional instruction.
-process_position:
-  model: Expliciete Directe Instructie 2.0
-  label: Kleine lesafsluiting
-  source_term: Kleine lesafsluiting
-  source_element_id: EDI-P5
+goal: >-
+  Decide whether the learner should continue to independent work or receive additional instruction.
+process_positions:
+  - id: PP-01
+    model: Expliciete Directe Instructie 2.0
+    label: Kleine lesafsluiting
+    source_term: Kleine lesafsluiting
+    source_element_id: EDI-P5
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: teacher_professional
     core_actions:
       - id: interpret_evidence_for_routing
         label: interpret learner evidence and make an instructional routing decision
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-TDJ-03
             label: observe_relevant_response
             human_execution: unknown
-            ai_action: AIA-07
-            evidence: []
+            ai_actions: [AIA-07]
+            evidence_refs: []
             handback_required: true
-            remediation: REM-09
+            remediation_ref: REM-09
           - id: MS-TDJ-09
             label: bound_the_interpretation
             human_execution: unknown
-            ai_action: AIA-09
-            evidence: []
+            ai_actions: [AIA-09]
+            evidence_refs: []
             handback_required: true
-            remediation: REM-09
+            remediation_ref: REM-09
           - id: MS-TDJ-11
             label: select_next_instructional_response
             human_execution: partial
-            ai_action: AIA-09
-            evidence: []
+            ai_actions: [AIA-09]
+            evidence_refs: []
             handback_required: true
-            remediation: REM-09
+            remediation_ref: REM-09
 claim_type: professional_judgement
-responsibility: The teacher remains responsible for the routing decision.
+evidence_items: []
+human_control:
+  responsible_actor: teacher_professional
+  notes: The teacher remains responsible for the routing decision.
 unknowns:
   - The original learner responses are unavailable.
   - The classification rule used by the AI dashboard is unavailable.
-  - It is unknown whether the score distinguishes a knowledge gap from an execution error.
+  - >-
+    It is unknown whether the score distinguishes a knowledge gap from an execution error.
 notes: >-
   The representation remains conformant only while this uncertainty is preserved and the professional judgement is not presented as established. A teacher decision made despite that uncertainty may create a separate normative violation.

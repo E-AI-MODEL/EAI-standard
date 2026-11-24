@@ -1,76 +1,120 @@
 id: EX-ARG-001
+standard_version: 0.4.0-candidate
 context: A learner writes a short argumentative text with optional AI support.
 goal: The learner independently constructs and defends a reasoned position.
-process_position:
-  model: null
-  label: argumentation_task
-  source_term: null
-claim_type: independent_mastery
-
+process_positions:
+  - id: PP-01
+    model: null
+    label: argumentation_task
+    source_term: null
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: learner
     core_actions:
-      - label: construct_and_defend_argument
+      - id: construct_and_defend_argument
+        label: construct_and_defend_argument
         status: candidate
+        process_position_refs: [PP-01]
         microstructures:
           - id: MS-ARG-04
             label: formulate_explicit_thesis
             human_execution: full
-            ai_action: AIA-00
-            evidence:
-              - EV-03
+            ai_actions: [AIA-00]
+            evidence_refs: [E-01]
             handback_required: false
-            remediation: null
-
+            remediation_ref: null
           - id: MS-ARG-07
             label: generate_main_argument
             human_execution: full
-            ai_action: AIA-00
-            evidence:
-              - EV-03
-              - EV-02
+            ai_actions: [AIA-00]
+            evidence_refs: [E-02, E-03]
             handback_required: false
-            remediation: null
-
+            remediation_ref: null
           - id: MS-ARG-15
             label: recognise_counterargument
             human_execution: partial
-            ai_action: AIA-05
-            evidence:
-              - EV-05
+            ai_actions: [AIA-05]
+            evidence_refs: [E-04]
             handback_required: true
-            remediation: REM-06
-
+            remediation_ref: REM-06
           - id: MS-ARG-17
             label: formulate_rebuttal
             human_execution: full
-            ai_action: AIA-02
-            evidence:
-              - EV-03
-              - EV-02
+            ai_actions: [AIA-02]
+            evidence_refs: [E-05, E-06]
             handback_required: false
-            remediation: null
-
+            remediation_ref: null
           - id: MS-ARG-21
             label: order_arguments_logically
             human_execution: full
-            ai_action: AIA-07
-            evidence:
-              - EV-02
+            ai_actions: [AIA-07]
+            evidence_refs: [E-07]
             handback_required: false
-            remediation: null
-
+            remediation_ref: null
           - id: MS-ARG-22
             label: draw_conclusion
             human_execution: full
-            ai_action: AIA-00
-            evidence:
-              - EV-03
+            ai_actions: [AIA-00]
+            evidence_refs: [E-08]
             handback_required: false
-            remediation: null
-
-responsibility: The learner remains responsible for the thesis, reasoning, rebuttal and final conclusion.
+            remediation_ref: null
+claim_type: independent_mastery
+evidence_items:
+  - id: E-01
+    evidence_type: EV-03
+    observation: Independent execution for formulate_explicit_thesis.
+    claim_types: [independent_mastery]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-02
+    evidence_type: EV-03
+    observation: Independent execution for generate_main_argument.
+    claim_types: [independent_mastery]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-03
+    evidence_type: EV-02
+    observation: Explanation or justification for generate_main_argument.
+    claim_types: [current_performance]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-04
+    evidence_type: EV-05
+    observation: Comparison and selection for recognise_counterargument.
+    claim_types: [current_performance]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-05
+    evidence_type: EV-03
+    observation: Independent execution for formulate_rebuttal.
+    claim_types: [independent_mastery]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-06
+    evidence_type: EV-02
+    observation: Explanation or justification for formulate_rebuttal.
+    claim_types: [current_performance]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-07
+    evidence_type: EV-02
+    observation: Explanation or justification for order_arguments_logically.
+    claim_types: [current_performance]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+  - id: E-08
+    evidence_type: EV-03
+    observation: Independent execution for draw_conclusion.
+    claim_types: [independent_mastery]
+    notes: >-
+      Migrated from the pre-0.4 evidence list, which named only the evidence type; the concrete observation was not specified.
+human_control:
+  responsible_actor: learner
+  notes: >-
+    The learner remains responsible for the thesis, reasoning, rebuttal and final conclusion.
 unknowns:
-  - Whether recognition of counterarguments is independently mastered, because AI generated alternatives in the first attempt.
+  - >-
+    Whether recognition of counterarguments is independently mastered, because AI generated alternatives in the first attempt.
 notes: >-
   The first product may show successful supported performance. Independent mastery of counterargument recognition requires a fresh item without AI-generated counterarguments.

@@ -83,7 +83,7 @@ evidence_items:
     claim_types: [current_performance]
     independence: supported
   - id: E-SR-05
-    evidence_type: EV-08
+    evidence_type: EV-02
     source_actor: learner
     observation: The learner records why the strategy was changed and what evidence triggered the change.
     claim_types: [current_performance]

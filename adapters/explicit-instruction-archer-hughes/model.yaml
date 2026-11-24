@@ -3,7 +3,7 @@ status: candidate
 id: ADP-EI-ARCHER-HUGHES
 model_name: Explicit Instruction
 model_family: explicit_instruction
-source_reference: Archer & Hughes (2011), Explicit Instruction: Effective and Efficient Teaching
+source_reference: 'Archer & Hughes (2011), Explicit Instruction: Effective and Efficient Teaching'
 source_url: https://explicitinstruction.org/download/sample-chapter.pdf
 
 source_preservation:

@@ -134,7 +134,7 @@ diagnostics:
     severity: error
     effect: non_conformance
     label: core_action_anchor_missing
-    message: A core human action cannot be interpreted through all four required anchors: context, goal, actor and process position.
+    message: 'A core human action cannot be interpreted through all four required anchors: context, goal, actor and process position.'
     related_rule: EAI-R027
   - code: EAI-D022
     severity: error
