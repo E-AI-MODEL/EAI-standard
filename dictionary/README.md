@@ -13,11 +13,11 @@ A bilingual (English/Dutch) vocabulary of 81 concepts that sit between education
 
 ## Status
 
-Standard version: `0.4.0-candidate` (the source editions retain their own dates). Navigation references are not identity claims; learner Justification Mapping points to EV-02 and EV-14, not the professional-judgement-specific EV-08.
+Standard version: `0.5.0-candidate` (the source editions retain their own dates). Navigation references are not identity claims; learner Justification Mapping points to EV-02 and EV-14, not the professional-judgement-specific EV-08.
 
 The dictionary is **non-normative**. It does not define the EAI Standard; [`standard/public-interface.yaml`](../standard/public-interface.yaml) does. Where a dictionary entry and a canonical definition differ, the canonical definition applies.
 
-The dictionary is the source vocabulary for the [0.5 semantic alignment proposal](../proposals/0.5-semantic-alignment/). That proposal selects a small number of these concepts for possible canonical status (Core Learning Action, Task Density, Support–Replacement Boundary, Evidence-Function Shift and others). The rest remain reusable explanatory vocabulary unless conformance or interoperability requires canonical semantics.
+The dictionary supplied vocabulary for the [0.5 semantic alignment proposal](../proposals/0.5-semantic-alignment/). The selected concepts now have canonical definitions in [`standard/definitions.yaml`](../standard/definitions.yaml), and the positions are defined in [`standard/concept-positioning.yaml`](../standard/concept-positioning.yaml). Other dictionary concepts, including Question Emergence and Didactic Controllability, remain explanatory vocabulary.
 
 Source: *EAI Dictionary* (EN) and *EAI Dictionary* (NL), concept editions of 20 September 2026.
 
@@ -33,7 +33,7 @@ Every entry has a position. The position says **where a meaning comes from and w
 | `technology_led` | Technologiegestuurd | Starts from system behaviour or a technical property and gains educational meaning through its effect on people, thinking or learning. |
 | `technology_native` | Technologie-eigen | Primarily describes a technical mechanism. Education is not needed to define it. |
 
-The positions are defined in [`proposals/0.5-semantic-alignment/concept-positioning.yaml`](../proposals/0.5-semantic-alignment/concept-positioning.yaml) (`POS-01` to `POS-05`).
+The positions are defined in [`standard/concept-positioning.yaml`](../standard/concept-positioning.yaml) (`POS-01` to `POS-05`).
 
 **One word, different constructs.** When one word refers to different human and technical constructs (agency, memory, reasoning, learning …), each meaning gets its own position instead of an average. Such entries have `meanings.human` and `meanings.system` instead of a single `definition`. *Shared* is something else: one construct that only exists in the relation between human and technical action.
 
@@ -61,7 +61,7 @@ Each entry in `terms.yaml` has:
 - `related` (optional): ids of related entries;
 - `eai_refs` (optional): pointers into the repository: `proposal_concepts` in the 0.5 proposal, `definitions` in [`standard/definitions.yaml`](../standard/definitions.yaml), and `identifiers` such as `EV-*`, `AIA-*` and `REM-*`.
 
-The `eai_refs` were added when the dictionary was imported. They are navigation aids, not equivalence claims: a pointer from *Process Evidence* to `EV-14` says that the evidence type is where the concept shows up in the standard, not that the two are the same construct. They should be reviewed as part of the 0.5 work.
+The `eai_refs` were added when the dictionary was imported. They are navigation aids, not equivalence claims: a pointer from *Process Evidence* to `EV-14` says that the evidence type is where the concept shows up in the standard, not that the two are the same construct. Promoted concepts now point to canonical definitions; unpromoted proposal terms are retained as historical references.
 
 ## Dutch sector terms
 

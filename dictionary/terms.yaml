@@ -4,7 +4,7 @@
 
 dictionary: EAI Dictionary
 status: non_normative
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 edition: concept
 author: Hans Visser / EAI
 source_editions:
@@ -14,7 +14,7 @@ source_editions:
   - language: nl
     title: EAI Dictionary (NL)
     date: '2026-09-20'
-positioning_model: proposals/0.5-semantic-alignment/concept-positioning.yaml
+positioning_model: standard/concept-positioning.yaml
 entries:
   - id: act_of_learning
     term: {en: Act of Learning, nl: De handeling van het leren}
@@ -498,8 +498,7 @@ entries:
       nl: Bepaal de kernhandeling voordat wordt besloten wat AI mag doen.
     related: [task_density, meaning_making_vs_addition, support_replacement_boundary]
     eai_refs:
-      proposal_concepts: [core_learning_action]
-      definitions: [core_human_action]
+      definitions: [core_learning_action, core_human_action]
   - id: creativity
     term: {en: Creativity, nl: Creativiteit}
     label: common_term
@@ -610,7 +609,7 @@ entries:
         Leg leerdoelen, beschermde handelingen, bewijs en interventiegrenzen vast vóór de technische inrichting.
     related: [core_learning_action, task_density, didactic_controllability, human_in_the_loop]
     eai_refs:
-      proposal_concepts: [education_in_the_loop]
+      definitions: [education_in_the_loop]
   - id: evaluation
     term: {en: Evaluation, nl: Evaluatie}
     label: common_term
@@ -660,7 +659,7 @@ entries:
         Herzie wat een product nog kan bewijzen en voeg waar nodig proces- of zelfstandig bewijs toe.
     related: [learning_evidence, output_evidence, process_evidence, independent_evidence]
     eai_refs:
-      proposal_concepts: [evidence_function_shift]
+      definitions: [evidence_function_shift]
   - id: explainability
     term: {en: Explainability, nl: Uitlegbaarheid}
     label: common_term
@@ -1062,7 +1061,7 @@ entries:
         Vraag wat de leerling zelf moest begrijpen, beslissen of verantwoorden, niet alleen wat hij of zij heeft aangepast.
     related: [core_learning_action, act_of_learning, process_evidence]
     eai_refs:
-      proposal_concepts: [meaning_making_vs_addition]
+      definitions: [meaning_making_vs_addition]
   - id: memory
     term: {en: Memory, nl: Geheugen}
     label: common_term
@@ -1618,7 +1617,7 @@ entries:
         Beoordeel iedere AI-functie ten opzichte van de kernhandeling: ondersteunt zij die, of voert zij die uit?
     related: [core_learning_action, task_density, oversupport]
     eai_refs:
-      proposal_concepts: [support_replacement_boundary]
+      definitions: [support_replacement_boundary]
       identifiers: [AIA-10, AIA-11]
   - id: sycophantic_completion
     term: {en: Sycophantic Completion, nl: Sycophantic Completion}
@@ -1667,7 +1666,7 @@ entries:
         Bepaal eerst de kernhandeling en breng daarna in kaart welk deel daarvan AI uitvoert.
     related: [core_learning_action, cognitive_displacement, didactic_controllability, support_replacement_boundary]
     eai_refs:
-      proposal_concepts: [task_density]
+      definitions: [task_density]
       identifiers: [AIA-10, AIA-11]
   - id: trace_back_prompting
     term: {en: Trace-back Prompting, nl: Trace-back Prompting}
