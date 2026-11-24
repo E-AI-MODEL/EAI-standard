@@ -22,6 +22,17 @@ Canonical requirement keywords follow BCP 14 as defined by RFC 2119 and RFC 8174
 
 A canonical requirement expressed with `MUST` or `MUST NOT` is blocking for the conformance profile to which it applies. `SHOULD` requirements may be departed from only with an explicit rationale that does not conflict with another mandatory requirement.
 
+## Language versions
+
+The EAI Standard is published in English. It may be accompanied by material in other languages, in particular Dutch for the Dutch education sector. The following rules determine which version applies.
+
+1. **Canonical text is English.** The canonical artifacts listed in `standard/public-interface.yaml` are authoritative in English only. Where a translation, summary or other-language document differs from the English canonical text, the English text applies.
+2. **Source terms keep their source language.** Original-language terminology preserved in adapters, context overlays or evidence (for example the Dutch phase names of EDI 2.0 or of the formatieve toetscyclus) is authoritative for what the external source says. The EAI interpretation of that source and its mapping to EAI semantics are authoritative in English.
+3. **Other-language material is informative.** Translations, Dutch-language guidance, position papers, audience-specific case descriptions and the Dutch side of bilingual vocabularies are informative. They may use the words the sector already uses, but they MUST NOT present new EAI requirements, distinctions or claims as canonical. Clearly identified proposals, independently sourced sector guidance and empirical claims may be published as non-canonical material; they do not override the standard.
+4. **Conflicts are defects.** A difference in meaning between language versions is a defect. It is resolved by correcting the other-language text. If the difference shows that the English text itself is unclear, the English text is first changed through the normal change process and the other-language text is then updated.
+5. **Version reference.** Every translation or other-language document that describes or maps to the standard states which `standard_version` it describes. External source editions retain their own source version and provenance. A change to canonical English text that affects an existing other-language document is not complete until that document is updated or explicitly marked as outdated.
+6. **Sector terms.** When a term already used in the sector (for example *menselijke regie*) serves as the entry point for a canonical construct (for example `human_control`), the correspondence is recorded explicitly, together with any difference in scope. A sector term that is broader or narrower than the canonical construct is labelled as such and is not treated as a synonym.
+
 ## Roles
 
 During the candidate phase the following roles are distinguished, even where one person temporarily fulfils more than one role:

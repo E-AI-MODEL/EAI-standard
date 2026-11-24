@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render dictionary/terms.yaml into readable Markdown views (EN and NL).
+"""Render dictionary/terms.yaml and dictionary/sector-terms.yaml into readable Markdown views (EN and NL).
 
 Usage:
   python scripts/render_dictionary.py          # write dictionary/en.md and dictionary/nl.md
@@ -17,6 +17,13 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "dictionary" / "terms.yaml"
+SECTOR_SOURCE = ROOT / "dictionary" / "sector-terms.yaml"
+SCOPE = {
+    "en": {"equivalent": "equivalent", "broader": "broader", "narrower": "narrower", "related": "related",
+           "context_only": "context only (legal or institutional basis)"},
+    "nl": {"equivalent": "gelijk", "broader": "breder", "narrower": "smaller", "related": "verwant",
+           "context_only": "alleen context (juridische of institutionele grondslag)"},
+}
 
 POSITION = {
     "en": {
@@ -40,6 +47,12 @@ TEXT = {
         human="Human", system="System", why="Why", distinction="Distinction", use="Practical use",
         related="Related", refs="EAI references", overview="Overview", term="Term", label="Label",
         position="Position", entries="Entries",
+        sector="Dutch sector terms", sector_term="Dutch term", scope="Scope", refers="Refers to", note="Note",
+        sector_intro=(
+            "Terms the Dutch education sector already uses, and how they relate to EAI constructs. Source: "
+            "[`sector-terms.yaml`](sector-terms.yaml). A broader or narrower term is not a synonym; see rule 6 of "
+            "*Language versions* in [`GOVERNANCE.md`](../GOVERNANCE.md)."
+        ),
         intro=(
             "This is a generated view of [`terms.yaml`](terms.yaml). It is **non-normative**: the canonical "
             "EAI Standard is defined by [`standard/public-interface.yaml`](../standard/public-interface.yaml). "
@@ -54,6 +67,12 @@ TEXT = {
         human="Mens", system="Systeem", why="Waarom", distinction="Onderscheid", use="Praktisch gebruik",
         related="Verwant", refs="EAI-verwijzingen", overview="Overzicht", term="Begrip", label="Label",
         position="Positie", entries="Begrippen",
+        sector="Sectortermen", sector_term="Sectorterm", scope="Reikwijdte", refers="Verwijst naar", note="Toelichting",
+        sector_intro=(
+            "Woorden die het Nederlandse onderwijsveld al gebruikt, en hoe ze zich verhouden tot EAI-begrippen. Bron: "
+            "[`sector-terms.yaml`](sector-terms.yaml). Een bredere of smallere term is geen synoniem; zie regel 6 van "
+            "*Language versions* in [`GOVERNANCE.md`](../GOVERNANCE.md)."
+        ),
         intro=(
             "Dit is een gegenereerde weergave van [`terms.yaml`](terms.yaml). De dictionary is **niet normatief**: "
             "de canonieke EAI Standard wordt bepaald door [`standard/public-interface.yaml`](../standard/public-interface.yaml). "
@@ -71,7 +90,27 @@ def position_text(pos, lang):
     return POSITION[lang][pos]
 
 
-def render(data, lang):
+def render_sector_terms(sector, by_id, lang):
+    t = TEXT[lang]
+    out = [f"## {t['sector']}", "", t["sector_intro"], "",
+           f"| {t['sector_term']} | {t['scope']} | {t['refers']} | {t['note']} |", "|---|---|---|---|"]
+    for term in sorted(sector["terms"], key=lambda x: x["term_nl"].lower()):
+        refs = []
+        for kind, values in term["refs"].items():
+            for v in values:
+                if kind == "dictionary" and v in by_id:
+                    refs.append(f"[{by_id[v]['term'][lang]}](#{v})")
+                elif kind == "files":
+                    refs.append(f"[`{v}`](../{v})")
+                else:
+                    refs.append(f"`{v}`")
+        name = term["term_nl"] if lang == "nl" else f"{term['term_nl']} *({term['gloss_en']})*"
+        note = term["note"][lang].replace("|", "\\|")
+        out.append(f"| {name} | {SCOPE[lang][term['scope']]} | {'<br>'.join(refs)} | {note} |")
+    return out + [""]
+
+
+def render(data, lang, sector=None):
     t = TEXT[lang]
     entries = sorted(data["entries"], key=lambda e: e["term"][lang].lower())
     by_id = {e["id"]: e for e in data["entries"]}
@@ -81,6 +120,8 @@ def render(data, lang):
         f"# {t['title']}",
         "",
         f"*{t['subtitle']}* · {data['author']}",
+        "",
+        f"Standard version: `{data['standard_version']}`",
         "",
         t["other"],
         "",
@@ -124,16 +165,19 @@ def render(data, lang):
         flat = [f"`{x}`" for key in ("proposal_concepts", "definitions", "identifiers") for x in refs.get(key, [])]
         if flat:
             out += [f"{t['refs']}: {', '.join(flat)}", ""]
+    if sector:
+        out += render_sector_terms(sector, by_id, lang)
     return "\n".join(out).rstrip() + "\n"
 
 
 def main() -> int:
     check = "--check" in sys.argv[1:]
     data = yaml.safe_load(SOURCE.read_text(encoding="utf-8"))
+    sector = yaml.safe_load(SECTOR_SOURCE.read_text(encoding="utf-8")) if SECTOR_SOURCE.exists() else None
     stale = []
     for lang in ("en", "nl"):
         target = ROOT / "dictionary" / f"{lang}.md"
-        content = render(data, lang)
+        content = render(data, lang, sector)
         if check:
             if not target.exists() or target.read_text(encoding="utf-8") != content:
                 stale.append(target.relative_to(ROOT).as_posix())
