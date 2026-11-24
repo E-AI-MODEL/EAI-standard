@@ -78,7 +78,7 @@ Still required before stable positioning as an open standard:
 - demonstrable external participation;
 - documented lifecycle and deprecation procedures that are also used in practice.
 
-Publicly readable on GitHub is not the same as legally reusable under an open license. That distinction must be resolved before 1.0.
+Publicly readable on GitHub is not the same as legally reusable under an open license. Apache-2.0 has been adopted for authorized original EAI material; third-party rights and remaining rights questions are addressed separately under [the licence scope](../LICENSE-SCOPE.md).
 
 ## 4. Aansluiting op architectuur (architecture alignment)
 
@@ -138,7 +138,7 @@ Still required:
 **Stakeholder support/pilots:** insufficient for registration.  
 **Architecture/ROSA:** still to be developed.  
 **Governance:** public foundation present; multi-party maintenance still required.  
-**License/IPR:** unresolved and therefore a blocker for stable open-standard positioning and registration.
+**License/IPR:** Apache-2.0 adopted for authorized original material. The scope, source attribution and contribution terms are documented. Full rights clearance where required, sustainable governance and stakeholder evidence remain separate conditions for stable positioning and registration.
 
 ## When is an Edustandaard intake sensible?
 

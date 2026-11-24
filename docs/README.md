@@ -36,7 +36,7 @@ The original proposal is preserved for change provenance; the public-interface m
 - [`migration-0.3-to-0.4.md`](migration-0.3-to-0.4.md) — migration of conformance serialization, diagnostics and version metadata.
 - [`registry-coverage-audit.md`](registry-coverage-audit.md) — current depth of skill and microstructure coverage and the priority build order.
 - [`edustandaard-readiness.md`](edustandaard-readiness.md) — development path toward possible Edustandaard registration.
-- [`licensing-proposal.md`](licensing-proposal.md) — proposed Apache-2.0 licence and rights review (not a licence grant).
+- [Licence scope](../LICENSE-SCOPE.md) and [Apache-2.0 decision history](licensing-proposal.md).
 
 ## Canonical sources
 

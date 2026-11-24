@@ -1,6 +1,6 @@
 # Licensing proposal
 
-Status: **proposed, not adopted**. This document does not grant a licence or change the rights of contributors or third parties.
+Status: **accepted on 24 November 2026**. This document preserves the original proposal and its alternatives. The adopted licence and current boundaries are in [LICENSE](../LICENSE), [LICENSE-SCOPE.md](../LICENSE-SCOPE.md) and [NOTICE](../NOTICE).
 
 ## Recommendation
 
@@ -39,4 +39,4 @@ Before adoption, the rights holders or authorized maintainer must approve the li
 - Update README.md, GOVERNANCE.md, CONTRIBUTING.md and the release record to identify the adopted licence and exceptions.
 - Check the repository and generated schema distribution for accurate notices. Make the publication version and licence scope clear.
 
-The decision remains open until explicitly approved. No rights are granted by this proposal.
+The maintainer approved Apache-2.0 for the original material within the documented rights scope. This proposal is retained as decision history; the adopted licence and scope govern current distribution.

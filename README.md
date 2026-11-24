@@ -1,6 +1,7 @@
 # EAI Standard
 
 **Version:** `0.5.0-candidate` (pre-1.0 candidate)  
+**Licence:** [Apache-2.0](LICENSE) for original EAI material ([scope](LICENSE-SCOPE.md))  
 **Scope:** Model-independent description of human action when AI participates in educational processes.  
 **Status:** Specification and exchange schemas available; reference validator, independent implementation comparison and sector registration are not yet established.
 
@@ -254,7 +255,7 @@ The [publication workflow](.github/workflows/publish-schemas.yml) generates the 
 - `releases/0.5.0-candidate/` serves the 0.5 candidate views.
 - `releases/0.4.0-candidate/` serves the pinned 0.4 schema views.
 
-Use the [pinned source map](schema-snapshots.json) when HTTP publication is unavailable. Version selection must follow the declared standard version, not successful validation against an arbitrary schema. A successful site build is not evidence of a live deployment; concept identifier URLs under `id/` are a separate publication concern.
+The generated site includes the licence text, scope and attribution notices at its root and alongside the version-specific schema collections. Use the [pinned source map](schema-snapshots.json) when HTTP publication is unavailable. Version selection must follow the declared standard version, not successful validation against an arbitrary schema. A successful site build is not evidence of a live deployment; concept identifier URLs under `id/` are a separate publication concern.
 
 ## Identifiers and versions
 
@@ -300,7 +301,7 @@ Model adapters distinguish **model-definition sources** from **effectiveness evi
 
 ## Governance and open-standard status
 
-The repository is public and is being developed for open standardisation. Public access does not itself grant a general open-source or open-content licence. [The proposed Apache-2.0 licensing decision](docs/licensing-proposal.md) is awaiting explicit approval and a rights check. Until a licence is adopted, do not treat the proposal as a permission grant. The candidate is not an approved or registered sector standard.
+The original EAI Standard material is licensed under [Apache-2.0](LICENSE), subject to the scope and third-party boundaries in [LICENSE-SCOPE.md](LICENSE-SCOPE.md). See [NOTICE](NOTICE) for attribution. External educational models, publications and other third-party material retain their own applicable rights. The candidate is not an approved or registered sector standard.
 
 See [`GOVERNANCE.md`](GOVERNANCE.md) and [`docs/edustandaard-readiness.md`](docs/edustandaard-readiness.md).
 

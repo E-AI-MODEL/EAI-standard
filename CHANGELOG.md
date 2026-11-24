@@ -10,6 +10,7 @@ All notable changes to the EAI Standard are recorded here.
 - Extend structural fixtures and distinguish machine-evaluable representation from hybrid and human-review requirements. A reference validator and independent implementation evidence remain 0.6 work.
 - Update dictionary references, generated views and migration guidance. No new task-density scale, aggregate score, educational phase model or effectiveness claim is introduced.
 - Preserve external source versions and supporting artifact versions. See [migration guidance](docs/migration-0.4-to-0.5.md) for compatibility boundaries.
+- Adopt Apache-2.0 for original EAI material, retain third-party rights and attribution, and include the licence and notices in generated schema distributions. See [licence scope](LICENSE-SCOPE.md).
 
 ## 0.4.0-candidate — Final preparation and technical corrections
 

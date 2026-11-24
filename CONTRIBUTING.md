@@ -2,6 +2,12 @@
 
 EAI Standard is developed as an open candidate standard. Contributions are welcome from teachers, school leaders, researchers, developers, suppliers, architects and other parties working in education.
 
+## Contribution rights
+
+The project uses [Apache-2.0](LICENSE) for its original material. By intentionally submitting a contribution for inclusion, you must be authorized to contribute it under that licence. Identify copied, adapted or quoted third-party material, its source and its applicable terms or permission. Retain copyright, licence and attribution notices. Do not submit restricted material without an appropriate basis.
+
+See [LICENSE-SCOPE.md](LICENSE-SCOPE.md). A contribution is not permission to relicense an external educational model or research publication. The maintainers may ask for clarification, a replacement or removal of material whose rights are uncertain.
+
 ## Canonical boundary
 
 Before proposing a change, check `standard/public-interface.yaml`. It is the authoritative manifest of canonical EAI Standard artifacts.

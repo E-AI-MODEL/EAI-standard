@@ -99,6 +99,11 @@ def main():
     if site.exists():
         shutil.rmtree(site)
     site.mkdir()
+    notice_files = ("LICENSE", "NOTICE", "LICENSE-SCOPE.md")
+    for name in notice_files:
+        if not (ROOT / name).is_file():
+            raise ValueError(f"Missing distribution notice: {name}")
+        shutil.copy2(ROOT / name, site / name)
     current = source_schemas()
     links = emit(site, current)
     links += emit(site, current, f"releases/{version}/")
@@ -109,10 +114,17 @@ def main():
         if old_manifest.get("standard_version") != old_version:
             raise ValueError(f"Snapshot version mismatch: {old_version}")
         links += emit(site, source_schemas(commit), f"releases/{old_version}/")
+    for release_version in (version, *sorted(snapshots)):
+        release = site / "releases" / release_version
+        for name in notice_files:
+            shutil.copy2(ROOT / name, release / name)
+    print(f"Included {len(notice_files)} licence and attribution files in each schema distribution.")
     (site / "index.html").write_text(
         '<!doctype html><html lang="en"><meta charset="utf-8"><title>EAI Standard schemas</title>'
         '<h1>EAI Standard schemas</h1><p>Current candidate: ' + html.escape(version) +
-        '. Version paths become immutable when pinned.</p><ul>' +
+        '. Version paths become immutable when pinned.</p>'
+        '<p>Original EAI material: <a href="LICENSE">Apache-2.0</a> '
+        '(<a href="LICENSE-SCOPE.md">scope</a>; <a href="NOTICE">attribution</a>).</p><ul>' +
         "".join(f'<li><a href="{html.escape(p)}">{html.escape(p)}</a></li>' for p in links) +
         '</ul></html>', encoding="utf-8")
     print(f"Built {len(links)} schema publication files.")
