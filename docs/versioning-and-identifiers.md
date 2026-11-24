@@ -73,3 +73,9 @@ After stable 1.0:
 Third parties may define their own identifiers, but must use their own namespace and may not create identifiers that appear to be canonical EAI identifiers.
 
 This allows local innovation without creating ambiguity about what belongs to the released standard.
+
+## Versioned schema publication
+
+The unversioned schema URLs under `/schemas/`, `/system-profiles/` and `/dictionary/` refer to the current candidate. Generated copies under `/releases/<standard_version>/` use version-specific `$id` values so references resolve within that version. They are generated views, not separately maintained specifications. Before replacing a candidate, record its final commit SHA in `schema-snapshots.json`. Do not move a pinned version. Until pinned, a candidate can still change. Publication of the concept namespace under `/id/` is separate.
+
+CI builds and validates the site. Deployment requires GitHub Pages configured with GitHub Actions as its source. A successful build does not establish live HTTP resolution.

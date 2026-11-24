@@ -1,26 +1,16 @@
 name: publish-schemas
 
-# Publishes the JSON Schemas to GitHub Pages so that their $id URIs
-# (https://e-ai-model.github.io/EAI-standard/...) resolve.
-# Requires Settings > Pages > Build and deployment > Source: "GitHub Actions".
-
 on:
   push:
     branches: [main]
-    paths:
-      - "schemas/**"
-      - "system-profiles/*.schema.json"
-      - "dictionary/*.schema.json"
-      - ".github/workflows/publish-schemas.yml"
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: schema-site-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -28,51 +18,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Assemble site from schema files
-        run: |
-          set -euo pipefail
-          shopt -s nullglob
-          mkdir -p _site
-          files=(schemas/*.schema.json system-profiles/*.schema.json dictionary/*.schema.json)
-          {
-            echo '<!doctype html><html lang="en"><head><meta charset="utf-8">'
-            echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
-            echo '<title>EAI Standard schemas</title></head><body>'
-            echo '<h1>EAI Standard: JSON Schemas</h1>'
-            echo '<p>Candidate schemas, published from <a href="https://github.com/E-AI-MODEL/EAI-standard">E-AI-MODEL/EAI-standard</a>. Each file is served at the URI in its <code>$id</code>.</p><ul>'
-            for f in "${files[@]}"; do
-              mkdir -p "_site/$(dirname "$f")"
-              cp "$f" "_site/$f"
-              echo "<li><a href=\"$f\">$f</a></li>"
-            done
-            echo '</ul></body></html>'
-          } > _site/index.html
-      - name: Check that every $id matches its published path
-        run: |
-          python3 - <<'EOF'
-          import json, pathlib, sys
-          base = "https://e-ai-model.github.io/EAI-standard/"
-          bad = []
-          for p in pathlib.Path("_site").rglob("*.schema.json"):
-              rel = p.relative_to("_site").as_posix()
-              sid = json.loads(p.read_text(encoding="utf-8")).get("$id")
-              if sid != base + rel:
-                  bad.append(f"{rel}: $id {sid!r} != {base + rel!r}")
-          if bad:
-              print("\n".join(bad)); sys.exit(1)
-          print("All $id values match their published paths.")
-          EOF
-      - uses: actions/configure-pages@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+      - run: python scripts/build_schema_site.py
       - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.event.repository.has_pages == true
         with:
           path: _site
 
   deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.event.repository.has_pages == true
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/configure-pages@v5
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -30,6 +30,8 @@ All notable changes to the EAI Standard are recorded here.
 - README documentation now makes the semantic step before human-AI allocation explicit;
 - `docs/` file names no longer carry chapter numbers, which had two `06` and two `07` chapters; the reading order is defined in `docs/README.md`.
 
+- generate and validate version-specific schema copies from the current candidate and pinned predecessor commits; do not attempt deployment while Pages is disabled.
+
 ### No canonical change yet
 
 The 0.4 public interface remains authoritative until the semantic proposal is promoted in one coordinated change covering canonical vocabulary, identifiers, schemas, conformance, diagnostics and migration guidance.
