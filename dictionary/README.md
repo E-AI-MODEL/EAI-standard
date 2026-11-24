@@ -13,6 +13,8 @@ A bilingual (English/Dutch) vocabulary of 81 concepts that sit between education
 
 ## Status
 
+Standard version: `0.4.0-candidate` (the source editions retain their own dates). Navigation references are not identity claims; learner Justification Mapping points to EV-02 and EV-14, not the professional-judgement-specific EV-08.
+
 The dictionary is **non-normative**. It does not define the EAI Standard; [`standard/public-interface.yaml`](../standard/public-interface.yaml) does. Where a dictionary entry and a canonical definition differ, the canonical definition applies.
 
 The dictionary is the source vocabulary for the [0.5 semantic alignment proposal](../proposals/0.5-semantic-alignment/). That proposal selects a small number of these concepts for possible canonical status (Core Learning Action, Task Density, Support–Replacement Boundary, Evidence-Function Shift and others). The rest remain reusable explanatory vocabulary unless conformance or interoperability requires canonical semantics.
@@ -60,6 +62,19 @@ Each entry in `terms.yaml` has:
 - `eai_refs` (optional): pointers into the repository: `proposal_concepts` in the 0.5 proposal, `definitions` in [`standard/definitions.yaml`](../standard/definitions.yaml), and `identifiers` such as `EV-*`, `AIA-*` and `REM-*`.
 
 The `eai_refs` were added when the dictionary was imported. They are navigation aids, not equivalence claims: a pointer from *Process Evidence* to `EV-14` says that the evidence type is where the concept shows up in the standard, not that the two are the same construct. They should be reviewed as part of the 0.5 work.
+
+## Dutch sector terms
+
+[`sector-terms.yaml`](sector-terms.yaml) records 13 terms the Dutch education sector already uses, such as *menselijke regie*, *professioneel oordeel*, *zelfstandige beheersing* and *zorgplicht*, and how each relates to EAI constructs. Each term has a scope:
+
+| Scope | Meaning |
+|---|---|
+| `equivalent` | Same meaning as the referenced construct. |
+| `broader` / `narrower` | Covers more or less than the referenced construct. Not a synonym. |
+| `related` | Touches the construct but is not a translation of it. |
+| `context_only` | A legal or institutional basis (for example *zorgplicht*, *menselijk toezicht*). It belongs in a context overlay and has no canonical EAI equivalent. |
+
+This makes it possible to write Dutch guidance in the sector's own words without silently changing what the standard means. The table appears at the end of [nl.md](nl.md) and [en.md](en.md). CI checks that every reference exists.
 
 ## The EAI design sequence
 

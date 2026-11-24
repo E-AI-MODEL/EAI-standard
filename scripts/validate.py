@@ -12,8 +12,8 @@ repository is internally consistent:
 4. machine-rule fixtures produce the expected schema validity after their
    JSON-Pointer mutations are applied to the base artifact;
 5. example cases validate against case.schema.json;
-6. the non-normative dictionary validates against its schema, and its
-   related terms and EAI references point to things that exist.
+6. the non-normative dictionary and the Dutch sector terms validate against
+   their schemas, and their references point to things that exist.
 
 Example cases that are known not to validate yet are listed in
 tests/schema-migration-pending.txt. The check fails when an unlisted case is
@@ -48,8 +48,10 @@ DOCUMENT_TARGETS = [
     ("system-profiles/examples/generic-agentic-llm.yaml", "system-profiles/system-profile.schema.json"),
     ("tests/conformance/*-result.json", "schemas/conformance-result.schema.json"),
     ("dictionary/terms.yaml", "dictionary/dictionary.schema.json"),
+    ("dictionary/sector-terms.yaml", "dictionary/sector-terms.schema.json"),
 ]
 DICTIONARY_FILE = "dictionary/terms.yaml"
+SECTOR_TERMS_FILE = "dictionary/sector-terms.yaml"
 FIXTURES_FILE = "tests/conformance/machine-rule-fixtures.yaml"
 
 errors: list[str] = []
@@ -273,6 +275,9 @@ def check_dictionary(docs) -> None:
     data = docs.get(path)
     if not isinstance(data, dict):
         return  # parse error already reported, or not a mapping (schema check reports it)
+    version = (docs.get(ROOT / "standard/public-interface.yaml") or {}).get("standard_version")
+    if data.get("standard_version") != version:
+        errors.append("dictionary: standard_version does not match canonical manifest")
     entries = data.get("entries") or []
     term_ids = [e.get("id") for e in entries]
     for dup in sorted({i for i in term_ids if term_ids.count(i) > 1}):
@@ -307,6 +312,42 @@ def check_dictionary(docs) -> None:
                 if ref not in known:
                     errors.append(f"dictionary: {eid}: {kind} reference {ref!r} does not exist")
     print(f"[dictionary] {len(entries)} entries, {checked} references checked")
+
+    claim_types = set((docs.get(ROOT / "standard/evidence-types.yaml") or {}).get("claim_types", {}))
+    check_sector_terms(docs, {
+        "definitions": definitions,
+        "claim_types": claim_types,
+        "proposal_concepts": proposal_concepts,
+        "dictionary": known_terms,
+        "identifiers": known_ids,
+    })
+
+
+def check_sector_terms(docs, known: dict[str, set[str]]) -> None:
+    path = ROOT / SECTOR_TERMS_FILE
+    if not path.exists():
+        errors.append(f"sector terms: {SECTOR_TERMS_FILE} does not exist")
+        return
+    data = docs.get(path)
+    if not isinstance(data, dict):
+        return
+    version = (docs.get(ROOT / "standard/public-interface.yaml") or {}).get("standard_version")
+    if data.get("standard_version") != version:
+        errors.append("sector terms: standard_version does not match canonical manifest")
+    terms = data.get("terms") or []
+    ids = [t.get("id") for t in terms]
+    for dup in sorted({i for i in ids if ids.count(i) > 1}):
+        errors.append(f"sector terms: duplicate id {dup}")
+    checked = 0
+    for term in terms:
+        tid = term.get("id")
+        for kind, refs in (term.get("refs") or {}).items():
+            for ref in refs:
+                checked += 1
+                ok = (ROOT / ref).is_file() if kind == "files" else ref in known.get(kind, set())
+                if not ok:
+                    errors.append(f"sector terms: {tid}: {kind} reference {ref!r} does not exist")
+    print(f"[sector terms] {len(terms)} terms, {checked} references checked")
 
 
 def main() -> int:

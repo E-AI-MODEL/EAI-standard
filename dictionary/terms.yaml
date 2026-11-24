@@ -4,6 +4,7 @@
 
 dictionary: EAI Dictionary
 status: non_normative
+standard_version: 0.4.0-candidate
 edition: concept
 author: Hans Visser / EAI
 source_editions:
@@ -950,7 +951,7 @@ entries:
         Leg per relevante AI-bijdrage vast: voorstel, handeling van de leerling en reden.
     related: [trace_back_prompting, didactic_controllability, process_evidence]
     eai_refs:
-      identifiers: [EV-08]
+      identifiers: [EV-02, EV-14]
   - id: knowledge
     term: {en: Knowledge, nl: Kennis}
     label: common_term
