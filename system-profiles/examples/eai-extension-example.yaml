@@ -1,3 +1,4 @@
+# Hypothetical worked example; not empirical evidence.
 id: CASE-SYSTEM-PROFILE-EXTENSION-EXAMPLE
 standard_version: 0.4.0-candidate
 context: >-
@@ -6,10 +7,10 @@ goal: >-
   Determine whether learner responses indicate a misconception that requires additional instruction while preserving the teacher's professional diagnostic judgement.
 process_positions:
   - id: PP-01
-    model: Explicit Instruction
+    model: ADP-EI-ARCHER-HUGHES
     label: Guided practice
     source_term: Guided practice
-    source_element_id: EI-F03
+    source_element_id: EI-F3
     primary: true
 primary_process_position: PP-01
 actors:
@@ -44,12 +45,12 @@ actors:
 claim_type: professional_judgement
 evidence_items:
   - id: E-01
-    evidence_type: EV-16
+    evidence_type: EV-01
     source_actor: teacher_professional
-    observation: Teacher has access to original learner responses.
-    claim_types: [professional_judgement]
+    observation: Teacher inspects original learner responses before interpreting them.
+    claim_types: [current_performance]
     notes: >-
-      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+      Hypothetical observation specified to distinguish access from actual inspection; the original example only specified access.
   - id: E-02
     evidence_type: EV-13
     source_actor: teacher_professional

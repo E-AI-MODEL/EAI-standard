@@ -1,3 +1,4 @@
+# Hypothetical worked example. The migration specifies assumed observations, not collected learner data.
 id: EX-EDI-GP-001
 standard_version: 0.4.0-candidate
 context: >-
@@ -63,35 +64,35 @@ evidence_items:
       The learner carries out the target procedure on the fresh item; the AI tutor only asks a question and does not supply the solution step.
     claim_types: [current_performance]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-02
     evidence_type: EV-02
     observation: >-
       The learner explains where they are in the procedure and what they will check next.
     claim_types: [current_performance]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-03
     evidence_type: EV-02
     observation: >-
       The teacher explains how the learner's response to the AI cue shows how much of the procedure the learner already performs independently.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-04
     evidence_type: EV-08
     observation: >-
       A note records which learner responses the teacher inspected after the AI check and what the teacher concluded from them.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-05
     evidence_type: EV-08
     observation: >-
       A note records that the teacher reduced support for the next item and on which learner evidence that decision was based.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
 human_control:
   responsible_actor: teacher_professional
   notes: >-
