@@ -93,8 +93,8 @@ def main():
     if not VERSION.fullmatch(version):
         raise ValueError(f"Invalid standard version: {version}")
     snapshots = json.loads((ROOT / "schema-snapshots.json").read_text(encoding="utf-8"))
-    if not isinstance(snapshots, dict) or version in snapshots:
-        raise ValueError("Snapshots must contain only pinned predecessor versions")
+    if not isinstance(snapshots, dict):
+        raise ValueError("Snapshots must map versions to pinned commits")
     site = ROOT / "_site"
     if site.exists():
         shutil.rmtree(site)
@@ -106,27 +106,42 @@ def main():
         shutil.copy2(ROOT / name, site / name)
     current = source_schemas()
     links = emit(site, current)
-    links += emit(site, current, f"releases/{version}/")
-    for old_version, commit in sorted(snapshots.items()):
-        if not VERSION.fullmatch(old_version) or not isinstance(commit, str) or not SHA.fullmatch(commit):
-            raise ValueError(f"Invalid snapshot entry: {old_version}")
+    collections = {version: current}
+    for release_version, commit in sorted(snapshots.items()):
+        if not VERSION.fullmatch(release_version) or not isinstance(commit, str) or not SHA.fullmatch(commit):
+            raise ValueError(f"Invalid snapshot entry: {release_version}")
         old_manifest = yaml.safe_load(git("show", f"{commit}:standard/public-interface.yaml"))
-        if old_manifest.get("standard_version") != old_version:
-            raise ValueError(f"Snapshot version mismatch: {old_version}")
-        links += emit(site, source_schemas(commit), f"releases/{old_version}/")
-    for release_version in (version, *sorted(snapshots)):
+        if old_manifest.get("standard_version") != release_version:
+            raise ValueError(f"Snapshot version mismatch: {release_version}")
+        archived = source_schemas(commit)
+        if release_version == version:
+            if archived != current:
+                raise ValueError("Pinned current schemas changed. Use a new standard version.")
+            # Protect the released normative material, not the presentation code.
+            for paths in manifest["canonical_artifacts"].values():
+                for name in paths:
+                    path = (ROOT / "standard" / name).resolve().relative_to(ROOT).as_posix()
+                    if (ROOT / path).read_text(encoding="utf-8") != git("show", f"{commit}:{path}"):
+                        raise ValueError(f"Pinned canonical artifact changed: {path}")
+            old_public = git("show", f"{commit}:standard/public-interface.yaml")
+            if (ROOT / "standard/public-interface.yaml").read_text(encoding="utf-8") != old_public:
+                raise ValueError("Pinned canonical manifest changed")
+        collections[release_version] = archived
+    for release_version, schemas in collections.items():
+        links += emit(site, schemas, f"releases/{release_version}/")
         release = site / "releases" / release_version
         for name in notice_files:
             shutil.copy2(ROOT / name, release / name)
     print(f"Included {len(notice_files)} licence and attribution files in each schema distribution.")
-    (site / "index.html").write_text(
+    # Preserve a plain index for tools and browsers without JavaScript.
+    (site / "schema-index.html").write_text(
         '<!doctype html><html lang="en"><meta charset="utf-8"><title>EAI Standard schemas</title>'
         '<h1>EAI Standard schemas</h1><p>Current candidate: ' + html.escape(version) +
-        '. Version paths become immutable when pinned.</p>'
-        '<p>Original EAI material: <a href="LICENSE">Apache-2.0</a> '
-        '(<a href="LICENSE-SCOPE.md">scope</a>; <a href="NOTICE">attribution</a>).</p><ul>' +
+        '</p><p><a href="LICENSE">Apache-2.0</a> (<a href="LICENSE-SCOPE.md">scope</a>)</p><ul>' +
         "".join(f'<li><a href="{html.escape(p)}">{html.escape(p)}</a></li>' for p in links) +
         '</ul></html>', encoding="utf-8")
+    from build_portal import build_portal
+    build_portal(site, version, snapshots, collections)
     print(f"Built {len(links)} schema publication files.")
 
 
