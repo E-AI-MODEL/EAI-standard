@@ -139,10 +139,10 @@ ai_actions:
     description: AI selects or proposes a next resource, task, branch or process step.
 
 interpretation_notes:
-  - `classify_or_cluster` does not equal professional diagnosis.
-  - `detect_or_flag` does not establish that the flagged feature is correct or educationally meaningful.
-  - `draft` may amount to `partial_performance` or `full_performance` when drafting is itself part of the core human action.
-  - `translate_or_rephrase` may be peripheral in one context and core performance in a language-learning context.
-  - `generate_practice_item` does not by itself establish the validity or difficulty of the item.
-  - `adapt_difficulty_or_support` requires separate analysis of who determined the instructional meaning and acceptable support level.
+  - '`classify_or_cluster` does not equal professional diagnosis.'
+  - '`detect_or_flag` does not establish that the flagged feature is correct or educationally meaningful.'
+  - '`draft` may amount to `partial_performance` or `full_performance` when drafting is itself part of the core human action.'
+  - '`translate_or_rephrase` may be peripheral in one context and core performance in a language-learning context.'
+  - '`generate_practice_item` does not by itself establish the validity or difficulty of the item.'
+  - '`adapt_difficulty_or_support` requires separate analysis of who determined the instructional meaning and acceptable support level.'
   - An implementation MAY record both a functional action such as `draft` and an allocation action such as `partial_performance` when both are materially relevant.

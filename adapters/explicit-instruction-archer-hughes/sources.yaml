@@ -7,7 +7,7 @@ model_definition_sources:
     type: primary_model_source
     authors: [Anita L. Archer, Charles A. Hughes]
     year: 2011
-    title: Explicit Instruction: Effective and Efficient Teaching
+    title: 'Explicit Instruction: Effective and Efficient Teaching'
     publisher: Guilford Press
     public_sample: https://explicitinstruction.org/download/sample-chapter.pdf
     use_in_adapter:
@@ -31,7 +31,7 @@ effectiveness_context_sources:
     authors: [Zid Mancenido, Karen Gonsalkorale, Nuella Flynn, Jessica Brosnan]
     year: 2024
     updated: 2025-12-15
-    title: The impact of context on evidence-based practices: A rapid literature scan on formative assessment, explicit instruction and mastery learning
+    title: 'The impact of context on evidence-based practices: A rapid literature scan on formative assessment, explicit instruction and mastery learning'
     url: https://www.edresearch.edu.au/research/research-reports/impact-context-evidence-based-practices-rapid-literature-scan
     note: >-
       Used only as recent context on the evidence base for explicit instruction across settings. It does not validate every element or sequence in the Archer-Hughes model.
@@ -40,7 +40,7 @@ effectiveness_context_sources:
     type: domain_specific_meta_analysis
     authors: [Fei Li, Yunmei Sun]
     year: 2024
-    title: Effects of different forms of explicit instruction on L2 development: A meta-analysis
+    title: 'Effects of different forms of explicit instruction on L2 development: A meta-analysis'
     publication: Foreign Language Annals
     doi: 10.1111/flan.12726
     note: >-

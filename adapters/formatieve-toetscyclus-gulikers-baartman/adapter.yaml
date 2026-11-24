@@ -3,7 +3,7 @@ standard_version: 0.4.0-candidate
 artifact_version: 0.4.0-candidate
 model_name: Formatieve toetscyclus
 model_family: formative_assessment
-source_reference: Gulikers & Baartman (2017), Doelgericht professionaliseren: formatieve toetspraktijken met effect! Wat DOET de docent in de klas?
+source_reference: 'Gulikers & Baartman (2017), Doelgericht professionaliseren: formatieve toetspraktijken met effect! Wat DOET de docent in de klas?'
 source_version: 2017 review-study cycle
 source_license: source_referenced_not_reproduced
 
@@ -71,7 +71,7 @@ mappings:
       - {type: microstructure, id_or_label: MS-TDJ-01, actor: teacher_professional}
       - {type: microstructure, id_or_label: MS-TDJ-02, actor: teacher_professional}
       - {type: microstructure, id_or_label: MS-LRI-04, actor: learner}
-    rationale: Elicitation is an evidence-design problem: the response must make the relevant learner action visible rather than primarily display AI performance.
+    rationale: 'Elicitation is an evidence-design problem: the response must make the relevant learner action visible rather than primarily display AI performance.'
     confidence: high
 
   - source_element_id: FTC-P3

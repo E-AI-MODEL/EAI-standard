@@ -114,6 +114,23 @@ Relevant stakeholder roles include:
 - information architects and interoperability experts;
 - public-sector or sector organisations where relevant.
 
+## Automated checks
+
+Every push and pull request runs `scripts/validate.py` in GitHub Actions. Run it locally before proposing a change:
+
+```bash
+pip install -r scripts/requirements.txt
+python scripts/validate.py
+```
+
+The script checks that all YAML and JSON files parse, that all JSON Schemas are valid and their `$ref`s resolve locally, that conformance result fixtures and machine-rule fixtures match the schemas, and that example cases validate against `schemas/case.schema.json`. It is repository tooling, not a reference validator: it does not evaluate EAI rules.
+
+Values that contain `: ` or start with a backtick must be quoted in YAML.
+
+If you change `dictionary/terms.yaml`, regenerate the readable views with `python scripts/render_dictionary.py`. CI fails when they are out of date.
+
+New examples must validate. `tests/schema-migration-pending.txt` may list examples that temporarily fail during a coordinated breaking schema change; the check fails as soon as a listed example validates, so the list can only shrink.
+
 ## Pull requests
 
 Pull requests should be small enough to review and should identify whether they change:

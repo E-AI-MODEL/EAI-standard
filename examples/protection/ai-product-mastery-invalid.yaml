@@ -1,0 +1,43 @@
+id: CASE-MASTERY-INVALID-001
+standard_version: 0.4.0-candidate
+context: >-
+  Hypothetical case. Learner uses generative AI during practice. Independent mastery is later claimed from the AI-supported product.
+goal: >-
+  Determine whether the learner independently masters the target reasoning operation.
+process_positions:
+  - id: PP-01
+    model: generic_learning_process
+    label: practice_and_assessment
+    source_term: null
+    source_element_id: null
+    primary: true
+primary_process_position: PP-01
+actors:
+  - actor: learner
+    core_actions:
+      - id: CHA-LEARN-001
+        label: perform_target_reasoning_operation
+        status: confirmed
+        process_position_refs: [PP-01]
+        microstructures:
+          - id: MS-EXAMPLE-REASON
+            label: generate_reasoning_step
+            human_execution: partial
+            ai_actions: [AIA-10]
+            evidence_refs: [E-01]
+            handback_required: true
+            remediation_ref: REM-03
+claim_type: independent_mastery
+evidence_items:
+  - id: E-01
+    evidence_type: EV-01
+    observation: Final AI-supported product.
+    claim_types: [current_performance]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+human_control: null
+unknowns:
+  - Independent execution of the target reasoning operation has not been observed.
+extensions: []
+notes: >-
+  Hypothetical negative fixture. The final AI-supported product alone cannot establish independent mastery. The learner's independent capability is unknown until re-demonstrated.

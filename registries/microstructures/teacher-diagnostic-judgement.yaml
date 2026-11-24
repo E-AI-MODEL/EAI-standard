@@ -60,7 +60,7 @@ microstructures:
     ai_takeover_risk: AI language can make an inference sound like an observed fact.
     observable_signal: Interpretive labels are stated without traceable learner evidence.
     diagnostic_prompt: Which part is directly visible, and which part is your interpretation?
-    remediation_hint: Rewrite the judgement in two columns: observation and inference.
+    remediation_hint: 'Rewrite the judgement in two columns: observation and inference.'
     evidence_types: [EV-02, EV-08]
 
   - id: MS-TDJ-05
