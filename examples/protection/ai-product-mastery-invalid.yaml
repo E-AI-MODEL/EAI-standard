@@ -1,5 +1,5 @@
 id: CASE-MASTERY-INVALID-001
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 context: >-
   Hypothetical case. Learner uses generative AI during practice. Independent mastery is later claimed from the AI-supported product.
 goal: >-
