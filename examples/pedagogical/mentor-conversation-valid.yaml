@@ -1,3 +1,4 @@
+# Hypothetical worked example. The migration specifies assumed observations, not collected learner data.
 id: EX-PED-MENTOR-001
 standard_version: 0.4.0-candidate
 context: >-
@@ -63,70 +64,70 @@ evidence_items:
       The mentor meets the learner in person and invites them to tell their own account before any notes are made.
     claim_types: [current_performance]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-02
     evidence_type: EV-09
     observation: >-
       The learner's account in the conversation and the mentor's own observation of the learner's participation are both available to the mentor.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-03
     evidence_type: EV-02
     observation: >-
       The mentor restates the learner's account in their own words and asks the learner to confirm or correct it.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-04
     evidence_type: EV-09
     observation: >-
       The mentor checks the learner's account against the learner's own correction and against what is known about recent participation.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-05
     evidence_type: EV-05
     observation: >-
       The mentor compares possible follow-ups on their educational and relational consequences for this learner.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-06
     evidence_type: EV-08
     observation: >-
       A record shows which considerations the mentor weighed and how the learner's own account was taken into account.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-07
     evidence_type: EV-05
     observation: >-
       The mentor compares the options the AI tool listed with own alternatives and selects one that fits the learner's situation.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-08
     evidence_type: EV-08
     observation: >-
       A record shows which follow-up was selected, which options were rejected and why.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-09
     evidence_type: EV-02
     observation: >-
       The mentor explains the chosen follow-up to the learner and justifies it in their own words.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
   - id: E-10
     evidence_type: EV-08
     observation: >-
       A record links the final decision to the learner's account, the relevant context and the mentor's reasoning.
     claim_types: [professional_judgement]
     notes: >-
-      Observation written during the 0.4 migration from the evidence type and microstructure; the pre-0.4 example named only the evidence type.
+      Assumed observation in this hypothetical fixture, specified during the 0.4 migration. The earlier example named only the evidence type.
 human_control:
   responsible_actor: teacher_professional
   notes: >-

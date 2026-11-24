@@ -1,9 +1,9 @@
 id: CASE-PROTECTION-INVALID-001
 standard_version: 0.4.0-candidate
 context: >-
-  Learner uses generative AI during practice. Independent mastery is later claimed from the AI-supported product.
+  Hypothetical practice case. A learner performs part of a reasoning operation with AI support; only current supported performance is described.
 goal: >-
-  Determine whether the learner independently masters the target reasoning operation.
+  Describe the learner's current supported performance of the target reasoning operation.
 process_positions:
   - id: PP-01
     model: generic_learning_process
@@ -46,14 +46,16 @@ actors:
                   notes: This intentionally incorrect bindingness is the condition under test.
           unknowns: []
           notes: null
-claim_type: independent_mastery
+claim_type: current_performance
 evidence_items:
   - id: E-01
     evidence_type: EV-01
-    observation: Final AI-supported product.
+    source_actor: learner
+    observation: The learner visibly attempts a reasoning step while AI performs another part.
+    independence: supported
     claim_types: [current_performance]
     notes: >-
-      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+      Hypothetical observed attempt, introduced to isolate the protection-basis defect. It is not a real learner observation.
 human_control: null
 unknowns: []
 extensions: []
