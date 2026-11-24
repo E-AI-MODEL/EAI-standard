@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 artifact_version: 0.3.0-candidate
 status: candidate
 
@@ -24,11 +24,15 @@ machine_rules:
     positive_fixture: MR-R029-POS
     negative_fixture: MR-R029-NEG
     unknown_fixture: not_applicable
+  - rule: EAI-R034
+    positive_fixture: MR-R034-POS
+    negative_fixture: MR-R034-NEG
+    unknown_fixture: not_applicable
 
 coverage:
-  machine_rule_count: 4
-  positive_covered: 4
-  negative_covered: 4
+  machine_rule_count: 5
+  positive_covered: 5
+  negative_covered: 5
   unknown_required: 0
   unknown_covered: 0
   pending: 0

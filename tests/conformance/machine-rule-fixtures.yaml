@@ -1,4 +1,4 @@
-standard_version: 0.4.0-candidate
+standard_version: 0.5.0-candidate
 artifact_version: 0.1.0-candidate
 status: candidate
 
@@ -21,7 +21,7 @@ mutation_contract:
 
 base_artifact:
   id: CASE-MACHINE-BASE-001
-  standard_version: 0.4.0-candidate
+  standard_version: 0.5.0-candidate
   context: A learner explains a chosen strategy while bounded AI questioning is available.
   goal: Make the learner's strategy choice observable without AI performing that choice.
   process_positions:
@@ -236,6 +236,87 @@ fixtures:
       information_state: complete
       diagnostics: [EAI-D023]
 
+  - id: MR-R034-POS
+    rule: EAI-R034
+    profile: CP-08
+    mutations:
+      - op: add
+        path: /actors/0/core_actions/0/action_kind
+        value: core_learning_action
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: MR-R034-NEG
+    rule: EAI-R034
+    profile: CP-08
+    mutations:
+      - op: add
+        path: /actors/0/core_actions/0/action_kind
+        value: core_learning_action
+      - op: replace
+        path: /actors/0/actor
+        value: teacher_professional
+    expected:
+      schema_valid: false
+      conformance: non_conformant
+      information_state: complete
+      diagnostics: [EAI-D029]
+
+  - id: SR-R032-SPLIT
+    rule: EAI-R032
+    profile: CP-08
+    mutations:
+      - op: add
+        path: /concept_meanings
+        value:
+          - {id: CM-1, term: memory, meaning: Learner later retrieves previously learned knowledge., position_ref: POS-01, rationale: Human learning construct.}
+          - {id: CM-2, term: memory, meaning: A system stores and retrieves earlier messages., position_ref: POS-05, rationale: Technical storage behaviour.}
+      - op: add
+        path: /actors/0/core_actions/0/action_kind
+        value: core_learning_action
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: complete
+      diagnostics: []
+
+  - id: SR-R032-UNKNOWN
+    rule: EAI-R032
+    profile: CP-08
+    mutations:
+      - op: add
+        path: /concept_meanings
+        value:
+          - {id: CM-1, term: memory, meaning: null, position_ref: null, rationale: The source does not establish which construct is intended.}
+      - op: add
+        path: /actors/0/core_actions/0/action_kind
+        value: core_learning_action
+      - op: add
+        path: /unknowns/-
+        value: Which meaning of memory the source intends is unknown.
+    expected:
+      schema_valid: true
+      conformance: conformant
+      information_state: contains_unknowns
+      diagnostics: [EAI-D020]
+
+  - id: SR-R020-POSITION-NEG
+    rule: EAI-R020
+    profile: CP-08
+    mutations:
+      - op: add
+        path: /concept_meanings
+        value:
+          - {id: CM-1, term: memory, meaning: Technical message storage., position_ref: POS-99, rationale: Invalid canonical identifier.}
+    expected:
+      schema_valid: false
+      conformance: non_conformant
+      information_state: complete
+      diagnostics: [EAI-D026]
+
 unknown_fixture_policy:
   EAI-R002: not_applicable
   EAI-R020: not_applicable
@@ -243,5 +324,6 @@ unknown_fixture_policy:
   EAI-R027: not_applicable
   EAI-R028: not_applicable
   EAI-R029: not_applicable
+  EAI-R034: not_applicable
   rationale: >-
     These machine rules test explicit structural, referential or representation requirements. Unknown substantive information may occur elsewhere in the same case, but it does not create a distinct unknown outcome for the rule itself. Rules whose substantive uncertainty changes interpretation remain hybrid rather than being forced into this matrix.
