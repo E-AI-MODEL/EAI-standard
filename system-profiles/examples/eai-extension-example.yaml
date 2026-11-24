@@ -1,56 +1,83 @@
+# Hypothetical worked example; not empirical evidence.
 id: CASE-SYSTEM-PROFILE-EXTENSION-EXAMPLE
-standard_version: 0.3.0-candidate
+standard_version: 0.4.0-candidate
 context: >-
   A teacher uses an AI-assisted workflow to inspect learner responses during guided practice. The AI clusters responses and proposes a possible instructional next step.
 goal: >-
   Determine whether learner responses indicate a misconception that requires additional instruction while preserving the teacher's professional diagnostic judgement.
-process_position:
-  model: Explicit Instruction
-  label: Guided practice
-  source_term: Guided practice
-  source_element_id: EI-F03
+process_positions:
+  - id: PP-01
+    model: ADP-EI-ARCHER-HUGHES
+    label: Guided practice
+    source_term: Guided practice
+    source_element_id: EI-F3
+    primary: true
+primary_process_position: PP-01
 actors:
   - actor: teacher_professional
     core_actions:
-      - label: interpret learner evidence and select next instructional move
+      - id: interpret_learner_evidence_and_select_next_instructional_move
+        label: interpret learner evidence and select next instructional move
         status: confirmed
+        process_position_refs: [PP-01]
         microstructures:
-          - label: observe learner responses
+          - id: MS-TDJ-03
+            label: observe learner responses
             human_execution: full
-            ai_action: classify_or_cluster
-            evidence:
-              - teacher has access to original learner responses
+            ai_actions: [AIA-15]
+            evidence_refs: [E-01]
             handback_required: false
-            remediation: null
-          - label: distinguish signal from diagnosis
+            remediation_ref: null
+          - id: MS-TDJ-04
+            label: distinguish signal from diagnosis
             human_execution: full
-            ai_action: detect_or_flag
-            evidence:
-              - teacher compares AI cluster with original learner evidence
+            ai_actions: [AIA-22]
+            evidence_refs: [E-02]
             handback_required: false
-            remediation: null
-          - label: make professional interpretation
+            remediation_ref: null
+          - id: MS-TDJ-12
+            label: make professional interpretation
             human_execution: full
-            ai_action: propose_decision
-            evidence:
-              - teacher records own interpretation and rationale before acting
+            ai_actions: [AIA-09]
+            evidence_refs: [E-03]
             handback_required: false
-            remediation: null
+            remediation_ref: null
 claim_type: professional_judgement
-responsibility: teacher_professional
+evidence_items:
+  - id: E-01
+    evidence_type: EV-01
+    source_actor: teacher_professional
+    observation: Teacher inspects original learner responses before interpreting them.
+    claim_types: [current_performance]
+    notes: >-
+      Hypothetical observation specified to distinguish access from actual inspection; the original example only specified access.
+  - id: E-02
+    evidence_type: EV-13
+    source_actor: teacher_professional
+    observation: Teacher compares AI cluster with original learner evidence.
+    claim_types: [professional_judgement]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+  - id: E-03
+    evidence_type: EV-08
+    source_actor: teacher_professional
+    observation: Teacher records own interpretation and rationale before acting.
+    claim_types: [professional_judgement]
+    notes: >-
+      Evidence type assigned during migration from the pre-0.4 free-text evidence list.
+human_control:
+  responsible_actor: teacher_professional
 unknowns: []
 extensions:
   - namespace: https://e-ai-model.github.io/EAI-standard/extensions/system-profile
     version: 0.1.0-candidate
-    schema: https://e-ai-model.github.io/EAI-standard/system-profiles/eai-system-profile-extension.schema.json
+    schema: >-
+      https://e-ai-model.github.io/EAI-standard/system-profiles/eai-system-profile-extension.schema.json
     data:
       profile_ref: SYS-EXAMPLE-AGENTIC-LLM
       profile_version: 0.1.0-candidate
       observed_configuration: response-clustering-with-recommendation
-      observed_ai_actions:
-        - AIA-15
-        - AIA-22
-        - AIA-09
+      observed_ai_actions: [AIA-15, AIA-22, AIA-09]
       system_profile_snapshot: null
 notes: >-
   The system profile explains how the technical functionality is produced. Conformance still depends on the concrete AI actions, human execution and human evidence rather than on the capability of the underlying model.

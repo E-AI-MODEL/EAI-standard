@@ -22,7 +22,7 @@ For learner cases, **core learning action** is proposed as a learner-specific sp
 
 The 0.5 proposal also formalises **EAI Concept Positioning**: Education-native, Education-led, Shared, Technology-led and Technology-native. Positions describe where meaning comes from; they are not a quality scale. The same word may refer to different constructs and those meanings must be positioned separately.
 
-See [`proposals/0.5-semantic-alignment/`](proposals/0.5-semantic-alignment/) and the updated [`ROADMAP.md`](ROADMAP.md). These proposal files do not yet alter the 0.4 canonical public interface.
+See [`proposals/0.5-semantic-alignment/`](proposals/0.5-semantic-alignment/), the source vocabulary in [`dictionary/`](dictionary/) and the updated [`ROADMAP.md`](ROADMAP.md). These proposal files do not yet alter the 0.4 canonical public interface.
 
 ## Basic unit
 
@@ -63,7 +63,8 @@ The repository is deliberately layered:
 - [`system-profiles/`](system-profiles/) is a **non-normative technical companion layer** for the system configuration around an observable AI action;
 - [`examples/`](examples/) contains worked cases;
 - [`tests/`](tests/) contains conformance fixtures;
-- [`implementations/`](implementations/) contains non-normative implementation material.
+- [`implementations/`](implementations/) contains non-normative implementation material;
+- [`dictionary/`](dictionary/) contains the non-normative, bilingual (EN/NL) **EAI Dictionary**: 81 concepts between education and technology, each with a concept position.
 
 The **only authoritative list** of canonical artifacts is [`standard/public-interface.yaml`](standard/public-interface.yaml). Other documents refer to that manifest and do not maintain competing lists.
 
