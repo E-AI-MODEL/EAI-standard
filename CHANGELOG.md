@@ -15,17 +15,22 @@ All notable changes to the EAI Standard are recorded here.
 - `dictionary/sector-terms.yaml`: 13 Dutch sector terms (such as *menselijke regie*, *professioneel oordeel*, *zorgplicht*) with their relation to EAI constructs (`equivalent`, `broader`, `narrower`, `related` or `context_only`), validated against `dictionary/sector-terms.schema.json` and shown in the dictionary views;
 - `scripts/validate.py` and a GitHub Actions workflow that check on every push that all YAML and JSON parse, all schemas are valid with locally resolvable `$ref`s, conformance result fixtures and machine-rule fixtures match the schemas, and example cases validate against the case schema;
 - `tests/schema-migration-pending.txt`, a list for examples that may temporarily fail validation during a breaking schema change. It is currently empty.
+- a `publish-schemas` GitHub Actions workflow that publishes the JSON Schemas to GitHub Pages at the URIs in their `$id`, and fails if an `$id` does not match its published path;
 
 ### Fixed
 
 - the ten examples in `examples/` and `system-profiles/examples/eai-extension-example.yaml` now use the 0.4 case serialisation (`process_positions[]`, `process_position_refs[]`, `ai_actions[]`, `evidence_refs[]` with structured `evidence_items[]`, `remediation_ref`, structured `human_control`) and validate against `schemas/case.schema.json`. Evidence items record their origin in `notes`. Their `claim_types` follow the actor and the `supports` of the evidence type (teacher evidence supports `professional_judgement`), so no item claims more than its type can support. Where the pre-0.4 example only named an `EV-*` type, the observation is a placeholder marked as unspecified, except in the examples whose expected information state is `complete` (`edi-2.0/guided-practice-valid`, `pedagogical/mentor-conversation-valid`), which now have concrete observations; where it gave free-text evidence, the assigned `EV-*` type is marked as assigned during migration. The former free-text `responsibility` is kept verbatim in `human_control.notes`. Conformance expectations in `tests/conformance/` are unchanged;
 - `examples/self-regulation/learner-regulates-ai-supported-task.yaml`: evidence item `E-SR-05` used `EV-08`, which does not support the `current_performance` claim; it now uses `EV-02`;
+- `schemas/remediation.schema.json` and `schemas/skill.schema.json` now use the same `$id` base (`https://e-ai-model.github.io/EAI-standard/`) as every other schema and `standard/identifiers.yaml`;
 - ten YAML files that did not parse because of unquoted `: ` or leading backticks, including `standard/ai-actions.yaml`, `standard/diagnostics.yaml` and `standard/protection.yaml`. Only quoting changed; values are identical.
 
 ### Changed
 
 - the roadmap now places semantic alignment before executable conformance and the reference validator;
-- README documentation now makes the semantic step before human-AI allocation explicit.
+- README documentation now makes the semantic step before human-AI allocation explicit;
+- `docs/` file names no longer carry chapter numbers, which had two `06` and two `07` chapters; the reading order is defined in `docs/README.md`.
+
+- generate and validate version-specific schema copies from the current candidate and pinned predecessor commits; do not attempt deployment while Pages is disabled.
 
 ### No canonical change yet
 
@@ -43,7 +48,7 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - canonical `schemas/protection-assessment.schema.json` and optional protection assessment on case-level core human actions;
 - canonical `PRT-*` protection requirement identifiers for human execution, human judgement, human evidence, effective human oversight, intervention authority, handback, re-demonstration and direct human interaction;
 - normative rules and diagnostics requiring four core-action anchors, constituent microstructure semantics and non-conflation of legal, scientific, framework and institutional protection bases;
-- `docs/16-protection-assessment.md` explaining how EAI proposes what should remain human, evidenced or under human control;
+- `docs/protection-assessment.md` explaining how EAI proposes what should remain human, evidenced or under human control;
 - `context/eu-regulatory-protection.yaml` as a non-canonical jurisdiction overlay for selected EU AI Act and GDPR mappings, with applicability and bindingness preserved;
 - `evidence/protection-guidance.yaml` with evidence-informed candidate protection patterns that remain distinct from legal or EAI-normative requirements;
 - explicit publication model separating specification, machine contract, conformance and implementation guidance;

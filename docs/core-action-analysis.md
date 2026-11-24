@@ -95,7 +95,7 @@ The basis is recorded explicitly and may come from:
 
 These sources are not interchangeable. For example, an EU AI Act human-oversight obligation does not automatically mean the human must personally execute every educational microstructure, while scientific evidence supporting learner re-demonstration does not become a legal obligation merely because the evidence is strong.
 
-See [`16-protection-assessment.md`](16-protection-assessment.md).
+See [`protection-assessment.md`](protection-assessment.md).
 
 ## Process position
 

@@ -135,7 +135,7 @@ Conformance and information completeness are separate result dimensions.
 
 An artifact can conform while explicitly preserving unknown information. Unknown information becomes a conformance problem only when a profile requires information that is structurally absent, or when uncertainty is converted into a stronger unsupported claim or judgement.
 
-See `standard/conformance-profiles.yaml`, `standard/diagnostics.yaml` and `docs/03-conformance.md`.
+See `standard/conformance-profiles.yaml`, `standard/diagnostics.yaml` and `docs/conformance.md`.
 
 ## Implementations and feedback
 
@@ -179,4 +179,4 @@ The candidate phase may use a lighter process, but the target is sustainable ope
 
 Before 1.0, definitions and structures may still change. Candidate releases should prefer semantic clarity over premature stability where the two conflict.
 
-The development process is guided by the five Edustandaard assessment themes: added value, support/adoption, open standardisation, architectural alignment and future sustainability. See `docs/05-edustandaard-readiness.md`.
+The development process is guided by the five Edustandaard assessment themes: added value, support/adoption, open standardisation, architectural alignment and future sustainability. See `docs/edustandaard-readiness.md`.

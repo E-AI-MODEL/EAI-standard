@@ -77,7 +77,7 @@ EAI distinguishes four publication products that must preserve the same semantic
 3. **Conformance**: when an artifact or implementation applies the standard consistently;
 4. **Implementation guidance**: how the standard can be used in concrete systems and educational contexts without introducing new canonical semantics.
 
-See [`docs/10-standard-publication-model.md`](docs/10-standard-publication-model.md).
+See [`docs/standard-publication-model.md`](docs/standard-publication-model.md).
 
 ## Human and system are different analysis layers
 
@@ -106,7 +106,7 @@ The central boundary rule is:
 
 A system may, for example, persist information, solve a novel task or recommend an intervention. That does not make system memory the same construct as human retention, novel system task performance the same as human transfer, or an AI recommendation the same as professional judgement.
 
-See [`docs/09-human-system-boundary.md`](docs/09-human-system-boundary.md) and [`system-profiles/human-system-boundary.yaml`](system-profiles/human-system-boundary.yaml).
+See [`docs/human-system-boundary.md`](docs/human-system-boundary.md) and [`system-profiles/human-system-boundary.yaml`](system-profiles/human-system-boundary.yaml).
 
 ## Source-preserving adapters
 
@@ -156,7 +156,7 @@ Protection conclusions are also source-qualified. EAI distinguishes an EAI norma
 
 The canonical vocabulary is [`standard/protection.yaml`](standard/protection.yaml) and the machine contract is [`schemas/protection-assessment.schema.json`](schemas/protection-assessment.schema.json). Evidence-informed candidate guidance is in [`evidence/protection-guidance.yaml`](evidence/protection-guidance.yaml). Jurisdiction-specific mappings, such as selected EU AI Act and GDPR requirements, remain in context overlays such as [`context/eu-regulatory-protection.yaml`](context/eu-regulatory-protection.yaml).
 
-See [`docs/16-protection-assessment.md`](docs/16-protection-assessment.md).
+See [`docs/protection-assessment.md`](docs/protection-assessment.md).
 
 ## System profile companion layer
 
@@ -190,7 +190,7 @@ From 0.4.0 onward, conformance and information uncertainty are separate result d
 
 An artifact can therefore be correctly represented according to the standard while still containing explicitly unknown information. Preserving uncertainty is not a failure. Silently turning that uncertainty into a stronger conclusion may be.
 
-Conformance results use canonical profile identifiers such as `CP-01` and `CP-03`. Validators return structured diagnostics with a `severity` and a separate `effect`. See [`docs/03-conformance.md`](docs/03-conformance.md), [`standard/diagnostics.yaml`](standard/diagnostics.yaml) and [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
+Conformance results use canonical profile identifiers such as `CP-01` and `CP-03`. Validators return structured diagnostics with a `severity` and a separate `effect`. See [`docs/conformance.md`](docs/conformance.md), [`standard/diagnostics.yaml`](standard/diagnostics.yaml) and [`standard/conformance-profiles.yaml`](standard/conformance-profiles.yaml).
 
 ## Identifiers and versions
 
@@ -238,7 +238,7 @@ Model adapters distinguish **model-definition sources** from **effectiveness evi
 
 The repository is public and the change process is being developed for open standardisation. An explicit license and intellectual-property policy is still required before the standard can be positioned as a stable reusable open standard. No license is implied merely by public repository availability.
 
-See [`GOVERNANCE.md`](GOVERNANCE.md) and [`docs/05-edustandaard-readiness.md`](docs/05-edustandaard-readiness.md).
+See [`GOVERNANCE.md`](GOVERNANCE.md) and [`docs/edustandaard-readiness.md`](docs/edustandaard-readiness.md).
 
 ## Version
 
