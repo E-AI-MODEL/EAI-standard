@@ -150,7 +150,7 @@ The standard should be tested in more than one implementation context before 1.0
 
 Public availability of the repository is not, by itself, a complete licensing or intellectual-property policy.
 
-Before EAI Standard is presented as a stable reusable open standard, the project must publish an explicit license and document any relevant intellectual-property contribution policy. No license is selected implicitly by this governance document.
+Before EAI Standard is presented as a stable reusable open standard, the project must publish an explicit license and document any relevant intellectual-property contribution policy. No license is selected implicitly by this governance document. The [Apache-2.0 proposal](docs/licensing-proposal.md) is a decision document for review, not a license grant.
 
 The eventual policy should distinguish, where needed, between:
 

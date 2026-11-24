@@ -14,6 +14,8 @@ Standard version: `0.5.0-candidate`. The previous validated candidate source is 
 
 For version-only migration of a case that uses no new semantics, preserve all other fields, verify the structural contract, and record the migration. This does not establish new evidence, an action specialization, or a new conformance result. Preserve the original input and support conditions. Re-evaluate any substantive claim using the applicable 0.5 rule set and human review as required.
 
+Version selection is explicit: the historical 0.4 case schema accepted any non-empty version string, so passing that schema alone does not identify the record's version. Select the pinned 0.4 schema only for a record declared as 0.4. The 0.5 case and result schemas enforce the exact 0.5 candidate version.
+
 The publication workflow generates current schemas and version-specific copies from pinned Git sources. Once Pages is configured, archived 0.4 copies can remain available while the current candidate changes. Use the commit-pinned source if the live site is not enabled.
 
 The structural CI tests are not a reference validator. The full rule-execution suite and independent implementation comparison remain the next roadmap stage.
