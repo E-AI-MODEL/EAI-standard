@@ -158,8 +158,14 @@ def classify_schema_error(error) -> str:
                 return "EAI-D021"
         if keys[-1:] == ["core_actions"] or "process_position_refs" in missing or "actor" in missing:
             return "EAI-D021"
-    if keyword == "minItems" and keys == ["process_positions"]:
-        return "EAI-D002"
+    # A present but empty or mistyped anchor is the same gap as a missing one.
+    if keyword in ("minItems", "minLength", "type"):
+        if keys == ["process_positions"]:
+            return "EAI-D002"
+        if keys == ["goal"]:
+            return "EAI-D001"
+        if keys in (["context"], ["actors"]) or keys[-1:] in (["core_actions"], ["process_position_refs"]):
+            return "EAI-D021"
     if keyword in ("pattern", "enum", "const") and isinstance(instance, str) and RESERVED_PREFIX.match(instance):
         return "EAI-D026"
     if keyword == "additionalProperties" and isinstance(instance, dict) and "microstructures" in instance \
@@ -259,19 +265,48 @@ def check_learning_action(case, result):
             result.add("EAI-D029", json_path(path + ["action_kind"]), {"actor": actor.get("actor")})
 
 
+# Canonical enum fields whose value "unknown" is an explicit unknown marker,
+# taken from the canonical schemas (case, protection assessment, evidence item,
+# human control). Boolean nulls in human_control are not counted, because the
+# schema does not define null there as preserved uncertainty.
+UNKNOWN_ENUM_FIELDS = {
+    "core_action": ("status",),
+    "microstructure": ("human_execution",),
+    "protection_dimension": ("status",),
+    "protection_basis": ("applicability", "bindingness"),
+    "evidence_item": ("source_actor", "independence"),
+    "human_control": ("responsible_actor", "decision_authority", "information_available", "timing",
+                      "effectiveness"),
+}
+
+
 def explicit_unknowns(case):
     """Paths of explicit unknown markers. They are reported, never resolved."""
-    found = [json_path(["unknowns", i]) for i, _ in enumerate(case.get("unknowns") or [])]
+    found = []
+
+    def enum_unknowns(node, kind, path):
+        for key in UNKNOWN_ENUM_FIELDS[kind]:
+            if isinstance(node, dict) and node.get(key) == "unknown":
+                found.append(json_path(path + [key]))
+
+    found += [json_path(["unknowns", i]) for i, _ in enumerate(case.get("unknowns") or [])]
     for path, _, action in iter_core_actions(case):
-        if action.get("status") == "unknown":
-            found.append(json_path(path + ["status"]))
+        enum_unknowns(action, "core_action", path)
         if "action_kind" in action and action["action_kind"] is None:
             found.append(json_path(path + ["action_kind"]))
         for m, micro in enumerate(action.get("microstructures") or []):
-            if micro.get("human_execution") == "unknown":
-                found.append(json_path(path + ["microstructures", m, "human_execution"]))
-        for i, _ in enumerate((action.get("protection") or {}).get("unknowns") or []):
-            found.append(json_path(path + ["protection", "unknowns", i]))
+            enum_unknowns(micro, "microstructure", path + ["microstructures", m])
+        protection = action.get("protection") or {}
+        for d, dim in enumerate(protection.get("dimensions") or []):
+            dpath = path + ["protection", "dimensions", d]
+            enum_unknowns(dim, "protection_dimension", dpath)
+            for b, basis in enumerate(dim.get("bases") or []):
+                enum_unknowns(basis, "protection_basis", dpath + ["bases", b])
+        found += [json_path(path + ["protection", "unknowns", i])
+                  for i, _ in enumerate(protection.get("unknowns") or [])]
+    for e, item in enumerate(case.get("evidence_items") or []):
+        enum_unknowns(item, "evidence_item", ["evidence_items", e])
+    enum_unknowns(case.get("human_control"), "human_control", ["human_control"])
     for m, meaning in enumerate(case.get("concept_meanings") or []):
         for key in ("meaning", "position_ref"):
             if meaning.get(key) is None:

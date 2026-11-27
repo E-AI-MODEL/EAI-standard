@@ -20,12 +20,12 @@ python implementations/reference-validator/self_tests.py
 The steps follow the processing contract:
 
 1. Loads `standard/public-interface.yaml` and reads only the canonical artifacts it lists. A case that declares another `standard_version` is rejected with a local diagnostic.
-2. Validates the case against `schemas/case.schema.json`. Each schema failure is mapped to the smallest canonical diagnostic for the rule whose representation boundary the schema enforces (for example a free-standing `microstructures` list → `EAI-D022`, a bare protection flag → `EAI-D023`).
+2. Validates the case against `schemas/case.schema.json`. Each schema failure is mapped to the smallest canonical diagnostic (an empty or mistyped anchor counts as a missing one, so `goal: ""` gives `EAI-D001`) for the rule whose representation boundary the schema enforces (for example a free-standing `microstructures` list → `EAI-D022`, a bare protection flag → `EAI-D023`).
 3. On schema-valid input only, so one missing prerequisite does not cascade:
    - `EAI-R020`: AI actions, evidence types, protection requirements, concept positions and `eai_normative_rule` protection bases must resolve in the canonical vocabularies (`EAI-D026`);
    - `EAI-R027`: context, goal, actor and resolving `process_position_refs` (`EAI-D001`, `EAI-D002`, `EAI-D021`);
    - `EAI-R034`: `core_learning_action` only under a learner (`EAI-D029`);
-   - explicit unknown markers (case `unknowns`, `status: unknown`, `human_execution: unknown`, `action_kind: null`, a null concept `meaning` or `position_ref`, protection `unknowns`) are reported once as `EAI-D020` and listed in `retained_unknowns`, never resolved.
+   - explicit unknown markers are reported once as `EAI-D020` and listed in `retained_unknowns`, never resolved. They are: case and protection `unknowns` lists; the value `unknown` in canonical enum fields (core action `status`, `human_execution`, protection `status`, `applicability` and `bindingness`, evidence `source_actor` and `independence`, and the `human_control` enums); `action_kind: null`; and a null concept `meaning` or `position_ref`.
 4. `conformance` is `non_conformant` when any diagnostic has effect `non_conformance`. `information_state` is `incomplete` when an anchor diagnostic is present, `contains_unknowns` when an uncertainty diagnostic is present, and `complete` otherwise.
 5. The result carries an extension in this implementation's namespace. It lists the machine rules this validator supports, whether evaluation completed or stopped early (`stopped_at`: `standard_version` or `schema_validation`), and which hybrid and human-review rules were **not decided**.
 

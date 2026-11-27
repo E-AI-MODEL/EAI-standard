@@ -55,6 +55,38 @@ def test_null_action_kind_is_an_explicit_unknown(canon):
     assert codes(out) == ["EAI-D020"], codes(out)
 
 
+def test_empty_anchors_are_anchor_diagnostics(canon):
+    cases = {
+        "EAI-D001": case(goal=""),
+        "EAI-D021": case(context=""),
+    }
+    no_actors = case()
+    no_actors["actors"] = []
+    no_actions = case()
+    no_actions["actors"][0]["core_actions"] = []
+    cases_list = list(cases.items()) + [("EAI-D021", no_actors), ("EAI-D021", no_actions)]
+    for expected, doc in cases_list:
+        out = validate_case(doc, "CP-01", canon)
+        assert codes(out) == [expected], (expected, codes(out))
+        assert out["information_state"] == "incomplete", (expected, out["information_state"])
+
+
+def test_nested_protection_and_evidence_unknowns(canon):
+    doc = case(evidence_items=[{"id": "E-1", "evidence_type": "EV-02", "observation": "Observed.",
+                                "claim_types": ["none"], "source_actor": "unknown"}])
+    doc["actors"][0]["core_actions"][0]["protection"] = {"dimensions": [{
+        "requirement_id": "PRT-03", "status": "unknown", "bases": [{
+            "type": "eai_normative_rule", "reference": "EAI-R007",
+            "applicability": "unknown", "bindingness": "eai_normative"}]}]}
+    out = validate_case(doc, "CP-07", canon)
+    assert codes(out) == ["EAI-D020"], codes(out)
+    assert out["information_state"] == "contains_unknowns"
+    paths = {u["path"] for u in out["retained_unknowns"]}
+    assert paths == {"$.evidence_items[0].source_actor",
+                     "$.actors[0].core_actions[0].protection.dimensions[0].status",
+                     "$.actors[0].core_actions[0].protection.dimensions[0].bases[0].applicability"}, paths
+
+
 def test_scope_reports_where_evaluation_stopped(canon):
     full = validate_case(case(), "CP-01", canon)["extensions"][0]["data"]
     assert full["evaluation_completed"] is True and full["stopped_at"] is None
