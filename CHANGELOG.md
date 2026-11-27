@@ -8,6 +8,8 @@ All notable changes to the EAI Standard are recorded here.
 - `docs/validator-core-contract.md` now lists `EAI-R034` in the machine set (five rules, matching `standard/rule-executability.yaml`).
 - CI maintenance: GitHub Actions moved to their Node 24 releases (`checkout@v5`, `setup-python@v6`, `upload-artifact@v6`, `configure-pages@v6`, `upload-pages-artifact@v5`, `deploy-pages@v5`). The portal browser tests use Playwright 1.65.2 on Ubuntu 26.04; Playwright 1.56 did not support that runner, which is why the build had been pinned to Ubuntu 24.04.
 - The two `0.4.0-candidate` sections in this changelog are merged under one heading.
+- Reference validator: a delegable protection dimension without a rationale or basis now gives `EAI-D023`, as CP-07 requires.
+- Add an open, non-canonical proposal for 0.6: `proposals/0.6-evaluation-scope/` (an optional `evaluation_scope` on conformance results and a generic schema diagnostic `EAI-D034`).
 
 ## 0.5.0-candidate — Semantic alignment (release candidate)
 
