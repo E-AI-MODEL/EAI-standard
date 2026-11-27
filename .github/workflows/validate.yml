@@ -25,3 +25,4 @@ jobs:
       - run: python scripts/check_migration_0_5.py
       - run: python scripts/render_dictionary.py --check
       - run: python implementations/reference-validator/run_fixtures.py
+      - run: python implementations/reference-validator/self_tests.py

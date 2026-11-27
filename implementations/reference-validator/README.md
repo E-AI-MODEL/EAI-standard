@@ -10,9 +10,10 @@ This is a first executable implementation of the [validator core contract](../..
 pip install -r scripts/requirements.txt
 python implementations/reference-validator/eai_validator.py examples/edi-2.0/guided-practice-valid.yaml --profile CP-01
 python implementations/reference-validator/run_fixtures.py
+python implementations/reference-validator/self_tests.py
 ```
 
-`eai_validator.py` prints the conformance result as JSON and exits with 0 for `conformant`, 1 for `non_conformant`. `run_fixtures.py` executes every fixture in `tests/conformance/machine-rule-fixtures.yaml` and the release gate in `tests/conformance/machine-rule-matrix.yaml`; `--report FILE` writes all results as JSON. CI runs the fixture suite on every pull request.
+`eai_validator.py` prints the conformance result as JSON and exits with 0 for `conformant`, 1 for `non_conformant`. `run_fixtures.py` executes every fixture in `tests/conformance/machine-rule-fixtures.yaml` and the release gate in `tests/conformance/machine-rule-matrix.yaml`; `--report FILE` writes all results as JSON. `self_tests.py` holds regression tests for behaviour the canonical fixtures do not cover. CI runs both on every pull request.
 
 ## What it does
 
@@ -24,9 +25,9 @@ The steps follow the processing contract:
    - `EAI-R020`: AI actions, evidence types, protection requirements, concept positions and `eai_normative_rule` protection bases must resolve in the canonical vocabularies (`EAI-D026`);
    - `EAI-R027`: context, goal, actor and resolving `process_position_refs` (`EAI-D001`, `EAI-D002`, `EAI-D021`);
    - `EAI-R034`: `core_learning_action` only under a learner (`EAI-D029`);
-   - explicit unknown markers are reported once as `EAI-D020` and listed in `retained_unknowns`, never resolved.
+   - explicit unknown markers (case `unknowns`, `status: unknown`, `human_execution: unknown`, `action_kind: null`, a null concept `meaning` or `position_ref`, protection `unknowns`) are reported once as `EAI-D020` and listed in `retained_unknowns`, never resolved.
 4. `conformance` is `non_conformant` when any diagnostic has effect `non_conformance`. `information_state` is `incomplete` when an anchor diagnostic is present, `contains_unknowns` when an uncertainty diagnostic is present, and `complete` otherwise.
-5. The result carries an extension in this implementation's namespace that lists which rules were evaluated and which hybrid and human-review rules were **not decided**.
+5. The result carries an extension in this implementation's namespace. It lists the machine rules this validator supports, whether evaluation completed or stopped early (`stopped_at`: `standard_version` or `schema_validation`), and which hybrid and human-review rules were **not decided**.
 
 The validator contains no framework, jurisdiction, model-provider or LLM judgement. `EAI-R028` and `EAI-R029` are decided by the canonical schema; the validator only maps those failures to their diagnostics.
 

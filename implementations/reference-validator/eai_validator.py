@@ -126,6 +126,14 @@ def leaf_errors(error):
     return [leaf for sub in kept[0] for leaf in leaf_errors(sub)]
 
 
+def missing_property(error):
+    match = re.match(r"^'(.+)' is a required property$", error.message)
+    if match:
+        return match.group(1)
+    absent = [k for k in error.validator_value if isinstance(error.instance, dict) and k not in error.instance]
+    return absent[0] if len(absent) == 1 else None
+
+
 def classify_schema_error(error) -> str:
     """Map one schema failure to the smallest canonical diagnostic for it.
 
@@ -138,7 +146,9 @@ def classify_schema_error(error) -> str:
     instance = error.instance
 
     if keyword == "required":
-        missing = [k for k in error.validator_value if isinstance(instance, dict) and k not in instance]
+        # jsonschema emits one error per missing property but keeps the whole
+        # required list in validator_value; classify this error's property only.
+        missing = [missing_property(error)]
         if not path:
             if "goal" in missing:
                 return "EAI-D001"
@@ -255,14 +265,17 @@ def explicit_unknowns(case):
     for path, _, action in iter_core_actions(case):
         if action.get("status") == "unknown":
             found.append(json_path(path + ["status"]))
+        if "action_kind" in action and action["action_kind"] is None:
+            found.append(json_path(path + ["action_kind"]))
         for m, micro in enumerate(action.get("microstructures") or []):
             if micro.get("human_execution") == "unknown":
                 found.append(json_path(path + ["microstructures", m, "human_execution"]))
         for i, _ in enumerate((action.get("protection") or {}).get("unknowns") or []):
             found.append(json_path(path + ["protection", "unknowns", i]))
     for m, meaning in enumerate(case.get("concept_meanings") or []):
-        if meaning.get("meaning") is None:
-            found.append(json_path(["concept_meanings", m, "meaning"]))
+        for key in ("meaning", "position_ref"):
+            if meaning.get(key) is None:
+                found.append(json_path(["concept_meanings", m, key]))
     return found
 
 
@@ -273,12 +286,16 @@ def validate_case(case, profile, canon: Canon):
     case = copy.deepcopy(case)
 
     unknowns = []
+    stopped_at = None
     declared = case.get("standard_version") if isinstance(case, dict) else None
     if declared != canon.version:
         result.add(LOCAL_UNSUPPORTED_VERSION, "$.standard_version",
                    {"declared": declared, "supported": canon.version},
                    message="The declared standard_version is not supported by this validator.")
-    elif check_schema(case, canon, result):
+        stopped_at = "standard_version"
+    elif not check_schema(case, canon, result):
+        stopped_at = "schema_validation"
+    else:
         # Referential, machine-rule and unknown checks run only on schema-valid
         # input, so one missing prerequisite does not cascade into further
         # diagnostics (mutation_contract.diagnostic_rule in the fixtures).
@@ -313,7 +330,9 @@ def validate_case(case, profile, canon: Canon):
             "schema": None,
             "data": {
                 "status": "candidate_not_authoritative",
-                "machine_rules_evaluated": machine,
+                "machine_rules_supported": machine,
+                "evaluation_completed": stopped_at is None,
+                "stopped_at": stopped_at,
                 "hybrid_rules_not_decided": sorted(r for r, c in canon.executability.items() if c == "hybrid"),
                 "human_review_rules_not_decided": sorted(
                     r for r, c in canon.executability.items() if c == "human_review"),
