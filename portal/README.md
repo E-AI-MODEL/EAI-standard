@@ -19,7 +19,7 @@ Open http://localhost:8000/. The navigation can be switched between English and 
 ## Checks
 
 ```sh
-python -m pip install playwright==1.56.0
+python -m pip install playwright==1.65.2
 python -m playwright install chromium
 python scripts/test_portal.py
 ```

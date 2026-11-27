@@ -6,6 +6,8 @@ All notable changes to the EAI Standard are recorded here.
 
 - Add a candidate reference validator under `implementations/reference-validator/` (non-normative). It evaluates the machine-evaluable part of a case, emits results that validate against `schemas/conformance-result.schema.json`, and passes all 17 machine-rule fixtures. CI now executes the fixture suite and the machine-rule release gate on every pull request. Its README lists open questions for the standard, such as how a result should state that hybrid rules were not decided.
 - `docs/validator-core-contract.md` now lists `EAI-R034` in the machine set (five rules, matching `standard/rule-executability.yaml`).
+- CI maintenance: GitHub Actions moved to their Node 24 releases (`checkout@v5`, `setup-python@v6`, `upload-artifact@v6`, `configure-pages@v6`, `upload-pages-artifact@v5`, `deploy-pages@v5`). The portal browser tests use Playwright 1.65.2 on Ubuntu 26.04; Playwright 1.56 did not support that runner, which is why the build had been pinned to Ubuntu 24.04.
+- The two `0.4.0-candidate` sections in this changelog are merged under one heading.
 
 ## 0.5.0-candidate — Semantic alignment (release candidate)
 
@@ -17,9 +19,13 @@ All notable changes to the EAI Standard are recorded here.
 - Preserve external source versions and supporting artifact versions. See [migration guidance](docs/migration-0.4-to-0.5.md) for compatibility boundaries.
 - Adopt Apache-2.0 for original EAI material, retain third-party rights and attribution, and include the licence and notices in generated schema distributions. See [licence scope](LICENSE-SCOPE.md).
 
-## 0.4.0-candidate — Final preparation and technical corrections
+## 0.4.0-candidate — Standardisation hardening (release candidate)
 
-### Added
+Standardisation hardening without redesigning the substantive EAI architecture. The release tag `v0.4.0-candidate` also contains the final preparation and technical corrections listed first.
+
+### Final preparation and technical corrections
+
+#### Added
 
 - a non-canonical 0.5 semantic alignment proposal under `proposals/0.5-semantic-alignment/`;
 - proposed EAI Concept Positioning semantics: Education-native, Education-led, Shared, Technology-led and Technology-native;
@@ -32,14 +38,14 @@ All notable changes to the EAI Standard are recorded here.
 - `tests/schema-migration-pending.txt`, a list for examples that may temporarily fail validation during a breaking schema change. It is currently empty.
 - a `publish-schemas` GitHub Actions workflow that publishes the JSON Schemas to GitHub Pages at the URIs in their `$id`, and fails if an `$id` does not match its published path;
 
-### Fixed
+#### Fixed
 
 - the ten examples in `examples/` and `system-profiles/examples/eai-extension-example.yaml` now use the 0.4 case serialisation (`process_positions[]`, `process_position_refs[]`, `ai_actions[]`, `evidence_refs[]` with structured `evidence_items[]`, `remediation_ref`, structured `human_control`) and validate against `schemas/case.schema.json`. Evidence items record their origin in `notes`. Their `claim_types` follow the actor and the `supports` of the evidence type (teacher evidence supports `professional_judgement`), so no item claims more than its type can support. Where the pre-0.4 example only named an `EV-*` type, the observation is a placeholder marked as unspecified, except in the examples whose expected information state is `complete` (`edi-2.0/guided-practice-valid`, `pedagogical/mentor-conversation-valid`), which now have concrete observations; where it gave free-text evidence, the assigned `EV-*` type is marked as assigned during migration. The former free-text `responsibility` is kept verbatim in `human_control.notes`. Conformance expectations in `tests/conformance/` are unchanged;
 - `examples/self-regulation/learner-regulates-ai-supported-task.yaml`: evidence item `E-SR-05` used `EV-08`, which does not support the `current_performance` claim; it now uses `EV-02`;
 - `schemas/remediation.schema.json` and `schemas/skill.schema.json` now use the same `$id` base (`https://e-ai-model.github.io/EAI-standard/`) as every other schema and `standard/identifiers.yaml`;
 - ten YAML files that did not parse because of unquoted `: ` or leading backticks, including `standard/ai-actions.yaml`, `standard/diagnostics.yaml` and `standard/protection.yaml`. Only quoting changed; values are identical.
 
-### Changed
+#### Changed
 
 - the roadmap now places semantic alignment before executable conformance and the reference validator;
 - README documentation now makes the semantic step before human-AI allocation explicit;
@@ -47,15 +53,13 @@ All notable changes to the EAI Standard are recorded here.
 
 - generate and validate version-specific schema copies from the current candidate and pinned predecessor commits; do not attempt deployment while Pages is disabled.
 
-### No canonical change yet
+#### No canonical change yet
 
 The 0.4 public interface remains authoritative until the semantic proposal is promoted in one coordinated change covering canonical vocabulary, identifiers, schemas, conformance, diagnostics and migration guidance.
 
-## 0.4.0-candidate
+### Standardisation hardening
 
-Standardisation hardening without redesigning the substantive EAI architecture.
-
-### Added
+#### Added
 
 - canonical `standard/normative-language.md` using BCP 14 / RFC 2119 / RFC 8174 requirement semantics;
 - canonical `standard/identifiers.yaml` with stable identifier classes and a candidate HTTP URI strategy;
@@ -78,7 +82,7 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - reverse evidence mapping for the new self-regulation registry with explicit candidate-validation limits;
 - explicit repository language policy: English is the default public language while original-language source terms remain preserved in source-preserving adapters and external official terminology.
 
-### Changed
+#### Changed
 
 - `standard/public-interface.yaml` is now explicitly the single authoritative manifest for the canonical public interface;
 - canonical YAML artifacts use `standard_version` instead of an ambiguous generic top-level `version` field;
@@ -110,13 +114,13 @@ Standardisation hardening without redesigning the substantive EAI architecture.
 - the pedagogical judgement registry now explicitly links its existing operations to `TSK-066`, `TSK-067` and `TSK-068`;
 - current registry coverage is now reported separately from the original audit snapshot; learner deep candidate coverage increases from 4 to 13 skills and total microstructure count from 77 to 93.
 
-### Removed
+#### Removed
 
 - superseded `valid-result.json`, `unknown-result.json` and `invalid-result.json` fixtures that conflated structural conformance with substantive uncertainty;
 - superseded `profiles/teacher.yaml` and `profiles/learner.yaml` artifacts that duplicated the current registry structure;
 - superseded `schemas/profile.schema.json` associated with those legacy actor-profile files.
 
-### Breaking candidate change
+#### Breaking candidate change
 
 This release changes conformance serialization from:
 
@@ -137,7 +141,7 @@ The conformance-result `profile` field now carries the canonical conformance pro
 
 Implementations of 0.3.x conformance output must migrate before claiming 0.4.0 compatibility.
 
-### Normative rationale
+#### Normative rationale
 
 Unknown information is not itself a standards violation. A representation may conform precisely because it preserves uncertainty rather than inventing a stronger judgement. Conversely, an explicit normative violation remains non-conformant even when all underlying information is known.
 
@@ -149,7 +153,7 @@ Legal, scientific, professional and framework-based sources remain distinct. EAI
 
 The new self-regulation registry is non-canonical reusable content. It makes regulatory allocation inspectable without turning self-regulation into a universally protected action or changing the canonical standard surface.
 
-### Open release item
+#### Open release item
 
 An explicit license and intellectual-property policy remains to be selected before EAI Standard is positioned as a stable reusable open standard. No license is implied by public repository availability.
 
