@@ -284,21 +284,26 @@ PROTECTING_STATUSES = {"required", "strongly_recommended", "recommended", "condi
 
 
 def check_protection_bases(case, result):
-    """EAI-R029: a protection conclusion identifies its supporting basis.
+    """EAI-R029 and CP-07: a protection conclusion identifies its basis.
 
-    The canonical schema allows an empty bases list. A dimension whose status
-    states a level of protection without any basis is the unqualified
-    protection flag that EAI-D023 describes. delegable states that the
-    dimension is not protected, and unknown preserves uncertainty; neither is
-    a protection conclusion, and the canonical example
-    examples/protection/high-risk-assessment-oversight.yaml records a
-    delegable dimension without a basis as conformant.
+    CP-07 requires a typed basis for required or recommended protection and a
+    rationale or basis for a delegable status. EAI-R029 applies to every
+    protection conclusion, so conditional is treated like required and
+    recommended. status: unknown preserves uncertainty and needs neither.
+    The canonical schema allows an empty bases list, so this is checked here.
     """
     for path, _, action in iter_core_actions(case):
         for d, dim in enumerate((action.get("protection") or {}).get("dimensions") or []):
-            if dim.get("status") in PROTECTING_STATUSES and not dim.get("bases"):
-                result.add("EAI-D023", json_path(path + ["protection", "dimensions", d, "bases"]),
-                           {"requirement_id": dim.get("requirement_id"), "status": dim.get("status")})
+            dpath = path + ["protection", "dimensions", d]
+            status, bases = dim.get("status"), dim.get("bases")
+            if status in PROTECTING_STATUSES and not bases:
+                result.add("EAI-D023", json_path(dpath + ["bases"]),
+                           {"requirement_id": dim.get("requirement_id"), "status": status,
+                            "missing": "typed basis"})
+            elif status == "delegable" and not bases and not (dim.get("rationale") or "").strip():
+                result.add("EAI-D023", json_path(dpath),
+                           {"requirement_id": dim.get("requirement_id"), "status": status,
+                            "missing": "rationale or basis"})
 
 
 def check_learning_action(case, result):

@@ -111,14 +111,19 @@ def test_protection_conclusion_without_basis(canon):
     def with_dimension(status):
         doc = case()
         doc["actors"][0]["core_actions"][0]["protection"] = {
-            "dimensions": [{"requirement_id": "PRT-03", "status": status, "bases": []}]}
+            "dimensions": [{"requirement_id": "PRT-03", "status": status, "bases": [], "rationale": None}]}
         return validate_case(doc, "CP-07", canon)
     required = with_dimension("required")
     assert codes(required) == ["EAI-D023"] and required["conformance"] == "non_conformant", codes(required)
     unknown = with_dimension("unknown")
     assert codes(unknown) == ["EAI-D020"] and unknown["conformance"] == "conformant", codes(unknown)
     delegable = with_dimension("delegable")
-    assert codes(delegable) == [] and delegable["conformance"] == "conformant", codes(delegable)
+    assert codes(delegable) == ["EAI-D023"], codes(delegable)
+    doc = case()
+    doc["actors"][0]["core_actions"][0]["protection"] = {"dimensions": [{
+        "requirement_id": "PRT-01", "status": "delegable", "bases": [],
+        "rationale": "Technical clustering is not the judgement being claimed."}]}
+    assert codes(validate_case(doc, "CP-07", canon)) == []
 
 
 def test_invalid_actor_is_an_anchor_gap(canon):
