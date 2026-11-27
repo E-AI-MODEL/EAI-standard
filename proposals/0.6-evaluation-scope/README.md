@@ -1,6 +1,6 @@
 # Proposal: evaluation scope in conformance results
 
-Status: **open proposal; open points decided on 27 November 2026, awaiting canonisation in 0.6.** Non-canonical. Nothing in this directory changes the 0.5 candidate public interface. An external review recommended adoption with three conditions; see [review summary](review-2026-11-27.md) and [Decisions](#decisions-27-november-2026).
+Status: **open proposal; three open points decided on 27 November 2026, one new open point (A) pending; awaiting canonisation in 0.6.** Non-canonical. Nothing in this directory changes the 0.5 candidate public interface. An external review recommended adoption with three conditions; see [review summary](review-2026-11-27.md) and [Decisions](#decisions-27-november-2026).
 
 Target: 0.6.x (executable conformance and reference implementation).
 
@@ -55,7 +55,7 @@ Add an optional object to `schemas/conformance-result.schema.json`:
         "properties": {
           "rule": {"type": "string", "pattern": "^EAI-R[0-9]{3}$"},
           "reason": {"enum": ["hybrid_judgement_not_supplied", "human_review_not_supplied",
-                              "evaluation_stopped", "not_supported"]}
+                              "evaluation_stopped", "not_supported", "not_applicable"]}
         },
         "additionalProperties": false
       }
@@ -70,6 +70,7 @@ Proposed normative text for `standard/conformance-profiles.yaml` (`result_model`
 - A result that reports `conformant` while one or more canonical rules were not decided SHOULD include `evaluation_scope`.
 - When `evaluation_scope` is present, `rules_decided` and the rules in `rules_not_decided` MUST together list every rule in `standard/rule-executability.yaml` for the declared standard version, each exactly once.
 - A validator MUST NOT list a rule under `rules_decided` when it evaluated only the deterministic part of a hybrid rule.
+- A rule that does not apply to the evaluated artifact (for example a case rule such as `EAI-R027` when an adapter is validated under CP-04) is listed under `rules_not_decided` with reason `not_applicable`, not under `rules_decided`. See open point A for how applicability is determined.
 - `evaluation_scope` does not change `conformance` or `information_state`. It states their coverage.
 
 Proposed addition to CP-06 (`full_interoperability`) in `standard/conformance-profiles.yaml`:
@@ -165,6 +166,15 @@ The maintainer decided the three open points after the external review (conditio
 | Limit the lists to rules relevant to the profile? | No. The two lists together cover **all** canonical rules. | No rule-to-profile mapping exists; an ad hoc one would be a second truth next to the profile definitions. A full list is simple and comparable across validators. A mapping can be proposed separately later. |
 | May a profile require `evaluation_scope`? | Yes, **CP-06 only**. SHOULD for all other profiles. | An implementation that claims full interoperability must report its coverage; an optional field nobody fills would not solve the problem. |
 | Code for a generic schema failure? | **`EAI-D034`** (`schema_invalid`), `related_rule` omitted. | Results stay comparable; implementations no longer need local codes. |
+
+## Open points after the decisions
+
+**A. Which rules apply to which artifact type?** Codex review on E-AI-MODEL/EAI-standard#15 noted that covering all rules needs a representation for rules that do not apply; `not_applicable` above provides it. What is still missing is a canonical statement of applicability. Without one, two validators can classify the same rule differently, which undermines comparability. Options:
+
+1. Add an `applies_to` list per rule in `standard/rule-executability.yaml` or `standard/rules.yaml` (artifact types: case, adapter, registry item, protection assessment, implementation declaration). One canonical source, consistent with the decision not to create a separate rule-to-profile mapping.
+2. Leave applicability to validators and accept that `not_applicable` is not comparable across implementations until a later release.
+
+This needs a maintainer decision before canonisation.
 
 ## Related findings from the reference validator
 
