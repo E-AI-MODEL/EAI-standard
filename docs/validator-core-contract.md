@@ -69,15 +69,18 @@ The current machine set is:
 - `EAI-R020` stable canonical identifiers;
 - `EAI-R027` four core-action anchors;
 - `EAI-R028` constituent microstructure representation;
-- `EAI-R029` source-qualified dimensional protection representation.
+- `EAI-R029` source-qualified dimensional protection representation;
+- `EAI-R034` learner-only `core_learning_action` specialization.
 
 For example, `EAI-R002` is hybrid: presence of a process position is structurally checkable, but whether its terminology truly preserves the process or model actually being used is not. `EAI-R021` is also hybrid: namespace syntax is checkable, but whether local semantics are being passed off as canonical EAI semantics cannot be inferred from namespace syntax alone.
 
-No separate unknown fixture is required for the four machine rules. Their machine-evaluable question is structural, referential or representational. Substantive uncertainty belongs to hybrid rules and to the separate `information_state` result rather than being forced into a false third outcome for these checks.
+No separate unknown fixture is required for the five machine rules. Their machine-evaluable question is structural, referential or representational. Substantive uncertainty belongs to hybrid rules and to the separate `information_state` result rather than being forced into a false third outcome for these checks.
 
 ## Reference implementation gate
 
 The specification-side fixture gate is now satisfied. This does **not** yet mean an authoritative reference validator exists.
+
+A candidate implementation is available in [`implementations/reference-validator/`](../implementations/reference-validator/README.md). It passes every fixture in the matrix and runs in CI, but it is not authoritative until maintainers have reviewed it and the open questions listed in its README are decided.
 
 The next gate is executable implementation verification. A validator may be labelled an authoritative reference validator only after software:
 

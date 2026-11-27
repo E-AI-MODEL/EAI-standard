@@ -27,6 +27,7 @@ jobs:
       - run: python scripts/validate.py
       - run: python scripts/check_migration_0_5.py
       - run: python scripts/render_dictionary.py --check
+      - run: python implementations/reference-validator/run_fixtures.py
       - run: python scripts/build_schema_site.py
       - run: pip install playwright==1.56.0
       - run: python -m playwright install --with-deps chromium
