@@ -117,6 +117,8 @@ def test_protection_conclusion_without_basis(canon):
     assert codes(required) == ["EAI-D023"] and required["conformance"] == "non_conformant", codes(required)
     unknown = with_dimension("unknown")
     assert codes(unknown) == ["EAI-D020"] and unknown["conformance"] == "conformant", codes(unknown)
+    delegable = with_dimension("delegable")
+    assert codes(delegable) == [] and delegable["conformance"] == "conformant", codes(delegable)
 
 
 def test_invalid_actor_is_an_anchor_gap(canon):
@@ -137,6 +139,23 @@ def test_scope_reports_where_evaluation_stopped(canon):
     assert codes(invalid) == ["refval:schema_invalid"], codes(invalid)
     version = validate_case(case(standard_version="0.4.0-candidate"), "CP-01", canon)["extensions"][0]["data"]
     assert version["stopped_at"] == "standard_version"
+
+
+def test_example_cases_do_not_contradict_expectations(canon):
+    """The validator must not add a diagnostic the canonical example expectations rule out.
+
+    Hybrid diagnostics in the expectations are not produced (the validator does
+    not decide hybrid rules). EAI-D020 is tolerated because four expectations
+    omit it despite contains_unknowns (README, open question 6).
+    """
+    for listing in sorted((DEFAULT_ROOT / "tests/conformance").glob("*-cases.yaml")):
+        for entry in yaml.safe_load(listing.read_text(encoding="utf-8"))["cases"]:
+            path = (listing.parent / entry["case"]).resolve()
+            out = validate_case(yaml.safe_load(path.read_text(encoding="utf-8")), "CP-07", canon)
+            extra = set(codes(out)) - set(entry["expected_diagnostics"]) - {"EAI-D020"}
+            assert not extra, (path.name, sorted(extra))
+            assert out["information_state"] == entry["expected_information_state"], (
+                path.name, out["information_state"])
 
 
 def main():

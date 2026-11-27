@@ -280,17 +280,23 @@ def check_anchors(case, result):
                        {"missing_anchor": "process_position", "unresolved_refs": unresolved})
 
 
+PROTECTING_STATUSES = {"required", "strongly_recommended", "recommended", "conditional"}
+
+
 def check_protection_bases(case, result):
     """EAI-R029: a protection conclusion identifies its supporting basis.
 
     The canonical schema allows an empty bases list. A dimension whose status
-    is a conclusion (anything but unknown) without any basis is the
-    unqualified protection flag that EAI-D023 describes. status: unknown with
-    no basis is preserved uncertainty, not a conclusion.
+    states a level of protection without any basis is the unqualified
+    protection flag that EAI-D023 describes. delegable states that the
+    dimension is not protected, and unknown preserves uncertainty; neither is
+    a protection conclusion, and the canonical example
+    examples/protection/high-risk-assessment-oversight.yaml records a
+    delegable dimension without a basis as conformant.
     """
     for path, _, action in iter_core_actions(case):
         for d, dim in enumerate((action.get("protection") or {}).get("dimensions") or []):
-            if dim.get("status") != "unknown" and not dim.get("bases"):
+            if dim.get("status") in PROTECTING_STATUSES and not dim.get("bases"):
                 result.add("EAI-D023", json_path(path + ["protection", "dimensions", d, "bases"]),
                            {"requirement_id": dim.get("requirement_id"), "status": dim.get("status")})
 
