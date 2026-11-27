@@ -58,17 +58,16 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-  deploy:
+  # Build the Pages artifact in its own job. Uploading and deploying in one job
+  # failed on 2026-11-24: deploy-pages listed the run's artifacts before the
+  # just-finalised github-pages artifact was visible ("No artifacts named
+  # github-pages were found"). The last successful deploy used separate jobs.
+  site:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.event.repository.has_pages == true
     needs: release
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -83,5 +82,17 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.event.repository.has_pages == true
+    needs: site
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
