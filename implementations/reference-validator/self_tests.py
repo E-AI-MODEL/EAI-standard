@@ -107,6 +107,27 @@ def test_omitted_core_actions_is_an_anchor_gap(canon):
     assert out["information_state"] == "incomplete"
 
 
+def test_protection_conclusion_without_basis(canon):
+    def with_dimension(status):
+        doc = case()
+        doc["actors"][0]["core_actions"][0]["protection"] = {
+            "dimensions": [{"requirement_id": "PRT-03", "status": status, "bases": []}]}
+        return validate_case(doc, "CP-07", canon)
+    required = with_dimension("required")
+    assert codes(required) == ["EAI-D023"] and required["conformance"] == "non_conformant", codes(required)
+    unknown = with_dimension("unknown")
+    assert codes(unknown) == ["EAI-D020"] and unknown["conformance"] == "conformant", codes(unknown)
+
+
+def test_invalid_actor_is_an_anchor_gap(canon):
+    for value in ("bogus", None):
+        doc = case()
+        doc["actors"][0]["actor"] = value
+        out = validate_case(doc, "CP-01", canon)
+        assert codes(out) == ["EAI-D021"], (value, codes(out))
+        assert out["information_state"] == "incomplete"
+
+
 def test_scope_reports_where_evaluation_stopped(canon):
     full = validate_case(case(), "CP-01", canon)["extensions"][0]["data"]
     assert full["evaluation_completed"] is True and full["stopped_at"] is None

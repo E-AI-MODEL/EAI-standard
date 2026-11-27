@@ -195,6 +195,8 @@ def classify_schema_error(error, id_patterns=frozenset()) -> str:
         return "EAI-D018"
     if "protection" in keys:
         return "EAI-D023"
+    if keys[-1:] == ["actor"] and keyword in ("enum", "type") and len(keys) == 2:
+        return "EAI-D021"
     if keys[-1:] == ["action_kind"] and instance == "core_learning_action":
         return "EAI-D029"
     return LOCAL_SCHEMA_INVALID
@@ -278,6 +280,21 @@ def check_anchors(case, result):
                        {"missing_anchor": "process_position", "unresolved_refs": unresolved})
 
 
+def check_protection_bases(case, result):
+    """EAI-R029: a protection conclusion identifies its supporting basis.
+
+    The canonical schema allows an empty bases list. A dimension whose status
+    is a conclusion (anything but unknown) without any basis is the
+    unqualified protection flag that EAI-D023 describes. status: unknown with
+    no basis is preserved uncertainty, not a conclusion.
+    """
+    for path, _, action in iter_core_actions(case):
+        for d, dim in enumerate((action.get("protection") or {}).get("dimensions") or []):
+            if dim.get("status") != "unknown" and not dim.get("bases"):
+                result.add("EAI-D023", json_path(path + ["protection", "dimensions", d, "bases"]),
+                           {"requirement_id": dim.get("requirement_id"), "status": dim.get("status")})
+
+
 def check_learning_action(case, result):
     """EAI-R034: core_learning_action only under a learner actor."""
     for path, actor, action in iter_core_actions(case):
@@ -357,6 +374,7 @@ def validate_case(case, profile, canon: Canon):
         check_identifiers(case, canon, result)
         check_anchors(case, result)
         check_learning_action(case, result)
+        check_protection_bases(case, result)
         unknowns = explicit_unknowns(case)
         if unknowns:
             result.add("EAI-D020", "$", {"explicit_unknowns": unknowns})
