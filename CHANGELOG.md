@@ -2,6 +2,11 @@
 
 All notable changes to the EAI Standard are recorded here.
 
+## Unreleased
+
+- Add a candidate reference validator under `implementations/reference-validator/` (non-normative). It evaluates the machine-evaluable part of a case, emits results that validate against `schemas/conformance-result.schema.json`, and passes all 17 machine-rule fixtures. CI now executes the fixture suite and the machine-rule release gate on every pull request. Its README lists open questions for the standard, such as how a result should state that hybrid rules were not decided.
+- `docs/validator-core-contract.md` now lists `EAI-R034` in the machine set (five rules, matching `standard/rule-executability.yaml`).
+
 ## 0.5.0-candidate — Semantic alignment (release candidate)
 
 - Promote the five concept positions and selected learner-specific concepts into the canonical manifest, definitions, relations, identifiers, rules and diagnostics. Preserve the proposal and dictionary as non-canonical sources.

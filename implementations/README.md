@@ -33,3 +33,5 @@ Presentation is intentionally outside the normative standard. A renderer may sim
 ## Validation
 
 Validators should return structured conformance results using `schemas/conformance-result.schema.json` and the diagnostic codes in `standard/diagnostics.yaml`.
+
+A candidate reference validator is available in [`reference-validator/`](reference-validator/README.md).
