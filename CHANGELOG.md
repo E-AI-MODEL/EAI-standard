@@ -10,6 +10,7 @@ All notable changes to the EAI Standard are recorded here.
 - The two `0.4.0-candidate` sections in this changelog are merged under one heading.
 - Reference validator: a delegable protection dimension without a rationale or basis now gives `EAI-D023`, as CP-07 requires.
 - Add an open, non-canonical proposal for 0.6: `proposals/0.6-evaluation-scope/` (an optional `evaluation_scope` on conformance results and a generic schema diagnostic `EAI-D034`).
+- Record the maintainer decisions on that proposal after an external review (full rule coverage, required for CP-06 only, `EAI-D034`) and add a review summary. The proposal stays non-canonical until 0.6.
 
 ## 0.5.0-candidate — Semantic alignment (release candidate)
 
