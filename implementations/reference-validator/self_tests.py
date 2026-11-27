@@ -87,6 +87,26 @@ def test_nested_protection_and_evidence_unknowns(canon):
                      "$.actors[0].core_actions[0].protection.dimensions[0].bases[0].applicability"}, paths
 
 
+def test_malformed_identifiers_are_identifier_diagnostics(canon):
+    doc = case(evidence_items=[{"id": "E-1", "evidence_type": "bogus", "observation": "Observed.",
+                                "claim_types": ["none"]}])
+    assert codes(validate_case(doc, "CP-01", canon)) == ["EAI-D026"]
+    doc = case()
+    doc["actors"][0]["core_actions"][0]["microstructures"][0]["ai_actions"] = ["bogus"]
+    assert codes(validate_case(doc, "CP-02", canon)) == ["EAI-D026"]
+    doc = case(concept_meanings=[{"id": "CM-1", "term": "memory", "meaning": "Storage.",
+                                  "position_ref": "bogus", "rationale": "x"}])
+    assert codes(validate_case(doc, "CP-08", canon)) == ["EAI-D026"]
+
+
+def test_omitted_core_actions_is_an_anchor_gap(canon):
+    doc = case()
+    del doc["actors"][0]["core_actions"]
+    out = validate_case(doc, "CP-01", canon)
+    assert codes(out) == ["EAI-D021"], codes(out)
+    assert out["information_state"] == "incomplete"
+
+
 def test_scope_reports_where_evaluation_stopped(canon):
     full = validate_case(case(), "CP-01", canon)["extensions"][0]["data"]
     assert full["evaluation_completed"] is True and full["stopped_at"] is None

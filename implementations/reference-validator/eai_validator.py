@@ -68,6 +68,8 @@ class Canon:
         self.rules = {r["id"] for r in canonical("rules.yaml")["normative_rules"]}
         self.executability = canonical("rule-executability.yaml")["rules"]
         self.profiles = {p["id"] for p in canonical("conformance-profiles.yaml")["profiles"]}
+        self.id_patterns = frozenset(
+            c["id_pattern"] for c in canonical("identifiers.yaml")["identifier_classes"].values())
         self.ids = {
             "ai_action": {a["id"] for a in canonical("ai-actions.yaml")["ai_actions"]},
             "evidence_type": {e["id"] for e in canonical("evidence-types.yaml")["evidence_types"]},
@@ -134,7 +136,23 @@ def missing_property(error):
     return absent[0] if len(absent) == 1 else None
 
 
-def classify_schema_error(error) -> str:
+def is_identifier_constraint(error, id_patterns) -> bool:
+    """True when the failing schema keyword constrains a canonical identifier.
+
+    Decided from the schema itself: a pattern that is an identifier class
+    pattern in identifiers.yaml, or an enum whose values are all identifiers of
+    such a class. This covers malformed values such as "bogus".
+    """
+    if error.validator == "pattern":
+        return error.validator_value in id_patterns
+    if error.validator == "enum":
+        values = [v for v in error.validator_value if v is not None]
+        return bool(values) and all(isinstance(v, str) and any(re.match(p, v) for p in id_patterns)
+                                    for v in values)
+    return False
+
+
+def classify_schema_error(error, id_patterns=frozenset()) -> str:
     """Map one schema failure to the smallest canonical diagnostic for it.
 
     This table is implementation logic, not canonical semantics: each entry
@@ -156,7 +174,7 @@ def classify_schema_error(error) -> str:
                 return "EAI-D002"
             if {"context", "actors"} & set(missing):
                 return "EAI-D021"
-        if keys[-1:] == ["core_actions"] or "process_position_refs" in missing or "actor" in missing:
+        if keys[-1:] == ["core_actions"] or {"core_actions", "process_position_refs", "actor"} & set(missing):
             return "EAI-D021"
     # A present but empty or mistyped anchor is the same gap as a missing one.
     if keyword in ("minItems", "minLength", "type"):
@@ -166,6 +184,8 @@ def classify_schema_error(error) -> str:
             return "EAI-D001"
         if keys in (["context"], ["actors"]) or keys[-1:] in (["core_actions"], ["process_position_refs"]):
             return "EAI-D021"
+    if is_identifier_constraint(error, id_patterns):
+        return "EAI-D026"
     if keyword in ("pattern", "enum", "const") and isinstance(instance, str) and RESERVED_PREFIX.match(instance):
         return "EAI-D026"
     if keyword == "additionalProperties" and isinstance(instance, dict) and "microstructures" in instance \
@@ -204,7 +224,7 @@ def check_schema(case, canon, result) -> bool:
     errors = sorted(canon.case_validator.iter_errors(case), key=lambda e: list(e.absolute_path))
     for error in errors:
         for leaf in leaf_errors(error):
-            code = classify_schema_error(leaf)
+            code = classify_schema_error(leaf, canon.id_patterns)
             details = {"schema_keyword": leaf.validator, "schema_message": leaf.message[:300]}
             result.add(code, json_path(leaf.absolute_path), details,
                        message="The case does not validate against the canonical case schema.")
