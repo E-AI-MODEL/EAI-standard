@@ -119,6 +119,12 @@ def test_protection_conclusion_without_basis(canon):
     assert codes(unknown) == ["EAI-D020"] and unknown["conformance"] == "conformant", codes(unknown)
     delegable = with_dimension("delegable")
     assert codes(delegable) == ["EAI-D023"], codes(delegable)
+    bare = case()
+    bare["actors"][0]["core_actions"][0]["protection"] = {"dimensions": [{
+        "requirement_id": "PRT-03", "status": "delegable", "bases": [], "rationale": None}]}
+    assert codes(validate_case(bare, "CP-06", canon)) == ["EAI-D023"]  # CP-06 includes CP-07
+    for other in ("CP-01", "CP-02", "CP-08"):
+        assert codes(validate_case(bare, other, canon)) == [], other  # delegable rule is CP-07 only
     doc = case()
     doc["actors"][0]["core_actions"][0]["protection"] = {"dimensions": [{
         "requirement_id": "PRT-01", "status": "delegable", "bases": [],

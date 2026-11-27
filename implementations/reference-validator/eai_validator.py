@@ -67,7 +67,9 @@ class Canon:
         self.diagnostics = {d["code"]: d for d in canonical("diagnostics.yaml")["diagnostics"]}
         self.rules = {r["id"] for r in canonical("rules.yaml")["normative_rules"]}
         self.executability = canonical("rule-executability.yaml")["rules"]
-        self.profiles = {p["id"] for p in canonical("conformance-profiles.yaml")["profiles"]}
+        profiles = canonical("conformance-profiles.yaml")["profiles"]
+        self.profiles = {p["id"] for p in profiles}
+        self.profile_requires = {p["id"]: set(p.get("requires") or []) for p in profiles}
         self.id_patterns = frozenset(
             c["id_pattern"] for c in canonical("identifiers.yaml")["identifier_classes"].values())
         self.ids = {
@@ -283,13 +285,20 @@ def check_anchors(case, result):
 PROTECTING_STATUSES = {"required", "strongly_recommended", "recommended", "conditional"}
 
 
-def check_protection_bases(case, result):
+def profile_includes(canon, profile, target):
+    """True when the selected profile is target or lists it in its requires."""
+    return profile == target or target in canon.profile_requires.get(profile, set())
+
+
+def check_protection_bases(case, result, cp07_applies):
     """EAI-R029 and CP-07: a protection conclusion identifies its basis.
 
     CP-07 requires a typed basis for required or recommended protection and a
     rationale or basis for a delegable status. EAI-R029 applies to every
     protection conclusion, so conditional is treated like required and
     recommended. status: unknown preserves uncertainty and needs neither.
+    The delegable requirement is a CP-07 requirement, so it applies only when
+    the selected profile is CP-07 or includes it (CP-06).
     The canonical schema allows an empty bases list, so this is checked here.
     """
     for path, _, action in iter_core_actions(case):
@@ -300,7 +309,8 @@ def check_protection_bases(case, result):
                 result.add("EAI-D023", json_path(dpath + ["bases"]),
                            {"requirement_id": dim.get("requirement_id"), "status": status,
                             "missing": "typed basis"})
-            elif status == "delegable" and not bases and not (dim.get("rationale") or "").strip():
+            elif (cp07_applies and status == "delegable" and not bases
+                  and not (dim.get("rationale") or "").strip()):
                 result.add("EAI-D023", json_path(dpath),
                            {"requirement_id": dim.get("requirement_id"), "status": status,
                             "missing": "rationale or basis"})
@@ -385,7 +395,7 @@ def validate_case(case, profile, canon: Canon):
         check_identifiers(case, canon, result)
         check_anchors(case, result)
         check_learning_action(case, result)
-        check_protection_bases(case, result)
+        check_protection_bases(case, result, profile_includes(canon, profile, "CP-07"))
         unknowns = explicit_unknowns(case)
         if unknowns:
             result.add("EAI-D020", "$", {"explicit_unknowns": unknowns})
