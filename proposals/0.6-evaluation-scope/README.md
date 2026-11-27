@@ -169,10 +169,15 @@ The maintainer decided the three open points after the external review (conditio
 
 ## Open points after the decisions
 
-**A. Which rules apply to which artifact type?** Codex review on E-AI-MODEL/EAI-standard#15 noted that covering all rules needs a representation for rules that do not apply; `not_applicable` above provides it. What is still missing is a canonical statement of applicability. Without one, two validators can classify the same rule differently, which undermines comparability. Options:
+**A. Which rules apply, and does the selected profile limit what is decided?** Two automated reviews on E-AI-MODEL/EAI-standard#15 showed that covering all rules raises two related questions:
 
-1. Add an `applies_to` list per rule in `standard/rule-executability.yaml` or `standard/rules.yaml` (artifact types: case, adapter, registry item, protection assessment, implementation declaration). One canonical source, consistent with the decision not to create a separate rule-to-profile mapping.
-2. Leave applicability to validators and accept that `not_applicable` is not comparable across implementations until a later release.
+- *Artifact type.* Some rules do not apply to the evaluated artifact, such as case rules when an adapter is validated under CP-04. `not_applicable` above gives them a place, but the standard does not yet state which rules apply to which artifact type, so two validators can classify the same rule differently.
+- *Profile.* A rule can apply to the artifact while the selected profile does not require it, for example a profile-specific requirement such as CP-07's rationale-or-basis requirement for a delegable protection status when a case is validated under CP-01. None of the current reasons describes that accurately.
+
+Options:
+
+1. Add an `applies_to` list per rule (artifact types) in `standard/rule-executability.yaml` or `standard/rules.yaml`, and require validators to decide every applicable rule regardless of the selected profile. The profile then only determines which requirements count towards the profile's verdict. One canonical source, consistent with the decision not to create a separate rule-to-profile mapping.
+2. Add the reason `not_required_by_profile` and leave applicability to validators. Simpler, but `not_applicable` and `not_required_by_profile` are then not comparable across implementations until a later release.
 
 This needs a maintainer decision before canonisation.
 
